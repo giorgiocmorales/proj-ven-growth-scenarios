@@ -11,7 +11,7 @@ Basic instructions for the simulator:
 
 [Tableau Dashboard/Story](https://public.tableau.com/views/Escenariosderecuperacion/Story?:language=es-ES&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-For both standard and per capta (ppc) versions there are the following pages and modules:
+For both standard and per capita (ppc) versions there are the following pages and modules:
 
 1. Yearly real GDP growth rate (1830–2024) with historical context: See period of expansion and contraction for the Veneuzelan economy, with the 2013-2020 collapse noted as the largest and most severe. 
    

@@ -1,0 +1,21 @@
+# RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# renv
+renv/library/
+renv/staging/
+
+# Local-only data and outputs
+data/
+outputs/
+references/pdfs/
+
+# Reports build artifacts
+reports/_site/
+
+# OS junk
+.DS_Store
+Thumbs.db
