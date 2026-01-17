@@ -36,12 +36,14 @@ pib_data <- pib_data %>%
 
 
 pib_data <- pib_data %>%
-  mutate(sign = case_when(
-    is.na(crecimiento) ~ NA_integer_,
-    crecimiento >= 0 ~ 1L,
-    crecimiento < 0 ~ -1L,
-    TRUE ~ 0L
-  ))
+  mutate(
+    sign = case_when(
+      is.na(crecimiento) ~ NA_integer_,
+      crecimiento >= 0 ~ 1L,
+      crecimiento < 0 ~ -1L,
+      TRUE ~ 0L),
+    sign = zoo::na.locf(sign, na.rm = FALSE),
+    sign = zoo::na.locf(sign, na.rm = FALSE))
 
 
   mutate(
