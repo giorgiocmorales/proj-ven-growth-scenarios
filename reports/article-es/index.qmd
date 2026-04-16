@@ -1,0 +1,18 @@
+---
+title: "Escenarios de recuperacion economica de Venezuela"
+format: html
+lang: es
+---
+
+# Objetivo
+
+Este articulo acompanara al dashboard publico y documentara la metodologia del proyecto.
+
+# Estructura prevista
+
+1. Motivacion y pregunta central
+2. Datos y definiciones
+3. Metodologia del simulador
+4. Plausibilidad historica
+5. Resultados ilustrativos
+6. Limitaciones

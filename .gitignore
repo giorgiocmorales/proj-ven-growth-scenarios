@@ -8,13 +8,12 @@
 renv/library/
 renv/staging/
 
-# Local-only data and outputs
-data/
-outputs/
-references/pdfs/
-
 # Reports build artifacts
 reports/_site/
+reports/article-es/_site/
+
+# Generated outputs
+outputs/
 
 # OS junk
 .DS_Store

@@ -1,0 +1,7 @@
+app_title: "Venezuela economic recovery simulator"
+intro_question: "How long would it take Venezuela to recover a selected benchmark year?"
+status_already_recovered: "Already recovered"
+label_common: "Common"
+label_uncommon: "Uncommon"
+label_historically_rare: "Historically rare"
+plausibility_caveat: "These metrics reflect historical plausibility, not forecast probability."
