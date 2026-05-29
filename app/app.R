@@ -1,7 +1,6 @@
 # Minimal dashboard entry point scaffold.
-
 if (!requireNamespace("shiny", quietly = TRUE)) {
-  stop("The `shiny` package is required to run the app scaffold.")
+  stop("The `shiny` package is required to run the app scaffold.", call. = FALSE)
 }
 
 ui <- shiny::fluidPage(

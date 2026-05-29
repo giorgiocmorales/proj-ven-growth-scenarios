@@ -44,6 +44,18 @@ The repository is organized into five layers:
 4. Export app-ready CSV files to `data/final/`
 5. Consume those outputs in the dashboard and report
 
+Current pipeline sequence:
+
+- `scripts/00_set_up.R`
+- `scripts/01_build_clean_data.R`
+- `scripts/02_build_series.R`
+- `scripts/03_build_episodes.R`
+- `scripts/04_build_plausibility.R`
+- `scripts/05_build_app_data.R`
+- `scripts/06_render_report.R`
+- `scripts/07_run_app.R`
+- `scripts/99_run_all.R`
+
 ## Legacy Material
 
-The original exploratory script in `scripts/01_.R` is preserved for reference during the transition to the new architecture.
+The original exploratory script in `scripts/01_legacy.R` is preserved for reference during the transition to the new architecture.

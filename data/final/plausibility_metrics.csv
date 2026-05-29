@@ -1,0 +1,3 @@
+"series_id","series_label","growth_rate","years_to_recover","yearly_plausibility","yearly_label","streak_plausibility","streak_label","max_historical_streak"
+"gdp","Real GDP",0.05,26,0.438775510204082,"common",0,"historically_rare",7
+"gdp_per_capita","Real GDP per capita",0.05,26,0.336734693877551,"common",0,"historically_rare",7

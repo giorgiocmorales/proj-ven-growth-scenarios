@@ -1,0 +1,6 @@
+"check","passed","details"
+"clean_data_has_rows",TRUE,"Rows in clean_data: 196"
+"series_outputs_available",TRUE,"Output type: list"
+"episodes_available",TRUE,"Output type: list"
+"simulation_available",TRUE,"Output type: list"
+"plausibility_available",TRUE,"Output type: data.frame"

@@ -11,6 +11,8 @@ renv/staging/
 # Reports build artifacts
 reports/_site/
 reports/article-es/_site/
+reports/presentation/index.html
+reports/presentation/index_files/
 
 # Generated outputs
 outputs/

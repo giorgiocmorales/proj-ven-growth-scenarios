@@ -1,0 +1,25 @@
+---
+title: "Venezuela Growth Scenarios"
+format:
+  revealjs:
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+lang: en
+---
+
+## Real GDP Growth
+
+![](figures/gdp_growth_bars.png){fig-align="center" width="100%"}
+
+## Real GDP Per Capita Growth
+
+![](figures/gdp_per_capita_growth_bars.png){fig-align="center" width="100%"}
+
+## Real GDP Episodes
+
+![](figures/gdp_episode_lines.png){fig-align="center" width="100%"}
+
+## Real GDP Per Capita Episodes
+
+![](figures/gdp_per_capita_episode_lines.png){fig-align="center" width="100%"}
