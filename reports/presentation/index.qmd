@@ -6,76 +6,97 @@ format:
     slide-number: true
     chalkboard: true
     preview-links: auto
+    css: title-sweep.css
 lang: es
 ---
+
+## 1. Por qué importa el PIB pc
 
 ## Por qué el PIB aparece en todas partes
 
 ![](figures/wilks_composite_correlation.png){fig-align="center" width="100%"}
 
-## PIB per cápita y tamaño económico
+## Esperanza de vida y PIB pc
 
-![](figures/imf_weo_ppp_scatter_selected_years.png){fig-align="center" width="100%"}
+![](figures/owid_life_expectancy_gdp_per_capita.png){fig-align="center" width="100%"}
 
-## PIB per cápita y tamaño económico, 1999
+## Ingreso diario y PIB pc
+
+![](figures/owid_daily_income_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## Mortalidad infantil y PIB pc
+
+![](figures/owid_child_mortality_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## IDH y PIB per capita
+
+![](figures/owid_hdi_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## Escolaridad y PIB pc
+
+![](figures/owid_schooling_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## Democracia y PIB pc
+
+![](figures/owid_democracy_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## PIB per cápita PPP, 1999
 
 ![](figures/imf_weo_ppp_scatter_1999.png){fig-align="center" width="100%"}
 
-## PIB per cápita y tamaño económico, 2008
+## PIB per cápita PPP, 2008
 
 ![](figures/imf_weo_ppp_scatter_2008.png){fig-align="center" width="100%"}
 
-## PIB per cápita y tamaño económico, 2013
+## PIB per cápita PPP, 2013
 
 ![](figures/imf_weo_ppp_scatter_2013.png){fig-align="center" width="100%"}
 
-## PIB per cápita y tamaño económico, 2018
+## PIB per cápita PPP, 2018
 
 ![](figures/imf_weo_ppp_scatter_2018.png){fig-align="center" width="100%"}
 
-## PIB per cápita y tamaño económico, 2025
+## PIB per cápita PPP, 2025
 
 ![](figures/imf_weo_ppp_scatter_2025.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita y tamaño económico, 1999
+## PIB per cápita nominal, 1999
 
 ![](figures/imf_weo_nominal_scatter_1999.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita y tamaño económico, 2008
+## PIB per cápita nominal, 2008
 
 ![](figures/imf_weo_nominal_scatter_2008.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita y tamaño económico, 2013
+## PIB per cápita nominal, 2013
 
 ![](figures/imf_weo_nominal_scatter_2013.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita y tamaño económico, 2018
+## PIB per cápita nominal, 2018
 
 ![](figures/imf_weo_nominal_scatter_2018.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita y tamaño económico, 2025
+## PIB per cápita nominal, 2025
 
 ![](figures/imf_weo_nominal_scatter_2025.png){fig-align="center" width="100%"}
 
-## PIB per cápita PPP relativo a Venezuela
+## PIB pc PPP relativo a Venezuela
 
 ![](figures/imf_weo_gdp_pc_ppp_ratio_to_venezuela.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita relativo a Venezuela
+## PIB pc nominal relativo a Venezuela
 
 ![](figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center" width="100%"}
 
-## PIB per cápita PPP relativo a Venezuela, años seleccionados
+## PIB pc PPP relativo, años clave
 
 ![](figures/imf_weo_gdp_pc_ppp_ratio_selected_years_to_venezuela.png){fig-align="center" width="100%"}
 
-## PIB nominal per cápita relativo a Venezuela, años seleccionados
+## PIB pc nominal relativo, años clave
 
 ![](figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png){fig-align="center" width="100%"}
 
-## Crecimiento histórico
-
-![](figures/growth_bars_faceted.png){fig-align="center" width="100%"}
+## 2. Desempeño histórico
 
 ## Crecimiento del PIB real
 
@@ -85,13 +106,13 @@ lang: es
 
 ![](figures/gdp_per_capita_growth_bars.png){fig-align="center" width="100%"}
 
-## Distribución del crecimiento anual
+## Distribución anual del PIB real
 
-![](figures/growth_rate_distribution.png){fig-align="center" width="100%"}
+![](figures/gdp_growth_rate_distribution.png){fig-align="center" width="100%"}
 
-## Índices históricos
+## Distribución anual per cápita
 
-![](figures/index_lines_faceted.png){fig-align="center" width="100%"}
+![](figures/gdp_per_capita_growth_rate_distribution.png){fig-align="center" width="100%"}
 
 ## Índice del PIB real
 
@@ -108,18 +129,6 @@ lang: es
 ## Anclaje per cápita al último año
 
 ![](figures/gdp_per_capita_anchor_line.png){fig-align="center" width="100%"}
-
-## Episodios históricos
-
-![](figures/episode_lines_faceted.png){fig-align="center" width="100%"}
-
-## Episodios positivos
-
-![](figures/positive_episode_lines_faceted.png){fig-align="center" width="100%"}
-
-## Episodios negativos
-
-![](figures/negative_episode_lines_faceted.png){fig-align="center" width="100%"}
 
 ## Episodios del PIB real
 
@@ -153,71 +162,69 @@ lang: es
 
 ![](figures/wdi_negative_episode_lines.png){fig-align="center" width="100%"}
 
-## Episodios negativos internacionales FMI WEO
+## Episodios negativos FMI WEO
 
 ![](figures/imf_weo_negative_episode_lines.png){fig-align="center" width="100%"}
 
-## Peores episodios de contracción
+## Profundidad y recuperación, Maddison
 
-![](figures/international_contraction_depth.png){fig-align="center" width="100%"}
+![](figures/international_disaster_recovery_time_maddison.png){fig-align="center" width="100%"}
 
-## Episodios de contracción más prolongados
+## Profundidad y recuperación, WDI
 
-![](figures/international_contraction_duration.png){fig-align="center" width="100%"}
+![](figures/international_disaster_recovery_time_wdi.png){fig-align="center" width="100%"}
 
-## Expansiones sostenidas de mayor crecimiento compuesto
+## Profundidad y recuperación, FMI WEO
 
-![](figures/international_expansion_cagr.png){fig-align="center" width="100%"}
+![](figures/international_disaster_recovery_time_imf_weo.png){fig-align="center" width="100%"}
 
-## Profundidad y años hasta recuperar
+## 3. Dinámica de recuperación
 
-![](figures/international_disaster_recovery_time.png){fig-align="center" width="100%"}
-
-## Nivel posterior al desastre, 5 años
+## Nivel post-desastre, 5 años
 
 ![](figures/international_disaster_horizon_level_05.png){fig-align="center" width="100%"}
 
-## Nivel posterior al desastre, 10 años
+## Nivel post-desastre, 10 años
 
 ![](figures/international_disaster_horizon_level_10.png){fig-align="center" width="100%"}
 
-## Nivel posterior al desastre, 15 años
+## Nivel post-desastre, 15 años
 
 ![](figures/international_disaster_horizon_level_15.png){fig-align="center" width="100%"}
 
-## Nivel posterior al desastre, 20 años
+## Nivel post-desastre, 20 años
 
 ![](figures/international_disaster_horizon_level_20.png){fig-align="center" width="100%"}
 
-## Nivel posterior al desastre, 25 años
+## Nivel post-desastre, 25 años
 
 ![](figures/international_disaster_horizon_level_25.png){fig-align="center" width="100%"}
 
-## Nivel posterior al desastre, 30 años
+## Nivel post-desastre, 30 años
 
 ![](figures/international_disaster_horizon_level_30.png){fig-align="center" width="100%"}
 
-## Crecimiento compuesto posterior al desastre, 5 años
+## CAGR post-desastre, 5 años
 
 ![](figures/international_disaster_horizon_cagr_05.png){fig-align="center" width="100%"}
 
-## Crecimiento compuesto posterior al desastre, 10 años
+## CAGR post-desastre, 10 años
 
 ![](figures/international_disaster_horizon_cagr_10.png){fig-align="center" width="100%"}
 
-## Crecimiento compuesto posterior al desastre, 15 años
+## CAGR post-desastre, 15 años
 
 ![](figures/international_disaster_horizon_cagr_15.png){fig-align="center" width="100%"}
 
-## Crecimiento compuesto posterior al desastre, 20 años
+## CAGR post-desastre, 20 años
 
 ![](figures/international_disaster_horizon_cagr_20.png){fig-align="center" width="100%"}
 
-## Crecimiento compuesto posterior al desastre, 25 años
+## CAGR post-desastre, 25 años
 
 ![](figures/international_disaster_horizon_cagr_25.png){fig-align="center" width="100%"}
 
-## Crecimiento compuesto posterior al desastre, 30 años
+## CAGR post-desastre, 30 años
 
 ![](figures/international_disaster_horizon_cagr_30.png){fig-align="center" width="100%"}
 
@@ -225,38 +232,56 @@ lang: es
 
 ![](figures/compound_growth_explainer.png){fig-align="center" width="100%"}
 
-## Trayectoria de recuperación al 15%
+## Recuperación del PIB real al 15%
 
-![](figures/recovery_path_15.png){fig-align="center" width="100%"}
+![](figures/recovery_path_15_gdp.png){fig-align="center" width="100%"}
 
-## Escenarios de recuperación
+## Recuperación per cápita al 15%
 
-![](figures/recovery_path_scenarios.png){fig-align="center" width="100%"}
+![](figures/recovery_path_15_gdp_per_capita.png){fig-align="center" width="100%"}
 
-## Años para recuperar niveles históricos del PIB real
+## Escenarios del PIB real
+
+![](figures/recovery_path_scenarios_gdp.png){fig-align="center" width="100%"}
+
+## Escenarios per cápita
+
+![](figures/recovery_path_scenarios_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## Años para recuperar el PIB real
 
 ![](figures/recovery_heatmap_gdp.png){fig-align="center" width="100%"}
 
-## Años para recuperar niveles históricos per cápita
+## Años para recuperar per cápita
 
 ![](figures/recovery_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
 
-## Ventanas móviles de crecimiento compuesto
+## Ventanas móviles de CAGR
 
 ![](figures/rolling_cagr_example.png){fig-align="center" width="100%"}
 
-## Crecimiento sostenido en ventanas móviles
+## CAGR móvil del PIB real
 
-![](figures/rolling_cagr_lines.png){fig-align="center" width="100%"}
+![](figures/rolling_cagr_lines_gdp.png){fig-align="center" width="100%"}
 
-## Distribución de crecimiento sostenido
+## CAGR móvil per cápita
 
-![](figures/rolling_cagr_distribution.png){fig-align="center" width="100%"}
+![](figures/rolling_cagr_lines_gdp_per_capita.png){fig-align="center" width="100%"}
 
-## Frecuencia de crecimiento sostenido del PIB real
+## Distribución CAGR, PIB real
+
+![](figures/rolling_cagr_distribution_gdp.png){fig-align="center" width="100%"}
+
+## Distribución CAGR, per cápita
+
+![](figures/rolling_cagr_distribution_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## Frecuencia CAGR, PIB real
 
 ![](figures/rolling_cagr_heatmap_gdp.png){fig-align="center" width="100%"}
 
-## Frecuencia de crecimiento sostenido per cápita
+## Frecuencia CAGR, per cápita
 
 ![](figures/rolling_cagr_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
+
+## 4. Conclusiones

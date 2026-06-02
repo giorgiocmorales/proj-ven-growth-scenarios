@@ -12,6 +12,7 @@ pipeline_scripts <- c(
   "scripts/08_graphs.R",
   "scripts/09_wilks_composite_correlation.R",
   "scripts/10_imf_weo_ppp_scatter.R",
+  "scripts/11_owid_development_indicators.R",
   "scripts/06_render_report.R"
 )
 

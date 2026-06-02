@@ -18,6 +18,21 @@ dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 figure_dir <- "reports/presentation/figures"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
+apply_presentation_axis_theme <- function(plot = NULL) {
+  axis_theme <- ggplot2::theme(
+    axis.line.x = ggplot2::element_line(color = "grey35", linewidth = 0.35),
+    axis.line.y = ggplot2::element_line(color = "grey35", linewidth = 0.35),
+    panel.grid.major.x = ggplot2::element_blank(),
+    panel.grid.minor.x = ggplot2::element_blank()
+  )
+
+  if (is.null(plot)) {
+    return(axis_theme)
+  }
+
+  plot + axis_theme
+}
+
 maddison_data_path <- "data/raw/mpd2023_web.xlsx"
 if (!file.exists(maddison_data_path)) {
   stop(sprintf("Maddison workbook not found at `%s`.", maddison_data_path), call. = FALSE)
@@ -201,7 +216,7 @@ imf_ppp_scatter <- ggplot2::ggplot() +
 
 ggplot2::ggsave(
   filename = file.path(figure_dir, "imf_weo_ppp_scatter_selected_years.png"),
-  plot = imf_ppp_scatter,
+  plot = apply_presentation_axis_theme(imf_ppp_scatter),
   width = 11,
   height = 6.2,
   dpi = 160
@@ -302,7 +317,7 @@ for (single_year in single_years) {
   )
   ggplot2::ggsave(
     filename = file.path(figure_dir, sprintf("imf_weo_ppp_scatter_%s.png", single_year)),
-    plot = single_year_plot,
+    plot = apply_presentation_axis_theme(single_year_plot),
     width = 11,
     height = 6.2,
     dpi = 160
@@ -320,7 +335,7 @@ for (single_year in single_years) {
   )
   ggplot2::ggsave(
     filename = file.path(figure_dir, sprintf("imf_weo_nominal_scatter_%s.png", single_year)),
-    plot = single_year_nominal_plot,
+    plot = apply_presentation_axis_theme(single_year_nominal_plot),
     width = 11,
     height = 6.2,
     dpi = 160
@@ -482,14 +497,14 @@ gdp_pc_nominal_ratio_plot <- build_venezuela_ratio_plot(
 
 ggplot2::ggsave(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_ppp_ratio_to_venezuela.png"),
-  plot = gdp_pc_ppp_ratio_plot,
+  plot = apply_presentation_axis_theme(gdp_pc_ppp_ratio_plot),
   width = 11,
   height = 6.2,
   dpi = 160
 )
 ggplot2::ggsave(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_nominal_ratio_to_venezuela.png"),
-  plot = gdp_pc_nominal_ratio_plot,
+  plot = apply_presentation_axis_theme(gdp_pc_nominal_ratio_plot),
   width = 11,
   height = 6.2,
   dpi = 160
@@ -511,14 +526,14 @@ gdp_pc_nominal_ratio_selected_years_plot <- build_selected_year_venezuela_ratio_
 
 ggplot2::ggsave(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_ppp_ratio_selected_years_to_venezuela.png"),
-  plot = gdp_pc_ppp_ratio_selected_years_plot,
+  plot = apply_presentation_axis_theme(gdp_pc_ppp_ratio_selected_years_plot),
   width = 11,
   height = 6.2,
   dpi = 160
 )
 ggplot2::ggsave(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png"),
-  plot = gdp_pc_nominal_ratio_selected_years_plot,
+  plot = apply_presentation_axis_theme(gdp_pc_nominal_ratio_selected_years_plot),
   width = 11,
   height = 6.2,
   dpi = 160

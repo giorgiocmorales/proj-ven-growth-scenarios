@@ -17,6 +17,21 @@ if (length(missing_packages) > 0) {
 figure_dir <- "reports/presentation/figures"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
+apply_presentation_axis_theme <- function(plot = NULL) {
+  axis_theme <- ggplot2::theme(
+    axis.line.x = ggplot2::element_line(color = "grey35", linewidth = 0.35),
+    axis.line.y = ggplot2::element_line(color = "grey35", linewidth = 0.35),
+    panel.grid.major.x = ggplot2::element_blank(),
+    panel.grid.minor.x = ggplot2::element_blank()
+  )
+
+  if (is.null(plot)) {
+    return(axis_theme)
+  }
+
+  plot + axis_theme
+}
+
 set.seed(20260530)
 
 items_per_composite <- c(2L, 3L, 5L, 8L, 12L, 20L, 35L, 60L, 100L, 200L)
@@ -124,7 +139,7 @@ wilks_plot <- ggplot2::ggplot() +
 
 ggplot2::ggsave(
   filename = file.path(figure_dir, "wilks_composite_correlation.png"),
-  plot = wilks_plot,
+  plot = apply_presentation_axis_theme(wilks_plot),
   width = 11,
   height = 6.2,
   dpi = 160

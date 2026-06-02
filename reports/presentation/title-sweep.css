@@ -1,0 +1,9 @@
+.reveal h1.title {
+  font-size: 1.55em;
+  white-space: nowrap;
+}
+
+.reveal h2 {
+  font-size: 1.12em;
+  white-space: nowrap;
+}
