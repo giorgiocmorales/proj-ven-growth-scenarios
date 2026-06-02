@@ -1,0 +1,469 @@
+"source_label","disaster_key","disaster_label","country_code","country","start_year","end_year","cumulative_growth","duration_years","recovery_year","years_to_recover","is_venezuela"
+"FMI WEO, PIB pc","imf_weo_VEN_84","Venezuela (2012-2020)","VEN","Venezuela",2012,2020,-0.740142005551907,8,NA,NA,TRUE
+"FMI WEO, PIB pc","imf_weo_COD_5","D.R. of the Congo (1986-2002)","COD","D.R. of the Congo",1986,2002,-0.69801802394496,16,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_LBN_5","Lebanon (1987-1990)","LBN","Lebanon",1987,1990,-0.660906166826934,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_SDN_12","Sudan (Former) (2016-2024)","SDN","Sudan (Former)",2016,2024,-0.556584938512729,8,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_GNQ_9","Equatorial Guinea (2012-2021)","GNQ","Equatorial Guinea",2012,2021,-0.541399602348268,9,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_ZWE_1","Zimbabwe (1999-2008)","ZWE","Zimbabwe",1999,2008,-0.517677307450364,9,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_SAU_1","Saudi Arabia (1981-1987)","SAU","Saudi Arabia",1981,1987,-0.514265033806677,6,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_SLE_9","Sierra Leone (1994-1999)","SLE","Sierra Leone",1994,1999,-0.5089084635662,5,2013,19,FALSE
+"FMI WEO, PIB pc","imf_weo_LBY_17","Libya (2010-2011)","LBY","Libya",2010,2011,-0.490855115875769,1,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_UKR_1","Ukraine (1992-1998)","UKR","Ukraine",1992,1998,-0.479242122620685,6,2008,16,FALSE
+"FMI WEO, PIB pc","imf_weo_ARE_1","United Arab Emirates (1981-1986)","ARE","United Arab Emirates",1981,1986,-0.44743808581,5,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_LBY_19","Libya (2012-2016)","LBY","Libya",2012,2016,-0.42518756081544,4,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_CMR_2","Cameroon (1986-1994)","CMR","Cameroon",1986,1994,-0.424060089825231,8,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_TKM_1","Turkmenistan (1993-1997)","TKM","Turkmenistan",1993,1997,-0.415268957396298,4,2002,9,FALSE
+"FMI WEO, PIB pc","imf_weo_ALB_6","Albania (1989-1992)","ALB","Albania",1989,1992,-0.402174797659377,3,2000,11,FALSE
+"FMI WEO, PIB pc","imf_weo_RWA_5","Rwanda (1992-1994)","RWA","Rwanda",1992,1994,-0.401575493224078,2,2001,9,FALSE
+"FMI WEO, PIB pc","imf_weo_LBY_21","Libya (2018-2020)","LBY","Libya",2018,2020,-0.39137715259049,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_LBN_1","Lebanon (1981-1982)","LBN","Lebanon",1981,1982,-0.376852117263844,1,1984,3,FALSE
+"FMI WEO, PIB pc","imf_weo_HTI_1","Haiti (1981-1994)","HTI","Haiti",1981,1994,-0.372875196443049,13,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_CAF_13","Central African Republic (2012-2014)","CAF","Central African Republic",2012,2014,-0.371978275773196,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_TJK_1","Tajikistan (1993-1996)","TJK","Tajikistan",1993,1996,-0.36108348788143,3,2005,12,FALSE
+"FMI WEO, PIB pc","imf_weo_MDA_1","Republic of Moldova (1993-1996)","MDA","Republic of Moldova",1993,1996,-0.356922859035811,3,2008,15,FALSE
+"FMI WEO, PIB pc","imf_weo_TTO_2","Trinidad and Tobago (1982-1989)","TTO","Trinidad and Tobago",1982,1989,-0.341995167102343,7,1999,17,FALSE
+"FMI WEO, PIB pc","imf_weo_BGR_2","Bulgaria (1988-1995)","BGR","Bulgaria",1988,1995,-0.339771681767113,7,2008,20,FALSE
+"FMI WEO, PIB pc","imf_weo_LBY_3","Libya (1985-1988)","LBY","Libya",1985,1988,-0.334740043267006,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_COG_19","Congo (2014-2026)","COG","Congo",2014,2026,-0.330506188098182,12,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_MOZ_1","Mozambique (1981-1986)","MOZ","Mozambique",1981,1986,-0.326541683891366,5,1997,16,FALSE
+"FMI WEO, PIB pc","imf_weo_IRN_2","Iran (Islamic Republic of) (1983-1988)","IRN","Iran (Islamic Republic of)",1983,1988,-0.320543067377552,5,2003,20,FALSE
+"FMI WEO, PIB pc","imf_weo_AZE_1","Azerbaijan (1993-1995)","AZE","Azerbaijan",1993,1995,-0.315738740188383,2,2002,9,FALSE
+"FMI WEO, PIB pc","imf_weo_JOR_6","Jordan (1986-1991)","JOR","Jordan",1986,1991,-0.31207024314496,5,2007,21,FALSE
+"FMI WEO, PIB pc","imf_weo_LBR_2","Liberia (2002-2003)","LBR","Liberia",2002,2003,-0.301998700032499,1,2013,11,FALSE
+"FMI WEO, PIB pc","imf_weo_PER_5","Peru (1987-1990)","PER","Peru",1987,1990,-0.301245041562092,3,2005,18,FALSE
+"FMI WEO, PIB pc","imf_weo_ROU_4","Romania (1987-1992)","ROU","Romania",1987,1992,-0.300439285010728,5,2004,17,FALSE
+"FMI WEO, PIB pc","imf_weo_ZMB_3","Zambia (1988-1994)","ZMB","Zambia",1988,1994,-0.29733866603868,6,2009,21,FALSE
+"FMI WEO, PIB pc","imf_weo_BDI_7","Burundi (1991-1997)","BDI","Burundi",1991,1997,-0.296081831851569,6,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_QAT_5","Qatar (1989-1991)","QAT","Qatar",1989,1991,-0.29235975257732,2,1998,9,FALSE
+"FMI WEO, PIB pc","imf_weo_LBN_15","Lebanon (2018-2020)","LBN","Lebanon",2018,2020,-0.281542064630055,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_GNQ_11","Equatorial Guinea (2022-2031)","GNQ","Equatorial Guinea",2022,2031,-0.271671758184801,9,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_AFG_5","Afghanistan (2019-2022)","AFG","Afghanistan",2019,2022,-0.271460813165431,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_ARE_15","United Arab Emirates (2006-2009)","ARE","United Arab Emirates",2006,2009,-0.26818040857396,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_HTI_11","Haiti (2018-2029)","HTI","Haiti",2018,2029,-0.267775118162216,11,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_GRC_9","Greece (2007-2013)","GRC","Greece",2007,2013,-0.267151542905283,6,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_ETH_5","Ethiopia (1987-1992)","ETH","Ethiopia",1987,1992,-0.264757213088112,5,2004,17,FALSE
+"FMI WEO, PIB pc","imf_weo_NER_1","Niger (1981-1984)","NER","Niger",1981,1984,-0.262059302878505,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_YEM_5","Yemen (2021-2031)","YEM","Yemen",2021,2031,-0.258925438218542,10,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_DJI_1","Djibouti (1991-2001)","DJI","Djibouti",1991,2001,-0.257813978820671,10,2013,22,FALSE
+"FMI WEO, PIB pc","imf_weo_QAT_19","Qatar (2011-2020)","QAT","Qatar",2011,2020,-0.255643674634137,9,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_KGZ_1","Kyrgyzstan (1993-1995)","KGZ","Kyrgyzstan",1993,1995,-0.24801466961326,2,2003,10,FALSE
+"FMI WEO, PIB pc","imf_weo_LCA_18","Saint Lucia (2018-2020)","LCA","Saint Lucia",2018,2020,-0.24758493258427,2,2022,4,FALSE
+"FMI WEO, PIB pc","imf_weo_QAT_1","Qatar (1981-1983)","QAT","Qatar",1981,1983,-0.247135,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_KWT_7","Kuwait (2007-2011)","KWT","Kuwait",2007,2011,-0.243663824869233,4,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_AGO_15","Angola (2014-2021)","AGO","Angola",2014,2021,-0.242962379055408,7,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_GNB_6","Guinea-Bissau (1997-1998)","GNB","Guinea-Bissau",1997,1998,-0.240958041958042,1,2011,14,FALSE
+"FMI WEO, PIB pc","imf_weo_SDN_10","Sudan (Former) (2011-2013)","SDN","Sudan (Former)",2011,2013,-0.235405303616857,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_TGO_5","Togo (1990-1993)","TGO","Togo",1990,1993,-0.234463165843594,3,2018,28,FALSE
+"FMI WEO, PIB pc","imf_weo_CIV_5","Côte d'Ivoire (1988-1994)","CIV","Côte d'Ivoire",1988,1994,-0.233616795854476,6,2023,35,FALSE
+"FMI WEO, PIB pc","imf_weo_JOR_12","Jordan (2012-2020)","JOR","Jordan",2012,2020,-0.225046689277999,8,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_RWA_3","Rwanda (1986-1991)","RWA","Rwanda",1986,1991,-0.224821622134858,5,2005,19,FALSE
+"FMI WEO, PIB pc","imf_weo_LBY_1","Libya (1981-1984)","LBY","Libya",1981,1984,-0.220731204435766,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_ARG_9","Argentina (1998-2002)","ARG","Argentina",1998,2002,-0.216623240864843,4,2006,8,FALSE
+"FMI WEO, PIB pc","imf_weo_QAT_3","Qatar (1984-1987)","QAT","Qatar",1984,1987,-0.212835635384616,3,2010,26,FALSE
+"FMI WEO, PIB pc","imf_weo_CPV_8","Cabo Verde (2019-2020)","CPV","Cabo Verde",2019,2020,-0.211155378486056,1,2023,4,FALSE
+"FMI WEO, PIB pc","imf_weo_MMR_2","Myanmar (2019-2021)","MMR","Myanmar",2019,2021,-0.210389930132804,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_BLR_1","Belarus (1993-1995)","BLR","Belarus",1993,1995,-0.210153593396875,2,1999,6,FALSE
+"FMI WEO, PIB pc","imf_weo_GAB_4","Gabon (1985-1987)","GAB","Gabon",1985,1987,-0.206949304247991,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_CIV_7","Côte d'Ivoire (1998-2008)","CIV","Côte d'Ivoire",1998,2008,-0.206481961777714,10,2017,19,FALSE
+"FMI WEO, PIB pc","imf_weo_BOL_1","Bolivia (Plurinational State of) (1981-1986)","BOL","Bolivia (Plurinational State of)",1981,1986,-0.205077823437806,5,1998,17,FALSE
+"FMI WEO, PIB pc","imf_weo_NAM_6","Namibia (2015-2020)","NAM","Namibia",2015,2020,-0.204992620216429,5,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_NER_5","Niger (1988-1997)","NER","Niger",1988,1997,-0.202078241280027,9,2019,31,FALSE
+"FMI WEO, PIB pc","imf_weo_KWT_9","Kuwait (2012-2018)","KWT","Kuwait",2012,2018,-0.201614830678677,6,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_LBR_4","Liberia (2013-2020)","LBR","Liberia",2013,2020,-0.19801376718671,7,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_CYP_8","Cyprus (2008-2014)","CYP","Cyprus",2008,2014,-0.195299664008198,6,2019,11,FALSE
+"FMI WEO, PIB pc","imf_weo_RUS_1","Russian Federation (1993-1996)","RUS","Russian Federation",1993,1996,-0.192659950548806,3,2002,9,FALSE
+"FMI WEO, PIB pc","imf_weo_GAB_8","Gabon (1998-2004)","GAB","Gabon",1998,2004,-0.191768428551858,6,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_PAN_12","Panama (2019-2020)","PAN","Panama",2019,2020,-0.189526057490068,1,2022,3,FALSE
+"FMI WEO, PIB pc","imf_weo_PAN_4","Panama (1986-1989)","PAN","Panama",1986,1989,-0.189447905029703,3,1993,7,FALSE
+"FMI WEO, PIB pc","imf_weo_GHA_1","Ghana (1981-1983)","GHA","Ghana",1981,1983,-0.189231529393707,2,1988,7,FALSE
+"FMI WEO, PIB pc","imf_weo_VEN_80","Venezuela (2001-2003)","VEN","Venezuela",2001,2003,-0.188975855520166,2,2005,4,TRUE
+"FMI WEO, PIB pc","imf_weo_ETH_3","Ethiopia (1983-1985)","ETH","Ethiopia",1983,1985,-0.18860020121238,2,2005,22,FALSE
+"FMI WEO, PIB pc","imf_weo_CHL_1","Chile (1981-1983)","CHL","Chile",1981,1983,-0.186751438070071,2,1989,8,FALSE
+"FMI WEO, PIB pc","imf_weo_PHL_2","Philippines (1982-1985)","PHL","Philippines",1982,1985,-0.186641230934468,3,2003,21,FALSE
+"FMI WEO, PIB pc","imf_weo_LVA_2","Latvia (2007-2010)","LVA","Latvia",2007,2010,-0.186162407128713,3,2015,8,FALSE
+"FMI WEO, PIB pc","imf_weo_EST_4","Estonia (2007-2009)","EST","Estonia",2007,2009,-0.185911546067415,2,2015,8,FALSE
+"FMI WEO, PIB pc","imf_weo_LSO_4","Lesotho (2016-2020)","LSO","Lesotho",2016,2020,-0.183964383096619,4,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_ARE_3","United Arab Emirates (1987-1988)","ARE","United Arab Emirates",1987,1988,-0.183798882681564,1,1990,3,FALSE
+"FMI WEO, PIB pc","imf_weo_BRB_13","Barbados (2017-2020)","BRB","Barbados",2017,2020,-0.180561296583334,3,2022,5,FALSE
+"FMI WEO, PIB pc","imf_weo_URY_1","Uruguay (1981-1985)","URY","Uruguay",1981,1985,-0.178814533815694,4,1992,11,FALSE
+"FMI WEO, PIB pc","imf_weo_ZMB_1","Zambia (1981-1987)","ZMB","Zambia",1981,1987,-0.177819002553055,6,2012,31,FALSE
+"FMI WEO, PIB pc","imf_weo_DMA_14","Dominica (2019-2020)","DMA","Dominica",2019,2020,-0.177424657534247,1,2025,6,FALSE
+"FMI WEO, PIB pc","imf_weo_HUN_2","Hungary (1989-1993)","HUN","Hungary",1989,1993,-0.176629798191879,4,2000,11,FALSE
+"FMI WEO, PIB pc","imf_weo_SLE_7","Sierra Leone (1990-1992)","SLE","Sierra Leone",1990,1992,-0.173675804967801,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_GTM_1","Guatemala (1981-1986)","GTM","Guatemala",1981,1986,-0.17070192381138,5,2005,24,FALSE
+"FMI WEO, PIB pc","imf_weo_ZWE_5","Zimbabwe (2018-2020)","ZWE","Zimbabwe",2018,2020,-0.170128048260814,2,2026,8,FALSE
+"FMI WEO, PIB pc","imf_weo_LBY_7","Libya (1994-1995)","LBY","Libya",1994,1995,-0.1686545750968,1,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_CAF_5","Central African Republic (1989-1993)","CAF","Central African Republic",1989,1993,-0.166481748311228,4,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_ARG_19","Argentina (2017-2020)","ARG","Argentina",2017,2020,-0.165222648183,3,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_SDN_2","Sudan (Former) (1982-1985)","SDN","Sudan (Former)",1982,1985,-0.164671945955815,3,1995,13,FALSE
+"FMI WEO, PIB pc","imf_weo_GMB_2","Gambia (1983-1988)","GMB","Gambia",1983,1988,-0.160918525897468,5,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_BWA_10","Botswana (2008-2009)","BWA","Botswana",2008,2009,-0.158689100954294,1,2013,5,FALSE
+"FMI WEO, PIB pc","imf_weo_GNQ_7","Equatorial Guinea (2008-2010)","GNQ","Equatorial Guinea",2008,2010,-0.157699554153522,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_IRQ_9","Iraq (2019-2021)","IRQ","Iraq",2019,2021,-0.156223597581996,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_MWI_3","Malawi (1985-1989)","MWI","Malawi",1985,1989,-0.155669654050109,4,1997,12,FALSE
+"FMI WEO, PIB pc","imf_weo_URY_9","Uruguay (1998-2002)","URY","Uruguay",1998,2002,-0.154430316676656,4,2007,9,FALSE
+"FMI WEO, PIB pc","imf_weo_UKR_9","Ukraine (2021-2022)","UKR","Ukraine",2021,2022,-0.154166034018139,1,2026,5,FALSE
+"FMI WEO, PIB pc","imf_weo_SYC_13","Seychelles (2019-2021)","SYC","Seychelles",2019,2021,-0.150953344827586,2,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_IRQ_11","Iraq (2022-2026)","IRQ","Iraq",2022,2026,-0.150705353079898,4,NA,NA,FALSE
+"FMI WEO, PIB pc","imf_weo_MNE_6","Montenegro (2019-2020)","MNE","Montenegro",2019,2020,-0.15,1,2022,3,FALSE
+"Maddison, PIB pc","maddison_LBR_50","Liberia (1979-1995)","LBR","Liberia",1979,1995,-0.916942347997066,16,NA,NA,FALSE
+"Maddison, PIB pc","maddison_GEO_4","Georgia (1988-1994)","GEO","Georgia",1988,1994,-0.76382706560621,6,NA,NA,FALSE
+"Maddison, PIB pc","maddison_IRQ_20","Iraq (1987-1991)","IRQ","Iraq",1987,1991,-0.749051209057368,4,2004,17,FALSE
+"Maddison, PIB pc","maddison_QAT_18","Qatar (1980-1990)","QAT","Qatar",1980,1990,-0.744766681203663,10,2001,21,FALSE
+"Maddison, PIB pc","maddison_VEN_84","Venezuela (2012-2020)","VEN","Venezuela",2012,2020,-0.740142005551907,8,NA,NA,TRUE
+"Maddison, PIB pc","maddison_TJK_5","Tajikistan (1988-1997)","TJK","Tajikistan",1988,1997,-0.718471013568354,9,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LBN_12","Lebanon (1973-1976)","LBN","Lebanon",1973,1976,-0.70918185066095,3,2003,30,FALSE
+"Maddison, PIB pc","maddison_AFG_14","Afghanistan (1986-1994)","AFG","Afghanistan",1986,1994,-0.681231727463138,8,2009,23,FALSE
+"Maddison, PIB pc","maddison_MDA_6","Republic of Moldova (1989-1996)","MDA","Republic of Moldova",1989,1996,-0.678703669108107,7,NA,NA,FALSE
+"Maddison, PIB pc","maddison_AZE_2","Azerbaijan (1988-1995)","AZE","Azerbaijan",1988,1995,-0.678460651251502,7,2006,18,FALSE
+"Maddison, PIB pc","maddison_MNE_19","Montenegro (1986-1993)","MNE","Montenegro",1986,1993,-0.628250268580291,7,2004,18,FALSE
+"Maddison, PIB pc","maddison_ARM_5","Armenia (1989-1993)","ARM","Armenia",1989,1993,-0.607586962729169,4,2017,28,FALSE
+"Maddison, PIB pc","maddison_LBN_20","Lebanon (1987-1989)","LBN","Lebanon",1987,1989,-0.598839084166398,2,1996,9,FALSE
+"Maddison, PIB pc","maddison_DJI_14","Djibouti (1976-1991)","DJI","Djibouti",1976,1991,-0.587260621926879,15,NA,NA,FALSE
+"Maddison, PIB pc","maddison_BIH_13","Bosnia and Herzegovina (1989-1993)","BIH","Bosnia and Herzegovina",1989,1993,-0.578149410053121,4,1999,10,FALSE
+"Maddison, PIB pc","maddison_SRB_16","Serbia (1989-1993)","SRB","Serbia",1989,1993,-0.573689539124695,4,2008,19,FALSE
+"Maddison, PIB pc","maddison_LBY_14","Libya (2010-2011)","LBY","Libya",2010,2011,-0.557809885374582,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_UKR_4","Ukraine (1989-1997)","UKR","Ukraine",1989,1997,-0.542510987915124,8,2007,18,FALSE
+"Maddison, PIB pc","maddison_ARE_12","United Arab Emirates (1980-1988)","ARE","United Arab Emirates",1980,1988,-0.54231570367687,8,2000,20,FALSE
+"Maddison, PIB pc","maddison_YEM_14","Yemen (2013-2022)","YEM","Yemen",2013,2022,-0.526714206141249,9,NA,NA,FALSE
+"Maddison, PIB pc","maddison_SYR_28","Syrian Arab Republic (2004-2014)","SYR","Syrian Arab Republic",2004,2014,-0.520038470091819,10,NA,NA,FALSE
+"Maddison, PIB pc","maddison_KGZ_5","Kyrgyzstan (1990-1995)","KGZ","Kyrgyzstan",1990,1995,-0.516539479237331,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_GNQ_14","Equatorial Guinea (2012-2021)","GNQ","Equatorial Guinea",2012,2021,-0.512754500198782,9,NA,NA,FALSE
+"Maddison, PIB pc","maddison_KWT_14","Kuwait (1979-1982)","KWT","Kuwait",1979,1982,-0.5085894796621,3,1996,17,FALSE
+"Maddison, PIB pc","maddison_KWT_20","Kuwait (1989-1991)","KWT","Kuwait",1989,1991,-0.503117326042274,2,1992,3,FALSE
+"Maddison, PIB pc","maddison_ZWE_33","Zimbabwe (1998-2008)","ZWE","Zimbabwe",1998,2008,-0.494505529491761,10,NA,NA,FALSE
+"Maddison, PIB pc","maddison_AGO_14","Angola (1973-1977)","AGO","Angola",1973,1977,-0.474053295932679,4,2004,31,FALSE
+"Maddison, PIB pc","maddison_LTU_4","Lithuania (1988-1994)","LTU","Lithuania",1988,1994,-0.472762431170335,6,2004,16,FALSE
+"Maddison, PIB pc","maddison_CUB_36","Cuba (1988-1993)","CUB","Cuba",1988,1993,-0.467868246757234,5,2006,18,FALSE
+"Maddison, PIB pc","maddison_LVA_6","Latvia (1990-1993)","LVA","Latvia",1990,1993,-0.466067926792929,3,2005,15,FALSE
+"Maddison, PIB pc","maddison_SLE_16","Sierra Leone (1994-1999)","SLE","Sierra Leone",1994,1999,-0.457326841325899,5,2012,18,FALSE
+"Maddison, PIB pc","maddison_RWA_16","Rwanda (1992-1994)","RWA","Rwanda",1992,1994,-0.456631272378131,2,2008,16,FALSE
+"Maddison, PIB pc","maddison_TCD_8","Chad (1975-1981)","TCD","Chad",1975,1981,-0.452731092436975,6,2004,29,FALSE
+"Maddison, PIB pc","maddison_IRN_7","Iran (Islamic Republic of) (1976-1981)","IRN","Iran (Islamic Republic of)",1976,1981,-0.448007501172058,5,2003,27,FALSE
+"Maddison, PIB pc","maddison_IRQ_18","Iraq (1979-1986)","IRQ","Iraq",1979,1986,-0.443588076887362,7,2011,32,FALSE
+"Maddison, PIB pc","maddison_YUG_24","Former Yugoslavia (1989-1993)","YUG","Former Yugoslavia",1989,1993,-0.438400223171273,4,2004,15,FALSE
+"Maddison, PIB pc","maddison_LBY_16","Libya (2012-2016)","LBY","Libya",2012,2016,-0.438033298697909,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LBR_52","Liberia (2002-2005)","LBR","Liberia",2002,2005,-0.437558247364198,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_COD_18","D.R. of the Congo (1986-1994)","COD","D.R. of the Congo",1986,1994,-0.430781454574356,8,NA,NA,FALSE
+"Maddison, PIB pc","maddison_KWT_10","Kuwait (1971-1975)","KWT","Kuwait",1971,1975,-0.412802726055738,4,2004,33,FALSE
+"Maddison, PIB pc","maddison_BLR_4","Belarus (1989-1995)","BLR","Belarus",1989,1995,-0.411954753139423,6,2005,16,FALSE
+"Maddison, PIB pc","maddison_SUN_59","Former USSR (1989-1996)","SUN","Former USSR",1989,1996,-0.401293063282831,7,2004,15,FALSE
+"Maddison, PIB pc","maddison_LBY_18","Libya (2018-2020)","LBY","Libya",2018,2020,-0.397993745643871,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CMR_8","Cameroon (1986-1994)","CMR","Cameroon",1986,1994,-0.397839256921597,8,2015,29,FALSE
+"Maddison, PIB pc","maddison_SAU_6","Saudi Arabia (1981-1986)","SAU","Saudi Arabia",1981,1986,-0.397139251156921,5,1998,17,FALSE
+"Maddison, PIB pc","maddison_HRV_8","Croatia (1986-1993)","HRV","Croatia",1986,1993,-0.393761082170465,7,2002,16,FALSE
+"Maddison, PIB pc","maddison_CAF_24","Central African Republic (2012-2014)","CAF","Central African Republic",2012,2014,-0.387554585152838,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LBN_16","Lebanon (1980-1982)","LBN","Lebanon",1980,1982,-0.387369791666667,2,1984,4,FALSE
+"Maddison, PIB pc","maddison_NIC_34","Nicaragua (1983-1993)","NIC","Nicaragua",1983,1993,-0.384727408339616,10,2006,23,FALSE
+"Maddison, PIB pc","maddison_PSE_26","State of Palestine (1999-2002)","PSE","State of Palestine",1999,2002,-0.38076305638382,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_TKM_7","Turkmenistan (1993-1997)","TKM","Turkmenistan",1993,1997,-0.379689332668402,4,2001,8,FALSE
+"Maddison, PIB pc","maddison_KAZ_7","Kazakhstan (1988-1995)","KAZ","Kazakhstan",1988,1995,-0.373852542557151,7,2003,15,FALSE
+"Maddison, PIB pc","maddison_LBY_10","Libya (1979-1984)","LBY","Libya",1979,1984,-0.373211534228483,5,2000,21,FALSE
+"Maddison, PIB pc","maddison_UZB_5","Uzbekistan (1988-1996)","UZB","Uzbekistan",1988,1996,-0.372921859786908,8,2011,23,FALSE
+"Maddison, PIB pc","maddison_GAB_2","Gabon (1976-1978)","GAB","Gabon",1976,1978,-0.371381501529772,2,2007,31,FALSE
+"Maddison, PIB pc","maddison_EST_4","Estonia (1989-1994)","EST","Estonia",1989,1994,-0.357257544969001,5,2003,14,FALSE
+"Maddison, PIB pc","maddison_COG_18","Congo (2014-2021)","COG","Congo",2014,2021,-0.351633054600843,7,NA,NA,FALSE
+"Maddison, PIB pc","maddison_MOZ_6","Mozambique (1973-1979)","MOZ","Mozambique",1973,1979,-0.351306095110516,6,NA,NA,FALSE
+"Maddison, PIB pc","maddison_NIC_30","Nicaragua (1977-1979)","NIC","Nicaragua",1977,1979,-0.351057747284162,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_MOZ_10","Mozambique (1990-1995)","MOZ","Mozambique",1990,1995,-0.343575360348206,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_UGA_27","Uganda (1971-1980)","UGA","Uganda",1971,1980,-0.341516245487365,9,2005,34,FALSE
+"Maddison, PIB pc","maddison_RUS_51","Russian Federation (1989-1996)","RUS","Russian Federation",1989,1996,-0.335784053298137,7,2003,14,FALSE
+"Maddison, PIB pc","maddison_AFG_22","Afghanistan (2019-2022)","AFG","Afghanistan",2019,2022,-0.33161251232404,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_DZA_6","Algeria (1960-1962)","DZA","Algeria",1960,1962,-0.313701923076923,2,1969,9,FALSE
+"Maddison, PIB pc","maddison_MKD_10","TFYR of Macedonia (1989-1995)","MKD","TFYR of Macedonia",1989,1995,-0.310295924082278,6,2008,19,FALSE
+"Maddison, PIB pc","maddison_GNQ_4","Equatorial Guinea (1977-1982)","GNQ","Equatorial Guinea",1977,1982,-0.309432933478735,5,1996,19,FALSE
+"Maddison, PIB pc","maddison_COD_14","D.R. of the Congo (1974-1983)","COD","D.R. of the Congo",1974,1983,-0.307164634146341,9,NA,NA,FALSE
+"Maddison, PIB pc","maddison_TKM_5","Turkmenistan (1988-1992)","TKM","Turkmenistan",1988,1992,-0.304989599240861,4,2003,15,FALSE
+"Maddison, PIB pc","maddison_BDI_18","Burundi (1991-1997)","BDI","Burundi",1991,1997,-0.303988800695426,6,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CYP_9","Cyprus (1973-1975)","CYP","Cyprus",1973,1975,-0.301402754960192,2,1978,5,FALSE
+"Maddison, PIB pc","maddison_TGO_8","Togo (1979-1983)","TGO","Togo",1979,1983,-0.28680800942285,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_ALB_2","Albania (1990-1992)","ALB","Albania",1990,1992,-0.286526446230343,2,1999,9,FALSE
+"Maddison, PIB pc","maddison_ETH_16","Ethiopia (1987-1993)","ETH","Ethiopia",1987,1993,-0.286502792412777,6,2008,21,FALSE
+"Maddison, PIB pc","maddison_CIV_16","Côte d'Ivoire (1985-1994)","CIV","Côte d'Ivoire",1985,1994,-0.286456743206981,9,2013,28,FALSE
+"Maddison, PIB pc","maddison_AGO_22","Angola (2014-2022)","AGO","Angola",2014,2022,-0.28419568397811,8,NA,NA,FALSE
+"Maddison, PIB pc","maddison_ROU_62","Romania (1986-1992)","ROU","Romania",1986,1992,-0.282824423543008,6,2000,14,FALSE
+"Maddison, PIB pc","maddison_PER_200","Peru (1987-1990)","PER","Peru",1987,1990,-0.282400478898533,3,2004,17,FALSE
+"Maddison, PIB pc","maddison_AGO_18","Angola (1980-1986)","AGO","Angola",1980,1986,-0.278067885117493,6,1996,16,FALSE
+"Maddison, PIB pc","maddison_MDG_10","Madagascar (1979-1988)","MDG","Madagascar",1979,1988,-0.276546091015169,9,NA,NA,FALSE
+"Maddison, PIB pc","maddison_NGA_40","Nigeria (1979-1984)","NGA","Nigeria",1979,1984,-0.274239543726236,5,2000,21,FALSE
+"Maddison, PIB pc","maddison_SYR_32","Syrian Arab Republic (2017-2022)","SYR","Syrian Arab Republic",2017,2022,-0.271001749927598,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CHN_33","China (1957-1961)","CHN","China",1957,1961,-0.268619246861925,4,1965,8,FALSE
+"Maddison, PIB pc","maddison_SVN_8","Slovenia (1986-1992)","SVN","Slovenia",1986,1992,-0.267933426673596,6,2000,14,FALSE
+"Maddison, PIB pc","maddison_LBY_12","Libya (1985-1987)","LBY","Libya",1985,1987,-0.267071569271175,2,1992,7,FALSE
+"Maddison, PIB pc","maddison_GAB_6","Gabon (1984-1987)","GAB","Gabon",1984,1987,-0.266140269391547,3,1994,10,FALSE
+"Maddison, PIB pc","maddison_NER_10","Niger (1980-1985)","NER","Niger",1980,1985,-0.264136328427576,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LCA_12","Saint Lucia (2018-2020)","LCA","Saint Lucia",2018,2020,-0.261796604619801,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_IRN_9","Iran (Islamic Republic of) (1983-1988)","IRN","Iran (Islamic Republic of)",1983,1988,-0.261536297129994,5,1996,13,FALSE
+"Maddison, PIB pc","maddison_JOR_17","Jordan (1986-1991)","JOR","Jordan",1986,1991,-0.259938627832325,5,2001,15,FALSE
+"Maddison, PIB pc","maddison_NGA_34","Nigeria (1965-1968)","NGA","Nigeria",1965,1968,-0.259800664451827,3,1970,5,FALSE
+"Maddison, PIB pc","maddison_GHA_45","Ghana (1978-1983)","GHA","Ghana",1978,1983,-0.259462151394422,5,1998,20,FALSE
+"Maddison, PIB pc","maddison_SYR_24","Syrian Arab Republic (1993-2001)","SYR","Syrian Arab Republic",1993,2001,-0.254473638055751,8,NA,NA,FALSE
+"Maddison, PIB pc","maddison_KHM_12","Cambodia (1973-1975)","KHM","Cambodia",1973,1975,-0.253430185633575,2,1978,5,FALSE
+"Maddison, PIB pc","maddison_NER_6","Niger (1971-1973)","NER","Niger",1971,1973,-0.248191027496382,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_AGO_20","Angola (1991-1993)","AGO","Angola",1991,1993,-0.248176797680982,2,1996,5,FALSE
+"Maddison, PIB pc","maddison_VEN_70","Venezuela (1977-1985)","VEN","Venezuela",1977,1985,-0.246708124123997,8,NA,NA,TRUE
+"Maddison, PIB pc","maddison_MOZ_8","Mozambique (1980-1985)","MOZ","Mozambique",1980,1985,-0.246272493573265,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_JAM_11","Jamaica (1973-1980)","JAM","Jamaica",1973,1980,-0.244265532432022,7,1995,22,FALSE
+"Maddison, PIB pc","maddison_RWA_4","Rwanda (1962-1964)","RWA","Rwanda",1962,1964,-0.243827160493827,2,1970,8,FALSE
+"Maddison, PIB pc","maddison_MOZ_16","Mozambique (2001-2011)","MOZ","Mozambique",2001,2011,-0.241418403640916,10,NA,NA,FALSE
+"Maddison, PIB pc","maddison_COD_20","D.R. of the Congo (1995-2001)","COD","D.R. of the Congo",1995,2001,-0.241336880111978,6,2007,12,FALSE
+"Maddison, PIB pc","maddison_SLV_27","El Salvador (1978-1983)","SLV","El Salvador",1978,1983,-0.238857142857143,5,1995,17,FALSE
+"Maddison, PIB pc","maddison_BOL_26","Bolivia (Plurinational State of) (1978-1986)","BOL","Bolivia (Plurinational State of)",1978,1986,-0.236136783733826,8,2004,26,FALSE
+"Maddison, PIB pc","maddison_UKR_12","Ukraine (2021-2022)","UKR","Ukraine",2021,2022,-0.235327847200703,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_MLI_12","Mali (1979-1982)","MLI","Mali",1979,1982,-0.234200743494424,3,2003,24,FALSE
+"Maddison, PIB pc","maddison_SDN_24","Sudan (Former) (2016-2022)","SDN","Sudan (Former)",2016,2022,-0.233927928686773,6,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CHL_76","Chile (1971-1975)","CHL","Chile",1971,1975,-0.232759603328394,4,1980,9,FALSE
+"Maddison, PIB pc","maddison_TTO_16","Trinidad and Tobago (2014-2021)","TTO","Trinidad and Tobago",2014,2021,-0.232389173545104,7,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LBN_24","Lebanon (2018-2020)","LBN","Lebanon",2018,2020,-0.230726440323458,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_BGR_32","Bulgaria (1987-1992)","BGR","Bulgaria",1987,1992,-0.228731352525515,5,2004,17,FALSE
+"Maddison, PIB pc","maddison_SVK_2","Slovakia (1989-1992)","SVK","Slovakia",1989,1992,-0.227374363247907,3,1997,8,FALSE
+"Maddison, PIB pc","maddison_GRC_70","Greece (2008-2013)","GRC","Greece",2008,2013,-0.22736514833421,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_AFG_16","Afghanistan (1995-2001)","AFG","Afghanistan",1995,2001,-0.226337898798284,6,2002,7,FALSE
+"Maddison, PIB pc","maddison_HTI_29","Haiti (1991-1994)","HTI","Haiti",1991,1994,-0.224950881491012,3,2011,20,FALSE
+"Maddison, PIB pc","maddison_SLE_18","Sierra Leone (2014-2015)","SLE","Sierra Leone",2014,2015,-0.221225710014948,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CAF_12","Central African Republic (1977-1983)","CAF","Central African Republic",1977,1983,-0.220183486238532,6,NA,NA,FALSE
+"Maddison, PIB pc","maddison_AFG_6","Afghanistan (1968-1972)","AFG","Afghanistan",1968,1972,-0.21937984496124,4,1983,15,FALSE
+"Maddison, PIB pc","maddison_VNM_7","Viet Nam (1964-1968)","VNM","Viet Nam",1964,1968,-0.219341275402943,4,1985,21,FALSE
+"Maddison, PIB pc","maddison_RWA_14","Rwanda (1986-1991)","RWA","Rwanda",1986,1991,-0.219086844086561,5,2015,29,FALSE
+"Maddison, PIB pc","maddison_JOR_21","Jordan (2012-2016)","JOR","Jordan",2012,2016,-0.218310104802165,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_QAT_8","Qatar (1959-1965)","QAT","Qatar",1959,1965,-0.216168281333435,6,1967,8,FALSE
+"Maddison, PIB pc","maddison_EST_8","Estonia (2007-2009)","EST","Estonia",2007,2009,-0.215442403218153,2,2017,10,FALSE
+"Maddison, PIB pc","maddison_LBN_2","Lebanon (1955-1958)","LBN","Lebanon",1955,1958,-0.21398002853067,3,1970,15,FALSE
+"Maddison, PIB pc","maddison_TGO_12","Togo (1990-1993)","TGO","Togo",1990,1993,-0.213204019707434,3,2013,23,FALSE
+"Maddison, PIB pc","maddison_BGD_16","Bangladesh (1970-1973)","BGD","Bangladesh",1970,1973,-0.211155378486056,3,1990,20,FALSE
+"Maddison, PIB pc","maddison_SDN_14","Sudan (Former) (1977-1981)","SDN","Sudan (Former)",1977,1981,-0.210554658050619,4,2000,23,FALSE
+"Maddison, PIB pc","maddison_TTO_6","Trinidad and Tobago (1984-1989)","TTO","Trinidad and Tobago",1984,1989,-0.209841628959276,5,1999,15,FALSE
+"Maddison, PIB pc","maddison_KHM_10","Cambodia (1968-1972)","KHM","Cambodia",1968,1972,-0.209621993127148,4,1973,5,FALSE
+"Maddison, PIB pc","maddison_KWT_4","Kuwait (1956-1961)","KWT","Kuwait",1956,1961,-0.205747652850927,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_ARG_58","Argentina (1998-2002)","ARG","Argentina",1998,2002,-0.203555528768582,4,2005,7,FALSE
+"Maddison, PIB pc","maddison_GTM_22","Guatemala (1980-1988)","GTM","Guatemala",1980,1988,-0.203320802005013,8,2007,27,FALSE
+"Maddison, PIB pc","maddison_SDN_16","Sudan (Former) (1982-1985)","SDN","Sudan (Former)",1982,1985,-0.203252032520325,3,1997,15,FALSE
+"Maddison, PIB pc","maddison_LBN_22","Lebanon (2012-2015)","LBN","Lebanon",2012,2015,-0.20276879861767,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_GNB_10","Guinea-Bissau (1979-1981)","GNB","Guinea-Bissau",1979,1981,-0.200953678474114,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CPV_16","Cabo Verde (2019-2020)","CPV","Cabo Verde",2019,2020,-0.20079822561693,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_MMR_18","Myanmar (1985-1988)","MMR","Myanmar",1985,1988,-0.198539176626826,3,1998,13,FALSE
+"Maddison, PIB pc","maddison_QAT_12","Qatar (1973-1975)","QAT","Qatar",1973,1975,-0.197947578464192,2,2004,31,FALSE
+"Maddison, PIB pc","maddison_SDN_22","Sudan (Former) (2010-2013)","SDN","Sudan (Former)",2010,2013,-0.197945816506138,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_CAF_14","Central African Republic (1986-1993)","CAF","Central African Republic",1986,1993,-0.197022224902549,7,NA,NA,FALSE
+"Maddison, PIB pc","maddison_TKM_1","Turkmenistan (1973-1985)","TKM","Turkmenistan",1973,1985,-0.195892369686728,12,2004,31,FALSE
+"Maddison, PIB pc","maddison_ZMB_38","Zambia (1981-1987)","ZMB","Zambia",1981,1987,-0.193699731903485,6,2001,20,FALSE
+"Maddison, PIB pc","maddison_DJI_18","Djibouti (1995-2002)","DJI","Djibouti",1995,2002,-0.193585603714967,7,2006,11,FALSE
+"Maddison, PIB pc","maddison_MDG_8","Madagascar (1971-1978)","MDG","Madagascar",1971,1978,-0.192346424974824,7,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LSO_8","Lesotho (1978-1981)","LSO","Lesotho",1978,1981,-0.191313340227508,3,1997,19,FALSE
+"Maddison, PIB pc","maddison_GHA_43","Ghana (1974-1976)","GHA","Ghana",1974,1976,-0.190168175937904,2,2004,30,FALSE
+"Maddison, PIB pc","maddison_HTI_17","Haiti (1962-1967)","HTI","Haiti",1962,1967,-0.189277899343545,5,1976,14,FALSE
+"Maddison, PIB pc","maddison_VEN_80","Venezuela (2001-2003)","VEN","Venezuela",2001,2003,-0.188975855520166,2,2005,4,TRUE
+"Maddison, PIB pc","maddison_PAN_32","Panama (2019-2020)","PAN","Panama",2019,2020,-0.188543822142771,1,2022,3,FALSE
+"Maddison, PIB pc","maddison_PHL_24","Philippines (1982-1985)","PHL","Philippines",1982,1985,-0.187613371339725,3,1997,15,FALSE
+"Maddison, PIB pc","maddison_CHL_78","Chile (1981-1983)","CHL","Chile",1981,1983,-0.186697782963827,2,1989,8,FALSE
+"Maddison, PIB pc","maddison_COG_6","Congo (1984-1990)","COG","Congo",1984,1990,-0.186535162950257,6,2005,21,FALSE
+"Maddison, PIB pc","maddison_MMR_22","Myanmar (2020-2021)","MMR","Myanmar",2020,2021,-0.186138773344583,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_LVA_8","Latvia (2007-2010)","LVA","Latvia",2007,2010,-0.18544206808921,3,2014,7,FALSE
+"Maddison, PIB pc","maddison_GNB_18","Guinea-Bissau (1997-1998)","GNB","Guinea-Bissau",1997,1998,-0.185353722543591,1,2011,14,FALSE
+"Maddison, PIB pc","maddison_HTI_25","Haiti (1980-1987)","HTI","Haiti",1980,1987,-0.184682501211827,7,NA,NA,FALSE
+"Maddison, PIB pc","maddison_IRQ_24","Iraq (2002-2003)","IRQ","Iraq",2002,2003,-0.183347065286359,1,2004,2,FALSE
+"Maddison, PIB pc","maddison_HUN_28","Hungary (1988-1992)","HUN","Hungary",1988,1992,-0.183196143089723,4,1998,10,FALSE
+"Maddison, PIB pc","maddison_DMA_12","Dominica (1978-1979)","DMA","Dominica",1978,1979,-0.183086680761099,1,1981,3,FALSE
+"Maddison, PIB pc","maddison_GMB_6","Gambia (1969-1972)","GMB","Gambia",1969,1972,-0.18109269490485,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_KEN_19","Kenya (1951-1953)","KEN","Kenya",1951,1953,-0.179007323026851,2,1966,15,FALSE
+"Maddison, PIB pc","maddison_NER_14","Niger (1988-1993)","NER","Niger",1988,1993,-0.178337142979854,5,2018,30,FALSE
+"Maddison, PIB pc","maddison_MNG_2","Mongolia (1989-1992)","MNG","Mongolia",1989,1992,-0.175173627379803,3,1996,7,FALSE
+"Maddison, PIB pc","maddison_IRQ_30","Iraq (2019-2020)","IRQ","Iraq",2019,2020,-0.175042891358045,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_SLE_14","Sierra Leone (1989-1992)","SLE","Sierra Leone",1989,1992,-0.174806213829402,3,2012,23,FALSE
+"Maddison, PIB pc","maddison_CPV_6","Cabo Verde (1974-1975)","CPV","Cabo Verde",1974,1975,-0.173680694722779,1,1983,9,FALSE
+"Maddison, PIB pc","maddison_POL_103","Poland (1988-1991)","POL","Poland",1988,1991,-0.173619128024969,3,1995,7,FALSE
+"Maddison, PIB pc","maddison_ARM_7","Armenia (2008-2010)","ARM","Armenia",2008,2010,-0.173597277008925,2,2016,8,FALSE
+"Maddison, PIB pc","maddison_SYR_10","Syrian Arab Republic (1962-1966)","SYR","Syrian Arab Republic",1962,1966,-0.173029251363411,4,1969,7,FALSE
+"Maddison, PIB pc","maddison_URY_52","Uruguay (1981-1984)","URY","Uruguay",1981,1984,-0.172695668514517,3,1992,11,FALSE
+"Maddison, PIB pc","maddison_PER_196","Peru (1981-1983)","PER","Peru",1981,1983,-0.172229446611761,2,2005,24,FALSE
+"Maddison, PIB pc","maddison_LSO_24","Lesotho (2016-2020)","LSO","Lesotho",2016,2020,-0.171994742433265,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_NAM_22","Namibia (2015-2020)","NAM","Namibia",2015,2020,-0.171314419072532,5,NA,NA,FALSE
+"Maddison, PIB pc","maddison_BFA_8","Burkina Faso (1972-1976)","BFA","Burkina Faso",1972,1976,-0.170790103750998,4,1986,14,FALSE
+"Maddison, PIB pc","maddison_URY_58","Uruguay (1998-2002)","URY","Uruguay",1998,2002,-0.170597034111211,4,2007,9,FALSE
+"Maddison, PIB pc","maddison_CIV_14","Côte d'Ivoire (1980-1984)","CIV","Côte d'Ivoire",1980,1984,-0.169074700276668,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_DMA_22","Dominica (2019-2020)","DMA","Dominica",2019,2020,-0.167182314916247,1,NA,NA,FALSE
+"Maddison, PIB pc","maddison_OMN_8","Oman (1972-1973)","OMN","Oman",1972,1973,-0.166480625099665,1,1975,3,FALSE
+"Maddison, PIB pc","maddison_QAT_14","Qatar (1976-1977)","QAT","Qatar",1976,1977,-0.166216534648081,1,2002,26,FALSE
+"Maddison, PIB pc","maddison_ARG_68","Argentina (2017-2020)","ARG","Argentina",2017,2020,-0.165775218152235,3,NA,NA,FALSE
+"Maddison, PIB pc","maddison_ZWE_37","Zimbabwe (2018-2020)","ZWE","Zimbabwe",2018,2020,-0.165364972303008,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_BDI_2","Burundi (1959-1961)","BDI","Burundi",1959,1961,-0.164402173913043,2,1967,8,FALSE
+"Maddison, PIB pc","maddison_TTO_4","Trinidad and Tobago (1981-1983)","TTO","Trinidad and Tobago",1981,1983,-0.163365848852104,2,2002,21,FALSE
+"Maddison, PIB pc","maddison_SRB_18","Serbia (1998-1999)","SRB","Serbia",1998,1999,-0.162207253520606,1,2002,4,FALSE
+"Maddison, PIB pc","maddison_SYR_6","Syrian Arab Republic (1957-1958)","SYR","Syrian Arab Republic",1957,1958,-0.162082684656634,1,1962,5,FALSE
+"Maddison, PIB pc","maddison_CYP_15","Cyprus (2008-2014)","CYP","Cyprus",2008,2014,-0.160851600305672,6,2018,10,FALSE
+"Maddison, PIB pc","maddison_TCD_4","Chad (1962-1968)","TCD","Chad",1962,1968,-0.160358565737052,6,NA,NA,FALSE
+"Maddison, PIB pc","maddison_JOR_9","Jordan (1965-1968)","JOR","Jordan",1965,1968,-0.160031533307056,3,1978,13,FALSE
+"Maddison, PIB pc","maddison_CSK_16","Czechoslovakia (1989-1992)","CSK","Czechoslovakia",1989,1992,-0.159778966080206,3,1996,7,FALSE
+"Maddison, PIB pc","maddison_SYC_14","Seychelles (1979-1983)","SYC","Seychelles",1979,1983,-0.159636309435087,4,1987,8,FALSE
+"Maddison, PIB pc","maddison_BRB_6","Barbados (1989-1993)","BRB","Barbados",1989,1993,-0.159609026785465,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_TJK_1","Tajikistan (1973-1982)","TJK","Tajikistan",1973,1982,-0.157652826719779,9,NA,NA,FALSE
+"Maddison, PIB pc","maddison_TCD_24","Chad (2014-2018)","TCD","Chad",2014,2018,-0.157589670615398,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_YEM_12","Yemen (2010-2012)","YEM","Yemen",2010,2012,-0.155434206621,2,NA,NA,FALSE
+"Maddison, PIB pc","maddison_PSE_32","State of Palestine (2016-2020)","PSE","State of Palestine",2016,2020,-0.155395020539508,4,NA,NA,FALSE
+"Maddison, PIB pc","maddison_STP_15","Sao Tome and Principe (1979-1981)","STP","Sao Tome and Principe",1979,1981,-0.155386949924127,2,2013,34,FALSE
+"Maddison, PIB pc","maddison_SDN_12","Sudan (Former) (1971-1973)","SDN","Sudan (Former)",1971,1973,-0.154996600951734,2,1976,5,FALSE
+"Maddison, PIB pc","maddison_UGA_29","Uganda (1983-1986)","UGA","Uganda",1983,1986,-0.153846153846154,3,1995,12,FALSE
+"Maddison, PIB pc","maddison_TCD_6","Chad (1969-1973)","TCD","Chad",1969,1973,-0.153234960272418,4,1975,6,FALSE
+"Maddison, PIB pc","maddison_DMA_8","Dominica (1964-1965)","DMA","Dominica",1964,1965,-0.152219873150106,1,1970,6,FALSE
+"Maddison, PIB pc","maddison_DOM_8","Dominican Republic (1964-1965)","DOM","Dominican Republic",1964,1965,-0.151374207188161,1,1970,6,FALSE
+"Maddison, PIB pc","maddison_MNE_27","Montenegro (2019-2020)","MNE","Montenegro",2019,2020,-0.151253976911671,1,2022,3,FALSE
+"Maddison, PIB pc","maddison_TZA_14","U.R. of Tanzania: Mainland (1978-1985)","TZA","U.R. of Tanzania: Mainland",1978,1985,-0.151057401812689,7,1997,19,FALSE
+"Maddison, PIB pc","maddison_VNM_11","Viet Nam (1973-1975)","VNM","Viet Nam",1973,1975,-0.150787696924231,2,1983,10,FALSE
+"Maddison, PIB pc","maddison_JOR_11","Jordan (1969-1972)","JOR","Jordan",1969,1972,-0.150678733031674,3,1976,7,FALSE
+"WDI, PIB pc","wdi_LBR_9","Liberia (1979-1995)","LBR","Liberia",1979,1995,-0.927950876615831,16,NA,NA,FALSE
+"WDI, PIB pc","wdi_GEO_4","Georgia (1988-1994)","GEO","Georgia",1988,1994,-0.784252454171453,6,2018,30,FALSE
+"WDI, PIB pc","wdi_TJK_3","Tajikistan (1988-1996)","TJK","Tajikistan",1988,1996,-0.75190036866998,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_VEN_84","Venezuela (2012-2020)","VEN","Venezuela",2012,2020,-0.740142005551907,8,NA,NA,TRUE
+"WDI, PIB pc","wdi_COD_14","Congo, Dem. Rep. (1986-2002)","COD","Congo, Dem. Rep.",1986,2002,-0.676390455932523,16,NA,NA,FALSE
+"WDI, PIB pc","wdi_IRQ_16","Iraq (1990-1991)","IRQ","Iraq",1990,1991,-0.644235820475039,1,1999,9,FALSE
+"WDI, PIB pc","wdi_UKR_2","Ukraine (1989-1998)","UKR","Ukraine",1989,1998,-0.605083330497868,9,NA,NA,FALSE
+"WDI, PIB pc","wdi_AZE_1","Azerbaijan (1991-1995)","AZE","Azerbaijan",1991,1995,-0.601133004151926,4,2006,15,FALSE
+"WDI, PIB pc","wdi_SAU_6","Saudi Arabia (1979-1987)","SAU","Saudi Arabia",1979,1987,-0.557089581311511,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_SDN_24","Sudan (2016-2024)","SDN","Sudan",2016,2024,-0.554109318802974,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_MDA_1","Moldova (1991-1996)","MDA","Moldova",1991,1996,-0.545561891782624,5,2018,27,FALSE
+"WDI, PIB pc","wdi_IRN_4","Iran, Islamic Rep. (1976-1981)","IRN","Iran, Islamic Rep.",1976,1981,-0.542672491853306,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_GNQ_9","Equatorial Guinea (2012-2021)","GNQ","Equatorial Guinea",2012,2021,-0.528962590494388,9,NA,NA,FALSE
+"WDI, PIB pc","wdi_ZWE_23","Zimbabwe (2001-2008)","ZWE","Zimbabwe",2001,2008,-0.524866709567101,7,NA,NA,FALSE
+"WDI, PIB pc","wdi_ARE_6","United Arab Emirates (1980-1988)","ARE","United Arab Emirates",1980,1988,-0.517824013492657,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_KGZ_2","Kyrgyz Republic (1990-1995)","KGZ","Kyrgyz Republic",1990,1995,-0.511996838926655,5,2022,32,FALSE
+"WDI, PIB pc","wdi_KWT_3","Kuwait (1979-1982)","KWT","Kuwait",1979,1982,-0.506269473606368,3,2005,26,FALSE
+"WDI, PIB pc","wdi_LBY_24","Libya (2010-2011)","LBY","Libya",2010,2011,-0.491278565212286,1,NA,NA,FALSE
+"WDI, PIB pc","wdi_TZA_2","Tanzania (1968-1970)","TZA","Tanzania",1968,1970,-0.483369539888332,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_RWA_18","Rwanda (1992-1994)","RWA","Rwanda",1992,1994,-0.482857683153878,2,2002,10,FALSE
+"WDI, PIB pc","wdi_KWT_1","Kuwait (1971-1977)","KWT","Kuwait",1971,1977,-0.477721465660515,6,NA,NA,FALSE
+"WDI, PIB pc","wdi_YEM_6","Yemen, Rep. (2013-2018)","YEM","Yemen, Rep.",2013,2018,-0.464280588581562,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_IRQ_20","Iraq (2000-2003)","IRQ","Iraq",2000,2003,-0.46077440798226,3,2012,12,FALSE
+"WDI, PIB pc","wdi_SYR_24","Syrian Arab Republic (2011-2014)","SYR","Syrian Arab Republic",2011,2014,-0.450541827089686,3,NA,NA,FALSE
+"WDI, PIB pc","wdi_ARM_1","Armenia (1991-1993)","ARM","Armenia",1991,1993,-0.444524562697591,2,2002,11,FALSE
+"WDI, PIB pc","wdi_HTI_12","Haiti (1980-1994)","HTI","Haiti",1980,1994,-0.437379153279232,14,NA,NA,FALSE
+"WDI, PIB pc","wdi_TKM_3","Turkmenistan (1990-1995)","TKM","Turkmenistan",1990,1995,-0.433041568689599,5,2008,18,FALSE
+"WDI, PIB pc","wdi_LBY_26","Libya (2012-2016)","LBY","Libya",2012,2016,-0.425667480371019,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_CMR_12","Cameroon (1986-1994)","CMR","Cameroon",1986,1994,-0.424365813553514,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_AGO_5","Angola (1988-1994)","AGO","Angola",1988,1994,-0.419969309366908,6,2006,18,FALSE
+"WDI, PIB pc","wdi_KHM_9","Cambodia (1992-1994)","KHM","Cambodia",1992,1994,-0.404080881412024,2,2005,13,FALSE
+"WDI, PIB pc","wdi_RUS_1","Russian Federation (1990-1996)","RUS","Russian Federation",1990,1996,-0.402910807826704,6,2006,16,FALSE
+"WDI, PIB pc","wdi_ALB_6","Albania (1989-1992)","ALB","Albania",1989,1992,-0.399308253489314,3,2000,11,FALSE
+"WDI, PIB pc","wdi_LTU_1","Lithuania (1991-1994)","LTU","Lithuania",1991,1994,-0.397134463626588,3,2003,12,FALSE
+"WDI, PIB pc","wdi_LBY_28","Libya (2018-2020)","LBY","Libya",2018,2020,-0.390993968010133,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_GAB_2","Gabon (1976-1980)","GAB","Gabon",1976,1980,-0.380558602189237,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_NIC_14","Nicaragua (1983-1993)","NIC","Nicaragua",1983,1993,-0.368799802417541,10,2012,29,FALSE
+"WDI, PIB pc","wdi_CAF_29","Central African Republic (2012-2013)","CAF","Central African Republic",2012,2013,-0.368245466038613,1,NA,NA,FALSE
+"WDI, PIB pc","wdi_CUB_8","Cuba (1988-1993)","CUB","Cuba",1988,1993,-0.367963306680326,5,2005,17,FALSE
+"WDI, PIB pc","wdi_NGA_8","Nigeria (1980-1984)","NGA","Nigeria",1980,1984,-0.36258303598831,4,2009,29,FALSE
+"WDI, PIB pc","wdi_NIC_10","Nicaragua (1977-1979)","NIC","Nicaragua",1977,1979,-0.359245987843394,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_SLV_2","El Salvador (1978-1986)","SLV","El Salvador",1978,1986,-0.34969059547654,8,2012,34,FALSE
+"WDI, PIB pc","wdi_QAT_7","Qatar (1978-1985)","QAT","Qatar",1978,1985,-0.34959648855942,7,2006,28,FALSE
+"WDI, PIB pc","wdi_MOZ_1","Mozambique (1981-1986)","MOZ","Mozambique",1981,1986,-0.344070302736099,5,1998,17,FALSE
+"WDI, PIB pc","wdi_TTO_6","Trinidad and Tobago (1982-1989)","TTO","Trinidad and Tobago",1982,1989,-0.340843450765157,7,1999,17,FALSE
+"WDI, PIB pc","wdi_BLR_1","Belarus (1991-1995)","BLR","Belarus",1991,1995,-0.339126390725369,4,2002,11,FALSE
+"WDI, PIB pc","wdi_LBY_10","Libya (1979-1984)","LBY","Libya",1979,1984,-0.336150917643974,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_LVA_1","Latvia (1991-1993)","LVA","Latvia",1991,1993,-0.333046243040737,2,2001,10,FALSE
+"WDI, PIB pc","wdi_PSE_11","West Bank and Gaza (2022-2024)","PSE","West Bank and Gaza",2022,2024,-0.331575377455946,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_IRN_6","Iran, Islamic Rep. (1983-1988)","IRN","Iran, Islamic Rep.",1983,1988,-0.331277566008101,5,2003,20,FALSE
+"WDI, PIB pc","wdi_PSE_3","West Bank and Gaza (1999-2002)","PSE","West Bank and Gaza",1999,2002,-0.32782077123067,3,2009,10,FALSE
+"WDI, PIB pc","wdi_COG_24","Congo, Rep. (2014-2023)","COG","Congo, Rep.",2014,2023,-0.326114770410381,9,NA,NA,FALSE
+"WDI, PIB pc","wdi_AFG_8","Afghanistan (2019-2022)","AFG","Afghanistan",2019,2022,-0.32301188628423,3,NA,NA,FALSE
+"WDI, PIB pc","wdi_NER_10","Niger (1979-1984)","NER","Niger",1979,1984,-0.314308891321158,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_JAM_2","Jamaica (1972-1980)","JAM","Jamaica",1972,1980,-0.311308834985616,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_LBR_13","Liberia (2002-2003)","LBR","Liberia",2002,2003,-0.306993530292511,1,NA,NA,FALSE
+"WDI, PIB pc","wdi_LBN_10","Lebanon (2018-2023)","LBN","Lebanon",2018,2023,-0.304466984901718,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_CIV_9","Cote d'Ivoire (1978-1984)","CIV","Cote d'Ivoire",1978,1984,-0.303441267670946,6,NA,NA,FALSE
+"WDI, PIB pc","wdi_COD_10","Congo, Dem. Rep. (1974-1983)","COD","Congo, Dem. Rep.",1974,1983,-0.302566486646005,9,NA,NA,FALSE
+"WDI, PIB pc","wdi_JOR_4","Jordan (1986-1991)","JOR","Jordan",1986,1991,-0.302015113676662,5,2008,22,FALSE
+"WDI, PIB pc","wdi_TCD_6","Chad (1977-1980)","TCD","Chad",1977,1980,-0.295286891547152,3,2004,27,FALSE
+"WDI, PIB pc","wdi_PER_10","Peru (1987-1990)","PER","Peru",1987,1990,-0.294570318191694,3,2006,19,FALSE
+"WDI, PIB pc","wdi_QAT_23","Qatar (2011-2020)","QAT","Qatar",2011,2020,-0.292112357354887,9,NA,NA,FALSE
+"WDI, PIB pc","wdi_KAZ_1","Kazakhstan (1991-1995)","KAZ","Kazakhstan",1991,1995,-0.287493817037481,4,2002,11,FALSE
+"WDI, PIB pc","wdi_BDI_16","Burundi (1991-1997)","BDI","Burundi",1991,1997,-0.28650508640599,6,NA,NA,FALSE
+"WDI, PIB pc","wdi_LBY_12","Libya (1985-1987)","LBY","Libya",1985,1987,-0.28614950550311,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_KWT_9","Kuwait (1989-1991)","KWT","Kuwait",1989,1991,-0.285907070936286,2,1992,3,FALSE
+"WDI, PIB pc","wdi_ETH_12","Ethiopia (1987-1992)","ETH","Ethiopia",1987,1992,-0.285609333755594,5,2006,19,FALSE
+"WDI, PIB pc","wdi_COG_8","Congo, Rep. (1984-1994)","COG","Congo, Rep.",1984,1994,-0.284822019292559,10,NA,NA,FALSE
+"WDI, PIB pc","wdi_UZB_2","Uzbekistan (1989-1996)","UZB","Uzbekistan",1989,1996,-0.283076693629837,7,2006,17,FALSE
+"WDI, PIB pc","wdi_GHA_10","Ghana (1978-1983)","GHA","Ghana",1978,1983,-0.275227346724788,5,1997,19,FALSE
+"WDI, PIB pc","wdi_BOL_2","Bolivia (1977-1986)","BOL","Bolivia",1977,1986,-0.268862856802168,9,2006,29,FALSE
+"WDI, PIB pc","wdi_GRC_13","Greece (2007-2013)","GRC","Greece",2007,2013,-0.263990065478214,6,NA,NA,FALSE
+"WDI, PIB pc","wdi_GAB_6","Gabon (1984-1987)","GAB","Gabon",1984,1987,-0.261101141459161,3,NA,NA,FALSE
+"WDI, PIB pc","wdi_TGO_12","Togo (1989-1993)","TGO","Togo",1989,1993,-0.254630485447047,4,1997,8,FALSE
+"WDI, PIB pc","wdi_NER_6","Niger (1971-1973)","NER","Niger",1971,1973,-0.254186713971129,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_LCA_20","St. Lucia (2018-2020)","LCA","St. Lucia",2018,2020,-0.254107332736501,2,2023,5,FALSE
+"WDI, PIB pc","wdi_NGA_2","Nigeria (1965-1968)","NGA","Nigeria",1965,1968,-0.253209646996592,3,1970,5,FALSE
+"WDI, PIB pc","wdi_ARE_16","United Arab Emirates (2006-2010)","ARE","United Arab Emirates",2006,2010,-0.252536311997521,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_CIV_11","Cote d'Ivoire (1985-1994)","CIV","Cote d'Ivoire",1985,1994,-0.252269671151677,9,NA,NA,FALSE
+"WDI, PIB pc","wdi_GAB_10","Gabon (1998-2006)","GAB","Gabon",1998,2006,-0.248632193708472,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_VEN_70","Venezuela (1977-1985)","VEN","Venezuela",1977,1985,-0.246708124123997,8,NA,NA,TRUE
+"WDI, PIB pc","wdi_AGO_15","Angola (2014-2021)","AGO","Angola",2014,2021,-0.243940022602507,7,NA,NA,FALSE
+"WDI, PIB pc","wdi_MDG_7","Madagascar (1979-1987)","MDG","Madagascar",1979,1987,-0.24300200583002,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_KWT_19","Kuwait (2012-2020)","KWT","Kuwait",2012,2020,-0.239344625995128,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_GNB_12","Guinea-Bissau (1997-1998)","GNB","Guinea-Bissau",1997,1998,-0.238778523409397,1,2016,19,FALSE
+"WDI, PIB pc","wdi_MNG_2","Mongolia (1989-1993)","MNG","Mongolia",1989,1993,-0.23794563277286,4,2004,15,FALSE
+"WDI, PIB pc","wdi_UKR_10","Ukraine (2021-2022)","UKR","Ukraine",2021,2022,-0.227456813021158,1,NA,NA,FALSE
+"WDI, PIB pc","wdi_EST_1","Estonia (1991-1993)","EST","Estonia",1991,1993,-0.223526680310649,2,1997,6,FALSE
+"WDI, PIB pc","wdi_MDG_5","Madagascar (1971-1978)","MDG","Madagascar",1971,1978,-0.222731643161847,7,NA,NA,FALSE
+"WDI, PIB pc","wdi_BGR_2","Bulgaria (1988-1993)","BGR","Bulgaria",1988,1993,-0.22069053637546,5,2005,17,FALSE
+"WDI, PIB pc","wdi_BHR_4","Bahrain (1977-1982)","BHR","Bahrain",1977,1982,-0.220006556632658,5,1993,16,FALSE
+"WDI, PIB pc","wdi_ARG_17","Argentina (1998-2002)","ARG","Argentina",1998,2002,-0.219121951925802,4,2006,8,FALSE
+"WDI, PIB pc","wdi_BGD_8","Bangladesh (1970-1972)","BGD","Bangladesh",1970,1972,-0.216187796626027,2,1991,21,FALSE
+"WDI, PIB pc","wdi_CHL_6","Chile (1971-1975)","CHL","Chile",1971,1975,-0.214471221187694,4,1980,9,FALSE
+"WDI, PIB pc","wdi_KHM_3","Cambodia (1978-1982)","KHM","Cambodia",1978,1982,-0.211373566596198,4,1988,10,FALSE
+"WDI, PIB pc","wdi_MMR_12","Myanmar (2019-2021)","MMR","Myanmar",2019,2021,-0.210962079294075,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_URY_9","Uruguay (1981-1984)","URY","Uruguay",1981,1984,-0.210010644658055,3,1992,11,FALSE
+"WDI, PIB pc","wdi_CPV_6","Cabo Verde (2019-2020)","CPV","Cabo Verde",2019,2020,-0.208937523404244,1,2023,4,FALSE
+"WDI, PIB pc","wdi_KWT_17","Kuwait (2006-2010)","KWT","Kuwait",2006,2010,-0.208310516228402,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_GHA_8","Ghana (1974-1977)","GHA","Ghana",1974,1977,-0.208177363184428,3,2006,32,FALSE
+"WDI, PIB pc","wdi_NAM_11","Namibia (2015-2020)","NAM","Namibia",2015,2020,-0.206657950997889,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_CIV_13","Cote d'Ivoire (1998-2003)","CIV","Cote d'Ivoire",1998,2003,-0.202847948176945,5,2015,17,FALSE
+"WDI, PIB pc","wdi_IRQ_12","Iraq (1982-1985)","IRQ","Iraq",1982,1985,-0.201953825324455,3,1990,8,FALSE
+"WDI, PIB pc","wdi_MMR_8","Myanmar (1985-1988)","MMR","Myanmar",1985,1988,-0.201177630440163,3,1995,10,FALSE
+"WDI, PIB pc","wdi_TGO_8","Togo (1980-1983)","TGO","Togo",1980,1983,-0.200882767457536,3,NA,NA,FALSE
+"WDI, PIB pc","wdi_CAF_17","Central African Republic (1988-1993)","CAF","Central African Republic",1988,1993,-0.19924273532225,5,2012,24,FALSE
+"WDI, PIB pc","wdi_HTI_24","Haiti (2018-2024)","HTI","Haiti",2018,2024,-0.196527648155112,6,NA,NA,FALSE
+"WDI, PIB pc","wdi_ZWE_11","Zimbabwe (1974-1978)","ZWE","Zimbabwe",1974,1978,-0.193862250254076,4,1996,22,FALSE
+"WDI, PIB pc","wdi_NER_14","Niger (1988-1997)","NER","Niger",1988,1997,-0.191967766500572,9,2017,29,FALSE
+"WDI, PIB pc","wdi_GTM_4","Guatemala (1980-1986)","GTM","Guatemala",1980,1986,-0.191018583948737,6,2006,26,FALSE
+"WDI, PIB pc","wdi_PAN_6","Panama (1986-1989)","PAN","Panama",1986,1989,-0.190980572223957,3,1993,7,FALSE
+"WDI, PIB pc","wdi_PHL_2","Philippines (1982-1985)","PHL","Philippines",1982,1985,-0.18990900525366,3,2004,22,FALSE
+"WDI, PIB pc","wdi_SDN_8","Sudan (1977-1980)","SDN","Sudan",1977,1980,-0.189862533018711,3,1997,20,FALSE
+"WDI, PIB pc","wdi_PAN_14","Panama (2019-2020)","PAN","Panama",2019,2020,-0.189421659787374,1,2022,3,FALSE
+"WDI, PIB pc","wdi_VEN_80","Venezuela (2001-2003)","VEN","Venezuela",2001,2003,-0.188975855520166,2,2005,4,TRUE
+"WDI, PIB pc","wdi_EST_5","Estonia (2007-2009)","EST","Estonia",2007,2009,-0.186315237628808,2,2015,8,FALSE
+"WDI, PIB pc","wdi_DMA_1","Dominica (1978-1979)","DMA","Dominica",1978,1979,-0.1862224909723,1,1981,3,FALSE
+"WDI, PIB pc","wdi_SYC_24","Seychelles (2019-2022)","SYC","Seychelles",2019,2022,-0.185403851788859,3,NA,NA,FALSE
+"WDI, PIB pc","wdi_MLI_9","Mali (1981-1984)","MLI","Mali",1981,1984,-0.184971009563738,3,1997,16,FALSE
+"WDI, PIB pc","wdi_CYP_8","Cyprus (2008-2014)","CYP","Cyprus",2008,2014,-0.184910452910263,6,2019,11,FALSE
+"WDI, PIB pc","wdi_CHL_8","Chile (1981-1983)","CHL","Chile",1981,1983,-0.183000658944998,2,1989,8,FALSE
+"WDI, PIB pc","wdi_ETH_10","Ethiopia (1983-1985)","ETH","Ethiopia",1983,1985,-0.182278593287662,2,2006,23,FALSE
+"WDI, PIB pc","wdi_GNB_4","Guinea-Bissau (1978-1980)","GNB","Guinea-Bissau",1978,1980,-0.181641923077685,2,1985,7,FALSE
+"WDI, PIB pc","wdi_LVA_3","Latvia (2007-2010)","LVA","Latvia",2007,2010,-0.180262837325821,3,2015,8,FALSE
+"WDI, PIB pc","wdi_OMN_18","Oman (2009-2014)","OMN","Oman",2009,2014,-0.179366298752236,5,NA,NA,FALSE
+"WDI, PIB pc","wdi_TCD_12","Chad (1992-1993)","TCD","Chad",1992,1993,-0.176741907151847,1,2003,11,FALSE
+"WDI, PIB pc","wdi_LSO_20","Lesotho (2016-2020)","LSO","Lesotho",2016,2020,-0.17667791062421,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_SLE_16","Sierra Leone (1991-1992)","SLE","Sierra Leone",1991,1992,-0.174597698249032,1,2012,21,FALSE
+"WDI, PIB pc","wdi_HRV_1","Croatia (1991-1993)","HRV","Croatia",1991,1993,-0.172356882769868,2,1996,5,FALSE
+"WDI, PIB pc","wdi_HUN_4","Hungary (1989-1993)","HUN","Hungary",1989,1993,-0.170704825746459,4,2000,11,FALSE
+"WDI, PIB pc","wdi_ZMB_15","Zambia (1981-1987)","ZMB","Zambia",1981,1987,-0.169747257404589,6,2009,28,FALSE
+"WDI, PIB pc","wdi_SAU_10","Saudi Arabia (1991-1999)","SAU","Saudi Arabia",1991,1999,-0.16932694232846,8,NA,NA,FALSE
+"WDI, PIB pc","wdi_OMN_6","Oman (1972-1973)","OMN","Oman",1972,1973,-0.166997263585133,1,1975,3,FALSE
+"WDI, PIB pc","wdi_MDG_9","Madagascar (1990-1996)","MDG","Madagascar",1990,1996,-0.165092292003228,6,NA,NA,FALSE
+"WDI, PIB pc","wdi_SYR_18","Syrian Arab Republic (1988-1989)","SYR","Syrian Arab Republic",1988,1989,-0.164606695006472,1,1994,6,FALSE
+"WDI, PIB pc","wdi_LSO_8","Lesotho (1974-1975)","LSO","Lesotho",1974,1975,-0.164511267325274,1,1977,3,FALSE
+"WDI, PIB pc","wdi_ZWE_27","Zimbabwe (2018-2020)","ZWE","Zimbabwe",2018,2020,-0.163928508813306,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_TZA_6","Tanzania (1975-1983)","TZA","Tanzania",1975,1983,-0.163890932745869,8,2002,27,FALSE
+"WDI, PIB pc","wdi_PSE_9","West Bank and Gaza (2016-2020)","PSE","West Bank and Gaza",2016,2020,-0.160957532012352,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_SYR_26","Syrian Arab Republic (2015-2022)","SYR","Syrian Arab Republic",2015,2022,-0.159790373083194,7,NA,NA,FALSE
+"WDI, PIB pc","wdi_JOR_10","Jordan (2012-2016)","JOR","Jordan",2012,2016,-0.15913049504033,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_YEM_4","Yemen, Rep. (2010-2012)","YEM","Yemen, Rep.",2010,2012,-0.159044931118573,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_BWA_8","Botswana (2008-2009)","BWA","Botswana",2008,2009,-0.158997149078875,1,2013,5,FALSE
+"WDI, PIB pc","wdi_SLE_28","Sierra Leone (2013-2015)","SLE","Sierra Leone",2013,2015,-0.158912292998631,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_CRI_4","Costa Rica (1979-1982)","CRI","Costa Rica",1979,1982,-0.158723576173982,3,1992,13,FALSE
+"WDI, PIB pc","wdi_GNQ_7","Equatorial Guinea (2008-2010)","GNQ","Equatorial Guinea",2008,2010,-0.158164836909316,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_ARG_27","Argentina (2017-2020)","ARG","Argentina",2017,2020,-0.157325785017369,3,NA,NA,FALSE
+"WDI, PIB pc","wdi_TCD_4","Chad (1969-1973)","TCD","Chad",1969,1973,-0.154764450694266,4,2004,35,FALSE
+"WDI, PIB pc","wdi_GNQ_5","Equatorial Guinea (1987-1991)","GNQ","Equatorial Guinea",1987,1991,-0.153679366067332,4,1992,5,FALSE
+"WDI, PIB pc","wdi_SDN_10","Sudan (1982-1985)","SDN","Sudan",1982,1985,-0.153673361132595,3,1989,7,FALSE
+"WDI, PIB pc","wdi_URY_15","Uruguay (1998-2002)","URY","Uruguay",1998,2002,-0.153490347766664,4,2007,9,FALSE
+"WDI, PIB pc","wdi_NER_4","Niger (1965-1969)","NER","Niger",1965,1969,-0.153237155397015,4,NA,NA,FALSE
+"WDI, PIB pc","wdi_DMA_13","Dominica (2019-2020)","DMA","Dominica",2019,2020,-0.15323436855213,1,2023,4,FALSE
+"WDI, PIB pc","wdi_STP_6","Sao Tome and Principe (1979-1981)","STP","Sao Tome and Principe",1979,1981,-0.151307628383258,2,NA,NA,FALSE
+"WDI, PIB pc","wdi_IDN_9","Indonesia (1997-1999)","IDN","Indonesia",1997,1999,-0.150985066116873,2,2005,8,FALSE
+"WDI, PIB pc","wdi_ZMB_13","Zambia (1976-1980)","ZMB","Zambia",1976,1980,-0.150019411997716,4,NA,NA,FALSE
