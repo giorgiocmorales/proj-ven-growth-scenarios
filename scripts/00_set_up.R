@@ -1,13 +1,15 @@
 # Set up the project session and required directories.
-project_packages_core <- c("readxl")
+project_packages_core <- c("readxl", "dplyr", "jsonlite")
 project_packages_app <- c("shiny")
 project_packages_dev <- c("testthat")
-project_packages_legacy <- c("tidyverse", "dplyr", "janitor", "lubridate", "zoo")
+project_packages_reports <- c("ggplot2", "scales", "quarto")
+project_packages_legacy <- c("tidyverse", "janitor", "lubridate", "zoo")
 
 project_packages_all <- unique(c(
   project_packages_core,
   project_packages_app,
   project_packages_dev,
+  project_packages_reports,
   project_packages_legacy
 ))
 
@@ -51,6 +53,7 @@ for (package_name in project_packages_all) {
 dir.create("data/interim", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/final", recursive = TRUE, showWarnings = FALSE)
 dir.create("reports", recursive = TRUE, showWarnings = FALSE)
+dir.create("reports/presentation/assets/images", recursive = TRUE, showWarnings = FALSE)
 
 message("Loaded project packages: ", paste(project_packages_all, collapse = ", "))
-message("Prepared project directories: data/interim, data/final, reports")
+message("Prepared project directories: data/interim, data/final, reports, reports/presentation/assets/images")

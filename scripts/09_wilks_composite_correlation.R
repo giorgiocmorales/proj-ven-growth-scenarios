@@ -1,4 +1,7 @@
 # Recreate the Wilks-style composite convergence simulation discussed by Cremieux.
+
+## Setup -----------------------------------------------------------------------
+# Check packages and load the shared presentation theme.
 required_packages <- c("dplyr", "ggplot2", "scales")
 missing_packages <- required_packages[!vapply(
   required_packages,
@@ -14,23 +17,18 @@ if (length(missing_packages) > 0) {
   )
 }
 
+source("scripts/_presentation_theme.R")
+
 figure_dir <- "reports/presentation/figures"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
-apply_presentation_axis_theme <- function(plot = NULL) {
-  axis_theme <- ggplot2::theme(
-    axis.line.x = ggplot2::element_line(color = "grey35", linewidth = 0.35),
-    axis.line.y = ggplot2::element_line(color = "grey35", linewidth = 0.35),
-    panel.grid.major.x = ggplot2::element_blank(),
-    panel.grid.minor.x = ggplot2::element_blank()
-  )
-
-  if (is.null(plot)) {
-    return(axis_theme)
-  }
-
-  plot + axis_theme
-}
+## Plot constants --------------------------------------------------------------
+# Shared caption and simulation parameters.
+presentation_source_caption <- build_source_caption(
+  "replicacion propia de la simulacion de Cremieux Recueil (2024)",
+  calculations = TRUE,
+  note = "cada punto es una nueva extraccion de pesos aleatorios de media positiva aplicados a conjuntos disjuntos de items"
+)
 
 set.seed(20260530)
 
@@ -39,6 +37,8 @@ draws_per_size <- 450L
 sample_size <- 200L
 target_average_correlation <- 0.50
 
+## Simulation helper -----------------------------------------------------------
+# Simulate the correlation between two weighted composites with disjoint items.
 simulate_composite_correlation <- function(items_n) {
   factor_loading <- sqrt(target_average_correlation)
   unique_loading <- sqrt(1 - target_average_correlation)
@@ -60,6 +60,8 @@ simulate_composite_correlation <- function(items_n) {
   stats::cor(l1, l2)
 }
 
+## Simulation data -------------------------------------------------------------
+# Run repeated draws for each composite size.
 simulation_data <- do.call(
   rbind,
   lapply(
@@ -74,6 +76,8 @@ simulation_data <- do.call(
   )
 )
 
+## Summary data ----------------------------------------------------------------
+# Collapse draws into mean, median, and uncertainty bands for plotting.
 summary_data <- simulation_data |>
   dplyr::group_by(items_per_composite) |>
   dplyr::summarise(
@@ -84,6 +88,8 @@ summary_data <- simulation_data |>
     .groups = "drop"
   )
 
+## Plot construction -----------------------------------------------------------
+# Graph: Por qué el PIB aparece en todas partes
 wilks_plot <- ggplot2::ggplot() +
   ggplot2::geom_ribbon(
     data = summary_data,
@@ -94,7 +100,7 @@ wilks_plot <- ggplot2::ggplot() +
   ggplot2::geom_point(
     data = simulation_data,
     ggplot2::aes(x = items_per_composite, y = composite_correlation),
-    color = "black",
+    color = presentation_colors[["ink"]],
     alpha = 0.12,
     size = 0.85,
     stroke = 0
@@ -116,33 +122,34 @@ wilks_plot <- ggplot2::ggplot() +
   ) +
   ggplot2::scale_y_continuous(
     labels = scales::label_number(accuracy = 0.01),
-    breaks = seq(0, 1, by = 0.25)
+    breaks = c(-0.05, seq(0, 1, by = 0.25), 1.05)
   ) +
-  ggplot2::coord_cartesian(ylim = c(-0.05, 1.05)) +
+  ggplot2::coord_cartesian(ylim = c(-0.05, 1.05), expand = FALSE) +
   ggplot2::scale_color_manual(
-    values = c("Mediana" = "#377eb8", "Media" = "#c23b6f")
+    values = c(
+      "Mediana" = presentation_colors[["primary"]],
+      "Media" = presentation_colors[["negative"]]
+    )
   ) +
   ggplot2::labs(
     title = "Convergencia entre indicadores compuestos con ítems disjuntos",
-    subtitle = "Dos índices construidos con ítems distintos, pero todos comparten Corr(xᵢ, xⱼ) ≈ ρ = 0.5",
+    subtitle = "Dos índices construidos con ítems distintos, pero todos comparten correlación promedio cercana a 0.5",
     x = "Ítems por indicador compuesto, log(n)",
-    y = "Corr(L₁, L₂)",
-    color = NULL,
-    caption = "Nota: cada punto es una nueva extracción de pesos aleatorios de media positiva aplicados a conjuntos disjuntos de ítems."
+    y = "Corr(L?, L?)",
+    color = NULL
   ) +
   ggplot2::theme_minimal(base_size = 12) +
   ggplot2::theme(
     legend.position = "bottom",
-    panel.grid.minor = ggplot2::element_blank(),
-    plot.caption = ggplot2::element_text(hjust = 0.5, size = 9)
+    panel.grid.minor = ggplot2::element_blank()
   )
 
-ggplot2::ggsave(
+## Figure output ---------------------------------------------------------------
+# Save the finished simulation graph.
+save_presentation_plot(
   filename = file.path(figure_dir, "wilks_composite_correlation.png"),
-  plot = apply_presentation_axis_theme(wilks_plot),
-  width = 11,
-  height = 6.2,
-  dpi = 160
+  plot = wilks_plot,
+  source_caption = presentation_source_caption
 )
 
 message("Wrote ", file.path(figure_dir, "wilks_composite_correlation.png"))

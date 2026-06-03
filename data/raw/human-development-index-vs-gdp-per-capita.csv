@@ -1,4 +1,4 @@
-Entity,Code,Year,Human Development Index,GDP per capita,Population,World region according to OWID
+entity,code,year,hdi__sex_total,ny_gdp_pcap_pp_kd,population_historical,owid_region
 Afghanistan,AFG,1990,0.285,,12045664,Asia
 Afghanistan,AFG,1991,0.291,,12238879,Asia
 Afghanistan,AFG,1992,0.301,,13278983,Asia

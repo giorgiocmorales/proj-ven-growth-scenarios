@@ -1,9 +1,80 @@
+/* Light serif presentation theme.
+   Edit this block first when changing the deck's visual style. */
+:root {
+  --deck-background: #fffdf8;
+  --deck-text: #1f2933;
+  --deck-muted: #667085;
+  --deck-heading: #17324d;
+  --deck-accent: #2f6f8f;
+  --deck-rule: #d8dee6;
+  --deck-serif: Georgia, "Times New Roman", Times, serif;
+  --deck-sans: "Aptos", "Segoe UI", Arial, sans-serif;
+}
+
+.reveal {
+  background: var(--deck-background);
+  color: var(--deck-text);
+  font-family: var(--deck-serif);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: var(--deck-heading);
+  font-family: var(--deck-serif);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
 .reveal h1.title {
   font-size: 1.55em;
   white-space: nowrap;
 }
 
 .reveal h2 {
+  border-bottom: 1px solid var(--deck-rule);
   font-size: 1.12em;
+  margin-bottom: 0.42em;
+  padding-bottom: 0.18em;
   white-space: nowrap;
+}
+
+.reveal p,
+.reveal li {
+  line-height: 1.35;
+}
+
+.reveal .slide-number,
+.reveal .progress {
+  color: var(--deck-accent);
+  font-family: var(--deck-sans);
+}
+
+.reveal .progress {
+  background: #edf2f7;
+}
+
+.reveal .progress span {
+  background: var(--deck-accent);
+}
+
+.reveal img {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal img.quarto-figure,
+.reveal section img {
+  display: block;
+  height: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 592px;
+  object-fit: contain;
+  width: 100% !important;
 }

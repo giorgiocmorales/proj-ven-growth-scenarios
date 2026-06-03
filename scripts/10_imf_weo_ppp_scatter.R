@@ -1,4 +1,7 @@
 # Build IMF WEO PPP GDP scatterplots for selected cross-sections.
+
+## Setup -----------------------------------------------------------------------
+# Check packages and load the shared presentation theme.
 required_packages <- c("dplyr", "ggplot2", "jsonlite", "readxl", "scales")
 missing_packages <- required_packages[!vapply(
   required_packages,
@@ -14,24 +17,18 @@ if (length(missing_packages) > 0) {
   )
 }
 
+source("scripts/_presentation_theme.R")
+
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 figure_dir <- "reports/presentation/figures"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
-apply_presentation_axis_theme <- function(plot = NULL) {
-  axis_theme <- ggplot2::theme(
-    axis.line.x = ggplot2::element_line(color = "grey35", linewidth = 0.35),
-    axis.line.y = ggplot2::element_line(color = "grey35", linewidth = 0.35),
-    panel.grid.major.x = ggplot2::element_blank(),
-    panel.grid.minor.x = ggplot2::element_blank()
-  )
-
-  if (is.null(plot)) {
-    return(axis_theme)
-  }
-
-  plot + axis_theme
-}
+## Plot constants --------------------------------------------------------------
+# Shared caption, country groups, labels, and axis limits.
+presentation_source_caption <- build_source_caption(
+  "FMI World Economic Outlook Database (2025) y Maddison Project Database 2023",
+  calculations = TRUE
+)
 
 maddison_data_path <- "data/raw/mpd2023_web.xlsx"
 if (!file.exists(maddison_data_path)) {
@@ -55,7 +52,13 @@ emerging_latam_codes <- c(
 )
 tracked_latam_codes <- c("COL", "ECU", "BRA", "ARG", "PER", "BOL", "CHL")
 final_year_ratio_label_codes <- c("USA", "PER", "COL", "BRA", "ESP", "CHL", "ECU", "ARG")
+ratio_x_limits <- c(1999, 2025)
+ratio_x_breaks <- c(1999, 2005, 2010, 2015, 2020, 2025)
+ratio_y_limits <- c(0.01, 100)
+ratio_y_breaks <- c(0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100)
 
+## Data helpers ----------------------------------------------------------------
+# Read one IMF DataMapper indicator and return a country-year long table.
 read_imf_datamapper_indicator <- function(indicator_id, indicator_name) {
   imf_url <- sprintf("https://www.imf.org/external/datamapper/api/v1/%s", indicator_id)
   imf_json <- jsonlite::fromJSON(imf_url, simplifyVector = FALSE)
@@ -85,6 +88,8 @@ read_imf_datamapper_indicator <- function(indicator_id, indicator_name) {
     dplyr::filter(!is.na(year), !is.na(value))
 }
 
+## Data download and shaping ---------------------------------------------------
+# Download IMF indicators and attach Maddison country metadata.
 imf_ppp_components <- dplyr::bind_rows(
   read_imf_datamapper_indicator("PPPGDP", "GDP, current international dollars, PPP"),
   read_imf_datamapper_indicator("PPPPC", "GDP per capita, current international dollars, PPP"),
@@ -105,6 +110,7 @@ imf_ppp_wide <- imf_ppp_components |>
 
 names(imf_ppp_wide) <- sub("^value\\.", "", names(imf_ppp_wide))
 
+# Keep complete country-year records for the scatterplot families.
 imf_ppp_scatter_data <- imf_ppp_wide |>
   dplyr::transmute(
     country_code = country_code,
@@ -131,6 +137,8 @@ imf_ppp_scatter_data <- imf_ppp_wide |>
   ) |>
   dplyr::arrange(year, highlight_group, country)
 
+## Data outputs ----------------------------------------------------------------
+# Persist the raw IMF panel and the final scatterplot table.
 utils::write.csv(
   imf_ppp_components,
   "data/raw/imf_weo_ppp_gdp_population_maddison_countries.csv",
@@ -142,6 +150,8 @@ utils::write.csv(
   row.names = FALSE
 )
 
+## Selected-year plot data ------------------------------------------------------
+# Split selected cross-sections into background, LatAm, and Venezuela layers.
 selected_years <- c(1999L, 2009L, 2013L, 2018L, 2021L, 2025L)
 plot_data <- imf_ppp_scatter_data |>
   dplyr::filter(year %in% selected_years) |>
@@ -157,15 +167,17 @@ plot_data_latam <- plot_data |>
 plot_data_venezuela <- plot_data |>
   dplyr::filter(highlight_group == "Venezuela")
 
+## Family: selected-year PPP scatterplots
+# Graph: PIB per cápita PPP, años seleccionados
 imf_ppp_scatter <- ggplot2::ggplot() +
   ggplot2::geom_point(
     data = plot_data_background,
     ggplot2::aes(
       x = gdp_per_capita_ppp_current_intl_dollars,
       y = gdp_ppp_current_intl_dollars_billions,
-      size = population_millions
+      size = population_millions,
+      color = highlight_group
     ),
-    color = "grey70",
     alpha = 0.45
   ) +
   ggplot2::geom_point(
@@ -173,9 +185,9 @@ imf_ppp_scatter <- ggplot2::ggplot() +
     ggplot2::aes(
       x = gdp_per_capita_ppp_current_intl_dollars,
       y = gdp_ppp_current_intl_dollars_billions,
-      size = population_millions
+      size = population_millions,
+      color = highlight_group
     ),
-    color = "#1f77b4",
     alpha = 0.75
   ) +
   ggplot2::geom_point(
@@ -183,9 +195,9 @@ imf_ppp_scatter <- ggplot2::ggplot() +
     ggplot2::aes(
       x = gdp_per_capita_ppp_current_intl_dollars,
       y = gdp_ppp_current_intl_dollars_billions,
-      size = population_millions
+      size = population_millions,
+      color = highlight_group
     ),
-    color = "#d62728",
     alpha = 0.95
   ) +
   ggplot2::geom_text(
@@ -195,7 +207,7 @@ imf_ppp_scatter <- ggplot2::ggplot() +
       y = gdp_ppp_current_intl_dollars_billions,
       label = "VEN"
     ),
-    color = "#d62728",
+    color = presentation_colors[["venezuela"]],
     nudge_y = 0.10,
     size = 3.3,
     fontface = "bold",
@@ -203,8 +215,19 @@ imf_ppp_scatter <- ggplot2::ggplot() +
   ) +
   ggplot2::facet_wrap(ggplot2::vars(year), ncol = 3) +
   ggplot2::scale_x_log10(labels = scales::label_dollar(prefix = "$", accuracy = 1)) +
-  ggplot2::scale_y_log10(labels = scales::label_number(scale_cut = scales::cut_short_scale())) +
+  ggplot2::scale_y_log10(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+    breaks = presentation_breaks_include_limits()
+  ) +
   ggplot2::scale_size_area(max_size = 5.5, labels = scales::label_number(suffix = " M"), name = "Población") +
+  ggplot2::scale_color_manual(
+    values = c(
+      "Resto del mundo" = "grey70",
+      "LatAm emergente" = presentation_colors[["latam"]],
+      "Venezuela" = presentation_colors[["venezuela"]]
+    ),
+    name = NULL
+  ) +
   ggplot2::labs(
     title = "PIB per cápita y tamaño económico en paridad de poder de compra",
     subtitle = "FMI WEO. Venezuela en rojo; LatAm emergente en azul; resto del mundo en gris.",
@@ -214,14 +237,14 @@ imf_ppp_scatter <- ggplot2::ggplot() +
   ggplot2::theme_minimal(base_size = 11) +
   ggplot2::theme(legend.position = "bottom")
 
-ggplot2::ggsave(
+save_presentation_plot(
   filename = file.path(figure_dir, "imf_weo_ppp_scatter_selected_years.png"),
-  plot = apply_presentation_axis_theme(imf_ppp_scatter),
-  width = 11,
-  height = 6.2,
-  dpi = 160
+  plot = imf_ppp_scatter,
+  source_caption = presentation_source_caption
 )
 
+## Chart helper ----------------------------------------------------------------
+# Build one fixed-axis scatterplot for a selected year and GDP measure.
 build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_limits, title_prefix, x_label, y_label) {
   single_year_data <- imf_ppp_scatter_data |>
     dplyr::filter(year == selected_year) |>
@@ -241,9 +264,9 @@ build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_l
       data = single_year_background,
       ggplot2::aes(
         x = .data[[x_var]],
-        y = .data[[y_var]]
+        y = .data[[y_var]],
+        color = highlight_group
       ),
-      color = "grey70",
       alpha = 0.45,
       size = 1.5
     ) +
@@ -251,9 +274,9 @@ build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_l
       data = single_year_latam,
       ggplot2::aes(
         x = .data[[x_var]],
-        y = .data[[y_var]]
+        y = .data[[y_var]],
+        color = highlight_group
       ),
-      color = "#1f77b4",
       alpha = 0.8,
       size = 2.2
     ) +
@@ -261,9 +284,9 @@ build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_l
       data = single_year_venezuela,
       ggplot2::aes(
         x = .data[[x_var]],
-        y = .data[[y_var]]
+        y = .data[[y_var]],
+        color = highlight_group
       ),
-      color = "#d62728",
       alpha = 0.95,
       size = 4.5
     ) +
@@ -274,7 +297,7 @@ build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_l
         y = .data[[y_var]],
         label = country_code
       ),
-      color = "#2f2f2f",
+      color = presentation_colors[["primary"]],
       nudge_y = 0.12,
       size = 3.6,
       fontface = "bold"
@@ -285,7 +308,16 @@ build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_l
     ) +
     ggplot2::scale_y_log10(
       labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+      breaks = presentation_breaks_include_limits(),
       limits = y_limits
+    ) +
+    ggplot2::scale_color_manual(
+      values = c(
+        "Resto del mundo" = "grey70",
+        "LatAm emergente" = presentation_colors[["latam"]],
+        "Venezuela" = presentation_colors[["venezuela"]]
+      ),
+      name = NULL
     ) +
     ggplot2::labs(
       title = sprintf("%s, %s", title_prefix, selected_year),
@@ -299,12 +331,16 @@ build_single_year_scatter <- function(selected_year, x_var, y_var, x_limits, y_l
 single_years <- c(1999L, 2008L, 2013L, 2018L, 2025L)
 single_year_plot_data <- imf_ppp_scatter_data |>
   dplyr::filter(year %in% single_years)
+
+# Use common limits so year-by-year scatterplots are comparable.
 fixed_x_limits <- range(single_year_plot_data$gdp_per_capita_ppp_current_intl_dollars, na.rm = TRUE)
 fixed_y_limits <- range(single_year_plot_data$gdp_ppp_current_intl_dollars_billions, na.rm = TRUE)
 fixed_nominal_x_limits <- range(single_year_plot_data$gdp_per_capita_nominal_current_usd, na.rm = TRUE)
 fixed_nominal_y_limits <- range(single_year_plot_data$gdp_nominal_current_usd_billions, na.rm = TRUE)
 
+## Family: individual-year PPP and nominal scatterplots
 for (single_year in single_years) {
+  # Graph: PIB per cápita PPP, año individual
   single_year_plot <- build_single_year_scatter(
     single_year,
     x_var = "gdp_per_capita_ppp_current_intl_dollars",
@@ -315,14 +351,13 @@ for (single_year in single_years) {
     x_label = "PIB per cápita PPP, dólares internacionales corrientes",
     y_label = "PIB total PPP, miles de millones"
   )
-  ggplot2::ggsave(
+  save_presentation_plot(
     filename = file.path(figure_dir, sprintf("imf_weo_ppp_scatter_%s.png", single_year)),
-    plot = apply_presentation_axis_theme(single_year_plot),
-    width = 11,
-    height = 6.2,
-    dpi = 160
+    plot = single_year_plot,
+    source_caption = presentation_source_caption
   )
 
+  # Graph: PIB per cápita nominal, año individual
   single_year_nominal_plot <- build_single_year_scatter(
     single_year,
     x_var = "gdp_per_capita_nominal_current_usd",
@@ -333,15 +368,15 @@ for (single_year in single_years) {
     x_label = "PIB nominal per cápita, dólares corrientes",
     y_label = "PIB nominal total, miles de millones de dólares"
   )
-  ggplot2::ggsave(
+  save_presentation_plot(
     filename = file.path(figure_dir, sprintf("imf_weo_nominal_scatter_%s.png", single_year)),
-    plot = apply_presentation_axis_theme(single_year_nominal_plot),
-    width = 11,
-    height = 6.2,
-    dpi = 160
+    plot = single_year_nominal_plot,
+    source_caption = presentation_source_caption
   )
 }
 
+## Family: GDP per capita relative to Venezuela
+# Build ratio tables and plots using Venezuela as the yearly baseline.
 build_venezuela_ratio_data <- function(data, value_var) {
   venezuela_reference <- data |>
     dplyr::filter(country_code == "VEN") |>
@@ -376,35 +411,44 @@ build_venezuela_ratio_plot <- function(data, value_var, title, y_label) {
     ggplot2::geom_hline(yintercept = 1, color = "grey45", linewidth = 0.35) +
     ggplot2::geom_jitter(
       data = background_data,
-      ggplot2::aes(x = year, y = ratio_to_venezuela),
+      ggplot2::aes(x = year, y = ratio_to_venezuela, color = highlight_group),
       width = 0.18,
       height = 0,
-      color = "grey72",
       alpha = 0.32,
       size = 1
     ) +
     ggplot2::geom_jitter(
       data = emerging_latam_data,
-      ggplot2::aes(x = year, y = ratio_to_venezuela),
+      ggplot2::aes(x = year, y = ratio_to_venezuela, color = highlight_group),
       width = 0.18,
       height = 0,
-      color = "#1f77b4",
       alpha = 0.7,
       size = 1.4
     ) +
     ggplot2::geom_point(
       data = venezuela_data,
-      ggplot2::aes(x = year, y = ratio_to_venezuela),
-      color = "#d62728",
+      ggplot2::aes(x = year, y = ratio_to_venezuela, color = highlight_group),
       size = 1.8,
       alpha = 0.95
     ) +
     ggplot2::scale_y_log10(
-      labels = scales::label_number(accuracy = 0.1),
-      breaks = c(0.1, 0.25, 0.5, 1, 2, 5, 10, 25)
+      labels = scales::label_number(accuracy = 0.01),
+      breaks = ratio_y_breaks,
+      limits = ratio_y_limits
     ) +
-    ggplot2::scale_x_continuous(breaks = seq(2000, 2025, 5), limits = c(1999, 2025)) +
-    ggplot2::coord_cartesian(ylim = c(0.1, 25)) +
+    ggplot2::scale_color_manual(
+      values = c(
+        "Resto del mundo" = "grey72",
+        "LatAm emergente" = presentation_colors[["latam"]],
+        "Venezuela" = presentation_colors[["venezuela"]]
+      ),
+      name = NULL
+    ) +
+    ggplot2::scale_x_continuous(
+      breaks = ratio_x_breaks,
+      limits = ratio_x_limits,
+      expand = ggplot2::expansion(mult = c(0, 0.015))
+    ) +
     ggplot2::labs(
       title = title,
       subtitle = "Cada punto es un país-año. Venezuela = 1; LatAm emergente en azul; resto del mundo en gris.",
@@ -427,50 +471,56 @@ build_selected_year_venezuela_ratio_plot <- function(data, value_var, title, y_l
   venezuela_data <- ratio_data |>
     dplyr::filter(highlight_group == "Venezuela")
   label_data <- ratio_data |>
-    dplyr::filter(year %in% factor(c(2001L, 2025L), levels = selected_ratio_years), country_code %in% final_year_ratio_label_codes) |>
-    dplyr::mutate(label_nudge = dplyr::if_else(as.character(year) == "2001", -0.18, 0.18))
+    dplyr::filter(year == factor(2025L, levels = selected_ratio_years), country_code %in% final_year_ratio_label_codes)
 
   ggplot2::ggplot() +
     ggplot2::geom_hline(yintercept = 1, color = "grey45", linewidth = 0.35) +
     ggplot2::geom_jitter(
       data = background_data,
-      ggplot2::aes(x = year, y = ratio_to_venezuela),
+      ggplot2::aes(x = year, y = ratio_to_venezuela, color = highlight_group),
       width = 0.14,
       height = 0,
-      color = "grey72",
       alpha = 0.4,
       size = 1.5
     ) +
     ggplot2::geom_jitter(
       data = emerging_latam_data,
-      ggplot2::aes(x = year, y = ratio_to_venezuela),
+      ggplot2::aes(x = year, y = ratio_to_venezuela, color = highlight_group),
       width = 0.14,
       height = 0,
-      color = "#1f77b4",
       alpha = 0.75,
       size = 2
     ) +
     ggplot2::geom_point(
       data = venezuela_data,
-      ggplot2::aes(x = year, y = ratio_to_venezuela),
-      color = "#d62728",
+      ggplot2::aes(x = year, y = ratio_to_venezuela, color = highlight_group),
       size = 2.4,
       alpha = 0.95
     ) +
     ggplot2::geom_text(
       data = label_data,
       ggplot2::aes(x = year, y = ratio_to_venezuela, label = country_code),
-      color = "#2f2f2f",
-      nudge_x = label_data$label_nudge,
+      color = presentation_colors[["primary"]],
+      nudge_x = -0.18,
+      hjust = 1,
       size = 3.7,
       fontface = "bold",
       check_overlap = TRUE
     ) +
     ggplot2::scale_y_log10(
-      labels = scales::label_number(accuracy = 0.1),
-      breaks = c(0.1, 0.25, 0.5, 1, 2, 5, 10, 25)
+      labels = scales::label_number(accuracy = 0.01),
+      breaks = ratio_y_breaks,
+      limits = ratio_y_limits
     ) +
-    ggplot2::coord_cartesian(ylim = c(0.1, 25), clip = "off") +
+    ggplot2::scale_color_manual(
+      values = c(
+        "Resto del mundo" = "grey72",
+        "LatAm emergente" = presentation_colors[["latam"]],
+        "Venezuela" = presentation_colors[["venezuela"]]
+      ),
+      name = NULL
+    ) +
+    ggplot2::coord_cartesian(clip = "off", expand = FALSE) +
     ggplot2::labs(
       title = title,
       subtitle = "Años seleccionados. Venezuela = 1; etiquetas solo en 2025.",
@@ -481,6 +531,8 @@ build_selected_year_venezuela_ratio_plot <- function(data, value_var, title, y_l
     ggplot2::theme(plot.margin = ggplot2::margin(5.5, 30, 5.5, 5.5))
 }
 
+## Ratio plot construction -----------------------------------------------------
+# Graph: PIB pc PPP relativo a Venezuela
 gdp_pc_ppp_ratio_plot <- build_venezuela_ratio_plot(
   imf_ppp_scatter_data,
   value_var = "gdp_per_capita_ppp_current_intl_dollars",
@@ -488,6 +540,7 @@ gdp_pc_ppp_ratio_plot <- build_venezuela_ratio_plot(
   y_label = "PIB per cápita PPP / Venezuela"
 )
 
+# Graph: PIB pc nominal relativo a Venezuela
 gdp_pc_nominal_ratio_plot <- build_venezuela_ratio_plot(
   imf_ppp_scatter_data,
   value_var = "gdp_per_capita_nominal_current_usd",
@@ -495,21 +548,20 @@ gdp_pc_nominal_ratio_plot <- build_venezuela_ratio_plot(
   y_label = "PIB nominal per cápita / Venezuela"
 )
 
-ggplot2::ggsave(
+## Ratio figure outputs --------------------------------------------------------
+# Save ratio graphs for full time series and selected years.
+save_presentation_plot(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_ppp_ratio_to_venezuela.png"),
-  plot = apply_presentation_axis_theme(gdp_pc_ppp_ratio_plot),
-  width = 11,
-  height = 6.2,
-  dpi = 160
+  plot = gdp_pc_ppp_ratio_plot,
+  source_caption = presentation_source_caption
 )
-ggplot2::ggsave(
+save_presentation_plot(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_nominal_ratio_to_venezuela.png"),
-  plot = apply_presentation_axis_theme(gdp_pc_nominal_ratio_plot),
-  width = 11,
-  height = 6.2,
-  dpi = 160
+  plot = gdp_pc_nominal_ratio_plot,
+  source_caption = presentation_source_caption
 )
 
+# Graph: PIB pc PPP relativo, años clave
 gdp_pc_ppp_ratio_selected_years_plot <- build_selected_year_venezuela_ratio_plot(
   imf_ppp_scatter_data,
   value_var = "gdp_per_capita_ppp_current_intl_dollars",
@@ -517,6 +569,7 @@ gdp_pc_ppp_ratio_selected_years_plot <- build_selected_year_venezuela_ratio_plot
   y_label = "PIB per cápita PPP / Venezuela"
 )
 
+# Graph: PIB pc nominal relativo, años clave
 gdp_pc_nominal_ratio_selected_years_plot <- build_selected_year_venezuela_ratio_plot(
   imf_ppp_scatter_data,
   value_var = "gdp_per_capita_nominal_current_usd",
@@ -524,19 +577,15 @@ gdp_pc_nominal_ratio_selected_years_plot <- build_selected_year_venezuela_ratio_
   y_label = "PIB nominal per cápita / Venezuela"
 )
 
-ggplot2::ggsave(
+save_presentation_plot(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_ppp_ratio_selected_years_to_venezuela.png"),
-  plot = apply_presentation_axis_theme(gdp_pc_ppp_ratio_selected_years_plot),
-  width = 11,
-  height = 6.2,
-  dpi = 160
+  plot = gdp_pc_ppp_ratio_selected_years_plot,
+  source_caption = presentation_source_caption
 )
-ggplot2::ggsave(
+save_presentation_plot(
   filename = file.path(figure_dir, "imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png"),
-  plot = apply_presentation_axis_theme(gdp_pc_nominal_ratio_selected_years_plot),
-  width = 11,
-  height = 6.2,
-  dpi = 160
+  plot = gdp_pc_nominal_ratio_selected_years_plot,
+  source_caption = presentation_source_caption
 )
 
 message("Wrote data/raw/imf_weo_ppp_gdp_population_maddison_countries.csv")

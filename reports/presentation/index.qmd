@@ -1,13 +1,29 @@
 ---
 title: "Escenarios de crecimiento de Venezuela"
 subtitle: "Borrador visual base"
+author: "Giorgio C. Morales"
+date: ""
+lang: es
 format:
   revealjs:
-    slide-number: true
-    chalkboard: true
-    preview-links: auto
+    # Visual style: edit these first when changing the deck look.
+    theme: serif
     css: title-sweep.css
-lang: es
+    background-color: "#fffdf8"
+    transition: fade
+    controls: true
+    progress: true
+    slide-number: c/t
+
+    # Layout: keep figures large while leaving room for headings.
+    width: 1280
+    height: 720
+    margin: 0.045
+    center: true
+
+    # Presentation utilities.
+    preview-links: auto
+    chalkboard: true
 ---
 
 ## 1. Por qué importa el PIB pc
@@ -22,7 +38,7 @@ lang: es
 
 ## Ingreso diario y PIB pc
 
-![](figures/owid_daily_income_gdp_per_capita.png){fig-align="center" width="100%"}
+![](figures/owid_daily_income_gdp_per_capita.png?v=2024){fig-align="center" width="100%"}
 
 ## Mortalidad infantil y PIB pc
 
@@ -80,17 +96,9 @@ lang: es
 
 ![](figures/imf_weo_nominal_scatter_2025.png){fig-align="center" width="100%"}
 
-## PIB pc PPP relativo a Venezuela
-
-![](figures/imf_weo_gdp_pc_ppp_ratio_to_venezuela.png){fig-align="center" width="100%"}
-
 ## PIB pc nominal relativo a Venezuela
 
 ![](figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center" width="100%"}
-
-## PIB pc PPP relativo, años clave
-
-![](figures/imf_weo_gdp_pc_ppp_ratio_selected_years_to_venezuela.png){fig-align="center" width="100%"}
 
 ## PIB pc nominal relativo, años clave
 
@@ -121,14 +129,6 @@ lang: es
 ## Índice del PIB real per cápita
 
 ![](figures/gdp_per_capita_index_line.png){fig-align="center" width="100%"}
-
-## Anclaje al último año
-
-![](figures/gdp_anchor_line.png){fig-align="center" width="100%"}
-
-## Anclaje per cápita al último año
-
-![](figures/gdp_per_capita_anchor_line.png){fig-align="center" width="100%"}
 
 ## Episodios del PIB real
 

@@ -1,871 +1,1022 @@
-"indicator_id","country","country_code","year","indicator_value","population","gdp_per_capita","gdp_population","highlight_group"
-"life_expectancy","Afghanistan","AFG",2023,66.035,41454762,2203.518,41455000,"Resto del mundo"
-"life_expectancy","Albania","ALB",2023,79.602,2811660,20252.255,2750000,"Resto del mundo"
-"life_expectancy","Algeria","DZA",2023,76.261,46164222,16908.206,45973000,"Resto del mundo"
-"life_expectancy","Angola","AGO",2023,64.617,36749909,9610.864,36750000,"Resto del mundo"
-"life_expectancy","Argentina","ARG",2023,77.395,45538402,29522.706,46655000,"LatAm emergente"
-"life_expectancy","Armenia","ARM",2023,75.683,2943398,21061.964,3034000,"Resto del mundo"
-"life_expectancy","Australia","AUS",2023,83.923,26451126,68360.691,26957000,"Resto del mundo"
-"life_expectancy","Austria","AUT",2023,81.956,9130434,72589.865,9105000,"Resto del mundo"
-"life_expectancy","Azerbaijan","AZE",2023,74.429,10318209,23733.811,10127000,"Resto del mundo"
-"life_expectancy","Bahrain","BHR",2023,81.284,1569674,64223.768,1577000,"Resto del mundo"
-"life_expectancy","Bangladesh","BGD",2023,74.672,171466986,9219.193,170279000,"Resto del mundo"
-"life_expectancy","Barbados","BRB",2023,76.178,282347,22535.359,290000,"LatAm emergente"
-"life_expectancy","Belarus","BLR",2023,74.434,9115679,30258.438,9178000,"Resto del mundo"
-"life_expectancy","Belgium","BEL",2023,82.115,11712891,71704.946,11743000,"Resto del mundo"
-"life_expectancy","Benin","BEN",2023,60.774,14111035,4133.373,14111000,"Resto del mundo"
-"life_expectancy","Bolivia","BOL",2023,68.581,12244161,12902.717,12244000,"LatAm emergente"
-"life_expectancy","Bosnia and Herzegovina","BIH",2023,77.85,3185072,20512.37,3464000,"Resto del mundo"
-"life_expectancy","Botswana","BWA",2023,69.163,2480242,21029.368,2480000,"Resto del mundo"
-"life_expectancy","Brazil","BRA",2023,75.848,211140731,21137.486,211695000,"LatAm emergente"
-"life_expectancy","Bulgaria","BGR",2023,75.636,6795805,37035.155,6445000,"Resto del mundo"
-"life_expectancy","Burkina Faso","BFA",2023,61.092,23025777,2761.569,23026000,"Resto del mundo"
-"life_expectancy","Burundi","BDI",2023,63.651,13689455,921.429,13689000,"Resto del mundo"
-"life_expectancy","Cambodia","KHM",2023,70.668,17423884,7336.094,17424000,"Resto del mundo"
-"life_expectancy","Cameroon","CMR",2023,63.7,28372690,5415.209,28373000,"Resto del mundo"
-"life_expectancy","Canada","CAN",2023,82.63,39299098,63796.961,39936000,"Resto del mundo"
-"life_expectancy","Cape Verde","CPV",2023,76.059,522335,10517.425,509000,"Resto del mundo"
-"life_expectancy","Central African Republic","CAF",2023,57.408,5152415,1374.42,5065000,"Resto del mundo"
-"life_expectancy","Chad","TCD",2023,55.069,19319075,2973.007,17921000,"Resto del mundo"
-"life_expectancy","Chile","CHL",2023,81.167,19658833,32673.422,19756000,"LatAm emergente"
-"life_expectancy","China","CHN",2023,77.953,1422584930,25188.583,1409670000,"Resto del mundo"
-"life_expectancy","Colombia","COL",2023,77.725,52321152,20860.036,52216000,"LatAm emergente"
-"life_expectancy","Comoros","COM",2023,66.777,850390,3728.631,870000,"Resto del mundo"
-"life_expectancy","Congo","COG",2023,65.772,6182890,6257.285,6138000,"Resto del mundo"
-"life_expectancy","Costa Rica","CRI",2023,80.799,5105526,28683.678,5278000,"LatAm emergente"
-"life_expectancy","Cote d'Ivoire","CIV",2023,61.944,31165653,7259.853,31094000,"Resto del mundo"
-"life_expectancy","Croatia","HRV",2023,78.58,3896023,45873.246,3860000,"Resto del mundo"
-"life_expectancy","Cyprus","CYP",2023,81.648,1344981,59029.562,949000,"Resto del mundo"
-"life_expectancy","Czechia","CZE",2023,79.834,10809722,55325.293,10851000,"Resto del mundo"
-"life_expectancy","Democratic Republic of Congo","COD",2023,61.895,105789733,1833.281,99948000,"Resto del mundo"
-"life_expectancy","Denmark","DNK",2023,81.933,5948134,77512.855,5933000,"Resto del mundo"
-"life_expectancy","Djibouti","DJI",2023,65.987,1152951,8097.334,1030000,"Resto del mundo"
-"life_expectancy","Dominica","DMA",2023,71.132,66531,17279.767,74000,"LatAm emergente"
-"life_expectancy","Dominican Republic","DOM",2023,73.72,11331269,27363.748,10709000,"LatAm emergente"
-"life_expectancy","Ecuador","ECU",2023,77.392,17980079,16036.875,17835000,"LatAm emergente"
-"life_expectancy","Egypt","EGY",2023,71.633,114535772,20197.388,105200000,"Resto del mundo"
-"life_expectancy","El Salvador","SLV",2023,72.099,6309629,12690.042,6310000,"LatAm emergente"
-"life_expectancy","Equatorial Guinea","GNQ",2023,63.707,1847556,20848.963,1544000,"Resto del mundo"
-"life_expectancy","Estonia","EST",2023,79.153,1367195,46698.803,1370000,"Resto del mundo"
-"life_expectancy","Eswatini","SWZ",2023,64.123,1230507,12228.549,1138000,"Resto del mundo"
-"life_expectancy","Ethiopia","ETH",2023,67.315,128691695,3786.734,105707000,"Resto del mundo"
-"life_expectancy","Finland","FIN",2023,81.91,5601185,63099.902,5564000,"Resto del mundo"
-"life_expectancy","France","FRA",2023,83.325,66438828,62028.944,68405000,"Resto del mundo"
-"life_expectancy","Gabon","GAB",2023,68.337,2484790,23364.777,2209000,"Resto del mundo"
-"life_expectancy","Gambia","GMB",2023,65.86,2697846,3266.493,2719000,"Resto del mundo"
-"life_expectancy","Georgia","GEO",2023,74.496,3807494,24952.269,3736000,"Resto del mundo"
-"life_expectancy","Germany","DEU",2023,81.378,84548233,70601.01,83287000,"Resto del mundo"
-"life_expectancy","Ghana","GHA",2023,65.498,33787916,7562.626,33788000,"Resto del mundo"
-"life_expectancy","Greece","GRC",2023,81.857,10242910,40795.65,10414000,"Resto del mundo"
-"life_expectancy","Guatemala","GTM",2023,72.602,18124841,13756.657,18125000,"LatAm emergente"
-"life_expectancy","Guinea","GIN",2023,60.74,14405469,4181.479,15041000,"Resto del mundo"
-"life_expectancy","Guinea-Bissau","GNB",2023,64.085,2153343,2957.008,1937000,"Resto del mundo"
-"life_expectancy","Haiti","HTI",2023,64.936,11637402,3135.553,12227000,"LatAm emergente"
-"life_expectancy","Honduras","HND",2023,72.884,10644853,7184.244,10645000,"LatAm emergente"
-"life_expectancy","Hong Kong","HKG",2023,85.511,7442738,71596.896,7528000,"Resto del mundo"
-"life_expectancy","Hungary","HUN",2023,77.024,9686465,45142.17,9600000,"Resto del mundo"
-"life_expectancy","Iceland","ISL",2023,82.691,387559,79454.085,375000,"Resto del mundo"
-"life_expectancy","India","IND",2023,72.003,1438069597,9879.524,1438070000,"Resto del mundo"
-"life_expectancy","Indonesia","IDN",2023,71.146,281190068,15566.405,278696000,"Resto del mundo"
-"life_expectancy","Iran","IRN",2023,77.654,90608708,20104.085,85329000,"Resto del mundo"
-"life_expectancy","Iraq","IRQ",2023,72.324,45074055,15360.427,43324000,"Resto del mundo"
-"life_expectancy","Ireland","IRL",2023,82.412,5196629,129607.63,5329000,"Resto del mundo"
-"life_expectancy","Israel","ISR",2023,82.408,9256311,53074.32,9845000,"Resto del mundo"
-"life_expectancy","Italy","ITA",2023,83.716,59499452,59435.719,58997000,"Resto del mundo"
-"life_expectancy","Jamaica","JAM",2023,71.479,2839785,13091.025,2747000,"LatAm emergente"
-"life_expectancy","Japan","JPN",2023,84.712,124370947,52927.939,124482000,"Resto del mundo"
-"life_expectancy","Jordan","JOR",2023,77.814,11439220,11450.536,11439000,"Resto del mundo"
-"life_expectancy","Kazakhstan","KAZ",2023,74.402,20330109,39379.309,19900000,"Resto del mundo"
-"life_expectancy","Kenya","KEN",2023,63.646,55339007,6788.376,51539000,"Resto del mundo"
-"life_expectancy","Kuwait","KWT",2023,80.405,4838781,52437.667,4913000,"Resto del mundo"
-"life_expectancy","Kyrgyzstan","KGZ",2023,71.677,7073523,7481.737,6931000,"Resto del mundo"
-"life_expectancy","Laos","LAO",2023,68.964,7665001,9257.759,7582000,"Resto del mundo"
-"life_expectancy","Latvia","LVA",2023,76.19,1882399,39953.176,1883000,"Resto del mundo"
-"life_expectancy","Lebanon","LBN",2023,77.817,5773494,12930.677,5354000,"Resto del mundo"
-"life_expectancy","Lesotho","LSO",2023,57.375,2311476,2932.819,2311000,"Resto del mundo"
-"life_expectancy","Liberia","LBR",2023,62.163,5493035,1791.908,5493000,"Resto del mundo"
-"life_expectancy","Libya","LBY",2023,69.339,7305659,13843.587,7306000,"Resto del mundo"
-"life_expectancy","Lithuania","LTU",2023,76.025,2854104,52136.138,2872000,"Resto del mundo"
-"life_expectancy","Luxembourg","LUX",2023,82.229,665101,148310.782,661000,"Resto del mundo"
-"life_expectancy","Madagascar","MDG",2023,63.632,31195937,1897.019,29766000,"Resto del mundo"
-"life_expectancy","Malawi","MWI",2023,67.353,21104480,1701.036,22729000,"Resto del mundo"
-"life_expectancy","Malaysia","MYS",2023,76.657,35126295,38778.951,33059000,"Resto del mundo"
-"life_expectancy","Mali","MLI",2023,60.439,23769130,3184.146,23769000,"Resto del mundo"
-"life_expectancy","Malta","MLT",2023,83.299,532964,70236.003,542000,"Resto del mundo"
-"life_expectancy","Mauritania","MRT",2023,68.484,5022442,7903.79,4430000,"Resto del mundo"
-"life_expectancy","Mauritius","MUS",2023,74.926,1273591,29242.203,1248000,"Resto del mundo"
-"life_expectancy","Mexico","MEX",2023,75.069,129739761,24316.159,131135000,"LatAm emergente"
-"life_expectancy","Moldova","MDA",2023,71.198,3067072,17515.689,2492000,"Resto del mundo"
-"life_expectancy","Mongolia","MNG",2023,71.734,3431938,17898.326,3505000,"Resto del mundo"
-"life_expectancy","Montenegro","MNE",2023,77.087,633553,30817.503,624000,"Resto del mundo"
-"life_expectancy","Morocco","MAR",2023,75.313,37712516,10242.547,37022000,"Resto del mundo"
-"life_expectancy","Mozambique","MOZ",2023,63.611,33635163,1667.208,33897000,"Resto del mundo"
-"life_expectancy","Myanmar","MMR",2023,66.889,54133800,4998.391,54134000,"Resto del mundo"
-"life_expectancy","Namibia","NAM",2023,67.385,2963102,11395.305,2928000,"Resto del mundo"
-"life_expectancy","Nepal","NPL",2023,70.354,29694614,5399.641,29695000,"Resto del mundo"
-"life_expectancy","Netherlands","NLD",2023,82.158,18092526,79115.736,17811000,"Resto del mundo"
-"life_expectancy","New Zealand","NZL",2023,82.088,5172837,54312.306,5199000,"Resto del mundo"
-"life_expectancy","Nicaragua","NIC",2023,74.947,6823619,8525.745,6664000,"LatAm emergente"
-"life_expectancy","Niger","NER",2023,61.183,26159863,1825.829,27066000,"Resto del mundo"
-"life_expectancy","Nigeria","NGA",2023,54.462,227882949,8711.664,227883000,"Resto del mundo"
-"life_expectancy","North Macedonia","MKD",2023,77.395,1831800,26321.634,1828000,"Resto del mundo"
-"life_expectancy","Norway","NOR",2023,83.308,5519167,104815.989,5534000,"Resto del mundo"
-"life_expectancy","Oman","OMN",2023,80.031,5049267,41029.993,5166000,"Resto del mundo"
-"life_expectancy","Pakistan","PAK",2023,67.649,247504505,6535.815,231450000,"Resto del mundo"
-"life_expectancy","Panama","PAN",2023,79.594,4458758,39899.217,4453000,"LatAm emergente"
-"life_expectancy","Paraguay","PRY",2023,73.844,6844150,19022.892,6327000,"LatAm emergente"
-"life_expectancy","Peru","PER",2023,77.74,33845616,17364.957,33731000,"LatAm emergente"
-"life_expectancy","Philippines","PHL",2023,69.833,114891199,11287.754,111910000,"Resto del mundo"
-"life_expectancy","Poland","POL",2023,78.633,38762847,49265.369,36754000,"Resto del mundo"
-"life_expectancy","Portugal","PRT",2023,82.36,10430735,46639.683,10578000,"Resto del mundo"
-"life_expectancy","Puerto Rico","PRI",2023,81.69,3242022,47444.138,3206000,"LatAm emergente"
-"life_expectancy","Qatar","QAT",2023,82.368,2979086,112271.291,3063000,"Resto del mundo"
-"life_expectancy","Romania","ROU",2023,75.938,19118482,44975.803,19055000,"Resto del mundo"
-"life_expectancy","Russia","RUS",2023,73.154,145440502,44560.077,145441000,"Resto del mundo"
-"life_expectancy","Rwanda","RWA",2023,67.785,13954473,3637.187,13499000,"Resto del mundo"
-"life_expectancy","Saint Lucia","LCA",2023,72.697,179291,26333.41,179000,"LatAm emergente"
-"life_expectancy","Sao Tome and Principe","STP",2023,69.718,230882,6155.021,231000,"Resto del mundo"
-"life_expectancy","Saudi Arabia","SAU",2023,78.732,33264289,71623.601,33703000,"Resto del mundo"
-"life_expectancy","Senegal","SEN",2023,68.683,18077573,4759.379,18162000,"Resto del mundo"
-"life_expectancy","Serbia","SRB",2023,76.769,6773204,28907.095,6623000,"Resto del mundo"
-"life_expectancy","Seychelles","SYC",2023,72.862,127961,31516.039,121000,"Resto del mundo"
-"life_expectancy","Sierra Leone","SLE",2023,61.786,8460523,3371.104,8461000,"Resto del mundo"
-"life_expectancy","Singapore","SGP",2023,83.736,5789092,144728.013,5918000,"Resto del mundo"
-"life_expectancy","Slovakia","SVK",2023,78.341,5518057,43953.548,5429000,"Resto del mundo"
-"life_expectancy","Slovenia","SVN",2023,81.603,2118394,53808.099,2117000,"Resto del mundo"
-"life_expectancy","South Africa","ZAF",2023,66.139,63212386,15615.889,61578000,"Resto del mundo"
-"life_expectancy","South Korea","KOR",2023,84.329,51748744,60201.551,51713000,"Resto del mundo"
-"life_expectancy","Spain","ESP",2023,83.67,47911583,52045.408,48628000,"Resto del mundo"
-"life_expectancy","Sri Lanka","LKA",2023,77.483,22971615,14467.53,22037000,"Resto del mundo"
-"life_expectancy","Sudan","SDN",2023,66.331,50042800,3064.929,47895000,"Resto del mundo"
-"life_expectancy","Sweden","SWE",2023,83.262,10551493,69335.934,10552000,"Resto del mundo"
-"life_expectancy","Switzerland","CHE",2023,83.954,8870564,96601.424,8815000,"Resto del mundo"
-"life_expectancy","Taiwan","TWN",2023,80.559,23317145,74453.656,23420000,"Resto del mundo"
-"life_expectancy","Tajikistan","TJK",2023,71.79,10389807,5152.167,10013000,"Resto del mundo"
-"life_expectancy","Tanzania","TZA",2023,66.995,66617607,3926.279,63729000,"Resto del mundo"
-"life_expectancy","Thailand","THA",2023,76.412,71702436,23607.092,71702000,"Resto del mundo"
-"life_expectancy","Togo","TGO",2023,62.74,8223853,3151.732,9320000,"Resto del mundo"
-"life_expectancy","Trinidad and Tobago","TTO",2023,73.49,1502938,33342.139,1421000,"LatAm emergente"
-"life_expectancy","Tunisia","TUN",2023,76.508,12200434,13971.391,12200000,"Resto del mundo"
-"life_expectancy","Turkey","TUR",2023,77.156,87270502,39325.253,85326000,"Resto del mundo"
-"life_expectancy","Turkmenistan","TKM",2023,70.073,7364437,21179.858,6516000,"Resto del mundo"
-"life_expectancy","Uganda","UGA",2023,68.252,48656606,3494.925,45222000,"Resto del mundo"
-"life_expectancy","Ukraine","UKR",2023,73.422,37732833,18321.109,34026000,"Resto del mundo"
-"life_expectancy","United Arab Emirates","ARE",2023,82.909,10642089,76596.069,10679000,"Resto del mundo"
-"life_expectancy","United Kingdom","GBR",2023,81.302,68682965,61552.285,68526000,"Resto del mundo"
-"life_expectancy","United States","USA",2023,79.304,343477330,82536.095,336962000,"Resto del mundo"
-"life_expectancy","Uruguay","URY",2023,78.138,3388083,33475.364,3496000,"LatAm emergente"
-"life_expectancy","Uzbekistan","UZB",2023,72.388,35652311,11314.432,36800000,"Resto del mundo"
-"life_expectancy","Venezuela","VEN",2023,72.514,28300861,7888.601,26740000,"Venezuela"
-"life_expectancy","Vietnam","VNM",2023,74.588,100352189,15052.708,100309000,"Resto del mundo"
-"life_expectancy","Yemen","YEM",2023,69.295,39390800,1633.774,17726000,"Resto del mundo"
-"life_expectancy","Zambia","ZMB",2023,66.349,20723967,4080.345,20724000,"Resto del mundo"
-"life_expectancy","Zimbabwe","ZWE",2023,62.775,16340829,7231.518,16624000,"Resto del mundo"
-"daily_income","Armenia","ARM",2006,7.91986846923828,2990371,6816.706,3107000,"Resto del mundo"
-"daily_income","Austria","AUT",2006,67.7436752319336,8269901,42341.114,8268000,"Resto del mundo"
-"daily_income","Belarus","BLR",2006,11.1340885162354,9608041,11084.201,9605000,"Resto del mundo"
-"daily_income","Belgium","BEL",2006,60.243408203125,10548445,40107.805,10511000,"Resto del mundo"
-"daily_income","Bolivia","BOL",2006,16.8822078704834,9521685,6019.367,9522000,"LatAm emergente"
-"daily_income","Brazil","BRA",2006,17.355037689209,186653099,10761.746,187535000,"LatAm emergente"
-"daily_income","Bulgaria","BGR",2006,12.2997713088989,7640292,13236.675,7679000,"Resto del mundo"
-"daily_income","Burundi","BDI",2006,2.2464439868927,7865545,693.186,7866000,"Resto del mundo"
-"daily_income","Canada","CAN",2006,64.0493240356445,32759174,38218.881,32529000,"Resto del mundo"
-"daily_income","Chile","CHL",2006,18.1581764221191,16509195,16236.971,16357000,"LatAm emergente"
-"daily_income","Costa Rica","CRI",2006,20.3082065582275,4321337,12787.714,4279000,"LatAm emergente"
-"daily_income","Cyprus","CYP",2006,58.5035285949707,1054424,32960.062,744000,"Resto del mundo"
-"daily_income","Czechia","CZE",2006,32.94677734375,10304592,27708.888,10224000,"Resto del mundo"
-"daily_income","Denmark","DNK",2006,61.8025207519531,5437425,45063.654,5427000,"Resto del mundo"
-"daily_income","Dominican Republic","DOM",2006,16.2319946289062,9341187,9693.236,9071000,"LatAm emergente"
-"daily_income","Ecuador","ECU",2006,14.780797958374,14086138,7774.403,13852000,"LatAm emergente"
-"daily_income","El Salvador","SLV",2006,10.7684593200684,6002321,6295.61,6002000,"LatAm emergente"
-"daily_income","Estonia","EST",2006,24.6551380157471,1346885,24439.444,1347000,"Resto del mundo"
-"daily_income","Finland","FIN",2006,56.7459335327148,5266248,39089.36,5256000,"Resto del mundo"
-"daily_income","France","FRA",2006,53.6593971252441,62049831,35705.493,63186000,"Resto del mundo"
-"daily_income","Georgia","GEO",2006,6.18611335754395,3996584,6575.654,3888000,"Resto del mundo"
-"daily_income","Germany","DEU",2006,64.7514495849609,81701971,39736.308,81174000,"Resto del mundo"
-"daily_income","Greece","GRC",2006,42.2818641662598,11016107,30553.239,11005000,"Resto del mundo"
-"daily_income","Guatemala","GTM",2006,18.0220375061035,13367455,6854.68,13367000,"LatAm emergente"
-"daily_income","Honduras","HND",2006,11.104941368103,7656832,4077.369,7657000,"LatAm emergente"
-"daily_income","Hungary","HUN",2006,20.93630027771,10049946,21341.758,10077000,"Resto del mundo"
-"daily_income","Iceland","ISL",2006,65.8687438964844,303883,44330.528,3e+05,"Resto del mundo"
-"daily_income","Indonesia","IDN",2006,3.81022810935974,233951650,5820.651,224555000,"Resto del mundo"
-"daily_income","Iran","IRN",2006,15.2943506240845,73392747,12092.687,70496000,"Resto del mundo"
-"daily_income","Iraq","IRQ",2006,11.6209735870361,28616518,6437.552,28064000,"Resto del mundo"
-"daily_income","Israel","ISR",2006,31.668815612793,6844029,26804.366,7052000,"Resto del mundo"
-"daily_income","Italy","ITA",2006,56.3218612670898,58754434,38007.707,58289000,"Resto del mundo"
-"daily_income","Jordan","JOR",2006,15.4452848434448,6427377,9447.79,6076000,"Resto del mundo"
-"daily_income","Kazakhstan","KAZ",2006,9.33475589752197,16103718,15228.629,15308000,"Resto del mundo"
-"daily_income","Kyrgyzstan","KGZ",2006,5.86446571350098,5282451,3053.315,5189000,"Resto del mundo"
-"daily_income","Latvia","LVA",2006,20.8944053649902,2219039,18516.215,2228000,"Resto del mundo"
-"daily_income","Lithuania","LTU",2006,22.6917514801025,3269809,19045.533,3270000,"Resto del mundo"
-"daily_income","Malaysia","MYS",2006,20.6857242584229,26417909,15864.622,26832000,"Resto del mundo"
-"daily_income","Mali","MLI",2006,3.19661450386047,13990143,1899.737,13990000,"Resto del mundo"
-"daily_income","Malta","MLT",2006,37.4097442626953,415463,24924.842,405000,"Resto del mundo"
-"daily_income","Mauritius","MUS",2006,13.9786081314087,1263785,12524.3,1234000,"Resto del mundo"
-"daily_income","Mexico","MEX",2006,14.3051328659058,107253666,16486.01,107886000,"LatAm emergente"
-"daily_income","Moldova","MDA",2006,11.5507678985596,3921320,6188.809,2890000,"Resto del mundo"
-"daily_income","Morocco","MAR",2006,9.04043960571289,30771179,5310.116,30606000,"Resto del mundo"
-"daily_income","Netherlands","NLD",2006,63.8984298706055,16493851,43357.67,16334000,"Resto del mundo"
-"daily_income","Norway","NOR",2006,64.8908157348633,4660487,53541.584,4672000,"Resto del mundo"
-"daily_income","Panama","PAN",2006,16.1867370605469,3375024,15855.455,3413000,"LatAm emergente"
-"daily_income","Paraguay","PRY",2006,13.7416381835938,5505145,8177.111,5511000,"LatAm emergente"
-"daily_income","Peru","PER",2006,9.98225784301758,28324488,7076.29,27935000,"LatAm emergente"
-"daily_income","Philippines","PHL",2006,6.57304096221924,89508992,4380.317,86790000,"Resto del mundo"
-"daily_income","Poland","POL",2006,21.9737148284912,38071169,16916.118,38157000,"Resto del mundo"
-"daily_income","Portugal","PRT",2006,34.6239318847656,10524123,26582.673,10522000,"Resto del mundo"
-"daily_income","Romania","ROU",2006,10.9257526397705,21035732,15367.489,21257000,"Resto del mundo"
-"daily_income","Russia","RUS",2006,20.2433490753174,144102948,18196.662,144103000,"Resto del mundo"
-"daily_income","Seychelles","SYC",2006,19.7234497070312,90391,16096.055,85000,"Resto del mundo"
-"daily_income","Slovakia","SVK",2006,22.7047481536865,5376847,18381.978,5373000,"Resto del mundo"
-"daily_income","Slovenia","SVN",2006,40.0711135864258,2003116,27435.061,2003000,"Resto del mundo"
-"daily_income","South Korea","KOR",2006,38.7354469299316,48006518,26277.959,48438000,"Resto del mundo"
-"daily_income","Spain","ESP",2006,45.1243133544922,44695446,32554.065,44785000,"Resto del mundo"
-"daily_income","Sri Lanka","LKA",2006,7.84687948226929,20352416,6467.279,19696000,"Resto del mundo"
-"daily_income","Sweden","SWE",2006,48.2200813293457,9080628,39880.851,9113000,"Resto del mundo"
-"daily_income","Switzerland","CHE",2006,79.2866134643555,7478514,54487.984,7459000,"Resto del mundo"
-"daily_income","Syria","SYR",2006,15.639666557312,19637016,5396.814,19596000,"Resto del mundo"
-"daily_income","Thailand","THA",2006,14.1989307403564,66567685,11065.965,66568000,"Resto del mundo"
-"daily_income","Togo","TGO",2006,3.05534768104553,5569659,1304.746,6011000,"Resto del mundo"
-"daily_income","Turkey","TUR",2006,13.9532871246338,70045351,16213.603,69295000,"Resto del mundo"
-"daily_income","Ukraine","UKR",2006,11.9345960617065,47278691,10212.597,46466000,"Resto del mundo"
-"daily_income","United Kingdom","GBR",2006,61.8844680786133,61051093,36502.466,60827000,"Resto del mundo"
-"daily_income","United States","USA",2006,78.9625930786133,298730208,46216.853,298930000,"Resto del mundo"
-"daily_income","Uruguay","URY",2006,23.0301647186279,3289508,12777.172,3358000,"LatAm emergente"
-"daily_income","Venezuela","VEN",2006,13.0262012481689,27224691,15232.895,26858000,"Venezuela"
-"daily_income","Vietnam","VNM",2006,5.8777437210083,82167901,4436.226,84618000,"Resto del mundo"
-"daily_income","Zambia","ZMB",2006,3.03080177307129,12129560,2110.198,12130000,"Resto del mundo"
-"child_mortality","Afghanistan","AFG",2023,5.5507865,41454762,2203.518,41455000,"Resto del mundo"
-"child_mortality","Albania","ALB",2023,0.9370933,2811660,20252.255,2750000,"Resto del mundo"
-"child_mortality","Algeria","DZA",2023,2.2000775,46164222,16908.206,45973000,"Resto del mundo"
-"child_mortality","Angola","AGO",2023,6.401257,36749909,9610.864,36750000,"Resto del mundo"
-"child_mortality","Argentina","ARG",2023,0.9648507,45538402,29522.706,46655000,"LatAm emergente"
-"child_mortality","Armenia","ARM",2023,1.0044454,2943398,21061.964,3034000,"Resto del mundo"
-"child_mortality","Australia","AUS",2023,0.3665513,26451126,68360.691,26957000,"Resto del mundo"
-"child_mortality","Austria","AUT",2023,0.31263998,9130434,72589.865,9105000,"Resto del mundo"
-"child_mortality","Azerbaijan","AZE",2023,1.8555621,10318209,23733.811,10127000,"Resto del mundo"
-"child_mortality","Bahrain","BHR",2023,0.8595744,1569674,64223.768,1577000,"Resto del mundo"
-"child_mortality","Bangladesh","BGD",2023,3.0556235,171466986,9219.193,170279000,"Resto del mundo"
-"child_mortality","Barbados","BRB",2023,1.0039747,282347,22535.359,290000,"LatAm emergente"
-"child_mortality","Belarus","BLR",2023,0.24415004,9115679,30258.438,9178000,"Resto del mundo"
-"child_mortality","Belgium","BEL",2023,0.36026093,11712891,71704.946,11743000,"Resto del mundo"
-"child_mortality","Benin","BEN",2023,7.7902117,14111035,4133.373,14111000,"Resto del mundo"
-"child_mortality","Bolivia","BOL",2023,2.3103664,12244161,12902.717,12244000,"LatAm emergente"
-"child_mortality","Bosnia and Herzegovina","BIH",2023,0.60421085,3185072,20512.37,3464000,"Resto del mundo"
-"child_mortality","Botswana","BWA",2023,3.9568217,2480242,21029.368,2480000,"Resto del mundo"
-"child_mortality","Brazil","BRA",2023,1.4441526,211140731,21137.486,211695000,"LatAm emergente"
-"child_mortality","Bulgaria","BGR",2023,0.607681,6795805,37035.155,6445000,"Resto del mundo"
-"child_mortality","Burkina Faso","BFA",2023,7.7272005,23025777,2761.569,23026000,"Resto del mundo"
-"child_mortality","Burundi","BDI",2023,4.9207187,13689455,921.429,13689000,"Resto del mundo"
-"child_mortality","Cambodia","KHM",2023,2.2897089,17423884,7336.094,17424000,"Resto del mundo"
-"child_mortality","Cameroon","CMR",2023,6.723534,28372690,5415.209,28373000,"Resto del mundo"
-"child_mortality","Canada","CAN",2023,0.5064306,39299098,63796.961,39936000,"Resto del mundo"
-"child_mortality","Cape Verde","CPV",2023,1.1589525,522335,10517.425,509000,"Resto del mundo"
-"child_mortality","Central African Republic","CAF",2023,9.219586,5152415,1374.42,5065000,"Resto del mundo"
-"child_mortality","Chad","TCD",2023,10.1131525,19319075,2973.007,17921000,"Resto del mundo"
-"child_mortality","Chile","CHL",2023,0.7164152,19658833,32673.422,19756000,"LatAm emergente"
-"child_mortality","China","CHN",2023,0.6190351,1422584930,25188.583,1409670000,"Resto del mundo"
-"child_mortality","Colombia","COL",2023,1.202878,52321152,20860.036,52216000,"LatAm emergente"
-"child_mortality","Comoros","COM",2023,3.9818938,850390,3728.631,870000,"Resto del mundo"
-"child_mortality","Congo","COG",2023,4.0513673,6182890,6257.285,6138000,"Resto del mundo"
-"child_mortality","Costa Rica","CRI",2023,1.0459824,5105526,28683.678,5278000,"LatAm emergente"
-"child_mortality","Cote d'Ivoire","CIV",2023,6.7128906,31165653,7259.853,31094000,"Resto del mundo"
-"child_mortality","Croatia","HRV",2023,0.45684028,3896023,45873.246,3860000,"Resto del mundo"
-"child_mortality","Cyprus","CYP",2023,0.35335642,1344981,59029.562,949000,"Resto del mundo"
-"child_mortality","Czechia","CZE",2023,0.25593954,10809722,55325.293,10851000,"Resto del mundo"
-"child_mortality","Democratic Republic of Congo","COD",2023,7.3189683,105789733,1833.281,99948000,"Resto del mundo"
-"child_mortality","Denmark","DNK",2023,0.3423346,5948134,77512.855,5933000,"Resto del mundo"
-"child_mortality","Djibouti","DJI",2023,5.0423183,1152951,8097.334,1030000,"Resto del mundo"
-"child_mortality","Dominica","DMA",2023,3.5472252,66531,17279.767,74000,"LatAm emergente"
-"child_mortality","Dominican Republic","DOM",2023,3.14113,11331269,27363.748,10709000,"LatAm emergente"
-"child_mortality","Ecuador","ECU",2023,1.3054934,17980079,16036.875,17835000,"LatAm emergente"
-"child_mortality","Egypt","EGY",2023,1.7527803,114535772,20197.388,105200000,"Resto del mundo"
-"child_mortality","El Salvador","SLV",2023,1.0430334,6309629,12690.042,6310000,"LatAm emergente"
-"child_mortality","Equatorial Guinea","GNQ",2023,7.062484,1847556,20848.963,1544000,"Resto del mundo"
-"child_mortality","Estonia","EST",2023,0.21063586,1367195,46698.803,1370000,"Resto del mundo"
-"child_mortality","Eswatini","SWZ",2023,4.5009317,1230507,12228.549,1138000,"Resto del mundo"
-"child_mortality","Ethiopia","ETH",2023,4.6461153,128691695,3786.734,105707000,"Resto del mundo"
-"child_mortality","Finland","FIN",2023,0.2293469,5601185,63099.902,5564000,"Resto del mundo"
-"child_mortality","France","FRA",2023,0.43214643,66438828,62028.944,68405000,"Resto del mundo"
-"child_mortality","Gabon","GAB",2023,3.3211322,2484790,23364.777,2209000,"Resto del mundo"
-"child_mortality","Gambia","GMB",2023,4.408101,2697846,3266.493,2719000,"Resto del mundo"
-"child_mortality","Georgia","GEO",2023,0.91663367,3807494,24952.269,3736000,"Resto del mundo"
-"child_mortality","Germany","DEU",2023,0.36501372,84548233,70601.01,83287000,"Resto del mundo"
-"child_mortality","Ghana","GHA",2023,3.7064004,33787916,7562.626,33788000,"Resto del mundo"
-"child_mortality","Greece","GRC",2023,0.37447113,10242910,40795.65,10414000,"Resto del mundo"
-"child_mortality","Guatemala","GTM",2023,2.1358843,18124841,13756.657,18125000,"LatAm emergente"
-"child_mortality","Guinea","GIN",2023,9.503142,14405469,4181.479,15041000,"Resto del mundo"
-"child_mortality","Guinea-Bissau","GNB",2023,6.9304852,2153343,2957.008,1937000,"Resto del mundo"
-"child_mortality","Haiti","HTI",2023,5.511968,11637402,3135.553,12227000,"LatAm emergente"
-"child_mortality","Honduras","HND",2023,1.5510595,10644853,7184.244,10645000,"LatAm emergente"
-"child_mortality","Hungary","HUN",2023,0.3802798,9686465,45142.17,9600000,"Resto del mundo"
-"child_mortality","Iceland","ISL",2023,0.25747254,387559,79454.085,375000,"Resto del mundo"
-"child_mortality","India","IND",2023,2.7745812,1438069597,9879.524,1438070000,"Resto del mundo"
-"child_mortality","Indonesia","IDN",2023,2.062438,281190068,15566.405,278696000,"Resto del mundo"
-"child_mortality","Iran","IRN",2023,1.1773313,90608708,20104.085,85329000,"Resto del mundo"
-"child_mortality","Iraq","IRQ",2023,2.2616258,45074055,15360.427,43324000,"Resto del mundo"
-"child_mortality","Ireland","IRL",2023,0.38037205,5196629,129607.63,5329000,"Resto del mundo"
-"child_mortality","Israel","ISR",2023,0.33853307,9256311,53074.32,9845000,"Resto del mundo"
-"child_mortality","Italy","ITA",2023,0.27559024,59499452,59435.719,58997000,"Resto del mundo"
-"child_mortality","Jamaica","JAM",2023,1.932888,2839785,13091.025,2747000,"LatAm emergente"
-"child_mortality","Japan","JPN",2023,0.23632938,124370947,52927.939,124482000,"Resto del mundo"
-"child_mortality","Jordan","JOR",2023,1.3212277,11439220,11450.536,11439000,"Resto del mundo"
-"child_mortality","Kazakhstan","KAZ",2023,0.96476495,20330109,39379.309,19900000,"Resto del mundo"
-"child_mortality","Kenya","KEN",2023,3.9902086,55339007,6788.376,51539000,"Resto del mundo"
-"child_mortality","Kuwait","KWT",2023,0.8750813,4838781,52437.667,4913000,"Resto del mundo"
-"child_mortality","Kyrgyzstan","KGZ",2023,1.6981885,7073523,7481.737,6931000,"Resto del mundo"
-"child_mortality","Laos","LAO",2023,3.900136,7665001,9257.759,7582000,"Resto del mundo"
-"child_mortality","Latvia","LVA",2023,0.29638675,1882399,39953.176,1883000,"Resto del mundo"
-"child_mortality","Lebanon","LBN",2023,1.831359,5773494,12930.677,5354000,"Resto del mundo"
-"child_mortality","Lesotho","LSO",2023,5.893403,2311476,2932.819,2311000,"Resto del mundo"
-"child_mortality","Liberia","LBR",2023,7.288282,5493035,1791.908,5493000,"Resto del mundo"
-"child_mortality","Libya","LBY",2023,3.0784101,7305659,13843.587,7306000,"Resto del mundo"
-"child_mortality","Lithuania","LTU",2023,0.33803073,2854104,52136.138,2872000,"Resto del mundo"
-"child_mortality","Luxembourg","LUX",2023,0.23358402,665101,148310.782,661000,"Resto del mundo"
-"child_mortality","Madagascar","MDG",2023,6.4770794,31195937,1897.019,29766000,"Resto del mundo"
-"child_mortality","Malawi","MWI",2023,3.8340082,21104480,1701.036,22729000,"Resto del mundo"
-"child_mortality","Malaysia","MYS",2023,0.80801296,35126295,38778.951,33059000,"Resto del mundo"
-"child_mortality","Mali","MLI",2023,9.130145,23769130,3184.146,23769000,"Resto del mundo"
-"child_mortality","Malta","MLT",2023,0.54956377,532964,70236.003,542000,"Resto del mundo"
-"child_mortality","Mauritania","MRT",2023,3.7804275,5022442,7903.79,4430000,"Resto del mundo"
-"child_mortality","Mauritius","MUS",2023,1.5172535,1273591,29242.203,1248000,"Resto del mundo"
-"child_mortality","Mexico","MEX",2023,1.2459075,129739761,24316.159,131135000,"LatAm emergente"
-"child_mortality","Moldova","MDA",2023,1.4674314,3067072,17515.689,2492000,"Resto del mundo"
-"child_mortality","Mongolia","MNG",2023,1.3635615,3431938,17898.326,3505000,"Resto del mundo"
-"child_mortality","Montenegro","MNE",2023,0.2584639,633553,30817.503,624000,"Resto del mundo"
-"child_mortality","Morocco","MAR",2023,1.6575052,37712516,10242.547,37022000,"Resto del mundo"
-"child_mortality","Mozambique","MOZ",2023,6.1653104,33635163,1667.208,33897000,"Resto del mundo"
-"child_mortality","Myanmar","MMR",2023,3.8736246,54133800,4998.391,54134000,"Resto del mundo"
-"child_mortality","Namibia","NAM",2023,4.065269,2963102,11395.305,2928000,"Resto del mundo"
-"child_mortality","Nepal","NPL",2023,2.646811,29694614,5399.641,29695000,"Resto del mundo"
-"child_mortality","Netherlands","NLD",2023,0.39572987,18092526,79115.736,17811000,"Resto del mundo"
-"child_mortality","New Zealand","NZL",2023,0.46839836,5172837,54312.306,5199000,"Resto del mundo"
-"child_mortality","Nicaragua","NIC",2023,1.34289,6823619,8525.745,6664000,"LatAm emergente"
-"child_mortality","Niger","NER",2023,11.4788685,26159863,1825.829,27066000,"Resto del mundo"
-"child_mortality","Nigeria","NGA",2023,10.490962,227882949,8711.664,227883000,"Resto del mundo"
-"child_mortality","North Macedonia","MKD",2023,0.32587263,1831800,26321.634,1828000,"Resto del mundo"
-"child_mortality","Norway","NOR",2023,0.23553099,5519167,104815.989,5534000,"Resto del mundo"
-"child_mortality","Oman","OMN",2023,1.0404669,5049267,41029.993,5166000,"Resto del mundo"
-"child_mortality","Pakistan","PAK",2023,5.846387,247504505,6535.815,231450000,"Resto del mundo"
-"child_mortality","Panama","PAN",2023,1.3283068,4458758,39899.217,4453000,"LatAm emergente"
-"child_mortality","Paraguay","PRY",2023,1.7017711,6844150,19022.892,6327000,"LatAm emergente"
-"child_mortality","Peru","PER",2023,1.580508,33845616,17364.957,33731000,"LatAm emergente"
-"child_mortality","Philippines","PHL",2023,2.688177,114891199,11287.754,111910000,"Resto del mundo"
-"child_mortality","Poland","POL",2023,0.43521816,38762847,49265.369,36754000,"Resto del mundo"
-"child_mortality","Portugal","PRT",2023,0.31640318,10430735,46639.683,10578000,"Resto del mundo"
-"child_mortality","Qatar","QAT",2023,0.6015529,2979086,112271.291,3063000,"Resto del mundo"
-"child_mortality","Romania","ROU",2023,0.6634308,19118482,44975.803,19055000,"Resto del mundo"
-"child_mortality","Russia","RUS",2023,0.4497858,145440502,44560.077,145441000,"Resto del mundo"
-"child_mortality","Rwanda","RWA",2023,4.0014644,13954473,3637.187,13499000,"Resto del mundo"
-"child_mortality","Saint Lucia","LCA",2023,1.5545658,179291,26333.41,179000,"LatAm emergente"
-"child_mortality","Sao Tome and Principe","STP",2023,1.394162,230882,6155.021,231000,"Resto del mundo"
-"child_mortality","Saudi Arabia","SAU",2023,0.6157951,33264289,71623.601,33703000,"Resto del mundo"
-"child_mortality","Senegal","SEN",2023,3.8519263,18077573,4759.379,18162000,"Resto del mundo"
-"child_mortality","Serbia","SRB",2023,0.52326196,6773204,28907.095,6623000,"Resto del mundo"
-"child_mortality","Seychelles","SYC",2023,1.4254322,127961,31516.039,121000,"Resto del mundo"
-"child_mortality","Sierra Leone","SLE",2023,9.427626,8460523,3371.104,8461000,"Resto del mundo"
-"child_mortality","Singapore","SGP",2023,0.20690385,5789092,144728.013,5918000,"Resto del mundo"
-"child_mortality","Slovakia","SVK",2023,0.6075153,5518057,43953.548,5429000,"Resto del mundo"
-"child_mortality","Slovenia","SVN",2023,0.22466716,2118394,53808.099,2117000,"Resto del mundo"
-"child_mortality","South Africa","ZAF",2023,3.4650595,63212386,15615.889,61578000,"Resto del mundo"
-"child_mortality","South Korea","KOR",2023,0.27607253,51748744,60201.551,51713000,"Resto del mundo"
-"child_mortality","Spain","ESP",2023,0.3115647,47911583,52045.408,48628000,"Resto del mundo"
-"child_mortality","Sri Lanka","LKA",2023,0.6107925,22971615,14467.53,22037000,"Resto del mundo"
-"child_mortality","Sudan","SDN",2023,5.014924,50042800,3064.929,47895000,"Resto del mundo"
-"child_mortality","Sweden","SWE",2023,0.24746522,10551493,69335.934,10552000,"Resto del mundo"
-"child_mortality","Switzerland","CHE",2023,0.39435646,8870564,96601.424,8815000,"Resto del mundo"
-"child_mortality","Tajikistan","TJK",2023,2.7321172,10389807,5152.167,10013000,"Resto del mundo"
-"child_mortality","Tanzania","TZA",2023,3.8857045,66617607,3926.279,63729000,"Resto del mundo"
-"child_mortality","Thailand","THA",2023,0.921389,71702436,23607.092,71702000,"Resto del mundo"
-"child_mortality","Togo","TGO",2023,5.8289814,8223853,3151.732,9320000,"Resto del mundo"
-"child_mortality","Trinidad and Tobago","TTO",2023,1.907158,1502938,33342.139,1421000,"LatAm emergente"
-"child_mortality","Tunisia","TUN",2023,1.2906594,12200434,13971.391,12200000,"Resto del mundo"
-"child_mortality","Turkey","TUR",2023,1.2791306,87270502,39325.253,85326000,"Resto del mundo"
-"child_mortality","Turkmenistan","TKM",2023,3.99547,7364437,21179.858,6516000,"Resto del mundo"
-"child_mortality","Uganda","UGA",2023,3.8807676,48656606,3494.925,45222000,"Resto del mundo"
-"child_mortality","Ukraine","UKR",2023,0.807272,37732833,18321.109,34026000,"Resto del mundo"
-"child_mortality","United Arab Emirates","ARE",2023,0.50285804,10642089,76596.069,10679000,"Resto del mundo"
-"child_mortality","United Kingdom","GBR",2023,0.4457009,68682965,61552.285,68526000,"Resto del mundo"
-"child_mortality","United States","USA",2023,0.64789516,343477330,82536.095,336962000,"Resto del mundo"
-"child_mortality","Uruguay","URY",2023,0.66624707,3388083,33475.364,3496000,"LatAm emergente"
-"child_mortality","Uzbekistan","UZB",2023,1.3320605,35652311,11314.432,36800000,"Resto del mundo"
-"child_mortality","Venezuela","VEN",2023,2.4257355,28300861,7888.601,26740000,"Venezuela"
-"child_mortality","Vietnam","VNM",2023,2.004781,100352189,15052.708,100309000,"Resto del mundo"
-"child_mortality","Yemen","YEM",2023,3.925354,39390800,1633.774,17726000,"Resto del mundo"
-"child_mortality","Zambia","ZMB",2023,4.4723396,20723967,4080.345,20724000,"Resto del mundo"
-"child_mortality","Zimbabwe","ZWE",2023,4.4212008,16340829,7231.518,16624000,"Resto del mundo"
-"hdi","Afghanistan","AFG",2023,0.496,41454762,2203.518,41455000,"Resto del mundo"
-"hdi","Albania","ALB",2023,0.81,2811660,20252.255,2750000,"Resto del mundo"
-"hdi","Algeria","DZA",2023,0.763,46164222,16908.206,45973000,"Resto del mundo"
-"hdi","Angola","AGO",2023,0.616,36749909,9610.864,36750000,"Resto del mundo"
-"hdi","Argentina","ARG",2023,0.865,45538402,29522.706,46655000,"LatAm emergente"
-"hdi","Armenia","ARM",2023,0.811,2943398,21061.964,3034000,"Resto del mundo"
-"hdi","Australia","AUS",2023,0.958,26451126,68360.691,26957000,"Resto del mundo"
-"hdi","Austria","AUT",2023,0.93,9130434,72589.865,9105000,"Resto del mundo"
-"hdi","Azerbaijan","AZE",2023,0.789,10318209,23733.811,10127000,"Resto del mundo"
-"hdi","Bahrain","BHR",2023,0.899,1569674,64223.768,1577000,"Resto del mundo"
-"hdi","Bangladesh","BGD",2023,0.685,171466986,9219.193,170279000,"Resto del mundo"
-"hdi","Barbados","BRB",2023,0.811,282347,22535.359,290000,"LatAm emergente"
-"hdi","Belarus","BLR",2023,0.824,9115679,30258.438,9178000,"Resto del mundo"
-"hdi","Belgium","BEL",2023,0.951,11712891,71704.946,11743000,"Resto del mundo"
-"hdi","Benin","BEN",2023,0.515,14111035,4133.373,14111000,"Resto del mundo"
-"hdi","Bolivia","BOL",2023,0.733,12244161,12902.717,12244000,"LatAm emergente"
-"hdi","Bosnia and Herzegovina","BIH",2023,0.804,3185072,20512.37,3464000,"Resto del mundo"
-"hdi","Botswana","BWA",2023,0.731,2480242,21029.368,2480000,"Resto del mundo"
-"hdi","Brazil","BRA",2023,0.786,211140731,21137.486,211695000,"LatAm emergente"
-"hdi","Bulgaria","BGR",2023,0.845,6795805,37035.155,6445000,"Resto del mundo"
-"hdi","Burkina Faso","BFA",2023,0.459,23025777,2761.569,23026000,"Resto del mundo"
-"hdi","Burundi","BDI",2023,0.439,13689455,921.429,13689000,"Resto del mundo"
-"hdi","Cambodia","KHM",2023,0.606,17423884,7336.094,17424000,"Resto del mundo"
-"hdi","Cameroon","CMR",2023,0.588,28372690,5415.209,28373000,"Resto del mundo"
-"hdi","Canada","CAN",2023,0.939,39299098,63796.961,39936000,"Resto del mundo"
-"hdi","Cape Verde","CPV",2023,0.668,522335,10517.425,509000,"Resto del mundo"
-"hdi","Central African Republic","CAF",2023,0.414,5152415,1374.42,5065000,"Resto del mundo"
-"hdi","Chad","TCD",2023,0.416,19319075,2973.007,17921000,"Resto del mundo"
-"hdi","Chile","CHL",2023,0.878,19658833,32673.422,19756000,"LatAm emergente"
-"hdi","China","CHN",2023,0.797,1422584930,25188.583,1409670000,"Resto del mundo"
-"hdi","Colombia","COL",2023,0.788,52321152,20860.036,52216000,"LatAm emergente"
-"hdi","Comoros","COM",2023,0.603,850390,3728.631,870000,"Resto del mundo"
-"hdi","Congo","COG",2023,0.649,6182890,6257.285,6138000,"Resto del mundo"
-"hdi","Costa Rica","CRI",2023,0.833,5105526,28683.678,5278000,"LatAm emergente"
-"hdi","Cote d'Ivoire","CIV",2023,0.582,31165653,7259.853,31094000,"Resto del mundo"
-"hdi","Croatia","HRV",2023,0.889,3896023,45873.246,3860000,"Resto del mundo"
-"hdi","Cyprus","CYP",2023,0.913,1344981,59029.562,949000,"Resto del mundo"
-"hdi","Czechia","CZE",2023,0.915,10809722,55325.293,10851000,"Resto del mundo"
-"hdi","Democratic Republic of Congo","COD",2023,0.522,105789733,1833.281,99948000,"Resto del mundo"
-"hdi","Denmark","DNK",2023,0.962,5948134,77512.855,5933000,"Resto del mundo"
-"hdi","Djibouti","DJI",2023,0.513,1152951,8097.334,1030000,"Resto del mundo"
-"hdi","Dominica","DMA",2023,0.761,66531,17279.767,74000,"LatAm emergente"
-"hdi","Dominican Republic","DOM",2023,0.776,11331269,27363.748,10709000,"LatAm emergente"
-"hdi","Ecuador","ECU",2023,0.777,17980079,16036.875,17835000,"LatAm emergente"
-"hdi","Egypt","EGY",2023,0.754,114535772,20197.388,105200000,"Resto del mundo"
-"hdi","El Salvador","SLV",2023,0.678,6309629,12690.042,6310000,"LatAm emergente"
-"hdi","Equatorial Guinea","GNQ",2023,0.674,1847556,20848.963,1544000,"Resto del mundo"
-"hdi","Estonia","EST",2023,0.905,1367195,46698.803,1370000,"Resto del mundo"
-"hdi","Eswatini","SWZ",2023,0.695,1230507,12228.549,1138000,"Resto del mundo"
-"hdi","Ethiopia","ETH",2023,0.497,128691695,3786.734,105707000,"Resto del mundo"
-"hdi","Finland","FIN",2023,0.948,5601185,63099.902,5564000,"Resto del mundo"
-"hdi","France","FRA",2023,0.92,66438828,62028.944,68405000,"Resto del mundo"
-"hdi","Gabon","GAB",2023,0.733,2484790,23364.777,2209000,"Resto del mundo"
-"hdi","Gambia","GMB",2023,0.524,2697846,3266.493,2719000,"Resto del mundo"
-"hdi","Georgia","GEO",2023,0.844,3807494,24952.269,3736000,"Resto del mundo"
-"hdi","Germany","DEU",2023,0.959,84548233,70601.01,83287000,"Resto del mundo"
-"hdi","Ghana","GHA",2023,0.628,33787916,7562.626,33788000,"Resto del mundo"
-"hdi","Greece","GRC",2023,0.908,10242910,40795.65,10414000,"Resto del mundo"
-"hdi","Guatemala","GTM",2023,0.662,18124841,13756.657,18125000,"LatAm emergente"
-"hdi","Guinea","GIN",2023,0.5,14405469,4181.479,15041000,"Resto del mundo"
-"hdi","Guinea-Bissau","GNB",2023,0.514,2153343,2957.008,1937000,"Resto del mundo"
-"hdi","Haiti","HTI",2023,0.554,11637402,3135.553,12227000,"LatAm emergente"
-"hdi","Honduras","HND",2023,0.645,10644853,7184.244,10645000,"LatAm emergente"
-"hdi","Hong Kong","HKG",2023,0.955,7442738,71596.896,7528000,"Resto del mundo"
-"hdi","Hungary","HUN",2023,0.87,9686465,45142.17,9600000,"Resto del mundo"
-"hdi","Iceland","ISL",2023,0.972,387559,79454.085,375000,"Resto del mundo"
-"hdi","India","IND",2023,0.685,1438069597,9879.524,1438070000,"Resto del mundo"
-"hdi","Indonesia","IDN",2023,0.728,281190068,15566.405,278696000,"Resto del mundo"
-"hdi","Iran","IRN",2023,0.799,90608708,20104.085,85329000,"Resto del mundo"
-"hdi","Iraq","IRQ",2023,0.695,45074055,15360.427,43324000,"Resto del mundo"
-"hdi","Ireland","IRL",2023,0.949,5196629,129607.63,5329000,"Resto del mundo"
-"hdi","Israel","ISR",2023,0.919,9256311,53074.32,9845000,"Resto del mundo"
-"hdi","Italy","ITA",2023,0.915,59499452,59435.719,58997000,"Resto del mundo"
-"hdi","Jamaica","JAM",2023,0.72,2839785,13091.025,2747000,"LatAm emergente"
-"hdi","Japan","JPN",2023,0.925,124370947,52927.939,124482000,"Resto del mundo"
-"hdi","Jordan","JOR",2023,0.754,11439220,11450.536,11439000,"Resto del mundo"
-"hdi","Kazakhstan","KAZ",2023,0.837,20330109,39379.309,19900000,"Resto del mundo"
-"hdi","Kenya","KEN",2023,0.628,55339007,6788.376,51539000,"Resto del mundo"
-"hdi","Kuwait","KWT",2023,0.852,4838781,52437.667,4913000,"Resto del mundo"
-"hdi","Kyrgyzstan","KGZ",2023,0.72,7073523,7481.737,6931000,"Resto del mundo"
-"hdi","Laos","LAO",2023,0.617,7665001,9257.759,7582000,"Resto del mundo"
-"hdi","Latvia","LVA",2023,0.889,1882399,39953.176,1883000,"Resto del mundo"
-"hdi","Lebanon","LBN",2023,0.752,5773494,12930.677,5354000,"Resto del mundo"
-"hdi","Lesotho","LSO",2023,0.55,2311476,2932.819,2311000,"Resto del mundo"
-"hdi","Liberia","LBR",2023,0.51,5493035,1791.908,5493000,"Resto del mundo"
-"hdi","Libya","LBY",2023,0.721,7305659,13843.587,7306000,"Resto del mundo"
-"hdi","Lithuania","LTU",2023,0.895,2854104,52136.138,2872000,"Resto del mundo"
-"hdi","Luxembourg","LUX",2023,0.922,665101,148310.782,661000,"Resto del mundo"
-"hdi","Madagascar","MDG",2023,0.487,31195937,1897.019,29766000,"Resto del mundo"
-"hdi","Malawi","MWI",2023,0.517,21104480,1701.036,22729000,"Resto del mundo"
-"hdi","Malaysia","MYS",2023,0.819,35126295,38778.951,33059000,"Resto del mundo"
-"hdi","Mali","MLI",2023,0.419,23769130,3184.146,23769000,"Resto del mundo"
-"hdi","Malta","MLT",2023,0.924,532964,70236.003,542000,"Resto del mundo"
-"hdi","Mauritania","MRT",2023,0.563,5022442,7903.79,4430000,"Resto del mundo"
-"hdi","Mauritius","MUS",2023,0.806,1273591,29242.203,1248000,"Resto del mundo"
-"hdi","Mexico","MEX",2023,0.789,129739761,24316.159,131135000,"LatAm emergente"
-"hdi","Moldova","MDA",2023,0.785,3067072,17515.689,2492000,"Resto del mundo"
-"hdi","Mongolia","MNG",2023,0.747,3431938,17898.326,3505000,"Resto del mundo"
-"hdi","Montenegro","MNE",2023,0.862,633553,30817.503,624000,"Resto del mundo"
-"hdi","Morocco","MAR",2023,0.71,37712516,10242.547,37022000,"Resto del mundo"
-"hdi","Mozambique","MOZ",2023,0.493,33635163,1667.208,33897000,"Resto del mundo"
-"hdi","Myanmar","MMR",2023,0.609,54133800,4998.391,54134000,"Resto del mundo"
-"hdi","Namibia","NAM",2023,0.665,2963102,11395.305,2928000,"Resto del mundo"
-"hdi","Nepal","NPL",2023,0.622,29694614,5399.641,29695000,"Resto del mundo"
-"hdi","Netherlands","NLD",2023,0.955,18092526,79115.736,17811000,"Resto del mundo"
-"hdi","New Zealand","NZL",2023,0.938,5172837,54312.306,5199000,"Resto del mundo"
-"hdi","Nicaragua","NIC",2023,0.706,6823619,8525.745,6664000,"LatAm emergente"
-"hdi","Niger","NER",2023,0.419,26159863,1825.829,27066000,"Resto del mundo"
-"hdi","Nigeria","NGA",2023,0.56,227882949,8711.664,227883000,"Resto del mundo"
-"hdi","North Macedonia","MKD",2023,0.815,1831800,26321.634,1828000,"Resto del mundo"
-"hdi","Norway","NOR",2023,0.97,5519167,104815.989,5534000,"Resto del mundo"
-"hdi","Oman","OMN",2023,0.858,5049267,41029.993,5166000,"Resto del mundo"
-"hdi","Pakistan","PAK",2023,0.544,247504505,6535.815,231450000,"Resto del mundo"
-"hdi","Panama","PAN",2023,0.839,4458758,39899.217,4453000,"LatAm emergente"
-"hdi","Paraguay","PRY",2023,0.756,6844150,19022.892,6327000,"LatAm emergente"
-"hdi","Peru","PER",2023,0.794,33845616,17364.957,33731000,"LatAm emergente"
-"hdi","Philippines","PHL",2023,0.72,114891199,11287.754,111910000,"Resto del mundo"
-"hdi","Poland","POL",2023,0.906,38762847,49265.369,36754000,"Resto del mundo"
-"hdi","Portugal","PRT",2023,0.89,10430735,46639.683,10578000,"Resto del mundo"
-"hdi","Qatar","QAT",2023,0.886,2979086,112271.291,3063000,"Resto del mundo"
-"hdi","Romania","ROU",2023,0.845,19118482,44975.803,19055000,"Resto del mundo"
-"hdi","Russia","RUS",2023,0.832,145440502,44560.077,145441000,"Resto del mundo"
-"hdi","Rwanda","RWA",2023,0.578,13954473,3637.187,13499000,"Resto del mundo"
-"hdi","Saint Lucia","LCA",2023,0.748,179291,26333.41,179000,"LatAm emergente"
-"hdi","Sao Tome and Principe","STP",2023,0.637,230882,6155.021,231000,"Resto del mundo"
-"hdi","Saudi Arabia","SAU",2023,0.9,33264289,71623.601,33703000,"Resto del mundo"
-"hdi","Senegal","SEN",2023,0.53,18077573,4759.379,18162000,"Resto del mundo"
-"hdi","Serbia","SRB",2023,0.833,6773204,28907.095,6623000,"Resto del mundo"
-"hdi","Seychelles","SYC",2023,0.848,127961,31516.039,121000,"Resto del mundo"
-"hdi","Sierra Leone","SLE",2023,0.467,8460523,3371.104,8461000,"Resto del mundo"
-"hdi","Singapore","SGP",2023,0.946,5789092,144728.013,5918000,"Resto del mundo"
-"hdi","Slovakia","SVK",2023,0.88,5518057,43953.548,5429000,"Resto del mundo"
-"hdi","Slovenia","SVN",2023,0.931,2118394,53808.099,2117000,"Resto del mundo"
-"hdi","South Africa","ZAF",2023,0.741,63212386,15615.889,61578000,"Resto del mundo"
-"hdi","South Korea","KOR",2023,0.937,51748744,60201.551,51713000,"Resto del mundo"
-"hdi","Spain","ESP",2023,0.918,47911583,52045.408,48628000,"Resto del mundo"
-"hdi","Sri Lanka","LKA",2023,0.776,22971615,14467.53,22037000,"Resto del mundo"
-"hdi","Sudan","SDN",2023,0.511,50042800,3064.929,47895000,"Resto del mundo"
-"hdi","Sweden","SWE",2023,0.959,10551493,69335.934,10552000,"Resto del mundo"
-"hdi","Switzerland","CHE",2023,0.97,8870564,96601.424,8815000,"Resto del mundo"
-"hdi","Tajikistan","TJK",2023,0.691,10389807,5152.167,10013000,"Resto del mundo"
-"hdi","Tanzania","TZA",2023,0.555,66617607,3926.279,63729000,"Resto del mundo"
-"hdi","Thailand","THA",2023,0.798,71702436,23607.092,71702000,"Resto del mundo"
-"hdi","Togo","TGO",2023,0.571,8223853,3151.732,9320000,"Resto del mundo"
-"hdi","Trinidad and Tobago","TTO",2023,0.807,1502938,33342.139,1421000,"LatAm emergente"
-"hdi","Tunisia","TUN",2023,0.746,12200434,13971.391,12200000,"Resto del mundo"
-"hdi","Turkey","TUR",2023,0.853,87270502,39325.253,85326000,"Resto del mundo"
-"hdi","Turkmenistan","TKM",2023,0.764,7364437,21179.858,6516000,"Resto del mundo"
-"hdi","Uganda","UGA",2023,0.582,48656606,3494.925,45222000,"Resto del mundo"
-"hdi","Ukraine","UKR",2023,0.779,37732833,18321.109,34026000,"Resto del mundo"
-"hdi","United Arab Emirates","ARE",2023,0.94,10642089,76596.069,10679000,"Resto del mundo"
-"hdi","United Kingdom","GBR",2023,0.946,68682965,61552.285,68526000,"Resto del mundo"
-"hdi","United States","USA",2023,0.938,343477330,82536.095,336962000,"Resto del mundo"
-"hdi","Uruguay","URY",2023,0.862,3388083,33475.364,3496000,"LatAm emergente"
-"hdi","Uzbekistan","UZB",2023,0.74,35652311,11314.432,36800000,"Resto del mundo"
-"hdi","Venezuela","VEN",2023,0.709,28300861,7888.601,26740000,"Venezuela"
-"hdi","Vietnam","VNM",2023,0.766,100352189,15052.708,100309000,"Resto del mundo"
-"hdi","Yemen","YEM",2023,0.47,39390800,1633.774,17726000,"Resto del mundo"
-"hdi","Zambia","ZMB",2023,0.595,20723967,4080.345,20724000,"Resto del mundo"
-"hdi","Zimbabwe","ZWE",2023,0.598,16340829,7231.518,16624000,"Resto del mundo"
-"schooling","Afghanistan","AFG",2023,2.51479,41454762,2203.518,41455000,"Resto del mundo"
-"schooling","Albania","ALB",2023,10.175311,2811660,20252.255,2750000,"Resto del mundo"
-"schooling","Algeria","DZA",2023,7.416387,46164222,16908.206,45973000,"Resto del mundo"
-"schooling","Angola","AGO",2023,5.956173,36749909,9610.864,36750000,"Resto del mundo"
-"schooling","Argentina","ARG",2023,11.184582,45538402,29522.706,46655000,"LatAm emergente"
-"schooling","Armenia","ARM",2023,11.344978,2943398,21061.964,3034000,"Resto del mundo"
-"schooling","Australia","AUS",2023,12.87,26451126,68360.691,26957000,"Resto del mundo"
-"schooling","Austria","AUT",2023,12.361465,9130434,72589.865,9105000,"Resto del mundo"
-"schooling","Azerbaijan","AZE",2023,11.07,10318209,23733.811,10127000,"Resto del mundo"
-"schooling","Bahrain","BHR",2023,11.13,1569674,64223.768,1577000,"Resto del mundo"
-"schooling","Bangladesh","BGD",2023,6.79,171466986,9219.193,170279000,"Resto del mundo"
-"schooling","Barbados","BRB",2023,9.928357,282347,22535.359,290000,"LatAm emergente"
-"schooling","Belarus","BLR",2023,12.335373,9115679,30258.438,9178000,"Resto del mundo"
-"schooling","Belgium","BEL",2023,12.689651,11712891,71704.946,11743000,"Resto del mundo"
-"schooling","Benin","BEN",2023,3.1942,14111035,4133.373,14111000,"Resto del mundo"
-"schooling","Bolivia","BOL",2023,10.021223,12244161,12902.717,12244000,"LatAm emergente"
-"schooling","Bosnia and Herzegovina","BIH",2023,10.97,3185072,20512.37,3464000,"Resto del mundo"
-"schooling","Botswana","BWA",2023,10.478,2480242,21029.368,2480000,"Resto del mundo"
-"schooling","Brazil","BRA",2023,8.425372,211140731,21137.486,211695000,"LatAm emergente"
-"schooling","Bulgaria","BGR",2023,11.454531,6795805,37035.155,6445000,"Resto del mundo"
-"schooling","Burkina Faso","BFA",2023,2.26655,23025777,2761.569,23026000,"Resto del mundo"
-"schooling","Burundi","BDI",2023,3.4739356,13689455,921.429,13689000,"Resto del mundo"
-"schooling","Cambodia","KHM",2023,5.1971,17423884,7336.094,17424000,"Resto del mundo"
-"schooling","Cameroon","CMR",2023,6.5741806,28372690,5415.209,28373000,"Resto del mundo"
-"schooling","Canada","CAN",2023,13.87,39299098,63796.961,39936000,"Resto del mundo"
-"schooling","Cape Verde","CPV",2023,6.0900393,522335,10517.425,509000,"Resto del mundo"
-"schooling","Central African Republic","CAF",2023,3.9894314,5152415,1374.42,5065000,"Resto del mundo"
-"schooling","Chad","TCD",2023,2.3349848,19319075,2973.007,17921000,"Resto del mundo"
-"schooling","Chile","CHL",2023,11.291054,19658833,32673.422,19756000,"LatAm emergente"
-"schooling","China","CHN",2023,8.036181,1422584930,25188.583,1409670000,"Resto del mundo"
-"schooling","Colombia","COL",2023,9.031582,52321152,20860.036,52216000,"LatAm emergente"
-"schooling","Comoros","COM",2023,6.00684,850390,3728.631,870000,"Resto del mundo"
-"schooling","Congo","COG",2023,8.322645,6182890,6257.285,6138000,"Resto del mundo"
-"schooling","Costa Rica","CRI",2023,8.844752,5105526,28683.678,5278000,"LatAm emergente"
-"schooling","Cote d'Ivoire","CIV",2023,4.87,31165653,7259.853,31094000,"Resto del mundo"
-"schooling","Croatia","HRV",2023,12.095121,3896023,45873.246,3860000,"Resto del mundo"
-"schooling","Cyprus","CYP",2023,12.557372,1344981,59029.562,949000,"Resto del mundo"
-"schooling","Czechia","CZE",2023,12.963182,10809722,55325.293,10851000,"Resto del mundo"
-"schooling","Democratic Republic of Congo","COD",2023,7.378561,105789733,1833.281,99948000,"Resto del mundo"
-"schooling","Denmark","DNK",2023,13.027321,5948134,77512.855,5933000,"Resto del mundo"
-"schooling","Djibouti","DJI",2023,3.9504151,1152951,8097.334,1030000,"Resto del mundo"
-"schooling","Dominica","DMA",2023,10.12509,66531,17279.767,74000,"LatAm emergente"
-"schooling","Dominican Republic","DOM",2023,9.444526,11331269,27363.748,10709000,"LatAm emergente"
-"schooling","Ecuador","ECU",2023,8.97,17980079,16036.875,17835000,"LatAm emergente"
-"schooling","Egypt","EGY",2023,10.13612,114535772,20197.388,105200000,"Resto del mundo"
-"schooling","El Salvador","SLV",2023,7.3,6309629,12690.042,6310000,"LatAm emergente"
-"schooling","Equatorial Guinea","GNQ",2023,8.281327,1847556,20848.963,1544000,"Resto del mundo"
-"schooling","Estonia","EST",2023,13.562166,1367195,46698.803,1370000,"Resto del mundo"
-"schooling","Eswatini","SWZ",2023,8.6852,1230507,12228.549,1138000,"Resto del mundo"
-"schooling","Ethiopia","ETH",2023,2.4025397,128691695,3786.734,105707000,"Resto del mundo"
-"schooling","Finland","FIN",2023,12.979626,5601185,63099.902,5564000,"Resto del mundo"
-"schooling","France","FRA",2023,11.765668,66438828,62028.944,68405000,"Resto del mundo"
-"schooling","Gabon","GAB",2023,9.686,2484790,23364.777,2209000,"Resto del mundo"
-"schooling","Gambia","GMB",2023,4.674727,2697846,3266.493,2719000,"Resto del mundo"
-"schooling","Georgia","GEO",2023,12.7,3807494,24952.269,3736000,"Resto del mundo"
-"schooling","Germany","DEU",2023,14.296371,84548233,70601.01,83287000,"Resto del mundo"
-"schooling","Ghana","GHA",2023,7.10721,33787916,7562.626,33788000,"Resto del mundo"
-"schooling","Greece","GRC",2023,11.553857,10242910,40795.65,10414000,"Resto del mundo"
-"schooling","Guatemala","GTM",2023,5.8473,18124841,13756.657,18125000,"LatAm emergente"
-"schooling","Guinea","GIN",2023,2.486339,14405469,4181.479,15041000,"Resto del mundo"
-"schooling","Guinea-Bissau","GNB",2023,3.673035,2153343,2957.008,1937000,"Resto del mundo"
-"schooling","Haiti","HTI",2023,5.3823,11637402,3135.553,12227000,"LatAm emergente"
-"schooling","Honduras","HND",2023,7.510229,10644853,7184.244,10645000,"LatAm emergente"
-"schooling","Hong Kong","HKG",2023,12.35,7442738,71596.896,7528000,"Resto del mundo"
-"schooling","Hungary","HUN",2023,12.331622,9686465,45142.17,9600000,"Resto del mundo"
-"schooling","Iceland","ISL",2023,13.908926,387559,79454.085,375000,"Resto del mundo"
-"schooling","India","IND",2023,6.88,1438069597,9879.524,1438070000,"Resto del mundo"
-"schooling","Indonesia","IDN",2023,8.697224,281190068,15566.405,278696000,"Resto del mundo"
-"schooling","Iran","IRN",2023,10.846712,90608708,20104.085,85329000,"Resto del mundo"
-"schooling","Iraq","IRQ",2023,6.7800465,45074055,15360.427,43324000,"Resto del mundo"
-"schooling","Ireland","IRL",2023,11.724999,5196629,129607.63,5329000,"Resto del mundo"
-"schooling","Israel","ISR",2023,13.534595,9256311,53074.32,9845000,"Resto del mundo"
-"schooling","Italy","ITA",2023,10.828128,59499452,59435.719,58997000,"Resto del mundo"
-"schooling","Jamaica","JAM",2023,9.95991,2839785,13091.025,2747000,"LatAm emergente"
-"schooling","Japan","JPN",2023,12.684047,124370947,52927.939,124482000,"Resto del mundo"
-"schooling","Jordan","JOR",2023,10.24,11439220,11450.536,11439000,"Resto del mundo"
-"schooling","Kazakhstan","KAZ",2023,12.547174,20330109,39379.309,19900000,"Resto del mundo"
-"schooling","Kenya","KEN",2023,8.62471,55339007,6788.376,51539000,"Resto del mundo"
-"schooling","Kuwait","KWT",2023,7.566007,4838781,52437.667,4913000,"Resto del mundo"
-"schooling","Kyrgyzstan","KGZ",2023,12.065888,7073523,7481.737,6931000,"Resto del mundo"
-"schooling","Laos","LAO",2023,6.060246,7665001,9257.759,7582000,"Resto del mundo"
-"schooling","Latvia","LVA",2023,13.40944,1882399,39953.176,1883000,"Resto del mundo"
-"schooling","Lebanon","LBN",2023,10.37,5773494,12930.677,5354000,"Resto del mundo"
-"schooling","Lesotho","LSO",2023,7.7298837,2311476,2932.819,2311000,"Resto del mundo"
-"schooling","Liberia","LBR",2023,6.169892,5493035,1791.908,5493000,"Resto del mundo"
-"schooling","Libya","LBY",2023,7.7786064,7305659,13843.587,7306000,"Resto del mundo"
-"schooling","Lithuania","LTU",2023,13.610692,2854104,52136.138,2872000,"Resto del mundo"
-"schooling","Luxembourg","LUX",2023,12.589372,665101,148310.782,661000,"Resto del mundo"
-"schooling","Madagascar","MDG",2023,4.59252,31195937,1897.019,29766000,"Resto del mundo"
-"schooling","Malawi","MWI",2023,5.24374,21104480,1701.036,22729000,"Resto del mundo"
-"schooling","Malaysia","MYS",2023,11.09,35126295,38778.951,33059000,"Resto del mundo"
-"schooling","Mali","MLI",2023,1.63,23769130,3184.146,23769000,"Resto del mundo"
-"schooling","Malta","MLT",2023,12.420702,532964,70236.003,542000,"Resto del mundo"
-"schooling","Mauritania","MRT",2023,4.852026,5022442,7903.79,4430000,"Resto del mundo"
-"schooling","Mauritius","MUS",2023,10.103328,1273591,29242.203,1248000,"Resto del mundo"
-"schooling","Mexico","MEX",2023,9.349511,129739761,24316.159,131135000,"LatAm emergente"
-"schooling","Moldova","MDA",2023,11.83,3067072,17515.689,2492000,"Resto del mundo"
-"schooling","Mongolia","MNG",2023,9.42,3431938,17898.326,3505000,"Resto del mundo"
-"schooling","Montenegro","MNE",2023,12.773926,633553,30817.503,624000,"Resto del mundo"
-"schooling","Morocco","MAR",2023,6.198,37712516,10242.547,37022000,"Resto del mundo"
-"schooling","Mozambique","MOZ",2023,4.59049,33635163,1667.208,33897000,"Resto del mundo"
-"schooling","Myanmar","MMR",2023,6.38,54133800,4998.391,54134000,"Resto del mundo"
-"schooling","Namibia","NAM",2023,7.2731466,2963102,11395.305,2928000,"Resto del mundo"
-"schooling","Nepal","NPL",2023,4.50373,29694614,5399.641,29695000,"Resto del mundo"
-"schooling","Netherlands","NLD",2023,12.669947,18092526,79115.736,17811000,"Resto del mundo"
-"schooling","New Zealand","NZL",2023,12.882998,5172837,54312.306,5199000,"Resto del mundo"
-"schooling","Nicaragua","NIC",2023,9.93302,6823619,8525.745,6664000,"LatAm emergente"
-"schooling","Niger","NER",2023,1.4122894,26159863,1825.829,27066000,"Resto del mundo"
-"schooling","Nigeria","NGA",2023,7.58597,227882949,8711.664,227883000,"Resto del mundo"
-"schooling","North Macedonia","MKD",2023,10.23,1831800,26321.634,1828000,"Resto del mundo"
-"schooling","Norway","NOR",2023,13.117962,5519167,104815.989,5534000,"Resto del mundo"
-"schooling","Oman","OMN",2023,11.89,5049267,41029.993,5166000,"Resto del mundo"
-"schooling","Pakistan","PAK",2023,4.316987,247504505,6535.815,231450000,"Resto del mundo"
-"schooling","Panama","PAN",2023,10.833751,4458758,39899.217,4453000,"LatAm emergente"
-"schooling","Paraguay","PRY",2023,8.930654,6844150,19022.892,6327000,"LatAm emergente"
-"schooling","Peru","PER",2023,10.154652,33845616,17364.957,33731000,"LatAm emergente"
-"schooling","Philippines","PHL",2023,9.97724,114891199,11287.754,111910000,"Resto del mundo"
-"schooling","Poland","POL",2023,13.208543,38762847,49265.369,36754000,"Resto del mundo"
-"schooling","Portugal","PRT",2023,9.703255,10430735,46639.683,10578000,"Resto del mundo"
-"schooling","Qatar","QAT",2023,10.77,2979086,112271.291,3063000,"Resto del mundo"
-"schooling","Romania","ROU",2023,11.55,19118482,44975.803,19055000,"Resto del mundo"
-"schooling","Russia","RUS",2023,12.41,145440502,44560.077,145441000,"Resto del mundo"
-"schooling","Rwanda","RWA",2023,4.88,13954473,3637.187,13499000,"Resto del mundo"
-"schooling","Saint Lucia","LCA",2023,8.614167,179291,26333.41,179000,"LatAm emergente"
-"schooling","Sao Tome and Principe","STP",2023,5.9875593,230882,6155.021,231000,"Resto del mundo"
-"schooling","Saudi Arabia","SAU",2023,11.606428,33264289,71623.601,33703000,"Resto del mundo"
-"schooling","Senegal","SEN",2023,2.934554,18077573,4759.379,18162000,"Resto del mundo"
-"schooling","Serbia","SRB",2023,11.641718,6773204,28907.095,6623000,"Resto del mundo"
-"schooling","Seychelles","SYC",2023,11.19995,127961,31516.039,121000,"Resto del mundo"
-"schooling","Sierra Leone","SLE",2023,3.5352976,8460523,3371.104,8461000,"Resto del mundo"
-"schooling","Singapore","SGP",2023,11.99,5789092,144728.013,5918000,"Resto del mundo"
-"schooling","Slovakia","SVK",2023,13.103204,5518057,43953.548,5429000,"Resto del mundo"
-"schooling","Slovenia","SVN",2023,12.951202,2118394,53808.099,2117000,"Resto del mundo"
-"schooling","South Africa","ZAF",2023,11.61,63212386,15615.889,61578000,"Resto del mundo"
-"schooling","South Korea","KOR",2023,12.7221985,51748744,60201.551,51713000,"Resto del mundo"
-"schooling","Spain","ESP",2023,10.7561245,47911583,52045.408,48628000,"Resto del mundo"
-"schooling","Sri Lanka","LKA",2023,10.77,22971615,14467.53,22037000,"Resto del mundo"
-"schooling","Sudan","SDN",2023,3.962,50042800,3064.929,47895000,"Resto del mundo"
-"schooling","Sweden","SWE",2023,12.740326,10551493,69335.934,10552000,"Resto del mundo"
-"schooling","Switzerland","CHE",2023,13.949121,8870564,96601.424,8815000,"Resto del mundo"
-"schooling","Tajikistan","TJK",2023,11.270948,10389807,5152.167,10013000,"Resto del mundo"
-"schooling","Tanzania","TZA",2023,6.06535,66617607,3926.279,63729000,"Resto del mundo"
-"schooling","Thailand","THA",2023,9.04,71702436,23607.092,71702000,"Resto del mundo"
-"schooling","Togo","TGO",2023,5.8611145,8223853,3151.732,9320000,"Resto del mundo"
-"schooling","Trinidad and Tobago","TTO",2023,10.79275,1502938,33342.139,1421000,"LatAm emergente"
-"schooling","Tunisia","TUN",2023,7.59492,12200434,13971.391,12200000,"Resto del mundo"
-"schooling","Turkey","TUR",2023,8.986243,87270502,39325.253,85326000,"Resto del mundo"
-"schooling","Turkmenistan","TKM",2023,11.207802,7364437,21179.858,6516000,"Resto del mundo"
-"schooling","Uganda","UGA",2023,6.323663,48656606,3494.925,45222000,"Resto del mundo"
-"schooling","Ukraine","UKR",2023,11.122739,37732833,18321.109,34026000,"Resto del mundo"
-"schooling","United Arab Emirates","ARE",2023,12.99,10642089,76596.069,10679000,"Resto del mundo"
-"schooling","United Kingdom","GBR",2023,13.49,68682965,61552.285,68526000,"Resto del mundo"
-"schooling","United States","USA",2023,13.91,343477330,82536.095,336962000,"Resto del mundo"
-"schooling","Uruguay","URY",2023,10.54,3388083,33475.364,3496000,"LatAm emergente"
-"schooling","Uzbekistan","UZB",2023,11.91,35652311,11314.432,36800000,"Resto del mundo"
-"schooling","Venezuela","VEN",2023,9.678386,28300861,7888.601,26740000,"Venezuela"
-"schooling","Vietnam","VNM",2023,8.98,100352189,15052.708,100309000,"Resto del mundo"
-"schooling","Yemen","YEM",2023,5.48415,39390800,1633.774,17726000,"Resto del mundo"
-"schooling","Zambia","ZMB",2023,7.3974085,20723967,4080.345,20724000,"Resto del mundo"
-"schooling","Zimbabwe","ZWE",2023,8.930847,16340829,7231.518,16624000,"Resto del mundo"
-"democracy","Afghanistan","AFG",2024,0.25,42647000,2236.195,42647000,"Resto del mundo"
-"democracy","Albania","ALB",2024,6.2,2722000,21812.893,2722000,"Resto del mundo"
-"democracy","Algeria","DZA",2024,3.55,46626000,17717.506,46626000,"Resto del mundo"
-"democracy","Angola","AGO",2024,4.05,37886000,10027.325,37886000,"Resto del mundo"
-"democracy","Argentina","ARG",2024,6.51,47068000,29587.354,47068000,"LatAm emergente"
-"democracy","Armenia","ARM",2024,5.35,3034000,22849.16,3034000,"Resto del mundo"
-"democracy","Australia","AUS",2024,8.85,27388000,69646.633,27388000,"Resto del mundo"
-"democracy","Austria","AUT",2024,8.28,9159000,73465.66,9159000,"Resto del mundo"
-"democracy","Azerbaijan","AZE",2024,2.8,10249000,25033.573,10249000,"Resto del mundo"
-"democracy","Bahrain","BHR",2024,2.45,1589000,67230.023,1589000,"Resto del mundo"
-"democracy","Bangladesh","BGD",2024,4.44,172019000,9747.476,172019000,"Resto del mundo"
-"democracy","Belarus","BLR",2024,1.99,9133000,32520.348,9133000,"Resto del mundo"
-"democracy","Belgium","BEL",2024,7.64,11817000,73804.776,11817000,"Resto del mundo"
-"democracy","Benin","BEN",2024,4.44,14500000,4429.499,14500000,"Resto del mundo"
-"democracy","Bolivia","BOL",2024,4.26,12413000,12896.31,12413000,"LatAm emergente"
-"democracy","Bosnia and Herzegovina","BIH",2024,5.06,3455000,21756.271,3455000,"Resto del mundo"
-"democracy","Botswana","BWA",2024,7.63,2521000,20567.941,2521000,"Resto del mundo"
-"democracy","Brazil","BRA",2024,6.49,212584000,22309.326,212584000,"LatAm emergente"
-"democracy","Bulgaria","BGR",2024,6.34,6437000,39289.627,6437000,"Resto del mundo"
-"democracy","Burkina Faso","BFA",2024,2.55,23554000,2899.406,23554000,"Resto del mundo"
-"democracy","Burundi","BDI",2024,2.13,14048000,958.395,14048000,"Resto del mundo"
-"democracy","Cambodia","KHM",2024,2.94,17639000,7873.678,17639000,"Resto del mundo"
-"democracy","Cameroon","CMR",2024,2.56,29124000,5597.089,29124000,"Resto del mundo"
-"democracy","Canada","CAN",2024,8.69,41118000,64801.549,41118000,"Resto del mundo"
-"democracy","Cape Verde","CPV",2024,7.58,512000,11503.81,512000,"Resto del mundo"
-"democracy","Central African Republic","CAF",2024,1.18,5331000,1379.706,5331000,"Resto del mundo"
-"democracy","Chad","TCD",2024,1.89,18437000,3109.989,18437000,"Resto del mundo"
-"democracy","Chile","CHL",2024,7.83,19904000,34114.494,19904000,"LatAm emergente"
-"democracy","China","CHN",2024,2.11,1408280000,27132.068,1408280000,"Resto del mundo"
-"democracy","Colombia","COL",2024,6.35,52696000,21499.476,52696000,"LatAm emergente"
-"democracy","Comoros","COM",2024,2.84,890000,3861.608,890000,"Resto del mundo"
-"democracy","Congo","COG",2024,2.79,6309000,6369.716,6309000,"Resto del mundo"
-"democracy","Costa Rica","CRI",2024,8.29,5325000,30325.932,5325000,"LatAm emergente"
-"democracy","Cote d'Ivoire","CIV",2024,4.22,31983000,7668.666,31983000,"Resto del mundo"
-"democracy","Croatia","HRV",2024,6.5,3866000,48735.646,3866000,"Resto del mundo"
-"democracy","Cyprus","CYP",2024,7.38,966000,61754.437,966000,"Resto del mundo"
-"democracy","Czechia","CZE",2024,8.08,10935000,56963.63,10935000,"Resto del mundo"
-"democracy","Democratic Republic of Congo","COD",2024,1.92,103197000,1929.988,103197000,"Resto del mundo"
-"democracy","Denmark","DNK",2024,9.28,5961000,81806.125,5961000,"Resto del mundo"
-"democracy","Djibouti","DJI",2024,2.7,1043000,8764.288,1043000,"Resto del mundo"
-"democracy","Dominican Republic","DOM",2024,6.62,10797000,29192.843,10797000,"LatAm emergente"
-"democracy","Ecuador","ECU",2024,5.24,17967000,15997.318,17967000,"LatAm emergente"
-"democracy","Egypt","EGY",2024,2.79,106600000,20916.957,106600000,"Resto del mundo"
-"democracy","El Salvador","SLV",2024,4.61,6338000,13283.263,6338000,"LatAm emergente"
-"democracy","Equatorial Guinea","GNQ",2024,1.92,1590000,20930.447,1590000,"Resto del mundo"
-"democracy","Estonia","EST",2024,8.13,1372000,47743.406,1372000,"Resto del mundo"
-"democracy","Eswatini","SWZ",2024,2.6,1150000,12765.737,1150000,"Resto del mundo"
-"democracy","Ethiopia","ETH",2024,3.24,108400000,4089.031,108400000,"Resto del mundo"
-"democracy","Finland","FIN",2024,9.3,5604000,64446.667,5604000,"Resto del mundo"
-"democracy","France","FRA",2024,7.99,68638000,64053.78,68638000,"Resto del mundo"
-"democracy","Gabon","GAB",2024,2.18,2258000,24226.613,2258000,"Resto del mundo"
-"democracy","Gambia","GMB",2024,4.47,2787000,3446.529,2787000,"Resto del mundo"
-"democracy","Georgia","GEO",2024,4.7,3695000,28364.329,3695000,"Resto del mundo"
-"democracy","Germany","DEU",2024,8.73,83517000,71796.542,83517000,"Resto del mundo"
-"democracy","Ghana","GHA",2024,6.24,34427000,8051.188,34427000,"Resto del mundo"
-"democracy","Greece","GRC",2024,8.07,10376000,42837.986,10376000,"Resto del mundo"
-"democracy","Guatemala","GTM",2024,4.55,18406000,14389.515,18406000,"LatAm emergente"
-"democracy","Guinea","GIN",2024,2.04,15417000,4434.673,15417000,"Resto del mundo"
-"democracy","Guinea-Bissau","GNB",2024,2.03,1978000,3109.654,1978000,"Resto del mundo"
-"democracy","Haiti","HTI",2024,2.74,12391000,3038.204,12391000,"LatAm emergente"
-"democracy","Honduras","HND",2024,4.98,10826000,7496.894,10826000,"LatAm emergente"
-"democracy","Hong Kong","HKG",2024,5.09,7501000,75577.685,7501000,"Resto del mundo"
-"democracy","Hungary","HUN",2024,6.51,9585000,46594.775,9585000,"Resto del mundo"
-"democracy","Iceland","ISL",2024,9.38,384000,78599.726,384000,"Resto del mundo"
-"democracy","India","IND",2024,7.29,1450936000,10747.418,1450936000,"Resto del mundo"
-"democracy","Indonesia","IDN",2024,6.44,281604000,16582.681,281604000,"Resto del mundo"
-"democracy","Iran","IRN",2024,1.96,86189000,21144.803,86189000,"Resto del mundo"
-"democracy","Iraq","IRQ",2024,2.8,44415000,15371.442,44415000,"Resto del mundo"
-"democracy","Ireland","IRL",2024,9.19,5420000,133986.346,5420000,"Resto del mundo"
-"democracy","Israel","ISR",2024,7.8,9988000,54126.235,9988000,"Resto del mundo"
-"democracy","Italy","ITA",2024,7.58,58971000,61415.223,58971000,"Resto del mundo"
-"democracy","Jamaica","JAM",2024,6.74,2750000,13329.055,2750000,"LatAm emergente"
-"democracy","Japan","JPN",2024,8.48,123890000,54368.995,123890000,"Resto del mundo"
-"democracy","Jordan","JOR",2024,3.28,11553000,11916.349,11553000,"Resto del mundo"
-"democracy","Kazakhstan","KAZ",2024,3.08,20159000,41831.808,20159000,"Resto del mundo"
-"democracy","Kenya","KEN",2024,5.05,52444000,7159.907,52444000,"Resto del mundo"
-"democracy","Kuwait","KWT",2024,2.78,5012000,51909.045,5012000,"Resto del mundo"
-"democracy","Kyrgyzstan","KGZ",2024,3.52,7077000,8375.51,7077000,"Resto del mundo"
-"democracy","Laos","LAO",2024,1.71,7686000,9762.071,7686000,"Resto del mundo"
-"democracy","Latvia","LVA",2024,7.66,1872000,41173.135,1872000,"Resto del mundo"
-"democracy","Lebanon","LBN",2024,3.56,5354000,12257.811,5354000,"Resto del mundo"
-"democracy","Lesotho","LSO",2024,6.06,2337000,3117.894,2337000,"Resto del mundo"
-"democracy","Liberia","LBR",2024,5.57,5613000,1869.341,5613000,"Resto del mundo"
-"democracy","Libya","LBY",2024,2.31,7381000,14630.744,7381000,"Resto del mundo"
-"democracy","Lithuania","LTU",2024,7.59,2888000,54710.469,2888000,"Resto del mundo"
-"democracy","Luxembourg","LUX",2024,8.88,672000,149986.359,672000,"Resto del mundo"
-"democracy","Madagascar","MDG",2024,5.33,30594000,1973.297,30594000,"Resto del mundo"
-"democracy","Malawi","MWI",2024,5.85,23384000,1722.821,23384000,"Resto del mundo"
-"democracy","Malaysia","MYS",2024,7.11,33460000,41269.791,33460000,"Resto del mundo"
-"democracy","Mali","MLI",2024,2.4,24497000,3325.084,24497000,"Resto del mundo"
-"democracy","Malta","MLT",2024,7.93,553000,74977.064,553000,"Resto del mundo"
-"democracy","Mauritania","MRT",2024,3.96,4529000,8423.713,4529000,"Resto del mundo"
-"democracy","Mauritius","MUS",2024,8.23,1245000,31516.531,1245000,"Resto del mundo"
-"democracy","Mexico","MEX",2024,5.32,132274000,25038.884,132274000,"LatAm emergente"
-"democracy","Moldova","MDA",2024,6.04,2423000,18516.961,2423000,"Resto del mundo"
-"democracy","Mongolia","MNG",2024,6.53,3545000,19064.087,3545000,"Resto del mundo"
-"democracy","Montenegro","MNE",2024,6.73,624000,32565.586,624000,"Resto del mundo"
-"democracy","Morocco","MAR",2024,4.97,37370000,10793.549,37370000,"Resto del mundo"
-"democracy","Mozambique","MOZ",2024,3.38,34858000,1697.196,34858000,"Resto del mundo"
-"democracy","Myanmar","MMR",2024,0.96,54500000,5038.592,54500000,"Resto del mundo"
-"democracy","Namibia","NAM",2024,6.48,2990000,11861.25,2990000,"Resto del mundo"
-"democracy","Nepal","NPL",2024,4.6,29651000,5744.948,29651000,"Resto del mundo"
-"democracy","Netherlands","NLD",2024,9,17943000,81354.404,17943000,"Resto del mundo"
-"democracy","New Zealand","NZL",2024,9.61,5290000,54549.238,5290000,"Resto del mundo"
-"democracy","Nicaragua","NIC",2024,2.09,6664000,9050.282,6664000,"LatAm emergente"
-"democracy","Niger","NER",2024,2.26,28080000,1989.384,28080000,"Resto del mundo"
-"democracy","Nigeria","NGA",2024,4.16,232679000,9099.862,232679000,"Resto del mundo"
-"democracy","North Macedonia","MKD",2024,6.28,1824000,27835.289,1824000,"Resto del mundo"
-"democracy","Norway","NOR",2024,9.81,5585000,107943.564,5585000,"Resto del mundo"
-"democracy","Oman","OMN",2024,3.05,5219000,42304.162,5219000,"Resto del mundo"
-"democracy","Pakistan","PAK",2024,2.84,235950000,6743.385,235950000,"Resto del mundo"
-"democracy","Panama","PAN",2024,6.84,4510000,41485.021,4510000,"LatAm emergente"
-"democracy","Paraguay","PRY",2024,5.92,6373000,20258.753,6373000,"LatAm emergente"
-"democracy","Peru","PER",2024,5.69,34068000,18238.969,34068000,"LatAm emergente"
-"democracy","Philippines","PHL",2024,6.63,112885000,12120.826,112885000,"Resto del mundo"
-"democracy","Poland","POL",2024,7.4,36621000,52205.98,36621000,"Resto del mundo"
-"democracy","Portugal","PRT",2024,8.08,10695000,48323.807,10695000,"Resto del mundo"
-"democracy","Qatar","QAT",2024,3.17,3143000,114758.203,3143000,"Resto del mundo"
-"democracy","Romania","ROU",2024,5.99,18944000,46787.965,18944000,"Resto del mundo"
-"democracy","Russia","RUS",2024,2.03,144820000,48119.003,144820000,"Resto del mundo"
-"democracy","Rwanda","RWA",2024,3.34,13857000,3892.869,13857000,"Resto del mundo"
-"democracy","Saudi Arabia","SAU",2024,2.08,35300000,71936.189,35300000,"Resto del mundo"
-"democracy","Senegal","SEN",2024,5.93,18661000,5038.758,18661000,"Resto del mundo"
-"democracy","Serbia","SRB",2024,6.26,6586000,30966.504,6586000,"Resto del mundo"
-"democracy","Sierra Leone","SLE",2024,4.32,8642000,3527.433,8642000,"Resto del mundo"
-"democracy","Singapore","SGP",2024,6.18,6037000,153161.044,6037000,"Resto del mundo"
-"democracy","Slovakia","SVK",2024,7.21,5425000,45952.755,5425000,"Resto del mundo"
-"democracy","Slovenia","SVN",2024,7.82,2124000,55914.37,2124000,"Resto del mundo"
-"democracy","South Africa","ZAF",2024,7.16,62329000,15895.477,62329000,"Resto del mundo"
-"democracy","South Korea","KOR",2024,7.75,51751000,62885.478,51751000,"Resto del mundo"
-"democracy","Spain","ESP",2024,8.13,49078000,54674.716,49078000,"Resto del mundo"
-"democracy","Sri Lanka","LKA",2024,6.19,21916000,15655.282,21916000,"Resto del mundo"
-"democracy","Sudan","SDN",2024,1.46,49140000,2346.186,49140000,"Resto del mundo"
-"democracy","Sweden","SWE",2024,9.39,10588000,71536.362,10588000,"Resto del mundo"
-"democracy","Switzerland","CHE",2024,9.32,8962000,98728.608,8962000,"Resto del mundo"
-"democracy","Taiwan","TWN",2024,8.78,23400000,80390.306,23400000,"Resto del mundo"
-"democracy","Tajikistan","TJK",2024,1.83,10188000,5626.255,10188000,"Resto del mundo"
-"democracy","Tanzania","TZA",2024,5.2,65645000,4119.705,65645000,"Resto del mundo"
-"democracy","Thailand","THA",2024,6.27,71668000,24917.534,71668000,"Resto del mundo"
-"democracy","Togo","TGO",2024,2.99,9548000,3352.215,9548000,"Resto del mundo"
-"democracy","Trinidad and Tobago","TTO",2024,7.09,1428000,34857.18,1428000,"LatAm emergente"
-"democracy","Tunisia","TUN",2024,4.71,12277000,14461.578,12277000,"Resto del mundo"
-"democracy","Turkey","TUR",2024,4.26,85518000,41549.109,85518000,"Resto del mundo"
-"democracy","Turkmenistan","TKM",2024,1.66,6598000,22168.508,6598000,"Resto del mundo"
-"democracy","Uganda","UGA",2024,4.49,46623000,3682.423,46623000,"Resto del mundo"
-"democracy","Ukraine","UKR",2024,4.9,33343000,19782.894,33343000,"Resto del mundo"
-"democracy","United Arab Emirates","ARE",2024,3.07,11294000,77185.205,11294000,"Resto del mundo"
-"democracy","United Kingdom","GBR",2024,8.34,69281000,63071.834,69281000,"Resto del mundo"
-"democracy","United States","USA",2024,7.85,339989000,86173.365,339989000,"Resto del mundo"
-"democracy","Uruguay","URY",2024,8.67,3492000,35494.42,3492000,"LatAm emergente"
-"democracy","Uzbekistan","UZB",2024,2.1,37543000,12124.514,37543000,"Resto del mundo"
-"democracy","Venezuela","VEN",2024,2.25,26561000,8570.132,26561000,"Venezuela"
-"democracy","Vietnam","VNM",2024,2.62,101300000,16337.37,101300000,"Resto del mundo"
-"democracy","Yemen","YEM",2024,1.95,18262000,1601.375,18262000,"Resto del mundo"
-"democracy","Zambia","ZMB",2024,5.73,21315000,4221.01,21315000,"Resto del mundo"
-"democracy","Zimbabwe","ZWE",2024,2.98,16992000,7376.624,16992000,"Resto del mundo"
+"indicator_id","country","country_code","year","indicator_value","gdp_per_capita","population","owid_region","gdp_population"
+"life_expectancy","Afghanistan","AFG",2022,65.617,1357.9878,40578847,"Asia",NA
+"life_expectancy","Albania","ALB",2022,78.7688,12978.101,2827614,"Europa",NA
+"life_expectancy","Algeria","DZA",2022,76.1289,13506.444,45477391,"África",NA
+"life_expectancy","Angola","AGO",2022,64.2455,6118.905,35635028,"África",NA
+"life_expectancy","Argentina","ARG",2022,75.8061,18292.318,45407904,"América del Sur",NA
+"life_expectancy","Armenia","ARM",2022,74.6333,13837.577,2880880,"Asia",NA
+"life_expectancy","Australia","AUS",2022,82.7662,52049.43,26200987,"Oceanía",NA
+"life_expectancy","Austria","AUT",2022,81.2959,43792.855,9064678,"Europa",NA
+"life_expectancy","Azerbaijan","AZE",2022,74.125,17682.94,10295307,"Asia",NA
+"life_expectancy","Bahrain","BHR",2022,80.9921,38651.6,1533460,"Asia",NA
+"life_expectancy","Bangladesh","BGD",2022,74.2647,4925.721,169384891,"Asia",NA
+"life_expectancy","Barbados","BRB",2022,75.6761,11545.848,282324,"América del Norte",NA
+"life_expectancy","Belarus","BLR",2022,74.3612,18699.799,9173240,"Europa",NA
+"life_expectancy","Belgium","BEL",2022,81.1589,41872.395,11641814,"Europa",NA
+"life_expectancy","Benin","BEN",2022,60.4751,2477.0903,13759507,"África",NA
+"life_expectancy","Bolivia","BOL",2022,67.4342,6481.3906,12077156,"América del Sur",NA
+"life_expectancy","Bosnia and Herzegovina","BIH",2022,76.7772,12142.863,3204802,"Europa",NA
+"life_expectancy","Botswana","BWA",2022,68.7487,16351.91,2439895,"África",NA
+"life_expectancy","Brazil","BRA",2022,74.8719,14640.076,210306411,"América del Sur",NA
+"life_expectancy","Bulgaria","BGR",2022,74.0342,20592.455,6825862,"Europa",NA
+"life_expectancy","Burkina Faso","BFA",2022,60.7,1704.966,22509038,"África",NA
+"life_expectancy","Burundi","BDI",2022,62.8819,717.22845,13321102,"África",NA
+"life_expectancy","Cambodia","KHM",2022,70.528,3944.2468,17201721,"Asia",NA
+"life_expectancy","Cameroon","CMR",2022,62.4428,2812.2148,27632770,"África",NA
+"life_expectancy","Canada","CAN",2022,81.2493,45529.645,38821259,"América del Norte",NA
+"life_expectancy","Cape Verde","CPV",2022,75.9068,7202.767,519750,"África",NA
+"life_expectancy","Central African Republic","CAF",2022,18.8177,596.393,5098038,"África",NA
+"life_expectancy","Chad","TCD",2022,54.5275,1393.5635,18455319,"África",NA
+"life_expectancy","Chile","CHL",2022,79.1762,22740.72,19553033,"América del Sur",NA
+"life_expectancy","China","CHN",2022,78.2021,19238.18,1425179562,"Asia",NA
+"life_expectancy","Colombia","COL",2022,76.5081,14468.964,51737944,"América del Sur",NA
+"life_expectancy","Comoros","COM",2022,66.4806,1900.3983,834191,"África",NA
+"life_expectancy","Congo","COG",2022,65.0003,4187.507,6035104,"África",NA
+"life_expectancy","Costa Rica","CRI",2022,79.3164,15496.82,5081764,"América del Norte",NA
+"life_expectancy","Cote d'Ivoire","CIV",2022,61.5622,4011.7122,30395004,"África",NA
+"life_expectancy","Croatia","HRV",2022,78.2779,26986.752,3907031,"Europa",NA
+"life_expectancy","Cuba","CUB",2022,77.6291,7648.704,11059822,"América del Norte",NA
+"life_expectancy","Cyprus","CYP",2022,80.4337,31523.498,1331376,"Europa",NA
+"life_expectancy","Czechia","CZE",2022,79.1648,32247.395,10673216,"Europa",NA
+"life_expectancy","Democratic Republic of Congo","COD",2022,60.9789,844.172,102396974,"África",NA
+"life_expectancy","Denmark","DNK",2022,81.2906,50689.68,5902901,"Europa",NA
+"life_expectancy","Djibouti","DJI",2022,65.5402,3623.0603,1137101,"África",NA
+"life_expectancy","Dominica","DMA",2022,71.0806,8879.6455,66847,"América del Norte",NA
+"life_expectancy","Dominican Republic","DOM",2022,74.2108,17713.52,11230734,"América del Norte",NA
+"life_expectancy","Ecuador","ECU",2022,76.5767,10124.076,17823900,"América del Sur",NA
+"life_expectancy","Egypt","EGY",2022,71.0097,13205.406,112618252,"África",NA
+"life_expectancy","El Salvador","SLV",2022,71.9695,9218.905,6280316,"América del Norte",NA
+"life_expectancy","Equatorial Guinea","GNQ",2022,63.3545,22707.22,1803549,"África",NA
+"life_expectancy","Estonia","EST",2022,78.1674,30067.395,1350093,"Europa",NA
+"life_expectancy","Eswatini","SWZ",2022,63.0283,8522.45,1218921,"África",NA
+"life_expectancy","Ethiopia","ETH",2022,66.8971,2289.409,125384285,"África",NA
+"life_expectancy","Finland","FIN",2022,81.2435,40701.465,5569300,"Europa",NA
+"life_expectancy","France","FRA",2022,82.4753,39065.71,66277412,"Europa",NA
+"life_expectancy","Gabon","GAB",2022,67.713,15720.901,2430750,"África",NA
+"life_expectancy","Gambia","GMB",2022,64.859,2010.5322,2636472,"África",NA
+"life_expectancy","Georgia","GEO",2022,74.1409,14360.359,3794782,"Asia",NA
+"life_expectancy","Germany","DEU",2022,80.5796,46647.793,84086227,"Europa",NA
+"life_expectancy","Ghana","GHA",2022,65.246,4242.4106,33149152,"África",NA
+"life_expectancy","Greece","GRC",2022,79.9441,25283.906,10412481,"Europa",NA
+"life_expectancy","Guatemala","GTM",2022,71.2064,7969.431,17847877,"América del Norte",NA
+"life_expectancy","Guinea","GIN",2022,60.4316,1809.2666,14055136,"África",NA
+"life_expectancy","Guinea-Bissau","GNB",2022,63.6045,1625.3876,2105535,"África",NA
+"life_expectancy","Haiti","HTI",2022,63.9483,1546.4222,11503603,"América del Norte",NA
+"life_expectancy","Honduras","HND",2022,72.7151,5186.5303,10463880,"América del Norte",NA
+"life_expectancy","Hong Kong","HKG",2022,83.4853,48289.383,7465913,"Asia",NA
+"life_expectancy","Hungary","HUN",2022,76.2118,29451.855,9684308,"Europa",NA
+"life_expectancy","Iceland","ISL",2022,81.5877,42145.594,380368,"Europa",NA
+"life_expectancy","India","IND",2022,71.6984,7765.593,1425423209,"Asia",NA
+"life_expectancy","Indonesia","IDN",2022,70.9246,12801.671,278830527,"Asia",NA
+"life_expectancy","Iran","IRN",2022,76.7993,18473.066,89524247,"Asia",NA
+"life_expectancy","Iraq","IRQ",2022,72.0371,13071.94,44070556,"Asia",NA
+"life_expectancy","Ireland","IRL",2022,82.0505,60257.082,5110015,"Europa",NA
+"life_expectancy","Israel","ISR",2022,82.8145,36648.918,9103143,"Asia",NA
+"life_expectancy","Italy","ITA",2022,82.052,36224.293,59619106,"Europa",NA
+"life_expectancy","Jamaica","JAM",2022,71.4809,7481.6685,2839150,"América del Norte",NA
+"life_expectancy","Japan","JPN",2022,84.0541,38268.79,124997585,"Asia",NA
+"life_expectancy","Jordan","JOR",2022,77.088,9151.479,11256269,"Asia",NA
+"life_expectancy","Kazakhstan","KAZ",2022,73.5028,26491.857,20034612,"Asia",NA
+"life_expectancy","Kenya","KEN",2022,63.5491,3403.9238,54252458,"África",NA
+"life_expectancy","Kuwait","KWT",2022,78.7881,71533.516,4589514,"Asia",NA
+"life_expectancy","Kyrgyzstan","KGZ",2022,71.487,5304.841,6955792,"Asia",NA
+"life_expectancy","Laos","LAO",2022,68.7152,7168.1904,7559008,"Asia",NA
+"life_expectancy","Latvia","LVA",2022,74.8706,27220.303,1881059,"Europa",NA
+"life_expectancy","Lebanon","LBN",2022,78.0029,10341.159,5744492,"Asia",NA
+"life_expectancy","Lesotho","LSO",2022,56.8119,2312.9583,2286112,"África",NA
+"life_expectancy","Liberia","LBR",2022,61.9342,811.2146,5373297,"África",NA
+"life_expectancy","Libya","LBY",2022,74.4615,12755.204,7223804,"África",NA
+"life_expectancy","Lithuania","LTU",2022,74.696,30863.32,2816923,"Europa",NA
+"life_expectancy","Luxembourg","LUX",2022,82.2007,55484.777,653315,"Europa",NA
+"life_expectancy","Madagascar","MDG",2022,63.0677,1367.0938,30437261,"África",NA
+"life_expectancy","Malawi","MWI",2022,66.037,1190.0509,20568731,"África",NA
+"life_expectancy","Malaysia","MYS",2022,75.4442,26628.707,34695494,"Asia",NA
+"life_expectancy","Mali","MLI",2022,60.0347,1651.9413,23072641,"África",NA
+"life_expectancy","Malta","MLT",2022,82.2496,34496.34,528194,"Europa",NA
+"life_expectancy","Mauritania","MRT",2022,68.2807,3680.3662,4875644,"África",NA
+"life_expectancy","Mauritius","MUS",2022,73.5445,20643.094,1276134,"África",NA
+"life_expectancy","Mexico","MEX",2022,73.9731,16235.455,128613116,"América del Norte",NA
+"life_expectancy","Moldova","MDA",2022,71.5465,6674.871,3039986,"Europa",NA
+"life_expectancy","Mongolia","MNG",2022,71.5049,13442.906,3386015,"Asia",NA
+"life_expectancy","Montenegro","MNE",2022,75.9214,20941.805,614649,"Europa",NA
+"life_expectancy","Morocco","MAR",2022,75.1614,8400.127,37329068,"África",NA
+"life_expectancy","Mozambique","MOZ",2022,63.0115,1087.836,32656242,"África",NA
+"life_expectancy","Myanmar","MMR",2022,66.5058,5177.4326,53756791,"Asia",NA
+"life_expectancy","Namibia","NAM",2022,64.1903,7979.328,2889668,"África",NA
+"life_expectancy","Nepal","NPL",2022,70.0869,3013.5178,29715435,"Asia",NA
+"life_expectancy","Netherlands","NLD",2022,81.9121,49669.867,17904421,"Europa",NA
+"life_expectancy","New Zealand","NZL",2022,81.0061,38250.12,5131731,"Oceanía",NA
+"life_expectancy","Nicaragua","NIC",2022,74.4626,5092.8413,6730662,"América del Norte",NA
+"life_expectancy","Niger","NER",2022,60.3981,1007.72095,25311978,"África",NA
+"life_expectancy","Nigeria","NGA",2022,54.079,5070.4927,223150906,"África",NA
+"life_expectancy","North Korea","PRK",2022,73.6411,1568.847,26328843,"Asia",NA
+"life_expectancy","North Macedonia","MKD",2022,76.6455,14050.995,1840236,"Europa",NA
+"life_expectancy","Norway","NOR",2022,82.6309,88366.22,5456796,"Europa",NA
+"life_expectancy","Oman","OMN",2022,77.9106,47988.65,4730229,"Asia",NA
+"life_expectancy","Pakistan","PAK",2022,67.4167,5531.723,243700667,"Asia",NA
+"life_expectancy","Palestine","PSE",2022,76.6624,4775.202,5305274,"Asia",NA
+"life_expectancy","Panama","PAN",2022,79.3241,23557.02,4400775,"América del Norte",NA
+"life_expectancy","Paraguay","PRY",2022,72.3185,8762.771,6760460,"América del Sur",NA
+"life_expectancy","Peru","PER",2022,76.834,12762.967,33475436,"América del Sur",NA
+"life_expectancy","Philippines","PHL",2022,69.4723,8370.666,113964343,"Asia",NA
+"life_expectancy","Poland","POL",2022,77.9229,32468.402,38385734,"Europa",NA
+"life_expectancy","Portugal","PRT",2022,81.1936,28992.059,10417074,"Europa",NA
+"life_expectancy","Puerto Rico","PRI",2022,79.4269,35280.668,3240972,"América del Norte",NA
+"life_expectancy","Qatar","QAT",2022,81.8566,149171.11,2892466,"Asia",NA
+"life_expectancy","Romania","ROU",2022,75.2614,26197.904,19166776,"Europa",NA
+"life_expectancy","Russia","RUS",2022,72.5174,25437.107,145579889,"Europa",NA
+"life_expectancy","Rwanda","RWA",2022,67.528,2198.0662,13651025,"África",NA
+"life_expectancy","Saint Lucia","LCA",2022,72.6699,10452.165,178794,"América del Norte",NA
+"life_expectancy","Sao Tome and Principe","STP",2022,69.2368,3751.6428,226313,"África",NA
+"life_expectancy","Saudi Arabia","SAU",2022,77.3098,53516.91,32175351,"Asia",NA
+"life_expectancy","Senegal","SEN",2022,67.7884,2660.6816,17651099,"África",NA
+"life_expectancy","Serbia","SRB",2022,75.4778,17097.686,6791215,"Europa",NA
+"life_expectancy","Seychelles","SYC",2022,71.2481,31055.39,125533,"África",NA
+"life_expectancy","Sierra Leone","SLE",2022,61.2748,1690.4982,8276809,"África",NA
+"life_expectancy","Singapore","SGP",2022,82.9211,80320.086,5649888,"Asia",NA
+"life_expectancy","Slovakia","SVK",2022,77.0356,27519.287,5473195,"Europa",NA
+"life_expectancy","Slovenia","SVN",2022,80.7933,32673.762,2115231,"Europa",NA
+"life_expectancy","South Africa","ZAF",2022,65.4536,11415.887,62378417,"África",NA
+"life_expectancy","South Korea","KOR",2022,82.727,41320.9,51782515,"Asia",NA
+"life_expectancy","Spain","ESP",2022,82.3661,34123.387,47828386,"Europa",NA
+"life_expectancy","Sri Lanka","LKA",2022,77.2996,10705.481,22834965,"Asia",NA
+"life_expectancy","Sweden","SWE",2022,83.046,47126.13,10487335,"Europa",NA
+"life_expectancy","Switzerland","CHE",2022,83.2003,63323.254,8792180,"Europa",NA
+"life_expectancy","Syria","SYR",2022,72.7898,2494.7612,22462170,"Asia",NA
+"life_expectancy","Taiwan","TWN",2022,80.1569,53142.984,23420107,"Asia",NA
+"life_expectancy","Tajikistan","TJK",2022,71.5624,5507.5454,10182228,"Asia",NA
+"life_expectancy","Tanzania","TZA",2022,66.8786,3057.3286,64711822,"África",NA
+"life_expectancy","Thailand","THA",2022,75.2913,16421.072,71735321,"Asia",NA
+"life_expectancy","Togo","TGO",2022,62.2898,1586.5889,8068616,"África",NA
+"life_expectancy","Trinidad and Tobago","TTO",2022,73.3308,25773.006,1495923,"América del Norte",NA
+"life_expectancy","Tunisia","TUN",2022,76.0505,10913.846,12119338,"África",NA
+"life_expectancy","Turkey","TUR",2022,77.5913,27361.988,87058469,"Asia",NA
+"life_expectancy","Turkmenistan","TKM",2022,69.9133,17234.555,7230197,"Asia",NA
+"life_expectancy","Uganda","UGA",2022,67.6747,2122.0278,47312718,"África",NA
+"life_expectancy","Ukraine","UKR",2022,72.6582,7749.0996,41048768,"Europa",NA
+"life_expectancy","United Arab Emirates","ARE",2022,80.4868,77203.67,10242085,"Asia",NA
+"life_expectancy","United Kingdom","GBR",2022,81.0744,38406.53,68179315,"Europa",NA
+"life_expectancy","United States","USA",2022,77.9789,58487.465,341534041,"América del Norte",NA
+"life_expectancy","Uruguay","URY",2022,76.4682,20181.94,3390913,"América del Sur",NA
+"life_expectancy","Uzbekistan","UZB",2022,72.1465,12559.401,34938953,"Asia",NA
+"life_expectancy","Venezuela","VEN",2022,72.5656,5267.1753,28213015,"América del Sur",NA
+"life_expectancy","Vietnam","VNM",2022,74.5025,8050.359,99680656,"Asia",NA
+"life_expectancy","Yemen","YEM",2022,67.9517,1959.3195,38222878,"Asia",NA
+"life_expectancy","Zambia","ZMB",2022,65.2791,3342.4214,20152935,"África",NA
+"life_expectancy","Zimbabwe","ZWE",2022,62.3601,1703.5294,16069061,"África",NA
+"daily_income","Angola","AGO",2018,3.87951040267944,10000.944,31297160,"África",NA
+"daily_income","Albania","ALB",2020,12.8386011123657,16457.787,2871950,"Europa",NA
+"daily_income","Armenia","ARM",2024,8.54555702209473,20078.785,2943398,"Asia",NA
+"daily_income","Australia","AUS",2020,59.706600189209,57260.465,25743787,"Oceanía",NA
+"daily_income","Austria","AUT",2023,71.4395065307617,64536.297,9130434,"Europa",NA
+"daily_income","Azerbaijan","AZE",2005,9.34951877593994,10054.101,8597248,"Asia",NA
+"daily_income","Burundi","BDI",2020,2.00741958618164,1030.7703,12617041,"África",NA
+"daily_income","Belgium","BEL",2023,62.88720703125,63095.402,11712891,"Europa",NA
+"daily_income","Benin","BEN",2021,4.20006656646729,3464.2886,13413423,"África",NA
+"daily_income","Burkina Faso","BFA",2021,3.37372851371765,2486.431,21995249,"África",NA
+"daily_income","Bangladesh","BGD",2022,6.17493867874146,7888.164,169384891,"Asia",NA
+"daily_income","Bulgaria","BGR",2023,30.1827220916748,33073.816,6795805,"Europa",NA
+"daily_income","Bosnia and Herzegovina","BIH",2021,15.7931480407715,18286.738,3244912,"Europa",NA
+"daily_income","Belarus","BLR",2020,18.3853340148926,26731.496,9350943,"Europa",NA
+"daily_income","Belize","BLZ",2018,14.9377336502075,11451.897,380232,"América del Norte",NA
+"daily_income","Bolivia","BOL",2024,16.8191146850586,11329.151,12244161,"América del Sur",NA
+"daily_income","Brazil","BRA",2024,16.9121055603027,19652.365,211140731,"América del Sur",NA
+"daily_income","Barbados","BRB",2016,15.4900989532471,20930.633,279604,"América del Norte",NA
+"daily_income","Bhutan","BTN",2022,16.4896068572998,14061.3125,780921,"Asia",NA
+"daily_income","Botswana","BWA",2015,5.83431196212769,15994.964,2203276,"África",NA
+"daily_income","Central African Republic","CAF",2021,1.9245719909668,1128.5524,5112103,"África",NA
+"daily_income","Canada","CAN",2022,64.7212753295898,58321.062,38821259,"América del Norte",NA
+"daily_income","Switzerland","CHE",2022,72.2890090942383,82777.3,8792180,"Europa",NA
+"daily_income","Chile","CHL",2024,24.5706577301025,30182.787,19658833,"América del Sur",NA
+"daily_income","China","CHN",2022,13.3631553649902,21499.383,1425179562,"Asia",NA
+"daily_income","Cote d'Ivoire","CIV",2021,4.75888299942017,6045.2046,29639737,"África",NA
+"daily_income","Cameroon","CMR",2021,4.98541450500488,4793.556,26915765,"África",NA
+"daily_income","Democratic Republic of Congo","COD",2020,1.31601297855377,1361.028,95990000,"África",NA
+"daily_income","Congo","COG",2011,3.76484417915344,8492.421,4609728,"África",NA
+"daily_income","Colombia","COL",2024,11.2783603668213,18477.215,52321152,"América del Sur",NA
+"daily_income","Comoros","COM",2024,6.47852182388306,3482.535,850390,"África",NA
+"daily_income","Cape Verde","CPV",2015,6.17727899551392,7560.1367,512405,"África",NA
+"daily_income","Costa Rica","CRI",2025,23.3897438049316,32335.01,5105526,"América del Norte",NA
+"daily_income","Cyprus","CYP",2023,52.1396522521973,51453.727,1344981,"Europa",NA
+"daily_income","Czechia","CZE",2023,39.0691299438477,47558.41,10809722,"Europa",NA
+"daily_income","Germany","DEU",2022,64.1773376464844,63676.086,84086227,"Europa",NA
+"daily_income","Djibouti","DJI",2017,4.70349216461182,5421.9565,1054844,"África",NA
+"daily_income","Denmark","DNK",2023,60.7226982116699,69379.22,5948134,"Europa",NA
+"daily_income","Dominican Republic","DOM",2024,17.4776706695557,24229.889,11331269,"América del Norte",NA
+"daily_income","Algeria","DZA",2011,9.11427593231201,14641.964,36903374,"África",NA
+"daily_income","Ecuador","ECU",2025,12.7009000778198,16934.87,17980079,"América del Sur",NA
+"daily_income","Egypt","EGY",2021,7.61085319519043,15579.016,110957005,"África",NA
+"daily_income","Spain","ESP",2023,47.3042831420898,47322.594,47911583,"Europa",NA
+"daily_income","Estonia","EST",2023,36.523811340332,41288.617,1367195,"Europa",NA
+"daily_income","Ethiopia","ETH",2021,3.48680186271667,2588.413,122138588,"África",NA
+"daily_income","Finland","FIN",2023,56.4773635864258,56250.88,5601185,"Europa",NA
+"daily_income","Fiji","FJI",2019,7.1636266708374,13056.331,914906,"Oceanía",NA
+"daily_income","France","FRA",2023,57.2105484008789,54296.723,66438828,"Europa",NA
+"daily_income","Micronesia (country)","FSM",2013,4.66449403762817,3680.1064,108133,"Oceanía",NA
+"daily_income","Gabon","GAB",2017,11.307635307312,19555.707,2156902,"África",NA
+"daily_income","United Kingdom","GBR",2021,54.5534553527832,51004.426,67668788,"Europa",NA
+"daily_income","Georgia","GEO",2024,8.77147483825684,24883.908,3807494,"Asia",NA
+"daily_income","Ghana","GHA",2016,3.72265148162842,5666.078,29356736,"África",NA
+"daily_income","Guinea","GIN",2018,5.65447998046875,3455.645,12704776,"África",NA
+"daily_income","Gambia","GMB",2020,4.857421875,2702.319,2515744,"África",NA
+"daily_income","Guinea-Bissau","GNB",2021,3.44952130317688,2522.7676,2058841,"África",NA
+"daily_income","Equatorial Guinea","GNQ",2022,7.1342568397522,16932.771,1803549,"África",NA
+"daily_income","Greece","GRC",2023,28.9118061065674,36700.51,10242910,"Europa",NA
+"daily_income","Grenada","GRD",2018,13.9224500656128,16964.852,115703,"América del Norte",NA
+"daily_income","Guatemala","GTM",2023,8.73046016693115,12384.948,18124841,"América del Norte",NA
+"daily_income","Guyana","GUY",1998,7.70488500595093,7915.2295,763596,"América del Sur",NA
+"daily_income","Honduras","HND",2024,8.35151481628418,6585.8555,10644853,"América del Norte",NA
+"daily_income","Croatia","HRV",2023,36.7349395751953,41320.203,3896023,"Europa",NA
+"daily_income","Haiti","HTI",2012,1.91585195064545,3296.2478,10069770,"América del Norte",NA
+"daily_income","Hungary","HUN",2017,22.1389846801758,33828.715,9785608,"Europa",NA
+"daily_income","Indonesia","IDN",2025,6.65595245361328,17745.531,281190068,"Asia",NA
+"daily_income","India","IND",2022,5.53649520874023,8594.392,1425423209,"Asia",NA
+"daily_income","Iran","IRN",2023,10.1860427856445,17044.816,90608708,"Asia",NA
+"daily_income","Iraq","IRQ",2023,10.8890171051025,13202.323,45074055,"Asia",NA
+"daily_income","Iceland","ISL",2019,60.6326675415039,64826.434,360709,"Europa",NA
+"daily_income","Israel","ISR",2022,37.4846534729004,48098.188,9103143,"Asia",NA
+"daily_income","Italy","ITA",2023,48.7903861999512,52870.324,59499452,"Europa",NA
+"daily_income","Jamaica","JAM",2021,14.2937784194946,10430.691,2837680,"América del Norte",NA
+"daily_income","Jordan","JOR",2010,13.7110738754272,10953.538,7297046,"Asia",NA
+"daily_income","Japan","JPN",2020,42.1728057861328,42992.48,126304533,"Asia",NA
+"daily_income","Kazakhstan","KAZ",2021,12.2440023422241,32945.85,19743607,"Asia",NA
+"daily_income","Kenya","KEN",2022,3.21497845649719,5491.694,54252458,"África",NA
+"daily_income","Kyrgyzstan","KGZ",2024,6.85668039321899,7048.9897,7073523,"Asia",NA
+"daily_income","Kiribati","KIR",2023,8.05118465423584,3140.5833,132540,"Oceanía",NA
+"daily_income","South Korea","KOR",2021,54.25146484375,51718.25,51848401,"Asia",NA
+"daily_income","Laos","LAO",2024,6.17050647735596,8600.324,7665001,"Asia",NA
+"daily_income","Lebanon","LBN",2022,8.18707275390625,11474.751,5744492,"Asia",NA
+"daily_income","Liberia","LBR",2016,3.87180018424988,1653.3105,4755607,"África",NA
+"daily_income","Saint Lucia","LCA",2015,16.9911117553711,21142.973,174919,"América del Norte",NA
+"daily_income","Sri Lanka","LKA",2019,7.90575838088989,14637.444,22410552,"Asia",NA
+"daily_income","Lesotho","LSO",2017,3.58004951477051,2924.681,2157117,"África",NA
+"daily_income","Lithuania","LTU",2023,37.5957069396973,46159.707,2854104,"Europa",NA
+"daily_income","Latvia","LVA",2023,32.9529342651367,37277.723,1882399,"Europa",NA
+"daily_income","Morocco","MAR",2013,8.43462085723877,7839.032,33787573,"África",NA
+"daily_income","Moldova","MDA",2023,11.6480894088745,15990.4795,3067072,"Europa",NA
+"daily_income","Madagascar","MDG",2021,2.23939442634583,1577.4325,29691087,"África",NA
+"daily_income","Maldives","MDV",2019,15.0143671035767,21855.502,487737,"Asia",NA
+"daily_income","Mexico","MEX",2024,14.2918071746826,22039.629,129739761,"América del Norte",NA
+"daily_income","Marshall Islands","MHL",2019,10.1585397720337,6405.0757,44030,"Oceanía",NA
+"daily_income","North Macedonia","MKD",2019,15.5196418762207,21766.975,1897643,"Europa",NA
+"daily_income","Mali","MLI",2021,3.6697416305542,2796.228,22388637,"África",NA
+"daily_income","Malta","MLT",2023,56.0288772583008,60418.395,532964,"Europa",NA
+"daily_income","Myanmar","MMR",2017,5.4398775100708,5877.8745,51894939,"Asia",NA
+"daily_income","Montenegro","MNE",2021,17.7781372070312,23690.078,603854,"Europa",NA
+"daily_income","Mongolia","MNG",2022,12.0282621383667,15310.435,3386015,"Asia",NA
+"daily_income","Mozambique","MOZ",2022,1.4781801700592,1476.6656,32656242,"África",NA
+"daily_income","Mauritania","MRT",2019,6.05978393554688,6162.2104,4467714,"África",NA
+"daily_income","Mauritius","MUS",2017,13.5119571685791,24361.875,1290654,"África",NA
+"daily_income","Malawi","MWI",2019,1.92093133926392,1687.2894,19025748,"África",NA
+"daily_income","Malaysia","MYS",2021,29.554759979248,29822.85,34282404,"Asia",NA
+"daily_income","Namibia","NAM",2015,6.20539617538452,12166.565,2374305,"África",NA
+"daily_income","Niger","NER",2021,2.66158080101013,1585.5992,24502145,"África",NA
+"daily_income","Nigeria","NGA",2022,3.38732481002808,7752.262,223150906,"África",NA
+"daily_income","Nicaragua","NIC",2014,8.9005012512207,6712.2173,6066493,"América del Norte",NA
+"daily_income","Netherlands","NLD",2021,69.0861434936523,68573.56,17730565,"Europa",NA
+"daily_income","Norway","NOR",2023,77.7559127807617,90085.44,5519167,"Europa",NA
+"daily_income","Nepal","NPL",2022,8.03238296508789,4763.3877,29715435,"Asia",NA
+"daily_income","Nauru","NRU",2012,6.27219676971436,9639.566,10289,"Oceanía",NA
+"daily_income","Pakistan","PAK",2024,4.32220888137817,5500.3237,247504505,"Asia",NA
+"daily_income","Panama","PAN",2024,18.57639503479,36394.918,4458758,"América del Norte",NA
+"daily_income","Peru","PER",2024,10.6696538925171,15661.75,33845616,"América del Sur",NA
+"daily_income","Philippines","PHL",2023,5.66749811172485,9898.533,114891199,"Asia",NA
+"daily_income","Papua New Guinea","PNG",2009,2.89411735534668,3349.6436,7406442,"Oceanía",NA
+"daily_income","Poland","POL",2023,38.8391723632812,43672.766,38762847,"Europa",NA
+"daily_income","Portugal","PRT",2023,33.6769142150879,41768.254,10430735,"Europa",NA
+"daily_income","Paraguay","PRY",2024,14.9219741821289,16296.283,6844150,"América del Sur",NA
+"daily_income","Palestine","PSE",2023,12.0482587814331,5361.131,5409201,"Asia",NA
+"daily_income","Qatar","QAT",2017,73.3646926879883,115064.836,2706716,"Asia",NA
+"daily_income","Romania","ROU",2023,29.8524150848389,40116.855,19118482,"Europa",NA
+"daily_income","Russia","RUS",2020,20.2921009063721,36376.336,146371295,"Europa",NA
+"daily_income","Rwanda","RWA",2023,3.51024484634399,3062.999,13954473,"África",NA
+"daily_income","Sudan","SDN",2014,5.91506719589233,4207.5005,38823324,"África",NA
+"daily_income","Senegal","SEN",2021,5.03561782836914,4173.6772,17220866,"África",NA
+"daily_income","Solomon Islands","SLB",2012,3.43079447746277,2743.4585,573623,"Oceanía",NA
+"daily_income","Sierra Leone","SLE",2018,3.35865330696106,2767.3801,7554568,"África",NA
+"daily_income","El Salvador","SLV",2023,11.8798818588257,11424.6455,6309629,"América del Norte",NA
+"daily_income","Serbia","SRB",2023,21.0575294494629,25735.24,6773204,"Europa",NA
+"daily_income","Sao Tome and Principe","STP",2017,5.96634721755981,5521.2026,206986,"África",NA
+"daily_income","Suriname","SUR",2022,14.4376420974731,18742.588,623172,"América del Sur",NA
+"daily_income","Slovakia","SVK",2023,24.4623928070068,39518.223,5518057,"Europa",NA
+"daily_income","Slovenia","SVN",2023,49.235668182373,47977.426,2118394,"Europa",NA
+"daily_income","Sweden","SWE",2023,55.6033515930176,62662.766,10551493,"Europa",NA
+"daily_income","Eswatini","SWZ",2016,3.38262701034546,9402.509,1149516,"África",NA
+"daily_income","Seychelles","SYC",2018,21.000997543335,32841.426,115053,"África",NA
+"daily_income","Syria","SYR",2022,4.61311388015747,4454.8535,22462170,"Asia",NA
+"daily_income","Chad","TCD",2022,3.66110992431641,2449.4824,18455319,"África",NA
+"daily_income","Togo","TGO",2021,3.85133743286133,2638.811,7936185,"África",NA
+"daily_income","Thailand","THA",2024,15.7174787521362,21740.541,71702436,"Asia",NA
+"daily_income","Tajikistan","TJK",2024,7.61428928375244,4755.933,10389807,"Asia",NA
+"daily_income","Turkmenistan","TKM",1998,3.8300998210907,4323.302,4410511,"Asia",NA
+"daily_income","East Timor","TLS",2014,3.21003222465515,4445.3594,1181913,"Asia",NA
+"daily_income","Tonga","TON",2021,11.0026979446411,6929.177,105504,"Oceanía",NA
+"daily_income","Trinidad and Tobago","TTO",1992,12.1717052459717,13267.978,1271681,"América del Norte",NA
+"daily_income","Tunisia","TUN",2021,13.0399627685547,12444.326,12048625,"África",NA
+"daily_income","Turkey","TUR",2023,27.7452926635742,35069.17,87270502,"Asia",NA
+"daily_income","Tuvalu","TUV",2010,6.93993854522705,3506.0603,10635,"Oceanía",NA
+"daily_income","Taiwan","TWN",2021,46.1442680358887,64701.984,23558330,"Asia",NA
+"daily_income","Tanzania","TZA",2018,2.95831346511841,3392.6887,57437134,"África",NA
+"daily_income","Uganda","UGA",2019,2.5614321231842,2689.4102,42999636,"África",NA
+"daily_income","Ukraine","UKR",2020,13.7033014297485,17092.54,44680008,"Europa",NA
+"daily_income","Uruguay","URY",2024,26.8407592773438,32038.773,3388083,"América del Sur",NA
+"daily_income","United States","USA",2024,72.0654067993164,75489.266,343477330,"América del Norte",NA
+"daily_income","Uzbekistan","UZB",2025,16.539041519165,13184.93,35652311,"Asia",NA
+"daily_income","Venezuela","VEN",2006,9.38590145111084,15232.895,27224691,"América del Sur",NA
+"daily_income","Vietnam","VNM",2022,13.3191947937012,12979.764,99680656,"Asia",NA
+"daily_income","Vanuatu","VUT",2019,5.16720151901245,3512.072,291995,"Oceanía",NA
+"daily_income","Samoa","WSM",2013,8.37617969512939,6262.3237,198284,"Oceanía",NA
+"daily_income","Yemen","YEM",2014,3.79804706573486,2278.195,30226311,"Asia",NA
+"daily_income","South Africa","ZAF",2022,6.5579686164856,13767.497,62378417,"África",NA
+"daily_income","Zambia","ZMB",2022,1.67918646335602,3585.1238,20152935,"África",NA
+"daily_income","Zimbabwe","ZWE",2019,3.04786372184753,4993.8438,15271377,"África",NA
+"child_mortality","Afghanistan","AFG",2022,5.74,1357.9878,40578847,"Asia",NA
+"child_mortality","Albania","ALB",2022,0.94,12978.101,2827614,"Europa",NA
+"child_mortality","Algeria","DZA",2022,2.23,13506.444,45477391,"África",NA
+"child_mortality","Angola","AGO",2022,6.64,6118.905,35635028,"África",NA
+"child_mortality","Argentina","ARG",2022,0.98,18292.318,45407904,"América del Sur",NA
+"child_mortality","Armenia","ARM",2022,1.05,13837.577,2880880,"Asia",NA
+"child_mortality","Australia","AUS",2022,0.37,52049.43,26200987,"Oceanía",NA
+"child_mortality","Austria","AUT",2022,0.32,43792.855,9064678,"Europa",NA
+"child_mortality","Azerbaijan","AZE",2022,1.94,17682.94,10295307,"Asia",NA
+"child_mortality","Bahrain","BHR",2022,0.84,38651.6,1533460,"Asia",NA
+"child_mortality","Bangladesh","BGD",2022,3.07,4925.721,169384891,"Asia",NA
+"child_mortality","Barbados","BRB",2022,1.04,11545.848,282324,"América del Norte",NA
+"child_mortality","Belarus","BLR",2022,0.26,18699.799,9173240,"Europa",NA
+"child_mortality","Belgium","BEL",2022,0.37,41872.395,11641814,"Europa",NA
+"child_mortality","Benin","BEN",2022,8.04,2477.0903,13759507,"África",NA
+"child_mortality","Bolivia","BOL",2022,2.39,6481.3906,12077156,"América del Sur",NA
+"child_mortality","Bosnia and Herzegovina","BIH",2022,0.62,12142.863,3204802,"Europa",NA
+"child_mortality","Botswana","BWA",2022,4.07,16351.91,2439895,"África",NA
+"child_mortality","Brazil","BRA",2022,1.46,14640.076,210306411,"América del Sur",NA
+"child_mortality","Bulgaria","BGR",2022,0.62,20592.455,6825862,"Europa",NA
+"child_mortality","Burkina Faso","BFA",2022,7.99,1704.966,22509038,"África",NA
+"child_mortality","Burundi","BDI",2022,5.08,717.22845,13321102,"África",NA
+"child_mortality","Cambodia","KHM",2022,2.38,3944.2468,17201721,"Asia",NA
+"child_mortality","Cameroon","CMR",2022,6.95,2812.2148,27632770,"África",NA
+"child_mortality","Canada","CAN",2022,0.51,45529.645,38821259,"América del Norte",NA
+"child_mortality","Cape Verde","CPV",2022,1.21,7202.767,519750,"África",NA
+"child_mortality","Central African Republic","CAF",2022,38.74,596.393,5098038,"África",NA
+"child_mortality","Chad","TCD",2022,10.43,1393.5635,18455319,"África",NA
+"child_mortality","Chile","CHL",2022,0.68,22740.72,19553033,"América del Sur",NA
+"child_mortality","China","CHN",2022,0.66,19238.18,1425179562,"Asia",NA
+"child_mortality","Colombia","COL",2022,1.24,14468.964,51737944,"América del Sur",NA
+"child_mortality","Comoros","COM",2022,4.11,1900.3983,834191,"África",NA
+"child_mortality","Congo","COG",2022,4.19,4187.507,6035104,"África",NA
+"child_mortality","Costa Rica","CRI",2022,1.01,15496.82,5081764,"América del Norte",NA
+"child_mortality","Cote d'Ivoire","CIV",2022,6.92,4011.7122,30395004,"África",NA
+"child_mortality","Croatia","HRV",2022,0.46,26986.752,3907031,"Europa",NA
+"child_mortality","Cuba","CUB",2022,0.79,7648.704,11059822,"América del Norte",NA
+"child_mortality","Cyprus","CYP",2022,0.35,31523.498,1331376,"Europa",NA
+"child_mortality","Czechia","CZE",2022,0.27,32247.395,10673216,"Europa",NA
+"child_mortality","Democratic Republic of Congo","COD",2022,7.57,844.172,102396974,"África",NA
+"child_mortality","Denmark","DNK",2022,0.35,50689.68,5902901,"Europa",NA
+"child_mortality","Djibouti","DJI",2022,5.22,3623.0603,1137101,"África",NA
+"child_mortality","Dominica","DMA",2022,3.51,8879.6455,66847,"América del Norte",NA
+"child_mortality","Dominican Republic","DOM",2022,3.22,17713.52,11230734,"América del Norte",NA
+"child_mortality","Ecuador","ECU",2022,1.32,10124.076,17823900,"América del Sur",NA
+"child_mortality","Egypt","EGY",2022,1.81,13205.406,112618252,"África",NA
+"child_mortality","El Salvador","SLV",2022,1.08,9218.905,6280316,"América del Norte",NA
+"child_mortality","Equatorial Guinea","GNQ",2022,7.34,22707.22,1803549,"África",NA
+"child_mortality","Estonia","EST",2022,0.22,30067.395,1350093,"Europa",NA
+"child_mortality","Eswatini","SWZ",2022,4.62,8522.45,1218921,"África",NA
+"child_mortality","Ethiopia","ETH",2022,4.82,2289.409,125384285,"África",NA
+"child_mortality","Finland","FIN",2022,0.23,40701.465,5569300,"Europa",NA
+"child_mortality","France","FRA",2022,0.43,39065.71,66277412,"Europa",NA
+"child_mortality","Gabon","GAB",2022,3.41,15720.901,2430750,"África",NA
+"child_mortality","Gambia","GMB",2022,4.56,2010.5322,2636472,"África",NA
+"child_mortality","Georgia","GEO",2022,0.93,14360.359,3794782,"Asia",NA
+"child_mortality","Germany","DEU",2022,0.37,46647.793,84086227,"Europa",NA
+"child_mortality","Ghana","GHA",2022,3.85,4242.4106,33149152,"África",NA
+"child_mortality","Greece","GRC",2022,0.38,25283.906,10412481,"Europa",NA
+"child_mortality","Guatemala","GTM",2022,2.21,7969.431,17847877,"América del Norte",NA
+"child_mortality","Guinea","GIN",2022,9.78,1809.2666,14055136,"África",NA
+"child_mortality","Guinea-Bissau","GNB",2022,7.16,1625.3876,2105535,"África",NA
+"child_mortality","Haiti","HTI",2022,5.69,1546.4222,11503603,"América del Norte",NA
+"child_mortality","Honduras","HND",2022,1.6,5186.5303,10463880,"América del Norte",NA
+"child_mortality","Hungary","HUN",2022,0.39,29451.855,9684308,"Europa",NA
+"child_mortality","Iceland","ISL",2022,0.26,42145.594,380368,"Europa",NA
+"child_mortality","India","IND",2022,2.91,7765.593,1425423209,"Asia",NA
+"child_mortality","Indonesia","IDN",2022,2.13,12801.671,278830527,"Asia",NA
+"child_mortality","Iran","IRN",2022,1.22,18473.066,89524247,"Asia",NA
+"child_mortality","Iraq","IRQ",2022,2.33,13071.94,44070556,"Asia",NA
+"child_mortality","Ireland","IRL",2022,0.37,60257.082,5110015,"Europa",NA
+"child_mortality","Israel","ISR",2022,0.34,36648.918,9103143,"Asia",NA
+"child_mortality","Italy","ITA",2022,0.28,36224.293,59619106,"Europa",NA
+"child_mortality","Jamaica","JAM",2022,1.93,7481.6685,2839150,"América del Norte",NA
+"child_mortality","Japan","JPN",2022,0.24,38268.79,124997585,"Asia",NA
+"child_mortality","Jordan","JOR",2022,1.36,9151.479,11256269,"Asia",NA
+"child_mortality","Kazakhstan","KAZ",2022,0.98,26491.857,20034612,"Asia",NA
+"child_mortality","Kenya","KEN",2022,4.11,3403.9238,54252458,"África",NA
+"child_mortality","Kuwait","KWT",2022,0.88,71533.516,4589514,"Asia",NA
+"child_mortality","Kyrgyzstan","KGZ",2022,1.72,5304.841,6955792,"Asia",NA
+"child_mortality","Laos","LAO",2022,4.04,7168.1904,7559008,"Asia",NA
+"child_mortality","Latvia","LVA",2022,0.32,27220.303,1881059,"Europa",NA
+"child_mortality","Lebanon","LBN",2022,1.73,10341.159,5744492,"Asia",NA
+"child_mortality","Lesotho","LSO",2022,6.15,2312.9583,2286112,"África",NA
+"child_mortality","Liberia","LBR",2022,7.51,811.2146,5373297,"África",NA
+"child_mortality","Libya","LBY",2022,1.05,12755.204,7223804,"África",NA
+"child_mortality","Lithuania","LTU",2022,0.35,30863.32,2816923,"Europa",NA
+"child_mortality","Luxembourg","LUX",2022,0.24,55484.777,653315,"Europa",NA
+"child_mortality","Madagascar","MDG",2022,6.57,1367.0938,30437261,"África",NA
+"child_mortality","Malawi","MWI",2022,3.99,1190.0509,20568731,"África",NA
+"child_mortality","Malaysia","MYS",2022,0.81,26628.707,34695494,"Asia",NA
+"child_mortality","Mali","MLI",2022,9.4,1651.9413,23072641,"África",NA
+"child_mortality","Malta","MLT",2022,0.57,34496.34,528194,"Europa",NA
+"child_mortality","Mauritania","MRT",2022,3.91,3680.3662,4875644,"África",NA
+"child_mortality","Mauritius","MUS",2022,1.55,20643.094,1276134,"África",NA
+"child_mortality","Mexico","MEX",2022,1.29,16235.455,128613116,"América del Norte",NA
+"child_mortality","Moldova","MDA",2022,1.48,6674.871,3039986,"Europa",NA
+"child_mortality","Mongolia","MNG",2022,1.39,13442.906,3386015,"Asia",NA
+"child_mortality","Montenegro","MNE",2022,0.27,20941.805,614649,"Europa",NA
+"child_mortality","Morocco","MAR",2022,1.72,8400.127,37329068,"África",NA
+"child_mortality","Mozambique","MOZ",2022,6.43,1087.836,32656242,"África",NA
+"child_mortality","Myanmar","MMR",2022,4,5177.4326,53756791,"Asia",NA
+"child_mortality","Namibia","NAM",2022,4.2,7979.328,2889668,"África",NA
+"child_mortality","Nepal","NPL",2022,2.75,3013.5178,29715435,"Asia",NA
+"child_mortality","Netherlands","NLD",2022,0.4,49669.867,17904421,"Europa",NA
+"child_mortality","New Zealand","NZL",2022,0.48,38250.12,5131731,"Oceanía",NA
+"child_mortality","Nicaragua","NIC",2022,1.39,5092.8413,6730662,"América del Norte",NA
+"child_mortality","Niger","NER",2022,11.71,1007.72095,25311978,"África",NA
+"child_mortality","Nigeria","NGA",2022,10.81,5070.4927,223150906,"África",NA
+"child_mortality","North Korea","PRK",2022,1.77,1568.847,26328843,"Asia",NA
+"child_mortality","North Macedonia","MKD",2022,0.41,14050.995,1840236,"Europa",NA
+"child_mortality","Norway","NOR",2022,0.23,88366.22,5456796,"Europa",NA
+"child_mortality","Oman","OMN",2022,1.05,47988.65,4730229,"Asia",NA
+"child_mortality","Pakistan","PAK",2022,6.05,5531.723,243700667,"Asia",NA
+"child_mortality","Palestine","PSE",2022,1.42,4775.202,5305274,"Asia",NA
+"child_mortality","Panama","PAN",2022,1.39,23557.02,4400775,"América del Norte",NA
+"child_mortality","Paraguay","PRY",2022,1.76,8762.771,6760460,"América del Sur",NA
+"child_mortality","Peru","PER",2022,1.61,12762.967,33475436,"América del Sur",NA
+"child_mortality","Philippines","PHL",2022,2.73,8370.666,113964343,"Asia",NA
+"child_mortality","Poland","POL",2022,0.44,32468.402,38385734,"Europa",NA
+"child_mortality","Portugal","PRT",2022,0.32,28992.059,10417074,"Europa",NA
+"child_mortality","Qatar","QAT",2022,0.61,149171.11,2892466,"Asia",NA
+"child_mortality","Romania","ROU",2022,0.66,26197.904,19166776,"Europa",NA
+"child_mortality","Russia","RUS",2022,0.47,25437.107,145579889,"Europa",NA
+"child_mortality","Rwanda","RWA",2022,4.08,2198.0662,13651025,"África",NA
+"child_mortality","Saint Lucia","LCA",2022,1.58,10452.165,178794,"América del Norte",NA
+"child_mortality","Sao Tome and Principe","STP",2022,1.46,3751.6428,226313,"África",NA
+"child_mortality","Saudi Arabia","SAU",2022,0.64,53516.91,32175351,"Asia",NA
+"child_mortality","Senegal","SEN",2022,4.04,2660.6816,17651099,"África",NA
+"child_mortality","Serbia","SRB",2022,0.53,17097.686,6791215,"Europa",NA
+"child_mortality","Seychelles","SYC",2022,1.45,31055.39,125533,"África",NA
+"child_mortality","Sierra Leone","SLE",2022,9.77,1690.4982,8276809,"África",NA
+"child_mortality","Singapore","SGP",2022,0.22,80320.086,5649888,"Asia",NA
+"child_mortality","Slovakia","SVK",2022,0.6,27519.287,5473195,"Europa",NA
+"child_mortality","Slovenia","SVN",2022,0.23,32673.762,2115231,"Europa",NA
+"child_mortality","South Africa","ZAF",2022,3.44,11415.887,62378417,"África",NA
+"child_mortality","South Korea","KOR",2022,0.28,41320.9,51782515,"Asia",NA
+"child_mortality","Spain","ESP",2022,0.31,34123.387,47828386,"Europa",NA
+"child_mortality","Sri Lanka","LKA",2022,0.64,10705.481,22834965,"Asia",NA
+"child_mortality","Sweden","SWE",2022,0.25,47126.13,10487335,"Europa",NA
+"child_mortality","Switzerland","CHE",2022,0.4,63323.254,8792180,"Europa",NA
+"child_mortality","Syria","SYR",2022,2.11,2494.7612,22462170,"Asia",NA
+"child_mortality","Tajikistan","TJK",2022,2.77,5507.5454,10182228,"Asia",NA
+"child_mortality","Tanzania","TZA",2022,4.05,3057.3286,64711822,"África",NA
+"child_mortality","Thailand","THA",2022,0.95,16421.072,71735321,"Asia",NA
+"child_mortality","Togo","TGO",2022,6.02,1586.5889,8068616,"África",NA
+"child_mortality","Trinidad and Tobago","TTO",2022,1.96,25773.006,1495923,"América del Norte",NA
+"child_mortality","Tunisia","TUN",2022,1.39,10913.846,12119338,"África",NA
+"child_mortality","Turkey","TUR",2022,0.96,27361.988,87058469,"Asia",NA
+"child_mortality","Turkmenistan","TKM",2022,4.1,17234.555,7230197,"Asia",NA
+"child_mortality","Uganda","UGA",2022,4.05,2122.0278,47312718,"África",NA
+"child_mortality","Ukraine","UKR",2022,0.85,7749.0996,41048768,"Europa",NA
+"child_mortality","United Arab Emirates","ARE",2022,0.53,77203.67,10242085,"Asia",NA
+"child_mortality","United Kingdom","GBR",2022,0.45,38406.53,68179315,"Europa",NA
+"child_mortality","United States","USA",2022,0.65,58487.465,341534041,"América del Norte",NA
+"child_mortality","Uruguay","URY",2022,0.68,20181.94,3390913,"América del Sur",NA
+"child_mortality","Uzbekistan","UZB",2022,1.38,12559.401,34938953,"Asia",NA
+"child_mortality","Venezuela","VEN",2022,2.43,5267.1753,28213015,"América del Sur",NA
+"child_mortality","Vietnam","VNM",2022,2.04,8050.359,99680656,"Asia",NA
+"child_mortality","Yemen","YEM",2022,4.08,1959.3195,38222878,"Asia",NA
+"child_mortality","Zambia","ZMB",2022,4.67,3342.4214,20152935,"África",NA
+"child_mortality","Zimbabwe","ZWE",2022,4.6,1703.5294,16069061,"África",NA
+"hdi","Afghanistan","AFG",2023,0.496,1983.8126,41454762,"Asia",NA
+"hdi","Albania","ALB",2023,0.81,20481.035,2811660,"Europa",NA
+"hdi","Algeria","DZA",2023,0.763,15159.324,46164222,"África",NA
+"hdi","Andorra","AND",2023,0.913,64631.297,80869,"Europa",NA
+"hdi","Angola","AGO",2023,0.616,8788.261,36749909,"África",NA
+"hdi","Antigua and Barbuda","ATG",2023,0.851,28474.045,93331,"América del Norte",NA
+"hdi","Argentina","ARG",2023,0.865,27230.396,45538402,"América del Sur",NA
+"hdi","Armenia","ARM",2023,0.811,19402.752,2943398,"Asia",NA
+"hdi","Australia","AUS",2023,0.958,60684.96,26451126,"Oceanía",NA
+"hdi","Austria","AUT",2023,0.93,64536.297,9130434,"Europa",NA
+"hdi","Azerbaijan","AZE",2023,0.789,21310.738,10318209,"Asia",NA
+"hdi","Bahamas","BHS",2023,0.82,35221.27,399452,"América del Norte",NA
+"hdi","Bahrain","BHR",2023,0.899,57819.906,1569674,"Asia",NA
+"hdi","Bangladesh","BGD",2023,0.685,8242.398,171466986,"Asia",NA
+"hdi","Barbados","BRB",2023,0.811,21318.672,282347,"América del Norte",NA
+"hdi","Belarus","BLR",2023,0.824,27782.438,9115679,"Europa",NA
+"hdi","Belgium","BEL",2023,0.951,63095.402,11712891,"Europa",NA
+"hdi","Belize","BLZ",2023,0.721,12371.009,411112,"América del Norte",NA
+"hdi","Benin","BEN",2023,0.515,3721.2126,14111035,"África",NA
+"hdi","Bhutan","BTN",2023,0.698,14610.296,786386,"Asia",NA
+"hdi","Bolivia","BOL",2023,0.733,11616.157,12244161,"América del Sur",NA
+"hdi","Bosnia and Herzegovina","BIH",2023,0.804,19805,3185072,"Europa",NA
+"hdi","Botswana","BWA",2023,0.731,18932.48,2480242,"África",NA
+"hdi","Brazil","BRA",2023,0.786,19079.812,211140731,"América del Sur",NA
+"hdi","Brunei","BRN",2023,0.837,76616.7,458959,"Asia",NA
+"hdi","Bulgaria","BGR",2023,0.845,33073.816,6795805,"Europa",NA
+"hdi","Burkina Faso","BFA",2023,0.459,2486.2068,23025777,"África",NA
+"hdi","Burundi","BDI",2023,0.439,1036.1671,13689455,"África",NA
+"hdi","Cambodia","KHM",2023,0.606,6695.292,17423884,"Asia",NA
+"hdi","Cameroon","CMR",2023,0.588,4875.251,28372690,"África",NA
+"hdi","Canada","CAN",2023,0.939,57517.44,39299098,"América del Norte",NA
+"hdi","Cape Verde","CPV",2023,0.668,9228.461,522335,"África",NA
+"hdi","Central African Republic","CAF",2023,0.414,1132.6764,5152415,"África",NA
+"hdi","Chad","TCD",2023,0.416,2433.0989,19319075,"África",NA
+"hdi","Chile","CHL",2023,0.878,29563.678,19658833,"América del Sur",NA
+"hdi","China","CHN",2023,0.797,22687.076,1422584930,"Asia",NA
+"hdi","Colombia","COL",2023,0.788,18382.998,52321152,"América del Sur",NA
+"hdi","Comoros","COM",2023,0.603,3434.4019,850390,"África",NA
+"hdi","Congo","COG",2023,0.649,6172.2876,6182890,"África",NA
+"hdi","Costa Rica","CRI",2023,0.833,25979.629,5105526,"América del Norte",NA
+"hdi","Cote d'Ivoire","CIV",2023,0.582,6520.899,31165653,"África",NA
+"hdi","Croatia","HRV",2023,0.889,41320.203,3896023,"Europa",NA
+"hdi","Cyprus","CYP",2023,0.913,51453.727,1344981,"Europa",NA
+"hdi","Czechia","CZE",2023,0.915,47558.41,10809722,"Europa",NA
+"hdi","Democratic Republic of Congo","COD",2023,0.522,1559.338,105789733,"África",NA
+"hdi","Denmark","DNK",2023,0.962,69379.22,5948134,"Europa",NA
+"hdi","Djibouti","DJI",2023,0.513,6510.6787,1152951,"África",NA
+"hdi","Dominica","DMA",2023,0.761,18278.225,66531,"América del Norte",NA
+"hdi","Dominican Republic","DOM",2023,0.776,23282.49,11331269,"América del Norte",NA
+"hdi","East Timor","TLS",2023,0.634,4331.078,1384292,"Asia",NA
+"hdi","Ecuador","ECU",2023,0.777,14343.019,17980079,"América del Sur",NA
+"hdi","Egypt","EGY",2023,0.754,16691.387,114535772,"África",NA
+"hdi","El Salvador","SLV",2023,0.678,11424.6455,6309629,"América del Norte",NA
+"hdi","Equatorial Guinea","GNQ",2023,0.674,15688.238,1847556,"África",NA
+"hdi","Estonia","EST",2023,0.905,41288.617,1367195,"Europa",NA
+"hdi","Eswatini","SWZ",2023,0.695,10181.504,1230507,"África",NA
+"hdi","Ethiopia","ETH",2023,0.497,2757.9592,128691695,"África",NA
+"hdi","Fiji","FJI",2023,0.731,13194.805,924150,"Oceanía",NA
+"hdi","Finland","FIN",2023,0.948,56250.88,5601185,"Europa",NA
+"hdi","France","FRA",2023,0.92,54296.723,66438828,"Europa",NA
+"hdi","Gabon","GAB",2023,0.733,18701.422,2484790,"África",NA
+"hdi","Gambia","GMB",2023,0.524,2963.5986,2697846,"África",NA
+"hdi","Georgia","GEO",2023,0.844,22590.53,3807494,"Asia",NA
+"hdi","Germany","DEU",2023,0.959,63039.37,84548233,"Europa",NA
+"hdi","Ghana","GHA",2023,0.628,6808.5376,33787916,"África",NA
+"hdi","Greece","GRC",2023,0.908,36700.51,10242910,"Europa",NA
+"hdi","Grenada","GRD",2023,0.791,17093.156,117094,"América del Norte",NA
+"hdi","Guatemala","GTM",2023,0.662,12384.948,18124841,"América del Norte",NA
+"hdi","Guinea","GIN",2023,0.5,3904.824,14405469,"África",NA
+"hdi","Guinea-Bissau","GNB",2023,0.514,2693.7766,2153343,"África",NA
+"hdi","Guyana","GUY",2023,0.776,49312.36,826357,"América del Sur",NA
+"hdi","Haiti","HTI",2023,0.554,2965.9463,11637402,"América del Norte",NA
+"hdi","Honduras","HND",2023,0.645,6467.88,10644853,"América del Norte",NA
+"hdi","Hong Kong","HKG",2023,0.955,64434.56,7442738,"Asia",NA
+"hdi","Hungary","HUN",2023,0.87,40333.254,9686465,"Europa",NA
+"hdi","Iceland","ISL",2023,0.972,68118.4,387559,"Europa",NA
+"hdi","India","IND",2023,0.685,9301.756,1438069597,"Asia",NA
+"hdi","Indonesia","IDN",2023,0.728,13889.975,281190068,"Asia",NA
+"hdi","Iran","IRN",2023,0.799,17044.816,90608708,"Asia",NA
+"hdi","Iraq","IRQ",2023,0.695,13202.323,45074055,"Asia",NA
+"hdi","Ireland","IRL",2023,0.949,117862.125,5196629,"Europa",NA
+"hdi","Israel","ISR",2023,0.919,47527.152,9256311,"Asia",NA
+"hdi","Italy","ITA",2023,0.915,52870.324,59499452,"Europa",NA
+"hdi","Jamaica","JAM",2023,0.72,11398.8125,2839785,"América del Norte",NA
+"hdi","Japan","JPN",2023,0.925,45858.66,124370947,"Asia",NA
+"hdi","Jordan","JOR",2023,0.754,9381.3545,11439220,"Asia",NA
+"hdi","Kazakhstan","KAZ",2023,0.837,34703.234,20330109,"Asia",NA
+"hdi","Kenya","KEN",2023,0.628,5691.825,55339007,"África",NA
+"hdi","Kiribati","KIR",2023,0.644,3140.5833,132540,"Oceanía",NA
+"hdi","Kuwait","KWT",2023,0.852,47777.402,4838781,"Asia",NA
+"hdi","Kyrgyzstan","KGZ",2023,0.72,6575.7754,7073523,"Asia",NA
+"hdi","Laos","LAO",2023,0.617,8372.156,7665001,"Asia",NA
+"hdi","Latvia","LVA",2023,0.889,37277.723,1882399,"Europa",NA
+"hdi","Lebanon","LBN",2023,0.752,11330.269,5773494,"Asia",NA
+"hdi","Lesotho","LSO",2023,0.55,2595.8296,2311476,"África",NA
+"hdi","Liberia","LBR",2023,0.51,1616.9237,5493035,"África",NA
+"hdi","Libya","LBY",2023,0.721,12476.598,7305659,"África",NA
+"hdi","Lithuania","LTU",2023,0.895,46159.707,2854104,"Europa",NA
+"hdi","Luxembourg","LUX",2023,0.922,130048.92,665101,"Europa",NA
+"hdi","Madagascar","MDG",2023,0.487,1629.4609,31195937,"África",NA
+"hdi","Malawi","MWI",2023,0.517,1649.2987,21104480,"África",NA
+"hdi","Malaysia","MYS",2023,0.819,32857.668,35126295,"Asia",NA
+"hdi","Maldives","MDV",2023,0.766,22333.047,526009,"Asia",NA
+"hdi","Mali","MLI",2023,0.419,2860.4282,23769130,"África",NA
+"hdi","Malta","MLT",2023,0.924,60418.395,532964,"Europa",NA
+"hdi","Marshall Islands","MHL",2023,0.733,6801.6147,38849,"Oceanía",NA
+"hdi","Mauritania","MRT",2023,0.563,6276.475,5022442,"África",NA
+"hdi","Mauritius","MUS",2023,0.806,26635.012,1273591,"África",NA
+"hdi","Mexico","MEX",2023,0.789,21917.248,129739761,"América del Norte",NA
+"hdi","Micronesia (country)","FSM",2023,0.615,3814.7202,112646,"Oceanía",NA
+"hdi","Moldova","MDA",2023,0.785,15990.4795,3067072,"Europa",NA
+"hdi","Mongolia","MNG",2023,0.747,16222.864,3431938,"Asia",NA
+"hdi","Montenegro","MNE",2023,0.862,27243.518,633553,"Europa",NA
+"hdi","Morocco","MAR",2023,0.71,8915.352,37712516,"África",NA
+"hdi","Mozambique","MOZ",2023,0.493,1512.2764,33635163,"África",NA
+"hdi","Myanmar","MMR",2023,0.609,5364.138,54133800,"Asia",NA
+"hdi","Namibia","NAM",2023,0.665,10137.673,2963102,"África",NA
+"hdi","Nauru","NRU",2023,0.703,12372.5205,11900,"Oceanía",NA
+"hdi","Nepal","NPL",2023,0.622,4861.2305,29694614,"Asia",NA
+"hdi","Netherlands","NLD",2023,0.955,70198.93,18092526,"Europa",NA
+"hdi","New Zealand","NZL",2023,0.938,49508.27,5172837,"Oceanía",NA
+"hdi","Nicaragua","NIC",2023,0.706,7496.5293,6823619,"América del Norte",NA
+"hdi","Niger","NER",2023,0.419,1689.5642,26159863,"África",NA
+"hdi","Nigeria","NGA",2023,0.56,7843.8345,227882949,"África",NA
+"hdi","North Macedonia","MKD",2023,0.815,23455.32,1831800,"Europa",NA
+"hdi","Norway","NOR",2023,0.97,90085.44,5519167,"Europa",NA
+"hdi","Oman","OMN",2023,0.858,37793.617,5049267,"Asia",NA
+"hdi","Pakistan","PAK",2023,0.544,5418.7695,247504505,"Asia",NA
+"hdi","Palau","PLW",2023,0.786,16425.973,17751,"Oceanía",NA
+"hdi","Palestine","PSE",2023,0.674,5361.131,5409201,"Asia",NA
+"hdi","Panama","PAN",2023,0.839,35872.95,4458758,"América del Norte",NA
+"hdi","Papua New Guinea","PNG",2023,0.576,4205.8477,10389638,"Oceanía",NA
+"hdi","Paraguay","PRY",2023,0.756,15826.088,6844150,"América del Sur",NA
+"hdi","Peru","PER",2023,0.794,15327.582,33845616,"América del Sur",NA
+"hdi","Philippines","PHL",2023,0.72,9898.533,114891199,"Asia",NA
+"hdi","Poland","POL",2023,0.906,43672.766,38762847,"Europa",NA
+"hdi","Portugal","PRT",2023,0.89,41768.254,10430735,"Europa",NA
+"hdi","Qatar","QAT",2023,0.886,116563.99,2979086,"Asia",NA
+"hdi","Romania","ROU",2023,0.845,40116.855,19118482,"Europa",NA
+"hdi","Russia","RUS",2023,0.832,39887.34,145440502,"Europa",NA
+"hdi","Rwanda","RWA",2023,0.578,3062.999,13954473,"África",NA
+"hdi","Saint Kitts and Nevis","KNA",2023,0.84,30616.578,46783,"América del Norte",NA
+"hdi","Saint Lucia","LCA",2023,0.748,23403.744,179291,"América del Norte",NA
+"hdi","Saint Vincent and the Grenadines","VCT",2023,0.798,17858.244,101331,"América del Norte",NA
+"hdi","Samoa","WSM",2023,0.708,7383.7456,216673,"Oceanía",NA
+"hdi","San Marino","SMR",2023,0.915,70951.79,33761,"Europa",NA
+"hdi","Sao Tome and Principe","STP",2023,0.637,5541.302,230882,"África",NA
+"hdi","Saudi Arabia","SAU",2023,0.9,64481.844,33264289,"Asia",NA
+"hdi","Senegal","SEN",2023,0.53,4304.7617,18077573,"África",NA
+"hdi","Serbia","SRB",2023,0.833,25735.24,6773204,"Europa",NA
+"hdi","Seychelles","SYC",2023,0.848,28635.355,127961,"África",NA
+"hdi","Sierra Leone","SLE",2023,0.467,3034.946,8460523,"África",NA
+"hdi","Singapore","SGP",2023,0.946,129555.24,5789092,"Asia",NA
+"hdi","Slovakia","SVK",2023,0.88,39518.223,5518057,"Europa",NA
+"hdi","Slovenia","SVN",2023,0.931,47977.426,2118394,"Europa",NA
+"hdi","Solomon Islands","SLB",2023,0.584,2339.575,800014,"Oceanía",NA
+"hdi","Somalia","SOM",2023,0.404,1401.6473,18358622,"África",NA
+"hdi","South Africa","ZAF",2023,0.741,13695.376,63212386,"África",NA
+"hdi","South Korea","KOR",2023,0.937,54029.344,51748744,"Asia",NA
+"hdi","Spain","ESP",2023,0.918,47322.594,47911583,"Europa",NA
+"hdi","Sri Lanka","LKA",2023,0.776,13024.94,22971615,"Asia",NA
+"hdi","Sudan","SDN",2023,0.511,2181.079,50042800,"África",NA
+"hdi","Suriname","SUR",2023,0.722,19020.867,628892,"América del Sur",NA
+"hdi","Sweden","SWE",2023,0.959,62662.766,10551493,"Europa",NA
+"hdi","Switzerland","CHE",2023,0.97,82295.3,8870564,"Europa",NA
+"hdi","Tajikistan","TJK",2023,0.691,4472.324,10389807,"Asia",NA
+"hdi","Tanzania","TZA",2023,0.555,3620.7935,66617607,"África",NA
+"hdi","Thailand","THA",2023,0.798,21191.453,71702436,"Asia",NA
+"hdi","Togo","TGO",2023,0.571,2842.2307,8223853,"África",NA
+"hdi","Tonga","TON",2023,0.769,7030.419,104613,"Oceanía",NA
+"hdi","Trinidad and Tobago","TTO",2023,0.807,31196.604,1502938,"América del Norte",NA
+"hdi","Tunisia","TUN",2023,0.746,12650.962,12200434,"África",NA
+"hdi","Turkey","TUR",2023,0.853,35069.17,87270502,"Asia",NA
+"hdi","Turkmenistan","TKM",2023,0.764,17866.404,7364437,"Asia",NA
+"hdi","Tuvalu","TUV",2023,0.689,5812.3994,9837,"Oceanía",NA
+"hdi","Uganda","UGA",2023,0.582,2791.0557,48656606,"África",NA
+"hdi","Ukraine","UKR",2023,0.779,15916.958,37732833,"Europa",NA
+"hdi","United Arab Emirates","ARE",2023,0.94,70239.85,10642089,"Asia",NA
+"hdi","United Kingdom","GBR",2023,0.946,52592.684,68682965,"Europa",NA
+"hdi","United States","USA",2023,0.938,74158.72,343477330,"América del Norte",NA
+"hdi","Uruguay","URY",2023,0.862,31059.254,3388083,"América del Sur",NA
+"hdi","Uzbekistan","UZB",2023,0.74,10007.686,35652311,"Asia",NA
+"hdi","Vanuatu","VUT",2023,0.621,3214.7024,320422,"Oceanía",NA
+"hdi","Vietnam","VNM",2023,0.766,13545.935,100352189,"Asia",NA
+"hdi","Zambia","ZMB",2023,0.595,3673.4841,20723967,"África",NA
+"hdi","Zimbabwe","ZWE",2023,0.598,5218.0225,16340829,"África",NA
+"schooling","Afghanistan","AFG",2023,2.51479,1983.8126,41454762,"Asia",NA
+"schooling","Albania","ALB",2023,10.175311,20481.035,2811660,"Europa",NA
+"schooling","Algeria","DZA",2023,7.416387,15159.324,46164222,"África",NA
+"schooling","Andorra","AND",2023,11.61,64631.297,80869,"Europa",NA
+"schooling","Angola","AGO",2023,5.956173,8788.261,36749909,"África",NA
+"schooling","Antigua and Barbuda","ATG",2023,11.6475,28474.045,93331,"América del Norte",NA
+"schooling","Argentina","ARG",2023,11.184582,27230.396,45538402,"América del Sur",NA
+"schooling","Armenia","ARM",2023,11.344978,19402.752,2943398,"Asia",NA
+"schooling","Australia","AUS",2023,12.87,60684.96,26451126,"Oceanía",NA
+"schooling","Austria","AUT",2023,12.361465,64536.297,9130434,"Europa",NA
+"schooling","Azerbaijan","AZE",2023,11.07,21310.738,10318209,"Asia",NA
+"schooling","Bahamas","BHS",2023,12.814419,35221.27,399452,"América del Norte",NA
+"schooling","Bahrain","BHR",2023,11.13,57819.906,1569674,"Asia",NA
+"schooling","Bangladesh","BGD",2023,6.79,8242.398,171466986,"Asia",NA
+"schooling","Barbados","BRB",2023,9.928357,21318.672,282347,"América del Norte",NA
+"schooling","Belarus","BLR",2023,12.335373,27782.438,9115679,"Europa",NA
+"schooling","Belgium","BEL",2023,12.689651,63095.402,11712891,"Europa",NA
+"schooling","Belize","BLZ",2023,8.76229,12371.009,411112,"América del Norte",NA
+"schooling","Benin","BEN",2023,3.1942,3721.2126,14111035,"África",NA
+"schooling","Bhutan","BTN",2023,5.8357944,14610.296,786386,"Asia",NA
+"schooling","Bolivia","BOL",2023,10.021223,11616.157,12244161,"América del Sur",NA
+"schooling","Bosnia and Herzegovina","BIH",2023,10.97,19805,3185072,"Europa",NA
+"schooling","Botswana","BWA",2023,10.478,18932.48,2480242,"África",NA
+"schooling","Brazil","BRA",2023,8.425372,19079.812,211140731,"América del Sur",NA
+"schooling","Brunei","BRN",2023,9.282,76616.7,458959,"Asia",NA
+"schooling","Bulgaria","BGR",2023,11.454531,33073.816,6795805,"Europa",NA
+"schooling","Burkina Faso","BFA",2023,2.26655,2486.2068,23025777,"África",NA
+"schooling","Burundi","BDI",2023,3.4739356,1036.1671,13689455,"África",NA
+"schooling","Cambodia","KHM",2023,5.1971,6695.292,17423884,"Asia",NA
+"schooling","Cameroon","CMR",2023,6.5741806,4875.251,28372690,"África",NA
+"schooling","Canada","CAN",2023,13.87,57517.44,39299098,"América del Norte",NA
+"schooling","Cape Verde","CPV",2023,6.0900393,9228.461,522335,"África",NA
+"schooling","Central African Republic","CAF",2023,3.9894314,1132.6764,5152415,"África",NA
+"schooling","Chad","TCD",2023,2.3349848,2433.0989,19319075,"África",NA
+"schooling","Chile","CHL",2023,11.291054,29563.678,19658833,"América del Sur",NA
+"schooling","China","CHN",2023,8.036181,22687.076,1422584930,"Asia",NA
+"schooling","Colombia","COL",2023,9.031582,18382.998,52321152,"América del Sur",NA
+"schooling","Comoros","COM",2023,6.00684,3434.4019,850390,"África",NA
+"schooling","Congo","COG",2023,8.322645,6172.2876,6182890,"África",NA
+"schooling","Costa Rica","CRI",2023,8.844752,25979.629,5105526,"América del Norte",NA
+"schooling","Cote d'Ivoire","CIV",2023,4.87,6520.899,31165653,"África",NA
+"schooling","Croatia","HRV",2023,12.095121,41320.203,3896023,"Europa",NA
+"schooling","Cyprus","CYP",2023,12.557372,51453.727,1344981,"Europa",NA
+"schooling","Czechia","CZE",2023,12.963182,47558.41,10809722,"Europa",NA
+"schooling","Democratic Republic of Congo","COD",2023,7.378561,1559.338,105789733,"África",NA
+"schooling","Denmark","DNK",2023,13.027321,69379.22,5948134,"Europa",NA
+"schooling","Djibouti","DJI",2023,3.9504151,6510.6787,1152951,"África",NA
+"schooling","Dominica","DMA",2023,10.12509,18278.225,66531,"América del Norte",NA
+"schooling","Dominican Republic","DOM",2023,9.444526,23282.49,11331269,"América del Norte",NA
+"schooling","East Timor","TLS",2023,6.2265806,4331.078,1384292,"Asia",NA
+"schooling","Ecuador","ECU",2023,8.97,14343.019,17980079,"América del Sur",NA
+"schooling","Egypt","EGY",2023,10.13612,16691.387,114535772,"África",NA
+"schooling","El Salvador","SLV",2023,7.3,11424.6455,6309629,"América del Norte",NA
+"schooling","Equatorial Guinea","GNQ",2023,8.281327,15688.238,1847556,"África",NA
+"schooling","Estonia","EST",2023,13.562166,41288.617,1367195,"Europa",NA
+"schooling","Eswatini","SWZ",2023,8.6852,10181.504,1230507,"África",NA
+"schooling","Ethiopia","ETH",2023,2.4025397,2757.9592,128691695,"África",NA
+"schooling","Fiji","FJI",2023,10.37097,13194.805,924150,"Oceanía",NA
+"schooling","Finland","FIN",2023,12.979626,56250.88,5601185,"Europa",NA
+"schooling","France","FRA",2023,11.765668,54296.723,66438828,"Europa",NA
+"schooling","Gabon","GAB",2023,9.686,18701.422,2484790,"África",NA
+"schooling","Gambia","GMB",2023,4.674727,2963.5986,2697846,"África",NA
+"schooling","Georgia","GEO",2023,12.7,22590.53,3807494,"Asia",NA
+"schooling","Germany","DEU",2023,14.296371,63039.37,84548233,"Europa",NA
+"schooling","Ghana","GHA",2023,7.10721,6808.5376,33787916,"África",NA
+"schooling","Greece","GRC",2023,11.553857,36700.51,10242910,"Europa",NA
+"schooling","Grenada","GRD",2023,9.4464,17093.156,117094,"América del Norte",NA
+"schooling","Guatemala","GTM",2023,5.8473,12384.948,18124841,"América del Norte",NA
+"schooling","Guinea","GIN",2023,2.486339,3904.824,14405469,"África",NA
+"schooling","Guinea-Bissau","GNB",2023,3.673035,2693.7766,2153343,"África",NA
+"schooling","Guyana","GUY",2023,8.70243,49312.36,826357,"América del Sur",NA
+"schooling","Haiti","HTI",2023,5.3823,2965.9463,11637402,"América del Norte",NA
+"schooling","Honduras","HND",2023,7.510229,6467.88,10644853,"América del Norte",NA
+"schooling","Hong Kong","HKG",2023,12.35,64434.56,7442738,"Asia",NA
+"schooling","Hungary","HUN",2023,12.331622,40333.254,9686465,"Europa",NA
+"schooling","Iceland","ISL",2023,13.908926,68118.4,387559,"Europa",NA
+"schooling","India","IND",2023,6.88,9301.756,1438069597,"Asia",NA
+"schooling","Indonesia","IDN",2023,8.697224,13889.975,281190068,"Asia",NA
+"schooling","Iran","IRN",2023,10.846712,17044.816,90608708,"Asia",NA
+"schooling","Iraq","IRQ",2023,6.7800465,13202.323,45074055,"Asia",NA
+"schooling","Ireland","IRL",2023,11.724999,117862.125,5196629,"Europa",NA
+"schooling","Israel","ISR",2023,13.534595,47527.152,9256311,"Asia",NA
+"schooling","Italy","ITA",2023,10.828128,52870.324,59499452,"Europa",NA
+"schooling","Jamaica","JAM",2023,9.95991,11398.8125,2839785,"América del Norte",NA
+"schooling","Japan","JPN",2023,12.684047,45858.66,124370947,"Asia",NA
+"schooling","Jordan","JOR",2023,10.24,9381.3545,11439220,"Asia",NA
+"schooling","Kazakhstan","KAZ",2023,12.547174,34703.234,20330109,"Asia",NA
+"schooling","Kenya","KEN",2023,8.62471,5691.825,55339007,"África",NA
+"schooling","Kiribati","KIR",2023,9.128582,3140.5833,132540,"Oceanía",NA
+"schooling","Kuwait","KWT",2023,7.566007,47777.402,4838781,"Asia",NA
+"schooling","Kyrgyzstan","KGZ",2023,12.065888,6575.7754,7073523,"Asia",NA
+"schooling","Laos","LAO",2023,6.060246,8372.156,7665001,"Asia",NA
+"schooling","Latvia","LVA",2023,13.40944,37277.723,1882399,"Europa",NA
+"schooling","Lebanon","LBN",2023,10.37,11330.269,5773494,"Asia",NA
+"schooling","Lesotho","LSO",2023,7.7298837,2595.8296,2311476,"África",NA
+"schooling","Liberia","LBR",2023,6.169892,1616.9237,5493035,"África",NA
+"schooling","Libya","LBY",2023,7.7786064,12476.598,7305659,"África",NA
+"schooling","Lithuania","LTU",2023,13.610692,46159.707,2854104,"Europa",NA
+"schooling","Luxembourg","LUX",2023,12.589372,130048.92,665101,"Europa",NA
+"schooling","Madagascar","MDG",2023,4.59252,1629.4609,31195937,"África",NA
+"schooling","Malawi","MWI",2023,5.24374,1649.2987,21104480,"África",NA
+"schooling","Malaysia","MYS",2023,11.09,32857.668,35126295,"Asia",NA
+"schooling","Maldives","MDV",2023,7.4103727,22333.047,526009,"Asia",NA
+"schooling","Mali","MLI",2023,1.63,2860.4282,23769130,"África",NA
+"schooling","Malta","MLT",2023,12.420702,60418.395,532964,"Europa",NA
+"schooling","Marshall Islands","MHL",2023,11.636664,6801.6147,38849,"Oceanía",NA
+"schooling","Mauritania","MRT",2023,4.852026,6276.475,5022442,"África",NA
+"schooling","Mauritius","MUS",2023,10.103328,26635.012,1273591,"África",NA
+"schooling","Mexico","MEX",2023,9.349511,21917.248,129739761,"América del Norte",NA
+"schooling","Micronesia (country)","FSM",2023,7.332524,3814.7202,112646,"Oceanía",NA
+"schooling","Moldova","MDA",2023,11.83,15990.4795,3067072,"Europa",NA
+"schooling","Mongolia","MNG",2023,9.42,16222.864,3431938,"Asia",NA
+"schooling","Montenegro","MNE",2023,12.773926,27243.518,633553,"Europa",NA
+"schooling","Morocco","MAR",2023,6.198,8915.352,37712516,"África",NA
+"schooling","Mozambique","MOZ",2023,4.59049,1512.2764,33635163,"África",NA
+"schooling","Myanmar","MMR",2023,6.38,5364.138,54133800,"Asia",NA
+"schooling","Namibia","NAM",2023,7.2731466,10137.673,2963102,"África",NA
+"schooling","Nauru","NRU",2023,9.448638,12372.5205,11900,"Oceanía",NA
+"schooling","Nepal","NPL",2023,4.50373,4861.2305,29694614,"Asia",NA
+"schooling","Netherlands","NLD",2023,12.669947,70198.93,18092526,"Europa",NA
+"schooling","New Zealand","NZL",2023,12.882998,49508.27,5172837,"Oceanía",NA
+"schooling","Nicaragua","NIC",2023,9.93302,7496.5293,6823619,"América del Norte",NA
+"schooling","Niger","NER",2023,1.4122894,1689.5642,26159863,"África",NA
+"schooling","Nigeria","NGA",2023,7.58597,7843.8345,227882949,"África",NA
+"schooling","North Macedonia","MKD",2023,10.23,23455.32,1831800,"Europa",NA
+"schooling","Norway","NOR",2023,13.117962,90085.44,5519167,"Europa",NA
+"schooling","Oman","OMN",2023,11.89,37793.617,5049267,"Asia",NA
+"schooling","Pakistan","PAK",2023,4.316987,5418.7695,247504505,"Asia",NA
+"schooling","Palau","PLW",2023,13.299035,16425.973,17751,"Oceanía",NA
+"schooling","Palestine","PSE",2023,10.13,5361.131,5409201,"Asia",NA
+"schooling","Panama","PAN",2023,10.833751,35872.95,4458758,"América del Norte",NA
+"schooling","Papua New Guinea","PNG",2023,4.962531,4205.8477,10389638,"Oceanía",NA
+"schooling","Paraguay","PRY",2023,8.930654,15826.088,6844150,"América del Sur",NA
+"schooling","Peru","PER",2023,10.154652,15327.582,33845616,"América del Sur",NA
+"schooling","Philippines","PHL",2023,9.97724,9898.533,114891199,"Asia",NA
+"schooling","Poland","POL",2023,13.208543,43672.766,38762847,"Europa",NA
+"schooling","Portugal","PRT",2023,9.703255,41768.254,10430735,"Europa",NA
+"schooling","Qatar","QAT",2023,10.77,116563.99,2979086,"Asia",NA
+"schooling","Romania","ROU",2023,11.55,40116.855,19118482,"Europa",NA
+"schooling","Russia","RUS",2023,12.41,39887.34,145440502,"Europa",NA
+"schooling","Rwanda","RWA",2023,4.88,3062.999,13954473,"África",NA
+"schooling","Saint Kitts and Nevis","KNA",2023,10.8494005,30616.578,46783,"América del Norte",NA
+"schooling","Saint Lucia","LCA",2023,8.614167,23403.744,179291,"América del Norte",NA
+"schooling","Saint Vincent and the Grenadines","VCT",2023,11.29535,17858.244,101331,"América del Norte",NA
+"schooling","Samoa","WSM",2023,11.332984,7383.7456,216673,"Oceanía",NA
+"schooling","San Marino","SMR",2023,11.36,70951.79,33761,"Europa",NA
+"schooling","Sao Tome and Principe","STP",2023,5.9875593,5541.302,230882,"África",NA
+"schooling","Saudi Arabia","SAU",2023,11.606428,64481.844,33264289,"Asia",NA
+"schooling","Senegal","SEN",2023,2.934554,4304.7617,18077573,"África",NA
+"schooling","Serbia","SRB",2023,11.641718,25735.24,6773204,"Europa",NA
+"schooling","Seychelles","SYC",2023,11.19995,28635.355,127961,"África",NA
+"schooling","Sierra Leone","SLE",2023,3.5352976,3034.946,8460523,"África",NA
+"schooling","Singapore","SGP",2023,11.99,129555.24,5789092,"Asia",NA
+"schooling","Slovakia","SVK",2023,13.103204,39518.223,5518057,"Europa",NA
+"schooling","Slovenia","SVN",2023,12.951202,47977.426,2118394,"Europa",NA
+"schooling","Solomon Islands","SLB",2023,5.87968,2339.575,800014,"Oceanía",NA
+"schooling","Somalia","SOM",2023,1.9,1401.6473,18358622,"África",NA
+"schooling","South Africa","ZAF",2023,11.61,13695.376,63212386,"África",NA
+"schooling","South Korea","KOR",2023,12.7221985,54029.344,51748744,"Asia",NA
+"schooling","Spain","ESP",2023,10.7561245,47322.594,47911583,"Europa",NA
+"schooling","Sri Lanka","LKA",2023,10.77,13024.94,22971615,"Asia",NA
+"schooling","Sudan","SDN",2023,3.962,2181.079,50042800,"África",NA
+"schooling","Suriname","SUR",2023,8.42976,19020.867,628892,"América del Sur",NA
+"schooling","Sweden","SWE",2023,12.740326,62662.766,10551493,"Europa",NA
+"schooling","Switzerland","CHE",2023,13.949121,82295.3,8870564,"Europa",NA
+"schooling","Tajikistan","TJK",2023,11.270948,4472.324,10389807,"Asia",NA
+"schooling","Tanzania","TZA",2023,6.06535,3620.7935,66617607,"África",NA
+"schooling","Thailand","THA",2023,9.04,21191.453,71702436,"Asia",NA
+"schooling","Togo","TGO",2023,5.8611145,2842.2307,8223853,"África",NA
+"schooling","Tonga","TON",2023,10.914949,7030.419,104613,"Oceanía",NA
+"schooling","Trinidad and Tobago","TTO",2023,10.79275,31196.604,1502938,"América del Norte",NA
+"schooling","Tunisia","TUN",2023,7.59492,12650.962,12200434,"África",NA
+"schooling","Turkey","TUR",2023,8.986243,35069.17,87270502,"Asia",NA
+"schooling","Turkmenistan","TKM",2023,11.207802,17866.404,7364437,"Asia",NA
+"schooling","Tuvalu","TUV",2023,10.767461,5812.3994,9837,"Oceanía",NA
+"schooling","Uganda","UGA",2023,6.323663,2791.0557,48656606,"África",NA
+"schooling","Ukraine","UKR",2023,11.122739,15916.958,37732833,"Europa",NA
+"schooling","United Arab Emirates","ARE",2023,12.99,70239.85,10642089,"Asia",NA
+"schooling","United Kingdom","GBR",2023,13.49,52592.684,68682965,"Europa",NA
+"schooling","United States","USA",2023,13.91,74158.72,343477330,"América del Norte",NA
+"schooling","Uruguay","URY",2023,10.54,31059.254,3388083,"América del Sur",NA
+"schooling","Uzbekistan","UZB",2023,11.91,10007.686,35652311,"Asia",NA
+"schooling","Vanuatu","VUT",2023,7.18321,3214.7024,320422,"Oceanía",NA
+"schooling","Vietnam","VNM",2023,8.98,13545.935,100352189,"Asia",NA
+"schooling","Zambia","ZMB",2023,7.3974085,3673.4841,20723967,"África",NA
+"schooling","Zimbabwe","ZWE",2023,8.930847,5218.0225,16340829,"África",NA
+"democracy","Afghanistan","AFG",2024,0.25,2236.195,42647000,"Asia",42647000
+"democracy","Albania","ALB",2024,6.2,21812.893,2722000,"Europa",2722000
+"democracy","Algeria","DZA",2024,3.55,17717.506,46626000,"África",46626000
+"democracy","Angola","AGO",2024,4.05,10027.325,37886000,"África",37886000
+"democracy","Argentina","ARG",2024,6.51,29587.354,47068000,"América del Sur",47068000
+"democracy","Armenia","ARM",2024,5.35,22849.16,3034000,"Asia",3034000
+"democracy","Australia","AUS",2024,8.85,69646.633,27388000,"Oceanía",27388000
+"democracy","Austria","AUT",2024,8.28,73465.66,9159000,"Europa",9159000
+"democracy","Azerbaijan","AZE",2024,2.8,25033.573,10249000,"Asia",10249000
+"democracy","Bahrain","BHR",2024,2.45,67230.023,1589000,"Asia",1589000
+"democracy","Bangladesh","BGD",2024,4.44,9747.476,172019000,"Asia",172019000
+"democracy","Belarus","BLR",2024,1.99,32520.348,9133000,"Europa",9133000
+"democracy","Belgium","BEL",2024,7.64,73804.776,11817000,"Europa",11817000
+"democracy","Benin","BEN",2024,4.44,4429.499,14500000,"África",14500000
+"democracy","Bolivia","BOL",2024,4.26,12896.31,12413000,"América del Sur",12413000
+"democracy","Bosnia and Herzegovina","BIH",2024,5.06,21756.271,3455000,"Europa",3455000
+"democracy","Botswana","BWA",2024,7.63,20567.941,2521000,"África",2521000
+"democracy","Brazil","BRA",2024,6.49,22309.326,212584000,"América del Sur",212584000
+"democracy","Bulgaria","BGR",2024,6.34,39289.627,6437000,"Europa",6437000
+"democracy","Burkina Faso","BFA",2024,2.55,2899.406,23554000,"África",23554000
+"democracy","Burundi","BDI",2024,2.13,958.395,14048000,"África",14048000
+"democracy","Cambodia","KHM",2024,2.94,7873.678,17639000,"Asia",17639000
+"democracy","Cameroon","CMR",2024,2.56,5597.089,29124000,"África",29124000
+"democracy","Canada","CAN",2024,8.69,64801.549,41118000,"América del Norte",41118000
+"democracy","Cape Verde","CPV",2024,7.58,11503.81,512000,"África",512000
+"democracy","Central African Republic","CAF",2024,1.18,1379.706,5331000,"África",5331000
+"democracy","Chad","TCD",2024,1.89,3109.989,18437000,"África",18437000
+"democracy","Chile","CHL",2024,7.83,34114.494,19904000,"América del Sur",19904000
+"democracy","China","CHN",2024,2.11,27132.068,1408280000,"Asia",1408280000
+"democracy","Colombia","COL",2024,6.35,21499.476,52696000,"América del Sur",52696000
+"democracy","Comoros","COM",2024,2.84,3861.608,890000,"África",890000
+"democracy","Congo","COG",2024,2.79,6369.716,6309000,"África",6309000
+"democracy","Costa Rica","CRI",2024,8.29,30325.932,5325000,"América del Norte",5325000
+"democracy","Cote d'Ivoire","CIV",2024,4.22,7668.666,31983000,"África",31983000
+"democracy","Croatia","HRV",2024,6.5,48735.646,3866000,"Europa",3866000
+"democracy","Cyprus","CYP",2024,7.38,61754.437,966000,"Europa",966000
+"democracy","Czechia","CZE",2024,8.08,56963.63,10935000,"Europa",10935000
+"democracy","Democratic Republic of Congo","COD",2024,1.92,1929.988,103197000,"África",103197000
+"democracy","Denmark","DNK",2024,9.28,81806.125,5961000,"Europa",5961000
+"democracy","Djibouti","DJI",2024,2.7,8764.288,1043000,"África",1043000
+"democracy","Dominican Republic","DOM",2024,6.62,29192.843,10797000,"América del Norte",10797000
+"democracy","Ecuador","ECU",2024,5.24,15997.318,17967000,"América del Sur",17967000
+"democracy","Egypt","EGY",2024,2.79,20916.957,106600000,"África",106600000
+"democracy","El Salvador","SLV",2024,4.61,13283.263,6338000,"América del Norte",6338000
+"democracy","Equatorial Guinea","GNQ",2024,1.92,20930.447,1590000,"África",1590000
+"democracy","Estonia","EST",2024,8.13,47743.406,1372000,"Europa",1372000
+"democracy","Eswatini","SWZ",2024,2.6,12765.737,1150000,"África",1150000
+"democracy","Ethiopia","ETH",2024,3.24,4089.031,108400000,"África",108400000
+"democracy","Finland","FIN",2024,9.3,64446.667,5604000,"Europa",5604000
+"democracy","France","FRA",2024,7.99,64053.78,68638000,"Europa",68638000
+"democracy","Gabon","GAB",2024,2.18,24226.613,2258000,"África",2258000
+"democracy","Gambia","GMB",2024,4.47,3446.529,2787000,"África",2787000
+"democracy","Georgia","GEO",2024,4.7,28364.329,3695000,"Asia",3695000
+"democracy","Germany","DEU",2024,8.73,71796.542,83517000,"Europa",83517000
+"democracy","Ghana","GHA",2024,6.24,8051.188,34427000,"África",34427000
+"democracy","Greece","GRC",2024,8.07,42837.986,10376000,"Europa",10376000
+"democracy","Guatemala","GTM",2024,4.55,14389.515,18406000,"América del Norte",18406000
+"democracy","Guinea","GIN",2024,2.04,4434.673,15417000,"África",15417000
+"democracy","Guinea-Bissau","GNB",2024,2.03,3109.654,1978000,"África",1978000
+"democracy","Haiti","HTI",2024,2.74,3038.204,12391000,"América del Norte",12391000
+"democracy","Honduras","HND",2024,4.98,7496.894,10826000,"América del Norte",10826000
+"democracy","Hong Kong","HKG",2024,5.09,75577.685,7501000,"Asia",7501000
+"democracy","Hungary","HUN",2024,6.51,46594.775,9585000,"Europa",9585000
+"democracy","Iceland","ISL",2024,9.38,78599.726,384000,"Europa",384000
+"democracy","India","IND",2024,7.29,10747.418,1450936000,"Asia",1450936000
+"democracy","Indonesia","IDN",2024,6.44,16582.681,281604000,"Asia",281604000
+"democracy","Iran","IRN",2024,1.96,21144.803,86189000,"Asia",86189000
+"democracy","Iraq","IRQ",2024,2.8,15371.442,44415000,"Asia",44415000
+"democracy","Ireland","IRL",2024,9.19,133986.346,5420000,"Europa",5420000
+"democracy","Israel","ISR",2024,7.8,54126.235,9988000,"Asia",9988000
+"democracy","Italy","ITA",2024,7.58,61415.223,58971000,"Europa",58971000
+"democracy","Jamaica","JAM",2024,6.74,13329.055,2750000,"América del Norte",2750000
+"democracy","Japan","JPN",2024,8.48,54368.995,123890000,"Asia",123890000
+"democracy","Jordan","JOR",2024,3.28,11916.349,11553000,"Asia",11553000
+"democracy","Kazakhstan","KAZ",2024,3.08,41831.808,20159000,"Asia",20159000
+"democracy","Kenya","KEN",2024,5.05,7159.907,52444000,"África",52444000
+"democracy","Kuwait","KWT",2024,2.78,51909.045,5012000,"Asia",5012000
+"democracy","Kyrgyzstan","KGZ",2024,3.52,8375.51,7077000,"Asia",7077000
+"democracy","Laos","LAO",2024,1.71,9762.071,7686000,"Asia",7686000
+"democracy","Latvia","LVA",2024,7.66,41173.135,1872000,"Europa",1872000
+"democracy","Lebanon","LBN",2024,3.56,12257.811,5354000,"Asia",5354000
+"democracy","Lesotho","LSO",2024,6.06,3117.894,2337000,"África",2337000
+"democracy","Liberia","LBR",2024,5.57,1869.341,5613000,"África",5613000
+"democracy","Libya","LBY",2024,2.31,14630.744,7381000,"África",7381000
+"democracy","Lithuania","LTU",2024,7.59,54710.469,2888000,"Europa",2888000
+"democracy","Luxembourg","LUX",2024,8.88,149986.359,672000,"Europa",672000
+"democracy","Madagascar","MDG",2024,5.33,1973.297,30594000,"África",30594000
+"democracy","Malawi","MWI",2024,5.85,1722.821,23384000,"África",23384000
+"democracy","Malaysia","MYS",2024,7.11,41269.791,33460000,"Asia",33460000
+"democracy","Mali","MLI",2024,2.4,3325.084,24497000,"África",24497000
+"democracy","Malta","MLT",2024,7.93,74977.064,553000,"Europa",553000
+"democracy","Mauritania","MRT",2024,3.96,8423.713,4529000,"África",4529000
+"democracy","Mauritius","MUS",2024,8.23,31516.531,1245000,"África",1245000
+"democracy","Mexico","MEX",2024,5.32,25038.884,132274000,"América del Norte",132274000
+"democracy","Moldova","MDA",2024,6.04,18516.961,2423000,"Europa",2423000
+"democracy","Mongolia","MNG",2024,6.53,19064.087,3545000,"Asia",3545000
+"democracy","Montenegro","MNE",2024,6.73,32565.586,624000,"Europa",624000
+"democracy","Morocco","MAR",2024,4.97,10793.549,37370000,"África",37370000
+"democracy","Mozambique","MOZ",2024,3.38,1697.196,34858000,"África",34858000
+"democracy","Myanmar","MMR",2024,0.96,5038.592,54500000,"Asia",54500000
+"democracy","Namibia","NAM",2024,6.48,11861.25,2990000,"África",2990000
+"democracy","Nepal","NPL",2024,4.6,5744.948,29651000,"Asia",29651000
+"democracy","Netherlands","NLD",2024,9,81354.404,17943000,"Europa",17943000
+"democracy","New Zealand","NZL",2024,9.61,54549.238,5290000,"Oceanía",5290000
+"democracy","Nicaragua","NIC",2024,2.09,9050.282,6664000,"América del Norte",6664000
+"democracy","Niger","NER",2024,2.26,1989.384,28080000,"África",28080000
+"democracy","Nigeria","NGA",2024,4.16,9099.862,232679000,"África",232679000
+"democracy","North Macedonia","MKD",2024,6.28,27835.289,1824000,"Europa",1824000
+"democracy","Norway","NOR",2024,9.81,107943.564,5585000,"Europa",5585000
+"democracy","Oman","OMN",2024,3.05,42304.162,5219000,"Asia",5219000
+"democracy","Pakistan","PAK",2024,2.84,6743.385,235950000,"Asia",235950000
+"democracy","Panama","PAN",2024,6.84,41485.021,4510000,"América del Norte",4510000
+"democracy","Paraguay","PRY",2024,5.92,20258.753,6373000,"América del Sur",6373000
+"democracy","Peru","PER",2024,5.69,18238.969,34068000,"América del Sur",34068000
+"democracy","Philippines","PHL",2024,6.63,12120.826,112885000,"Asia",112885000
+"democracy","Poland","POL",2024,7.4,52205.98,36621000,"Europa",36621000
+"democracy","Portugal","PRT",2024,8.08,48323.807,10695000,"Europa",10695000
+"democracy","Qatar","QAT",2024,3.17,114758.203,3143000,"Asia",3143000
+"democracy","Romania","ROU",2024,5.99,46787.965,18944000,"Europa",18944000
+"democracy","Russia","RUS",2024,2.03,48119.003,144820000,"Europa",144820000
+"democracy","Rwanda","RWA",2024,3.34,3892.869,13857000,"África",13857000
+"democracy","Saudi Arabia","SAU",2024,2.08,71936.189,35300000,"Asia",35300000
+"democracy","Senegal","SEN",2024,5.93,5038.758,18661000,"África",18661000
+"democracy","Serbia","SRB",2024,6.26,30966.504,6586000,"Europa",6586000
+"democracy","Sierra Leone","SLE",2024,4.32,3527.433,8642000,"África",8642000
+"democracy","Singapore","SGP",2024,6.18,153161.044,6037000,"Asia",6037000
+"democracy","Slovakia","SVK",2024,7.21,45952.755,5425000,"Europa",5425000
+"democracy","Slovenia","SVN",2024,7.82,55914.37,2124000,"Europa",2124000
+"democracy","South Africa","ZAF",2024,7.16,15895.477,62329000,"África",62329000
+"democracy","South Korea","KOR",2024,7.75,62885.478,51751000,"Asia",51751000
+"democracy","Spain","ESP",2024,8.13,54674.716,49078000,"Europa",49078000
+"democracy","Sri Lanka","LKA",2024,6.19,15655.282,21916000,"Asia",21916000
+"democracy","Sudan","SDN",2024,1.46,2346.186,49140000,"África",49140000
+"democracy","Sweden","SWE",2024,9.39,71536.362,10588000,"Europa",10588000
+"democracy","Switzerland","CHE",2024,9.32,98728.608,8962000,"Europa",8962000
+"democracy","Taiwan","TWN",2024,8.78,80390.306,23400000,"Asia",23400000
+"democracy","Tajikistan","TJK",2024,1.83,5626.255,10188000,"Asia",10188000
+"democracy","Tanzania","TZA",2024,5.2,4119.705,65645000,"África",65645000
+"democracy","Thailand","THA",2024,6.27,24917.534,71668000,"Asia",71668000
+"democracy","Togo","TGO",2024,2.99,3352.215,9548000,"África",9548000
+"democracy","Trinidad and Tobago","TTO",2024,7.09,34857.18,1428000,"América del Norte",1428000
+"democracy","Tunisia","TUN",2024,4.71,14461.578,12277000,"África",12277000
+"democracy","Turkey","TUR",2024,4.26,41549.109,85518000,"Asia",85518000
+"democracy","Turkmenistan","TKM",2024,1.66,22168.508,6598000,"Asia",6598000
+"democracy","Uganda","UGA",2024,4.49,3682.423,46623000,"África",46623000
+"democracy","Ukraine","UKR",2024,4.9,19782.894,33343000,"Europa",33343000
+"democracy","United Arab Emirates","ARE",2024,3.07,77185.205,11294000,"Asia",11294000
+"democracy","United Kingdom","GBR",2024,8.34,63071.834,69281000,"Europa",69281000
+"democracy","United States","USA",2024,7.85,86173.365,339989000,"América del Norte",339989000
+"democracy","Uruguay","URY",2024,8.67,35494.42,3492000,"América del Sur",3492000
+"democracy","Uzbekistan","UZB",2024,2.1,12124.514,37543000,"Asia",37543000
+"democracy","Venezuela","VEN",2024,2.25,8570.132,26561000,"América del Sur",26561000
+"democracy","Vietnam","VNM",2024,2.62,16337.37,101300000,"Asia",101300000
+"democracy","Yemen","YEM",2024,1.95,1601.375,18262000,"Asia",18262000
+"democracy","Zambia","ZMB",2024,5.73,4221.01,21315000,"África",21315000
+"democracy","Zimbabwe","ZWE",2024,2.98,7376.624,16992000,"África",16992000
