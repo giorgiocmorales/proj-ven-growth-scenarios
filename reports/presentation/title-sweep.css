@@ -38,9 +38,9 @@
 
 .reveal h2 {
   border-bottom: 1px solid var(--deck-rule);
-  font-size: 1.12em;
-  margin-bottom: 0.42em;
-  padding-bottom: 0.18em;
+  font-size: 1.04em;
+  margin-bottom: 0.22em;
+  padding-bottom: 0.12em;
   white-space: nowrap;
 }
 
@@ -53,6 +53,14 @@
 .reveal .progress {
   color: var(--deck-accent);
   font-family: var(--deck-sans);
+}
+
+.reveal .footer {
+  bottom: 1.05rem;
+  color: var(--deck-muted);
+  font-family: var(--deck-sans);
+  font-size: 0.28em;
+  letter-spacing: 0;
 }
 
 .reveal .progress {
@@ -71,10 +79,55 @@
 .reveal img.quarto-figure,
 .reveal section img {
   display: block;
-  height: auto !important;
+  height: 84vh !important;
   margin-left: auto;
   margin-right: auto;
-  max-height: 592px;
+  max-height: calc(100vh - 112px);
+  max-width: 100%;
+  object-fit: contain;
+  width: auto !important;
+}
+
+.reveal .quote-image-slide {
+  align-items: start;
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
+  margin-top: 0.35rem;
+}
+
+.reveal .quote-image-slide .quote-text {
+  font-size: 0.78em;
+  line-height: 1.35;
+  padding-top: 0.25rem;
+}
+
+.reveal .quote-image-slide .quote-images {
+  align-items: center;
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 0.72fr 1fr;
+}
+
+.reveal .quote-image-slide figure {
+  margin: 0;
+}
+
+.reveal .quote-image-slide img {
+  display: block;
+  height: auto !important;
+  max-height: 52vh;
+  max-width: 100%;
   object-fit: contain;
   width: 100% !important;
+}
+
+.reveal .quote-image-slide figcaption {
+  color: var(--deck-muted);
+  font-family: var(--deck-serif);
+  font-size: 0.36em;
+  font-style: italic;
+  line-height: 1.15;
+  margin-top: 0.18rem;
+  text-align: right;
 }
