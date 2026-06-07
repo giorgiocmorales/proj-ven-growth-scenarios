@@ -25,9 +25,9 @@ dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 ## Plot constants --------------------------------------------------------------
 # Shared caption and simulation parameters.
 presentation_source_caption <- build_source_caption(
-  "replicacion propia de la simulacion de Cremieux Recueil (2024)",
+  "Replicación propia de Cremieux Recueil (2024)",
   calculations = TRUE,
-  note = "cada punto es una nueva extraccion de pesos aleatorios de media positiva aplicados a conjuntos disjuntos de items"
+  note = "cada punto es una nueva extracción de pesos aleatorios de media positiva aplicados a conjuntos disjuntos de ítems"
 )
 
 set.seed(20260530)
@@ -122,7 +122,7 @@ wilks_plot <- ggplot2::ggplot() +
   ) +
   ggplot2::scale_y_continuous(
     labels = scales::label_number(accuracy = 0.01),
-    breaks = c(-0.05, seq(0, 1, by = 0.25), 1.05)
+    breaks = scales::breaks_width(0.25)
   ) +
   ggplot2::coord_cartesian(ylim = c(-0.05, 1.05), expand = FALSE) +
   ggplot2::scale_color_manual(
@@ -133,12 +133,12 @@ wilks_plot <- ggplot2::ggplot() +
   ) +
   ggplot2::labs(
     title = "Convergencia entre indicadores compuestos con ítems disjuntos",
-    subtitle = "Dos índices construidos con ítems distintos, pero todos comparten correlación promedio cercana a 0.5",
+    subtitle = "Cada punto resume la correlación entre dos Índices construidos con ítems distintos.",
     x = "Ítems por indicador compuesto, log(n)",
-    y = "Corr(L?, L?)",
+    y = "Corr(L1, L2)",
     color = NULL
   ) +
-  ggplot2::theme_minimal(base_size = 12) +
+  ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
   ggplot2::theme(
     legend.position = "bottom",
     panel.grid.minor = ggplot2::element_blank()

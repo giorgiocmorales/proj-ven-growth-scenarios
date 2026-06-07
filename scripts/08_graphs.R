@@ -76,44 +76,26 @@ growth_labels <- c(
 )
 
 presentation_source_caption <- build_source_caption(
-  "series historicas de Venezuela, Maddison Project Database 2023, Banco Mundial WDI y FMI WEO",
+  "Baptista (2008); Garay (2019); BCV (2016); Focus Economics (2026); Maddison Project (2023); Banco Mundial WDI (2025); FMI WEO (2025)",
   calculations = TRUE
 )
 
 scenario_colors <- c(
-  "15%" = presentation_colors[["primary"]],
-  "10%" = presentation_colors[["venezuela"]],
-  "7%" = presentation_colors[["latam"]],
-  "5%" = presentation_colors[["recovery"]],
-  "2%" = presentation_colors[["reference"]]
+  "15%" = presentation_ordered_colors[[1]],
+  "10%" = presentation_ordered_colors[[2]],
+  "7%" = presentation_ordered_colors[[3]],
+  "5%" = presentation_ordered_colors[[4]],
+  "2%" = presentation_ordered_colors[[5]]
 )
 
 window_colors <- c(
-  "3 años" = presentation_colors[["primary"]],
-  "5 años" = presentation_colors[["venezuela"]],
-  "7 años" = presentation_colors[["latam"]],
-  "10 años" = presentation_colors[["recovery"]],
-  "15 años" = presentation_colors[["reference"]],
-  "20 años" = presentation_colors[["accent"]]
+  "3 años" = presentation_ordered_colors[[1]],
+  "5 años" = presentation_ordered_colors[[2]],
+  "7 años" = presentation_ordered_colors[[3]],
+  "10 años" = presentation_ordered_colors[[4]],
+  "15 años" = presentation_ordered_colors[[5]],
+  "20 años" = presentation_ordered_colors[[6]]
 )
-
-build_priority_color_map <- function(labels) {
-  labels <- unique(as.character(labels))
-  stats::setNames(
-    rep(
-      c(
-        presentation_colors[["primary"]],
-        presentation_colors[["venezuela"]],
-        presentation_colors[["latam"]],
-        presentation_colors[["recovery"]],
-        presentation_colors[["reference"]],
-        presentation_colors[["accent"]]
-      ),
-      length.out = length(labels)
-    ),
-    labels
-  )
-}
 
 series_order <- c("gdp", "gdp_per_capita")
 series_labels <- c(
@@ -124,6 +106,51 @@ series_labels <- c(
 # Standardize series names before plotting.
 format_series <- function(series_id) {
   factor(series_id, levels = series_order, labels = series_labels)
+}
+
+
+episode_axis_limits <- function(selected_series, selected_phase = NULL) {
+  upper <- if (identical(selected_series, series_labels[["gdp"]])) 5 else 3
+  if (identical(selected_phase, "expansion")) {
+    c(0, upper)
+  } else if (identical(selected_phase, "contraction")) {
+    c(-1, 0)
+  } else {
+    c(-1, upper)
+  }
+}
+
+episode_axis_breaks <- function(selected_series, selected_phase = NULL) {
+  upper <- if (identical(selected_series, series_labels[["gdp"]])) 5 else 3
+  if (identical(selected_phase, "expansion")) {
+    seq(0, upper, by = 1)
+  } else if (identical(selected_phase, "contraction")) {
+    seq(-1, 0, by = 0.25)
+  } else {
+    seq(-1, upper, by = 1)
+  }
+}
+
+build_episode_top_label_data <- function(data, selected_series, selected_phase, top_n = 5) {
+  ranked_episodes <- data |>
+    dplyr::filter(series_id == selected_series, phase == selected_phase) |>
+    dplyr::group_by(episode_group, episode_label) |>
+    dplyr::summarise(
+      final_change = dplyr::last(episode_cumulative_change[order(year)]),
+      final_year = max(year, na.rm = TRUE),
+      .groups = "drop"
+    ) |>
+    dplyr::mutate(sort_value = if (identical(selected_phase, "expansion")) -final_change else final_change) |>
+    dplyr::arrange(sort_value) |>
+    dplyr::slice_head(n = top_n)
+
+  data |>
+    dplyr::inner_join(ranked_episodes |> dplyr::select(episode_group, episode_label), by = c("episode_group", "episode_label")) |>
+    dplyr::group_by(episode_group, episode_label) |>
+    dplyr::filter(year == max(year, na.rm = TRUE)) |>
+    dplyr::slice_tail(n = 1) |>
+    dplyr::ungroup() |>
+    dplyr::mutate(label = sprintf("(%s)", episode_label))
 }
 
 ## Data loading ----------------------------------------------------------------
@@ -208,26 +235,84 @@ build_growth_bar_chart <- function(data, selected_series, title) {
     ggplot2::geom_col(width = 0.9) +
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey35") +
     ggplot2::scale_fill_manual(values = growth_colors, labels = growth_labels, name = NULL) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::scale_x_continuous(breaks = scales::breaks_width(10)) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = c(-0.45, 0.45),
+      breaks = seq(-0.45, 0.45, by = 0.15)
+    ) +
     ggplot2::labs(title = title, x = NULL, y = "Tasa de crecimiento anual") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers()
 }
 
 build_index_line_chart <- function(data, selected_series, title) {
   legend_label <- paste(selected_series)
+  series_data <- data[data$series_id == selected_series, ]
+  base_year <- min(series_data$year, na.rm = TRUE)
+  latest_year <- max(series_data$year, na.rm = TRUE)
+  latest_index <- series_data$index_value[series_data$year == latest_year][[1]]
+  reference_year <- if (identical(as.character(selected_series), "PIB real")) {
+    1967
+  } else if (identical(as.character(selected_series), "PIB real per cápita")) {
+    1943
+  } else {
+    NA_real_
+  }
+  closest_prior_data <- if (is.finite(reference_year) && reference_year %in% series_data$year) {
+    series_data |>
+      dplyr::filter(year == reference_year)
+  } else {
+    series_data |>
+      dplyr::filter(year < latest_year, is.finite(index_value)) |>
+      dplyr::mutate(distance_to_latest = abs(index_value - latest_index)) |>
+      dplyr::slice_min(distance_to_latest, n = 1, with_ties = FALSE)
+  }
+  closest_prior_year <- closest_prior_data$year[[1]]
+  closest_label_at_right_edge <- closest_prior_year > latest_year - 10
 
   ggplot2::ggplot(
-    data[data$series_id == selected_series, ],
+    series_data,
     ggplot2::aes(x = year, y = index_value)
   ) +
+    ggplot2::geom_hline(
+      yintercept = latest_index,
+      color = presentation_colors[["reference"]],
+      linewidth = 0.45,
+      linetype = "dashed"
+    ) +
     ggplot2::geom_line(ggplot2::aes(color = legend_label), linewidth = 0.55) +
+    ggplot2::geom_point(
+      data = closest_prior_data,
+      color = presentation_palette[["cyan"]],
+      size = 3.1
+    ) +
+    ggplot2::geom_text(
+      data = closest_prior_data,
+      ggplot2::aes(label = year),
+      color = presentation_palette[["cyan"]],
+      family = presentation_font_family,
+      fontface = "bold",
+      size = 3.5,
+      hjust = if (closest_label_at_right_edge) 1 else 0.5,
+      nudge_x = if (closest_label_at_right_edge) -0.8 else 0,
+      nudge_y = latest_index * 0.055,
+      check_overlap = TRUE
+    ) +
     ggplot2::scale_color_manual(
-      values = stats::setNames(presentation_colors[["primary"]], legend_label),
+      values = stats::setNames(presentation_colors[["ink"]], legend_label),
       name = NULL
     ) +
     ggplot2::scale_y_continuous(labels = scales::label_number(big.mark = ","), breaks = presentation_breaks_include_limits()) +
-    ggplot2::labs(title = title, x = NULL, y = "Índice histórico") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::labs(
+      title = sprintf("%s: nivel de %s cercano a %s", title, latest_year, closest_prior_year),
+      x = NULL,
+      y = sprintf("Índice histórico (%s = 100)", base_year)
+    ) +
+    ggplot2::coord_cartesian(clip = "off") +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(plot.margin = ggplot2::margin(12, 42, 12, 18)) +
+    historical_event_reference_layers()
 }
 
 build_anchor_line_chart <- function(data, selected_series, title) {
@@ -236,9 +321,10 @@ build_anchor_line_chart <- function(data, selected_series, title) {
     ggplot2::aes(x = year, y = index_vs_anchor_100)
   ) +
     ggplot2::geom_hline(yintercept = 100, linewidth = 0.3, color = "grey35") +
-    ggplot2::geom_line(color = presentation_colors[["primary"]], linewidth = 0.55) +
+    ggplot2::geom_line(color = presentation_colors[["ink"]], linewidth = 0.55) +
     ggplot2::labs(title = title, x = NULL, y = "Índice vs. último año = 100") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers()
 }
 
 build_episode_line_chart <- function(data, selected_series, title) {
@@ -251,13 +337,18 @@ build_episode_line_chart <- function(data, selected_series, title) {
       color = growth_direction
     )
   ) +
-    ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey35") +
-    ggplot2::geom_line(linewidth = 0.45, alpha = 0.55) +
+    ggplot2::geom_hline(yintercept = 0, linewidth = 0.4, color = "grey35") +
+    ggplot2::geom_line(linewidth = 0.85, alpha = 0.68) +
     ggplot2::scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
-    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = seq(1850, 2025, 25)) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = presentation_year_breaks()) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = episode_axis_limits(selected_series),
+      breaks = episode_axis_breaks(selected_series)
+    ) +
     ggplot2::labs(title = title, x = NULL, y = "Cambio acumulado desde el inicio") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers()
 }
 
 build_episode_duration_chart <- function(data, selected_series, title) {
@@ -268,7 +359,7 @@ build_episode_duration_chart <- function(data, selected_series, title) {
     ggplot2::geom_bar(width = 0.85) +
     ggplot2::scale_fill_manual(values = phase_colors, labels = phase_labels, name = NULL) +
     ggplot2::labs(title = title, x = "Duración del episodio, años", y = "Número de episodios") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family)
 }
 
 build_growth_distribution_chart <- function(data, selected_series, title) {
@@ -289,15 +380,18 @@ build_growth_distribution_chart <- function(data, selected_series, title) {
     ) +
     ggplot2::geom_vline(xintercept = 0, color = "grey35", linewidth = 0.35) +
     ggplot2::scale_fill_manual(values = c("Años" = presentation_colors[["muted"]]), name = NULL) +
-    ggplot2::scale_color_manual(values = c("Densidad" = presentation_colors[["latam"]]), name = NULL) +
-    ggplot2::scale_x_continuous(labels = scales::label_percent(accuracy = 1)) +
+    ggplot2::scale_color_manual(values = c("Densidad" = presentation_colors[["primary"]]), name = NULL) +
+    ggplot2::scale_x_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      breaks = scales::breaks_width(0.05)
+    ) +
     ggplot2::scale_y_continuous(breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(
       title = title,
       x = "Tasa de crecimiento anual",
-      y = "Numero de anos"
+      y = "Número de años"
     ) +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family)
 }
 
 build_episode_phase_faceted_chart <- function(data, selected_phase, title) {
@@ -313,17 +407,22 @@ build_episode_phase_faceted_chart <- function(data, selected_phase, title) {
     )
   ) +
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey35") +
-    ggplot2::geom_line(linewidth = 0.45, alpha = 0.6) +
+    ggplot2::geom_line(linewidth = 0.75, alpha = 0.65) +
     ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1) +
     ggplot2::scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
-    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = seq(1850, 2025, 25)) +
+    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = presentation_year_breaks()) +
     ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(title = title, x = NULL, y = "Cambio acumulado desde el inicio") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers()
 }
 
 build_episode_phase_chart <- function(data, selected_series, selected_phase, title) {
   phase_data <- data[data$series_id == selected_series & data$phase == selected_phase, ]
+  label_data <- build_episode_top_label_data(data, selected_series, selected_phase, top_n = 5)
+  label_nudge <- if (identical(selected_phase, "expansion")) -0.18 else -0.05
+  label_x_nudge <- if (identical(selected_phase, "expansion")) 1.2 else -1.2
+  label_hjust <- if (identical(selected_phase, "expansion")) 0 else 1
 
   ggplot2::ggplot(
     phase_data,
@@ -334,22 +433,91 @@ build_episode_phase_chart <- function(data, selected_series, selected_phase, tit
       color = growth_direction
     )
   ) +
-    ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey35") +
-    ggplot2::geom_line(linewidth = 0.45, alpha = 0.6) +
+    ggplot2::geom_hline(yintercept = 0, linewidth = 0.4, color = "grey35") +
+    ggplot2::geom_line(linewidth = 0.9, alpha = 0.72) +
+    ggplot2::geom_text(
+      data = label_data,
+      ggplot2::aes(label = label),
+      inherit.aes = TRUE,
+      color = presentation_colors[["ink"]],
+      family = presentation_font_family,
+      size = 3.5,
+      hjust = label_hjust,
+      nudge_x = label_x_nudge,
+      nudge_y = label_nudge,
+      check_overlap = TRUE,
+      show.legend = FALSE
+    ) +
     ggplot2::scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
-    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = seq(1850, 2025, 25)) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = presentation_year_breaks()) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = episode_axis_limits(selected_series, selected_phase),
+      breaks = episode_axis_breaks(selected_series, selected_phase)
+    ) +
+    ggplot2::coord_cartesian(clip = "off", expand = FALSE) +
     ggplot2::labs(title = title, x = NULL, y = "Cambio acumulado desde el inicio") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(plot.margin = ggplot2::margin(5.5, 78, 5.5, 5.5)) +
+    historical_event_reference_layers()
+}
+build_negative_episode_labels <- function(plot_data, highlighted_summary, venezuela_plot_data) {
+  other_labels <- highlighted_summary |>
+    dplyr::transmute(
+      episode_key = episode_key,
+      label = sprintf(
+        "%s (%s-%s)",
+        country_code,
+        start_year,
+        end_year
+      )
+    ) |>
+    dplyr::inner_join(
+      plot_data |>
+        dplyr::group_by(episode_key) |>
+        dplyr::filter(year == max(year, na.rm = TRUE)) |>
+        dplyr::slice_tail(n = 1) |>
+        dplyr::ungroup() |>
+        dplyr::select(episode_key, year, episode_cumulative_change),
+      by = "episode_key"
+    )
+
+  venezuela_labels <- venezuela_plot_data |>
+    dplyr::group_by(episode_group) |>
+    dplyr::summarise(
+      year = max(year, na.rm = TRUE),
+      start_year = min(year, na.rm = TRUE),
+      end_year = max(year, na.rm = TRUE),
+      episode_cumulative_change = episode_cumulative_change[which.max(year)],
+      cumulative_growth = min(episode_cumulative_change, na.rm = TRUE),
+      .groups = "drop"
+    ) |>
+    dplyr::transmute(
+      episode_key = episode_group,
+      year = year,
+      episode_cumulative_change = episode_cumulative_change,
+      label = sprintf(
+        "VEN (%s-%s)",
+        start_year,
+        end_year
+      )
+    )
+
+  dplyr::bind_rows(other_labels, venezuela_labels)
 }
 
-build_maddison_negative_episode_chart <- function(path_data, summary_data, venezuela_path_data, top_n = 15) {
+build_maddison_negative_episode_chart <- function(path_data, summary_data, venezuela_path_data, top_n = 5) {
   negative_summary <- summary_data |>
     dplyr::filter(country_code != "VEN", phase == "contraction", end_year >= 1950, start_year <= 2026) |>
     dplyr::mutate(episode_key = paste(country_code, episode_id, sep = "_"))
 
-  other_worst <- negative_summary |>
+  worst_summary <- negative_summary |>
     dplyr::slice_min(cumulative_growth, n = top_n, with_ties = FALSE) |>
+    dplyr::arrange(cumulative_growth)
+
+  other_worst <- worst_summary$episode_key
+  threshold_episodes <- negative_summary |>
+    dplyr::filter(cumulative_growth <= -0.15) |>
     dplyr::pull(episode_key)
 
   plot_data <- path_data |>
@@ -358,6 +526,7 @@ build_maddison_negative_episode_chart <- function(path_data, summary_data, venez
       episode_key = paste(country_code, episode_id, sep = "_"),
       highlight_group = dplyr::case_when(
         episode_key %in% other_worst ~ "other_worst",
+        episode_key %in% threshold_episodes ~ "surpasses_threshold",
         TRUE ~ "all_other"
       )
     )
@@ -369,8 +538,22 @@ build_maddison_negative_episode_chart <- function(path_data, summary_data, venez
     dplyr::ungroup() |>
     dplyr::filter(episode_min_change == min(episode_min_change, na.rm = TRUE))
 
+  label_data <- build_negative_episode_labels(plot_data, worst_summary, venezuela_plot_data)
+
   ggplot2::ggplot() +
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey45") +
+    ggplot2::geom_hline(yintercept = -0.15, linewidth = 0.45, color = presentation_palette[["cyan"]], linetype = "dashed") +
+    ggplot2::annotate(
+      "text",
+      x = 1951,
+      y = -0.15,
+      label = "-15%",
+      color = presentation_palette[["cyan"]],
+      family = presentation_font_family,
+      fontface = "bold",
+      size = 3.4,
+      vjust = -0.45
+    ) +
     ggplot2::geom_line(
       data = plot_data[plot_data$highlight_group == "all_other", ],
       ggplot2::aes(
@@ -381,6 +564,17 @@ build_maddison_negative_episode_chart <- function(path_data, summary_data, venez
       ),
       linewidth = 0.25,
       alpha = 0.45
+    ) +
+    ggplot2::geom_line(
+      data = plot_data[plot_data$highlight_group == "surpasses_threshold", ],
+      ggplot2::aes(
+        x = year,
+        y = episode_cumulative_change,
+        group = episode_key,
+        color = "Caída mayor a 15%"
+      ),
+      linewidth = 0.35,
+      alpha = 0.58
     ) +
     ggplot2::geom_line(
       data = plot_data[plot_data$highlight_group == "other_worst", ],
@@ -404,32 +598,55 @@ build_maddison_negative_episode_chart <- function(path_data, summary_data, venez
       linewidth = 1.1,
       alpha = 0.95
     ) +
+    ggplot2::geom_text(
+      data = label_data,
+      ggplot2::aes(x = year, y = episode_cumulative_change, label = label),
+      inherit.aes = FALSE,
+      color = presentation_colors[["ink"]],
+      family = presentation_font_family,
+      size = 3,
+      hjust = 0,
+      nudge_x = 1.1,
+      check_overlap = TRUE
+    ) +
     ggplot2::scale_color_manual(
       values = c(
         "Otros episodios" = presentation_colors[["muted"]],
-        "Peores episodios" = presentation_colors[["latam"]],
+        "Caída mayor a 15%" = presentation_palette[["cyan"]],
+        "Peores episodios" = presentation_colors[["primary"]],
         "Venezuela" = presentation_colors[["venezuela"]]
       ),
-      breaks = c("Otros episodios", "Peores episodios", "Venezuela"),
+      breaks = c("Otros episodios", "Caída mayor a 15%", "Peores episodios", "Venezuela"),
       name = NULL
     ) +
-    ggplot2::scale_x_continuous(limits = c(1950, 2026), breaks = seq(1950, 2025, 25)) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::scale_x_continuous(limits = c(1950, 2026), breaks = presentation_year_breaks()) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = c(-1, 0),
+      breaks = seq(-1, 0, by = 0.25)
+    ) +
+    ggplot2::coord_cartesian(clip = "off", expand = FALSE) +
     ggplot2::labs(
-      title = "Episodios negativos de PIB real per cápita, Maddison",
+      title = "Episodios negativos de PIB real per cápita (Maddison)",
       x = NULL,
       y = "Cambio acumulado desde el inicio"
     ) +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(plot.margin = ggplot2::margin(5.5, 70, 5.5, 5.5))
 }
 
-build_wdi_negative_episode_chart <- function(path_data, summary_data, venezuela_path_data, top_n = 15) {
+build_wdi_negative_episode_chart <- function(path_data, summary_data, venezuela_path_data, top_n = 5) {
   negative_summary <- summary_data |>
     dplyr::filter(country_code != "VEN", phase == "contraction", end_year >= 1965, start_year <= 2026) |>
     dplyr::mutate(episode_key = paste(country_code, episode_id, sep = "_"))
 
-  other_worst <- negative_summary |>
+  worst_summary <- negative_summary |>
     dplyr::slice_min(cumulative_growth, n = top_n, with_ties = FALSE) |>
+    dplyr::arrange(cumulative_growth)
+
+  other_worst <- worst_summary$episode_key
+  threshold_episodes <- negative_summary |>
+    dplyr::filter(cumulative_growth <= -0.15) |>
     dplyr::pull(episode_key)
 
   plot_data <- path_data |>
@@ -438,6 +655,7 @@ build_wdi_negative_episode_chart <- function(path_data, summary_data, venezuela_
       episode_key = paste(country_code, episode_id, sep = "_"),
       highlight_group = dplyr::case_when(
         episode_key %in% other_worst ~ "other_worst",
+        episode_key %in% threshold_episodes ~ "surpasses_threshold",
         TRUE ~ "all_other"
       )
     )
@@ -449,46 +667,95 @@ build_wdi_negative_episode_chart <- function(path_data, summary_data, venezuela_
     dplyr::ungroup() |>
     dplyr::filter(episode_min_change == min(episode_min_change, na.rm = TRUE))
 
+  label_data <- build_negative_episode_labels(plot_data, worst_summary, venezuela_plot_data)
+
   ggplot2::ggplot() +
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey45") +
+    ggplot2::geom_hline(yintercept = -0.15, linewidth = 0.45, color = presentation_palette[["cyan"]], linetype = "dashed") +
+    ggplot2::annotate(
+      "text",
+      x = 1966,
+      y = -0.15,
+      label = "-15%",
+      color = presentation_palette[["cyan"]],
+      family = presentation_font_family,
+      fontface = "bold",
+      size = 3.4,
+      vjust = -0.45
+    ) +
     ggplot2::geom_line(
       data = plot_data[plot_data$highlight_group == "all_other", ],
-      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key),
-      color = "grey80",
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key, color = "Otros episodios"),
       linewidth = 0.25,
       alpha = 0.45
     ) +
     ggplot2::geom_line(
+      data = plot_data[plot_data$highlight_group == "surpasses_threshold", ],
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key, color = "Caída mayor a 15%"),
+      linewidth = 0.35,
+      alpha = 0.58
+    ) +
+    ggplot2::geom_line(
       data = plot_data[plot_data$highlight_group == "other_worst", ],
-      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key),
-      color = presentation_colors[["latam"]],
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key, color = "Peores episodios"),
       linewidth = 0.7,
       alpha = 0.9
     ) +
     ggplot2::geom_line(
       data = venezuela_plot_data,
-      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_group),
-      color = presentation_colors[["venezuela"]],
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_group, color = "Venezuela"),
       linewidth = 1.1,
       alpha = 0.95
     ) +
-    ggplot2::scale_x_continuous(limits = c(1965, 2026), breaks = seq(1975, 2025, 25)) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::geom_text(
+      data = label_data,
+      ggplot2::aes(x = year, y = episode_cumulative_change, label = label),
+      inherit.aes = FALSE,
+      color = presentation_colors[["ink"]],
+      family = presentation_font_family,
+      size = 3,
+      hjust = 0,
+      nudge_x = 1.1,
+      check_overlap = TRUE
+    ) +
+    ggplot2::scale_color_manual(
+      values = c(
+        "Otros episodios" = "grey80",
+        "Caída mayor a 15%" = presentation_palette[["cyan"]],
+        "Peores episodios" = presentation_colors[["primary"]],
+        "Venezuela" = presentation_colors[["venezuela"]]
+      ),
+      breaks = c("Otros episodios", "Caída mayor a 15%", "Peores episodios", "Venezuela"),
+      name = NULL
+    ) +
+    ggplot2::scale_x_continuous(limits = c(1965, 2026), breaks = presentation_year_breaks()) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = c(-1, 0),
+      breaks = seq(-1, 0, by = 0.25)
+    ) +
+    ggplot2::coord_cartesian(clip = "off", expand = FALSE) +
     ggplot2::labs(
-      title = "Episodios negativos de PIB real per capita, WDI",
+      title = "Episodios negativos de PIB real per cápita (WDI)",
       x = NULL,
       y = "Cambio acumulado desde el inicio"
     ) +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(plot.margin = ggplot2::margin(5.5, 70, 5.5, 5.5))
 }
 
-build_imf_weo_negative_episode_chart <- function(path_data, summary_data, venezuela_path_data, top_n = 15) {
+build_imf_weo_negative_episode_chart <- function(path_data, summary_data, venezuela_path_data, top_n = 5) {
   negative_summary <- summary_data |>
     dplyr::filter(country_code != "VEN", phase == "contraction", end_year >= 1981, start_year <= 2026) |>
     dplyr::mutate(episode_key = paste(country_code, episode_id, sep = "_"))
 
-  other_worst <- negative_summary |>
+  worst_summary <- negative_summary |>
     dplyr::slice_min(cumulative_growth, n = top_n, with_ties = FALSE) |>
+    dplyr::arrange(cumulative_growth)
+
+  other_worst <- worst_summary$episode_key
+  threshold_episodes <- negative_summary |>
+    dplyr::filter(cumulative_growth <= -0.15) |>
     dplyr::pull(episode_key)
 
   plot_data <- path_data |>
@@ -497,6 +764,7 @@ build_imf_weo_negative_episode_chart <- function(path_data, summary_data, venezu
       episode_key = paste(country_code, episode_id, sep = "_"),
       highlight_group = dplyr::case_when(
         episode_key %in% other_worst ~ "other_worst",
+        episode_key %in% threshold_episodes ~ "surpasses_threshold",
         TRUE ~ "all_other"
       )
     )
@@ -508,37 +776,81 @@ build_imf_weo_negative_episode_chart <- function(path_data, summary_data, venezu
     dplyr::ungroup() |>
     dplyr::filter(episode_min_change == min(episode_min_change, na.rm = TRUE))
 
+  label_data <- build_negative_episode_labels(plot_data, worst_summary, venezuela_plot_data)
+
   ggplot2::ggplot() +
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey45") +
+    ggplot2::geom_hline(yintercept = -0.15, linewidth = 0.45, color = presentation_palette[["cyan"]], linetype = "dashed") +
+    ggplot2::annotate(
+      "text",
+      x = 1982,
+      y = -0.15,
+      label = "-15%",
+      color = presentation_palette[["cyan"]],
+      family = presentation_font_family,
+      fontface = "bold",
+      size = 3.4,
+      vjust = -0.45
+    ) +
     ggplot2::geom_line(
       data = plot_data[plot_data$highlight_group == "all_other", ],
-      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key),
-      color = "grey80",
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key, color = "Otros episodios"),
       linewidth = 0.25,
       alpha = 0.45
     ) +
     ggplot2::geom_line(
+      data = plot_data[plot_data$highlight_group == "surpasses_threshold", ],
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key, color = "Caída mayor a 15%"),
+      linewidth = 0.35,
+      alpha = 0.58
+    ) +
+    ggplot2::geom_line(
       data = plot_data[plot_data$highlight_group == "other_worst", ],
-      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key),
-      color = presentation_colors[["primary"]],
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_key, color = "Peores episodios"),
       linewidth = 0.7,
       alpha = 0.9
     ) +
     ggplot2::geom_line(
       data = venezuela_plot_data,
-      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_group),
-      color = presentation_colors[["venezuela"]],
+      ggplot2::aes(x = year, y = episode_cumulative_change, group = episode_group, color = "Venezuela"),
       linewidth = 1.1,
       alpha = 0.95
     ) +
-    ggplot2::scale_x_continuous(limits = c(1981, 2026), breaks = seq(1985, 2025, 10)) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::geom_text(
+      data = label_data,
+      ggplot2::aes(x = year, y = episode_cumulative_change, label = label),
+      inherit.aes = FALSE,
+      color = presentation_colors[["ink"]],
+      family = presentation_font_family,
+      size = 3,
+      hjust = 0,
+      nudge_x = 1.1,
+      check_overlap = TRUE
+    ) +
+    ggplot2::scale_color_manual(
+      values = c(
+        "Otros episodios" = "grey80",
+        "Caída mayor a 15%" = presentation_palette[["cyan"]],
+        "Peores episodios" = presentation_colors[["primary"]],
+        "Venezuela" = presentation_colors[["venezuela"]]
+      ),
+      breaks = c("Otros episodios", "Caída mayor a 15%", "Peores episodios", "Venezuela"),
+      name = NULL
+    ) +
+    ggplot2::scale_x_continuous(limits = c(1981, 2026), breaks = presentation_year_breaks()) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = c(-1, 0),
+      breaks = seq(-1, 0, by = 0.25)
+    ) +
+    ggplot2::coord_cartesian(clip = "off", expand = FALSE) +
     ggplot2::labs(
-      title = "Episodios negativos de PIB real per cápita, FMI WEO",
+      title = "Episodios negativos de PIB real per cápita (FMI WEO)",
       x = NULL,
       y = "Cambio acumulado desde el inicio"
     ) +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(plot.margin = ggplot2::margin(5.5, 70, 5.5, 5.5))
 }
 
 build_venezuela_episode_summary_for_source <- function(
@@ -608,49 +920,49 @@ build_international_episode_summary <- function(
     build_source_episode_summary(
       maddison_summary_data,
       source_name = "maddison",
-      source_label = "Maddison, PIB pc",
+      source_label = "Maddison (PIB per cápita)",
       period_start = 1950,
       country_name_column = "country"
     ),
     build_venezuela_episode_summary_for_source(
       venezuela_summary_data,
       source_name = "maddison",
-      source_label = "Maddison, PIB pc",
+      source_label = "Maddison (PIB per cápita)",
       selected_series = series_labels[["gdp_per_capita"]],
       period_start = 1950
     ),
     build_source_episode_summary(
       wdi_summary_data,
       source_name = "wdi",
-      source_label = "WDI, PIB pc",
+      source_label = "WDI (PIB per cápita)",
       period_start = 1965,
       country_name_column = "country"
     ),
     build_venezuela_episode_summary_for_source(
       venezuela_summary_data,
       source_name = "wdi",
-      source_label = "WDI, PIB pc",
+      source_label = "WDI (PIB per cápita)",
       selected_series = series_labels[["gdp_per_capita"]],
       period_start = 1965
     ),
     build_source_episode_summary(
       imf_weo_summary_data,
       source_name = "imf_weo",
-      source_label = "FMI WEO, PIB pc",
+      source_label = "FMI WEO (PIB per cápita)",
       period_start = 1981,
       country_name_column = "maddison_country"
     ),
     build_venezuela_episode_summary_for_source(
       venezuela_summary_data,
       source_name = "imf_weo",
-      source_label = "FMI WEO, PIB pc",
+      source_label = "FMI WEO (PIB per cápita)",
       selected_series = series_labels[["gdp_per_capita"]],
       period_start = 1981
     )
   ) |>
     dplyr::mutate(
-      country_episode = sprintf("%s (%s-%s)", country, start_year, end_year),
-      highlight = dplyr::if_else(is_venezuela, "Venezuela", "Otros paises")
+      country_episode = sprintf("%s (%s-%s)", country_code, start_year, end_year),
+      highlight = dplyr::if_else(is_venezuela, "Venezuela", "Otros países")
     )
 }
 
@@ -697,7 +1009,7 @@ select_ranked_episode_rows <- function(
     dplyr::group_by(source_label) |>
     dplyr::mutate(
       rank_value = rank(rank_metric, ties.method = "first"),
-      plot_label = sprintf("#%s  %s", rank_value, country_episode)
+      plot_label = country_episode
     ) |>
     dplyr::arrange(source_label, rank_metric, .by_group = TRUE) |>
     dplyr::ungroup()
@@ -740,13 +1052,13 @@ build_episode_comparison_chart <- function(
     ggplot2::scale_fill_manual(
       values = c(
         "Venezuela" = presentation_colors[["venezuela"]],
-        "Otros paises" = presentation_colors[["latam"]]
+        "Otros países" = presentation_colors[["primary"]]
       ),
       name = NULL
     ) +
     ggplot2::scale_x_continuous(labels = value_labels, limits = x_limits) +
     ggplot2::labs(title = title, x = x_label, y = NULL) +
-    ggplot2::theme_minimal(base_size = 10.5) +
+    ggplot2::theme_minimal(base_size = presentation_compact_base_size, base_family = presentation_font_family) +
     ggplot2::theme(
       legend.position = "bottom",
       panel.grid.major.y = ggplot2::element_blank(),
@@ -759,7 +1071,21 @@ build_episode_comparison_chart <- function(
   }
 
   if (phase_value == "contraction" && metric == "cumulative_growth") {
-    chart <- chart + ggplot2::geom_vline(xintercept = 0, color = "grey45", linewidth = 0.3)
+    chart <- chart +
+      ggplot2::geom_vline(xintercept = -0.15, color = presentation_colors[["negative"]], linewidth = 0.55, linetype = "dashed") +
+      ggplot2::annotate(
+        "text",
+        x = -0.15,
+        y = Inf,
+        label = "Crisis (-15%)",
+        color = presentation_colors[["negative"]],
+        family = presentation_font_family,
+        size = 3.6,
+        angle = 90,
+        hjust = 1.05,
+        vjust = -0.35
+      ) +
+      ggplot2::geom_vline(xintercept = 0, color = "grey45", linewidth = 0.3)
   }
 
   chart
@@ -819,42 +1145,42 @@ build_international_series_for_recovery <- function(
     build_source_series_from_episode_path(
       maddison_path_data,
       source_name = "maddison",
-      source_label = "Maddison, PIB pc",
+      source_label = "Maddison (PIB per cápita)",
       period_start = 1950,
       country_name_column = "country"
     ),
     build_venezuela_series_for_source(
       venezuela_index_data,
       source_name = "maddison",
-      source_label = "Maddison, PIB pc",
+      source_label = "Maddison (PIB per cápita)",
       selected_series = series_labels[["gdp_per_capita"]],
       period_start = 1950
     ),
     build_source_series_from_episode_path(
       wdi_path_data,
       source_name = "wdi",
-      source_label = "WDI, PIB pc",
+      source_label = "WDI (PIB per cápita)",
       period_start = 1965,
       country_name_column = "country"
     ),
     build_venezuela_series_for_source(
       venezuela_index_data,
       source_name = "wdi",
-      source_label = "WDI, PIB pc",
+      source_label = "WDI (PIB per cápita)",
       selected_series = series_labels[["gdp_per_capita"]],
       period_start = 1965
     ),
     build_source_series_from_episode_path(
       imf_weo_path_data,
       source_name = "imf_weo",
-      source_label = "FMI WEO, PIB pc",
+      source_label = "FMI WEO (PIB per cápita)",
       period_start = 1981,
       country_name_column = "maddison_country"
     ),
     build_venezuela_series_for_source(
       venezuela_index_data,
       source_name = "imf_weo",
-      source_label = "FMI WEO, PIB pc",
+      source_label = "FMI WEO (PIB per cápita)",
       selected_series = series_labels[["gdp_per_capita"]],
       period_start = 1981
     )
@@ -913,7 +1239,7 @@ build_disaster_recovery_data <- function(
         recovery_year = recovery_year,
         years_to_recover = ifelse(is.na(recovery_year), NA_real_, recovery_year - disaster$start_year[[1]]),
         is_venezuela = disaster$is_venezuela[[1]],
-        highlight = dplyr::if_else(disaster$is_venezuela[[1]], "Venezuela", "Otros paises")
+        highlight = dplyr::if_else(disaster$is_venezuela[[1]], "Venezuela", "Otros países")
       )
   })
 
@@ -950,7 +1276,7 @@ build_disaster_recovery_path_chart <- function(disaster_data, top_n = 10) {
     ggplot2::geom_line(
       data = plot_data[plot_data$path_group == "Peores desastres", ],
       ggplot2::aes(x = years_since_start, y = index_start_100, group = disaster_key),
-      color = presentation_colors[["latam"]],
+      color = presentation_colors[["primary"]],
       linewidth = 0.55,
       alpha = 0.85
     ) +
@@ -963,13 +1289,14 @@ build_disaster_recovery_path_chart <- function(disaster_data, top_n = 10) {
     ) +
     ggplot2::facet_wrap(ggplot2::vars(source_label), ncol = 1) +
     ggplot2::coord_cartesian(xlim = c(0, 35), ylim = c(0, 160), expand = FALSE) +
-    ggplot2::scale_y_continuous(labels = scales::label_number(accuracy = 1), breaks = c(0, 40, 80, 120, 160)) +
+    ggplot2::scale_x_continuous(breaks = scales::breaks_width(5)) +
+    ggplot2::scale_y_continuous(labels = scales::label_number(accuracy = 1), breaks = scales::breaks_width(40)) +
     ggplot2::labs(
-      title = "Recuperacion tras desastres de al menos -15%",
-      x = "Anios desde el inicio de la caida",
-      y = "Indice, inicio del desastre = 100"
+      title = "Recuperación tras desastres de al menos -15%",
+      x = "Años desde el inicio de la caída",
+      y = "Índice, inicio del desastre = 100"
     ) +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family)
 }
 
 build_disaster_recovery_time_chart <- function(disaster_data, selected_source_label = NULL) {
@@ -991,9 +1318,9 @@ build_disaster_recovery_time_chart <- function(disaster_data, selected_source_la
       highlight = dplyr::case_when(
         is_venezuela ~ "Venezuela",
         recovery_status == "Sin recuperar" ~ "Sin recuperar",
-        TRUE ~ "Otros paises"
+        TRUE ~ "Otros países"
       ),
-      highlight = factor(highlight, levels = c("Otros paises", "Sin recuperar", "Venezuela")),
+      highlight = factor(highlight, levels = c("Otros países", "Sin recuperar", "Venezuela")),
       y_value = dplyr::if_else(is.na(years_to_recover), 37, years_to_recover),
       venezuela_label = dplyr::if_else(is_venezuela, paste("VEN", gsub("Venezuela ", "", disaster_label)), "")
     )
@@ -1040,15 +1367,15 @@ build_disaster_recovery_time_chart <- function(disaster_data, selected_source_la
       expand = ggplot2::expansion(mult = c(0.02, 0.08))
     ) +
     ggplot2::scale_y_continuous(
-      limits = c(0, 38.5),
-      breaks = c(0, 5, 10, 15, 20, 25, 30, 38.5),
+      limits = c(0, 40),
+      breaks = c(seq(0, 30, by = 5), 37),
       labels = c("0", "5", "10", "15", "20", "25", "30", "Sin recuperar")
     ) +
     ggplot2::coord_cartesian(xlim = c(0.15, NA), expand = FALSE) +
     ggplot2::scale_color_manual(
       values = c(
         "Venezuela" = presentation_colors[["venezuela"]],
-        "Otros paises" = presentation_colors[["latam"]],
+        "Otros países" = presentation_colors[["primary"]],
         "Sin recuperar" = "grey45"
       ),
       name = NULL
@@ -1058,11 +1385,11 @@ build_disaster_recovery_time_chart <- function(disaster_data, selected_source_la
       guide = "none"
     ) +
     ggplot2::labs(
-      title = "Profundidad del desastre y anos hasta recuperar",
-      x = "Magnitud de la caida acumulada del episodio",
-      y = "Anios hasta volver al nivel inicial"
+      title = "Profundidad del desastre y años hasta recuperar",
+      x = "Magnitud de la caída acumulada del episodio",
+      y = "Años hasta volver al nivel inicial"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(
       legend.position = "bottom",
       panel.grid.minor = ggplot2::element_blank()
@@ -1073,6 +1400,104 @@ build_disaster_recovery_time_chart <- function(disaster_data, selected_source_la
   }
 
   chart
+}
+
+build_disaster_recovery_heatmap_chart <- function(disaster_data) {
+  fall_breaks <- seq(0.10, 1.00, by = 0.10)
+  fall_labels <- paste0(
+    scales::percent(utils::head(fall_breaks, -1), accuracy = 1),
+    "-",
+    scales::percent(utils::tail(fall_breaks, -1), accuracy = 1)
+  )
+  recovery_breaks <- c(0, 5, 10, 15, 20, 25, 30, 35, Inf)
+  recovery_labels <- c("0-5", "6-10", "11-15", "16-20", "21-25", "26-30", "31-35", "Sin recuperar")
+  source_levels <- c("Maddison (PIB per cápita)", "WDI (PIB per cápita)", "FMI WEO (PIB per cápita)")
+
+  recovery_summary <- disaster_data |>
+    dplyr::distinct(
+      source_label,
+      disaster_key,
+      country_code,
+      cumulative_growth,
+      years_to_recover,
+      is_venezuela
+    ) |>
+    dplyr::mutate(
+      source_label = factor(source_label, levels = source_levels),
+      fall_magnitude = pmin(-cumulative_growth, 0.999),
+      fall_bin = cut(
+        fall_magnitude,
+        breaks = fall_breaks,
+        labels = fall_labels,
+        include.lowest = TRUE,
+        right = FALSE
+      ),
+      recovery_bin = cut(
+        dplyr::if_else(is.na(years_to_recover), Inf, years_to_recover),
+        breaks = recovery_breaks,
+        labels = recovery_labels,
+        include.lowest = TRUE,
+        right = TRUE
+      )
+    ) |>
+    dplyr::filter(!is.na(source_label), !is.na(fall_bin), !is.na(recovery_bin))
+
+  heatmap_counts <- recovery_summary |>
+    dplyr::count(source_label, fall_bin, recovery_bin, name = "episodes") |>
+    dplyr::mutate(
+      source_label = factor(source_label, levels = source_levels),
+      fall_bin = factor(fall_bin, levels = fall_labels),
+      recovery_bin = factor(recovery_bin, levels = rev(recovery_labels))
+    )
+
+  heatmap_grid <- expand.grid(
+    source_label = factor(source_levels, levels = source_levels),
+    fall_bin = factor(fall_labels, levels = fall_labels),
+    recovery_bin = factor(rev(recovery_labels), levels = rev(recovery_labels)),
+    stringsAsFactors = FALSE
+  ) |>
+    dplyr::left_join(
+      heatmap_counts,
+      by = c("source_label", "fall_bin", "recovery_bin")
+    ) |>
+    dplyr::mutate(
+      episodes = dplyr::coalesce(episodes, 0L),
+      label = dplyr::if_else(episodes > 0L, as.character(episodes), ""),
+      text_color = dplyr::if_else(episodes >= 4L, "white", presentation_colors[["ink"]])
+    )
+
+  ggplot2::ggplot(
+    heatmap_grid,
+    ggplot2::aes(x = fall_bin, y = recovery_bin, fill = episodes)
+  ) +
+    ggplot2::geom_tile(color = "white", linewidth = 0.5) +
+    ggplot2::geom_text(
+      ggplot2::aes(label = label, color = text_color),
+      family = presentation_font_family,
+      fontface = "bold",
+      size = 4.6
+    ) +
+    ggplot2::scale_color_identity() +
+    ggplot2::scale_fill_gradient(
+      low = presentation_colors[["light"]],
+      high = presentation_colors[["primary"]],
+      breaks = presentation_breaks_include_limits(n = 5),
+      name = "Episodios"
+    ) +
+    ggplot2::facet_wrap(ggplot2::vars(source_label), ncol = 1) +
+    ggplot2::labs(
+      title = "Severidad del desastre y tiempo de recuperación",
+      subtitle = "Cada celda cuenta episodios según caída acumulada y años hasta recuperar el nivel inicial.",
+      x = "Caída acumulada del episodio",
+      y = "Años hasta recuperar"
+    ) +
+    ggplot2::theme_minimal(base_size = presentation_base_size + 1, base_family = presentation_font_family) +
+    ggplot2::theme(
+      legend.position = "bottom",
+      panel.grid = ggplot2::element_blank(),
+      axis.text.x = ggplot2::element_text(angle = 0, hjust = 0.5),
+      strip.text = ggplot2::element_text(face = "bold", size = 13)
+    )
 }
 
 build_disaster_horizon_data <- function(disaster_data, horizons = c(5L, 10L, 15L, 20L, 25L, 30L)) {
@@ -1112,21 +1537,21 @@ build_disaster_horizon_data <- function(disaster_data, horizons = c(5L, 10L, 15L
       dplyr::inner_join(horizon_rows, by = "disaster_key") |>
       dplyr::mutate(
         horizon_years = horizon,
-        horizon_label = sprintf("%s anos despues", horizon),
+        horizon_label = sprintf("%s años después", horizon),
         fall_magnitude = -cumulative_growth,
         horizon_ratio_to_start = horizon_index_start_100 / 100,
         total_years_from_start = endpoint_year - start_year,
         horizon_cagr = horizon_ratio_to_start^(1 / total_years_from_start) - 1,
         post_disaster_ratio_to_end = horizon_ratio_to_start / (1 + cumulative_growth),
         post_disaster_cagr = post_disaster_ratio_to_end^(1 / horizon_years_after_end) - 1,
-        highlight = dplyr::if_else(is_venezuela, "Venezuela", "Otros paises")
+        highlight = dplyr::if_else(is_venezuela, "Venezuela", "Otros países")
       )
   })
 
   dplyr::bind_rows(horizon_parts) |>
     dplyr::mutate(
-      horizon_label = factor(horizon_label, levels = sprintf("%s anos despues", horizons)),
-      highlight = factor(highlight, levels = c("Otros paises", "Venezuela"))
+      horizon_label = factor(horizon_label, levels = sprintf("%s años después", horizons)),
+      highlight = factor(highlight, levels = c("Otros países", "Venezuela"))
     )
 }
 
@@ -1185,17 +1610,17 @@ build_disaster_horizon_level_chart <- function(horizon_data) {
     ggplot2::scale_color_manual(
       values = c(
         "Venezuela" = presentation_colors[["venezuela"]],
-        "Otros paises" = presentation_colors[["latam"]]
+        "Otros países" = presentation_colors[["primary"]]
       ),
       name = NULL
     ) +
     ggplot2::coord_cartesian(xlim = c(0.15, NA), ylim = c(0, 2), expand = FALSE) +
     ggplot2::labs(
-      title = "Nivel alcanzado despues del desastre",
-      x = "Magnitud de la caida acumulada",
-      y = "PIB per capita relativo al inicio (=100)"
+      title = "Nivel alcanzado después del desastre",
+      x = "Magnitud de la caída acumulada",
+      y = "PIB per cápita relativo al inicio (=100)"
     ) +
-    ggplot2::theme_minimal(base_size = 10) +
+    ggplot2::theme_minimal(base_size = presentation_compact_base_size, base_family = presentation_font_family) +
     ggplot2::theme(
       legend.position = "bottom",
       panel.grid.minor = ggplot2::element_blank(),
@@ -1211,7 +1636,7 @@ build_single_disaster_horizon_level_chart <- function(horizon_data, selected_hor
 
   plot_data <- horizon_data |>
     dplyr::filter(horizon_years == selected_horizon) |>
-    dplyr::mutate(source_label = factor(source_label, levels = c("Maddison, PIB pc", "WDI, PIB pc", "FMI WEO, PIB pc")))
+    dplyr::mutate(source_label = factor(source_label, levels = c("Maddison (PIB per cápita)", "WDI (PIB per cápita)", "FMI WEO (PIB per cápita)")))
 
   ggplot2::ggplot(
     plot_data,
@@ -1267,19 +1692,19 @@ build_single_disaster_horizon_level_chart <- function(horizon_data, selected_hor
     ) +
     ggplot2::scale_color_manual(
       values = c(
-        "Maddison, PIB pc" = presentation_colors[["primary"]],
-        "WDI, PIB pc" = presentation_colors[["recovery"]],
-        "FMI WEO, PIB pc" = presentation_colors[["accent"]]
+        "Maddison (PIB per cápita)" = presentation_colors[["primary"]],
+        "WDI (PIB per cápita)" = presentation_colors[["venezuela"]],
+        "FMI WEO (PIB per cápita)" = presentation_palette[["cyan"]]
       ),
       name = NULL
     ) +
     ggplot2::coord_cartesian(xlim = fixed_x_limits, ylim = c(0, 2), expand = FALSE) +
     ggplot2::labs(
-      title = sprintf("Nivel posterior al desastre: %s anos despues del final", selected_horizon),
-      x = "Magnitud de la caida acumulada",
-      y = "PIB per capita relativo al inicio (=100)"
+      title = sprintf("Nivel posterior al desastre: %s años después del final", selected_horizon),
+      x = "Magnitud de la caída acumulada",
+      y = "PIB per cápita relativo al inicio (=100)"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(
       legend.position = "bottom",
       panel.grid.minor = ggplot2::element_blank()
@@ -1314,17 +1739,17 @@ build_disaster_horizon_cagr_chart <- function(horizon_data) {
     ggplot2::scale_color_manual(
       values = c(
         "Venezuela" = presentation_colors[["venezuela"]],
-        "Otros paises" = presentation_colors[["latam"]]
+        "Otros países" = presentation_colors[["primary"]]
       ),
       name = NULL
     ) +
     ggplot2::coord_cartesian(xlim = c(0.15, NA), ylim = c(-0.2, 0.12), expand = FALSE) +
     ggplot2::labs(
-      title = "Crecimiento compuesto despues del desastre",
-      x = "Magnitud de la caida acumulada",
-      y = "CAGR desde el inicio del desastre"
+      title = "Crecimiento compuesto después del desastre",
+      x = "Magnitud de la caída acumulada",
+      y = "TCAC desde el inicio del desastre"
     ) +
-    ggplot2::theme_minimal(base_size = 10) +
+    ggplot2::theme_minimal(base_size = presentation_compact_base_size, base_family = presentation_font_family) +
     ggplot2::theme(
       legend.position = "bottom",
       panel.grid.minor = ggplot2::element_blank(),
@@ -1340,7 +1765,7 @@ build_single_disaster_horizon_cagr_chart <- function(horizon_data, selected_hori
 
   plot_data <- horizon_data |>
     dplyr::filter(horizon_years == selected_horizon) |>
-    dplyr::mutate(source_label = factor(source_label, levels = c("Maddison, PIB pc", "WDI, PIB pc", "FMI WEO, PIB pc")))
+    dplyr::mutate(source_label = factor(source_label, levels = c("Maddison (PIB per cápita)", "WDI (PIB per cápita)", "FMI WEO (PIB per cápita)")))
 
   ggplot2::ggplot(
     plot_data,
@@ -1396,25 +1821,48 @@ build_single_disaster_horizon_cagr_chart <- function(horizon_data, selected_hori
     ) +
     ggplot2::scale_color_manual(
       values = c(
-        "Maddison, PIB pc" = presentation_colors[["primary"]],
-        "WDI, PIB pc" = presentation_colors[["recovery"]],
-        "FMI WEO, PIB pc" = presentation_colors[["accent"]]
+        "Maddison (PIB per cápita)" = presentation_colors[["primary"]],
+        "WDI (PIB per cápita)" = presentation_colors[["venezuela"]],
+        "FMI WEO (PIB per cápita)" = presentation_palette[["cyan"]]
       ),
       name = NULL
     ) +
     ggplot2::coord_cartesian(xlim = fixed_x_limits, ylim = c(-0.2, 0.12), expand = FALSE) +
     ggplot2::labs(
-      title = sprintf("Crecimiento compuesto posterior al desastre: %s anos despues del final", selected_horizon),
-      x = "Magnitud de la caida acumulada",
-      y = "CAGR desde el inicio hasta ese horizonte"
+      title = sprintf("Crecimiento compuesto posterior al desastre: %s años después del final", selected_horizon),
+      x = "Magnitud de la caída acumulada",
+      y = "TCAC desde el inicio hasta ese horizonte"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(
       legend.position = "bottom",
       panel.grid.minor = ggplot2::element_blank()
     )
 }
 
+
+build_disaster_horizon_cagr_distribution_chart <- function(horizon_data) {
+  plot_data <- horizon_data |>
+    dplyr::mutate(
+      horizon_label = factor(horizon_label, levels = sprintf("%s años después", c(5L, 10L, 15L, 20L, 25L, 30L)))
+    )
+  horizon_colors <- build_priority_color_map(levels(plot_data$horizon_label))
+
+  ggplot2::ggplot(plot_data, ggplot2::aes(x = horizon_cagr, color = horizon_label)) +
+    ggplot2::geom_vline(xintercept = 0, color = "grey45", linewidth = 0.35, linetype = "dashed") +
+    ggplot2::geom_density(linewidth = 1.05, adjust = 1.05, na.rm = TRUE) +
+    ggplot2::facet_wrap(ggplot2::vars(source_label), ncol = 1) +
+    ggplot2::scale_color_manual(values = horizon_colors, name = "Horizonte") +
+    ggplot2::scale_x_continuous(labels = scales::label_percent(accuracy = 1), breaks = scales::breaks_width(0.05)) +
+    ggplot2::labs(
+      title = "Distribución de TCAC post-desastre por horizonte",
+      subtitle = "Cada línea resume el crecimiento compuesto requerido u observado al horizonte indicado.",
+      x = "TCAC desde el inicio del desastre",
+      y = "Densidad"
+    ) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(legend.position = "bottom")
+}
 build_recovery_projection_data <- function(data, scenario_rates, start_year = 1900L, average_end_year = 2013L) {
   latest_year <- max(data$year, na.rm = TRUE)
   series_ids_raw <- unique(as.character(data$series_id))
@@ -1486,44 +1934,76 @@ build_recovery_projection_chart <- function(data, scenario_rates, title, selecte
     data <- data[data$series_id == selected_series, ]
   }
 
-  projection_data <- build_recovery_projection_data(data, scenario_rates)
+  projection_data <- build_recovery_projection_data(data, scenario_rates, start_year = 1920L)
   last_historical_year <- max(projection_data$historical$year, na.rm = TRUE)
+  max_projection_year <- max(projection_data$projections$year, na.rm = TRUE)
+  x_breaks <- unique(c(seq(1920, max_projection_year, by = 20), max_projection_year))
   projection_labels <- unique(projection_data$projections$scenario_label)
   projection_colors <- build_priority_color_map(projection_labels)
 
+  target_crossings <- projection_data$projections |>
+    dplyr::filter(index_peak_100 >= 100) |>
+    dplyr::arrange(series_id, scenario_label, year) |>
+    dplyr::group_by(series_id, scenario_label) |>
+    dplyr::slice_head(n = 1) |>
+    dplyr::ungroup() |>
+    dplyr::mutate(cross_label = as.character(year))
+
   chart <- ggplot2::ggplot() +
-    ggplot2::geom_hline(yintercept = 100, color = "grey45", linewidth = 0.35) +
+    ggplot2::geom_hline(yintercept = 100, color = "grey45", linewidth = 0.45) +
     ggplot2::geom_line(
       data = projection_data$historical,
       ggplot2::aes(x = year, y = index_peak_100),
-      color = presentation_colors[["primary"]],
-      linewidth = 0.65
+      color = presentation_colors[["ink"]],
+      linewidth = 0.9
     ) +
     ggplot2::geom_line(
       data = projection_data$projections,
       ggplot2::aes(x = year, y = index_peak_100, color = scenario_label),
-      linewidth = 0.8
+      linewidth = 1.1
     ) +
-    ggplot2::geom_vline(xintercept = last_historical_year, color = "grey55", linewidth = 0.3, linetype = "dashed") +
-    ggplot2::scale_y_continuous(labels = scales::label_number(accuracy = 1), breaks = c(0, 25, 50, 75, 100, 115)) +
+    ggplot2::geom_point(
+      data = target_crossings,
+      ggplot2::aes(x = year, y = index_peak_100, color = scenario_label),
+      size = 3.2,
+      show.legend = FALSE
+    ) +
+    ggplot2::geom_text(
+      data = target_crossings,
+      ggplot2::aes(x = year, y = index_peak_100, label = cross_label, color = scenario_label),
+      family = presentation_font_family,
+      size = 3.8,
+      nudge_y = 7,
+      check_overlap = TRUE,
+      show.legend = FALSE
+    ) +
+    ggplot2::geom_vline(xintercept = last_historical_year, color = "grey55", linewidth = 0.35, linetype = "dashed") +
+    ggplot2::scale_x_continuous(
+      limits = c(1920, max_projection_year),
+      breaks = x_breaks,
+      expand = ggplot2::expansion(mult = c(0, 0.035))
+    ) +
+    ggplot2::scale_y_continuous(labels = scales::label_number(accuracy = 1), breaks = scales::breaks_width(25)) +
     ggplot2::scale_color_manual(values = projection_colors) +
-    ggplot2::coord_cartesian(ylim = c(0, 115), expand = FALSE) +
+    ggplot2::coord_cartesian(ylim = c(0, 132), clip = "off", expand = FALSE) +
     ggplot2::labs(
       title = title,
       x = NULL,
       y = "Índice, pico histórico = 100",
       color = "Crecimiento anual"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
-    ggplot2::theme(legend.position = "bottom")
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    ggplot2::theme(
+      legend.position = "bottom",
+      plot.margin = ggplot2::margin(12, 42, 12, 18)
+    )
 
   if (is.null(selected_series)) {
     chart <- chart + ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1)
   }
 
-  chart
+  add_historical_event_references(chart)
 }
-
 build_compound_growth_explainer_chart <- function() {
   annual_growth <- c(
     0.08, 0.045, -0.025, 0.065, 0.032,
@@ -1592,7 +2072,7 @@ build_compound_growth_explainer_chart <- function() {
         "Trayectoria compuesta equivalente" = presentation_colors[["venezuela"]]
       )
     ) +
-    ggplot2::scale_x_continuous(breaks = seq(0, 10, 1), limits = c(0, 10.8)) +
+    ggplot2::scale_x_continuous(breaks = scales::breaks_width(2), limits = c(0, 11)) +
     ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(
       title = "Crecimiento anual y crecimiento compuesto",
@@ -1601,7 +2081,7 @@ build_compound_growth_explainer_chart <- function() {
       fill = NULL,
       color = NULL
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(legend.position = "bottom")
 }
 
@@ -1650,7 +2130,8 @@ build_recovery_heatmap_data <- function(data, selected_series, n_reference_years
 }
 
 build_recovery_heatmap_chart <- function(data, selected_series, title) {
-  heatmap_data <- build_recovery_heatmap_data(data, selected_series)
+  heatmap_data <- build_recovery_heatmap_data(data, selected_series) |>
+    dplyr::mutate(text_color = dplyr::if_else(growth_rate <= 0.02, "white", presentation_colors[["ink"]]))
 
   ggplot2::ggplot(
     heatmap_data,
@@ -1658,10 +2139,11 @@ build_recovery_heatmap_chart <- function(data, selected_series, title) {
   ) +
     ggplot2::geom_tile(color = "white", linewidth = 0.35) +
     ggplot2::geom_text(
-      ggplot2::aes(label = years_to_recover),
-      size = 3.2,
-      color = presentation_colors[["ink"]]
+      ggplot2::aes(label = years_to_recover, color = text_color),
+      size = 5,
+      fontface = "bold"
     ) +
+    ggplot2::scale_color_identity() +
     ggplot2::scale_fill_gradient(
       low = presentation_colors[["light"]],
       high = presentation_colors[["primary"]],
@@ -1669,17 +2151,17 @@ build_recovery_heatmap_chart <- function(data, selected_series, title) {
     ) +
     ggplot2::labs(
       title = title,
-      x = "Año de referencia e índice (pico = 100)",
-      y = "Crecimiento compuesto anual"
+      x = "Año de referencia e Índice (pico = 100)",
+      y = "TCAC anual"
     ) +
-    ggplot2::theme_minimal(base_size = 11) +
+    ggplot2::theme_minimal(base_size = presentation_base_size + 1, base_family = presentation_font_family) +
     ggplot2::theme(
-      axis.text.x = ggplot2::element_text(angle = 0, hjust = 0.5, size = 8.5),
+      axis.text.x = ggplot2::element_text(angle = 0, hjust = 0.5, size = 11.5),
+      axis.text.y = ggplot2::element_text(size = 12),
       panel.grid = ggplot2::element_blank(),
       legend.position = "bottom"
     )
 }
-
 build_rolling_cagr_data <- function(data, windows = c(5L, 10L, 15L, 20L)) {
   series_values <- split(data, data$series_id)
   rolling_parts <- list()
@@ -1735,7 +2217,7 @@ build_momentum_example_chart <- function(data, selected_series = series_labels[[
       "text",
       x = (start_year + end_year) / 2,
       y = max(window_data$index_value, na.rm = TRUE) * 1.06,
-      label = sprintf("%s-%s: CAGR %s", start_year, end_year, scales::percent(window_cagr, accuracy = 0.1)),
+      label = sprintf("%s-%s: TCAC %s", start_year, end_year, scales::percent(window_cagr, accuracy = 0.1)),
       color = presentation_colors[["ink"]],
       size = 4
     ) +
@@ -1746,10 +2228,11 @@ build_momentum_example_chart <- function(data, selected_series = series_labels[[
       x = NULL,
       y = "Índice histórico"
     ) +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers()
 }
 
-build_rolling_cagr_lines_chart <- function(rolling_data, selected_series = NULL, title = "Crecimiento compuesto en ventanas moviles") {
+build_rolling_cagr_lines_chart <- function(rolling_data, selected_series = NULL, title = "Crecimiento compuesto en ventanas móviles") {
   line_data <- rolling_data |>
     dplyr::filter(window_years %in% c(5L, 10L, 15L, 20L)) |>
     dplyr::mutate(window_label = factor(
@@ -1778,17 +2261,17 @@ build_rolling_cagr_lines_chart <- function(rolling_data, selected_series = NULL,
     ggplot2::labs(
       title = "Crecimiento compuesto en ventanas móviles",
       x = "Año final de la ventana",
-      y = "CAGR de la ventana",
+      y = "TCAC de la ventana",
       color = "Ventana"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(legend.position = "bottom")
 
   if (is.null(selected_series)) {
     chart <- chart + ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1)
   }
 
-  chart
+  add_historical_event_references(chart)
 }
 
 build_rolling_cagr_heatmap_chart <- function(rolling_data, selected_series, title) {
@@ -1810,12 +2293,18 @@ build_rolling_cagr_heatmap_chart <- function(rolling_data, selected_series, titl
   heatmap_data <- do.call(rbind, heatmap_parts) |>
     dplyr::mutate(
       window_label = factor(paste0(window_years, " años"), levels = paste0(rev(windows), " años")),
-      threshold_label = factor(scales::percent(threshold, accuracy = 1), levels = scales::percent(thresholds, accuracy = 1))
+      threshold_label = factor(scales::percent(threshold, accuracy = 1), levels = scales::percent(thresholds, accuracy = 1)),
+      text_color = dplyr::if_else(share >= 0.3, "white", presentation_colors[["ink"]])
     )
 
   ggplot2::ggplot(heatmap_data, ggplot2::aes(x = threshold_label, y = window_label, fill = share)) +
     ggplot2::geom_tile(color = "white", linewidth = 0.5) +
-    ggplot2::geom_text(ggplot2::aes(label = scales::percent(share, accuracy = 1)), size = 4) +
+    ggplot2::geom_text(
+      ggplot2::aes(label = scales::percent(share, accuracy = 1), color = text_color),
+      size = 5.4,
+      fontface = "bold"
+    ) +
+    ggplot2::scale_color_identity() +
     ggplot2::scale_fill_gradient(
       low = presentation_colors[["light"]],
       high = presentation_colors[["primary"]],
@@ -1824,17 +2313,16 @@ build_rolling_cagr_heatmap_chart <- function(rolling_data, selected_series, titl
     ) +
     ggplot2::labs(
       title = title,
-      x = "CAGR mínimo",
+      x = "TCAC mínimo",
       y = "Duración consecutiva"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size + 2, base_family = presentation_font_family) +
     ggplot2::theme(panel.grid = ggplot2::element_blank(), legend.position = "bottom")
 }
-
 build_rolling_cagr_distribution_chart <- function(
   rolling_data,
   selected_series = NULL,
-  title = "Distribucion de CAGRs en ventanas moviles"
+  title = "Distribución de TCACs en ventanas móviles"
 ) {
   distribution_data <- rolling_data |>
     dplyr::filter(window_years %in% c(3L, 5L, 7L, 10L, 15L, 20L)) |>
@@ -1863,13 +2351,13 @@ build_rolling_cagr_distribution_chart <- function(
     ggplot2::scale_color_manual(values = distribution_colors) +
     ggplot2::scale_x_continuous(labels = scales::label_percent(accuracy = 1)) +
     ggplot2::labs(
-      title = "Distribución de CAGRs en ventanas móviles",
-      x = "CAGR de la ventana",
+      title = "Distribución de TCACs en ventanas móviles",
+      x = "TCAC de la ventana",
       y = "Densidad",
       fill = "Ventana",
       color = "Ventana"
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(legend.position = "bottom")
 
   if (is.null(selected_series)) {
@@ -1880,7 +2368,7 @@ build_rolling_cagr_distribution_chart <- function(
 }
 
 ## Derived analysis tables -----------------------------------------------------
-# Build rolling CAGR windows used by the momentum graphs.
+# Build rolling TCAC windows used by the momentum graphs.
 rolling_cagr <- build_rolling_cagr_data(
   index_series,
   windows = c(3L, 5L, 7L, 10L, 15L, 20L)
@@ -1909,7 +2397,7 @@ international_disaster_recovery <- build_disaster_recovery_data(
   max_years_after_start = 35L
 )
 
-# Measure post-disaster levels and CAGRs at fixed horizons.
+# Measure post-disaster levels and TCACs at fixed horizons.
 international_disaster_horizons <- build_disaster_horizon_data(
   international_disaster_recovery,
   horizons = c(5L, 10L, 15L, 20L, 25L, 30L)
@@ -1960,13 +2448,13 @@ plots <- list(
     "PIB real",
     "Crecimiento anual del PIB real"
   ),
-  # Graph: Crecimiento del PIB real per capita
+  # Graph: Crecimiento del PIB real per cápita
   gdp_per_capita_growth_bars = build_growth_bar_chart(
     index_series,
     "PIB real per cápita",
     "Crecimiento anual del PIB real per cápita"
   ),
-  # Graph: Crecimiento del PIB real y per capita
+  # Graph: Crecimiento del PIB real y per cápita
   growth_bars_faceted = ggplot2::ggplot(
     index_series,
     ggplot2::aes(x = year, y = growth_rate, fill = growth_direction)
@@ -1975,10 +2463,16 @@ plots <- list(
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey35") +
     ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1) +
     ggplot2::scale_fill_manual(values = growth_colors, labels = growth_labels, name = NULL) +
-    ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
+    ggplot2::scale_x_continuous(breaks = scales::breaks_width(10)) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      limits = c(-0.45, 0.45),
+      breaks = seq(-0.45, 0.45, by = 0.15)
+    ) +
     ggplot2::labs(title = "Crecimiento anual", x = NULL, y = "Tasa de crecimiento anual") +
-    ggplot2::theme_minimal(base_size = 12),
-  # Graph: Distribucion anual del crecimiento
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers(),
+  # Graph: Distribución anual del crecimiento
   growth_rate_distribution = ggplot2::ggplot(
     index_series[!is.na(index_series$growth_rate), ],
     ggplot2::aes(x = growth_rate)
@@ -1999,53 +2493,57 @@ plots <- list(
     ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1) +
     ggplot2::scale_fill_manual(values = c("Años" = presentation_colors[["muted"]]), name = NULL) +
     ggplot2::scale_color_manual(values = c("Densidad" = presentation_colors[["primary"]]), name = NULL) +
-    ggplot2::scale_x_continuous(labels = scales::label_percent(accuracy = 1)) +
+    ggplot2::scale_x_continuous(
+      labels = scales::label_percent(accuracy = 1),
+      breaks = scales::breaks_width(0.05)
+    ) +
     ggplot2::scale_y_continuous(breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(
       title = "Distribución histórica del crecimiento anual",
       x = "Tasa de crecimiento anual",
       y = "Número de años"
     ) +
-    ggplot2::theme_minimal(base_size = 12),
-  # Graph: Distribucion anual del PIB real
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family),
+  # Graph: Distribución anual del PIB real
   gdp_growth_rate_distribution = build_growth_distribution_chart(
     index_series,
     series_labels[["gdp"]],
-    "Distribucion del crecimiento anual del PIB real"
+    "Distribución del crecimiento anual del PIB real"
   ),
-  # Graph: Distribucion anual per capita
+  # Graph: Distribución anual per cápita
   gdp_per_capita_growth_rate_distribution = build_growth_distribution_chart(
     index_series,
     series_labels[["gdp_per_capita"]],
-    "Distribucion del crecimiento anual del PIB real per capita"
+    "Distribución del crecimiento anual del PIB real per cápita"
   ),
   ## Family: historical index and anchor lines
-  # Graph: Indice del PIB real
+  # Graph: Índice del PIB real
   gdp_index_line = build_index_line_chart(
     index_series,
     "PIB real",
     "Índice histórico del PIB real"
   ),
-  # Graph: Indice del PIB real per capita
+  # Graph: Índice del PIB real per cápita
   gdp_per_capita_index_line = build_index_line_chart(
     index_series,
     "PIB real per cápita",
     "Índice histórico del PIB real per cápita"
   ),
-  # Graph: Indice del PIB real y per capita
+  # Graph: Índice del PIB real y per cápita
   index_lines_faceted = ggplot2::ggplot(index_series, ggplot2::aes(x = year, y = index_value)) +
-    ggplot2::geom_line(color = presentation_colors[["primary"]], linewidth = 0.55) +
+    ggplot2::geom_line(color = presentation_colors[["ink"]], linewidth = 0.55) +
     ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1, scales = "free_y") +
     ggplot2::scale_y_continuous(labels = scales::label_number(big.mark = ","), breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(title = "Índices históricos", x = NULL, y = "Índice histórico") +
-    ggplot2::theme_minimal(base_size = 12),
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers(),
   # Graph: Anclaje del PIB real
   gdp_anchor_line = build_anchor_line_chart(
     index_series,
     "PIB real",
     "PIB real relativo al último año"
   ),
-  # Graph: Anclaje per capita
+  # Graph: Anclaje per cápita
   gdp_per_capita_anchor_line = build_anchor_line_chart(
     index_series,
     "PIB real per cápita",
@@ -2058,13 +2556,13 @@ plots <- list(
     "PIB real",
     "Episodios históricos del PIB real"
   ),
-  # Graph: Episodios per capita
+  # Graph: Episodios per cápita
   gdp_per_capita_episode_lines = build_episode_line_chart(
     episodes,
     "PIB real per cápita",
     "Episodios históricos del PIB real per cápita"
   ),
-  # Graph: Episodios del PIB real y per capita
+  # Graph: Episodios del PIB real y per cápita
   episode_lines_faceted = ggplot2::ggplot(
     episodes,
     ggplot2::aes(
@@ -2075,13 +2573,14 @@ plots <- list(
     )
   ) +
     ggplot2::geom_hline(yintercept = 0, linewidth = 0.3, color = "grey35") +
-    ggplot2::geom_line(linewidth = 0.45, alpha = 0.55) +
+    ggplot2::geom_line(linewidth = 0.75, alpha = 0.62) +
     ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1) +
     ggplot2::scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
-    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = seq(1850, 2025, 25)) +
+    ggplot2::scale_x_continuous(limits = c(1830, 2025), breaks = presentation_year_breaks()) +
     ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(title = "Episodios históricos", x = NULL, y = "Cambio acumulado desde el inicio") +
-    ggplot2::theme_minimal(base_size = 12),
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
+    historical_event_reference_layers(),
   # Graph: Episodios positivos
   positive_episode_lines_faceted = build_episode_phase_faceted_chart(
     episodes,
@@ -2108,14 +2607,14 @@ plots <- list(
     "contraction",
     "Episodios negativos del PIB real"
   ),
-  # Graph: Episodios positivos per capita
+  # Graph: Episodios positivos per cápita
   gdp_per_capita_positive_episode_lines = build_episode_phase_chart(
     episodes,
     "PIB real per cápita",
     "expansion",
     "Episodios positivos del PIB real per cápita"
   ),
-  # Graph: Episodios negativos per capita
+  # Graph: Episodios negativos per cápita
   gdp_per_capita_negative_episode_lines = build_episode_phase_chart(
     episodes,
     "PIB real per cápita",
@@ -2128,28 +2627,28 @@ plots <- list(
     maddison_episode_path,
     maddison_episode_summary,
     episodes,
-    top_n = 15
+    top_n = 5
   ),
   # Graph: Episodios negativos internacionales WDI
   wdi_negative_episode_lines = build_wdi_negative_episode_chart(
     wdi_pc_episode_path,
     wdi_pc_episode_summary,
     episodes,
-    top_n = 15
+    top_n = 5
   ),
   # Graph: Episodios negativos internacionales FMI WEO
   imf_weo_negative_episode_lines = build_imf_weo_negative_episode_chart(
     imf_weo_episode_path,
     imf_weo_episode_summary,
     episodes,
-    top_n = 15
+    top_n = 5
   ),
   # Graph: Profundidad de contracciones internacionales
   international_contraction_depth = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cumulative_growth",
     phase_value = "contraction",
-    title = "Peores episodios de contraccion: Venezuela frente al mundo",
+    title = "Peores episodios de contracción: Venezuela frente al mundo",
     x_label = "Cambio acumulado en el episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12
@@ -2159,249 +2658,257 @@ plots <- list(
     international_episode_comparison,
     metric = "cumulative_growth",
     phase_value = "contraction",
-    title = "Peores episodios de contraccion: Maddison",
+    title = "Peores episodios de contracción (Maddison)",
     x_label = "Cambio acumulado en el episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
-    selected_source_label = "Maddison, PIB pc"
+    selected_source_label = "Maddison (PIB per cápita)"
   ),
   # Graph: Profundidad de contracciones WDI
   international_contraction_depth_wdi = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cumulative_growth",
     phase_value = "contraction",
-    title = "Peores episodios de contraccion: WDI",
+    title = "Peores episodios de contracción (WDI)",
     x_label = "Cambio acumulado en el episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
-    selected_source_label = "WDI, PIB pc"
+    selected_source_label = "WDI (PIB per cápita)"
   ),
   # Graph: Profundidad de contracciones FMI WEO
   international_contraction_depth_imf_weo = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cumulative_growth",
     phase_value = "contraction",
-    title = "Peores episodios de contraccion: FMI WEO",
+    title = "Peores episodios de contracción (FMI WEO)",
     x_label = "Cambio acumulado en el episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
-    selected_source_label = "FMI WEO, PIB pc"
+    selected_source_label = "FMI WEO (PIB per cápita)"
   ),
-  # Graph: Duracion de contracciones internacionales
+  # Graph: Duración de contracciones internacionales
   international_contraction_duration = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "duration_years",
     phase_value = "contraction",
-    title = "Episodios de contraccion mas prolongados",
-    x_label = "Duracion del episodio, anos",
+    title = "Episodios de contracción más prolongados",
+    x_label = "Duración del episodio, años",
     value_labels = scales::label_number(accuracy = 1),
     n_per_source = 12,
     largest = TRUE
   ),
-  # Graph: Duracion de contracciones Maddison
+  # Graph: Duración de contracciones Maddison
   international_contraction_duration_maddison = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "duration_years",
     phase_value = "contraction",
-    title = "Episodios de contraccion mas prolongados: Maddison",
-    x_label = "Duracion del episodio, anos",
+    title = "Episodios de contracción más prolongados (Maddison)",
+    x_label = "Duración del episodio, años",
     value_labels = scales::label_number(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
-    selected_source_label = "Maddison, PIB pc"
+    selected_source_label = "Maddison (PIB per cápita)"
   ),
-  # Graph: Duracion de contracciones WDI
+  # Graph: Duración de contracciones WDI
   international_contraction_duration_wdi = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "duration_years",
     phase_value = "contraction",
-    title = "Episodios de contraccion mas prolongados: WDI",
-    x_label = "Duracion del episodio, anos",
+    title = "Episodios de contracción más prolongados (WDI)",
+    x_label = "Duración del episodio, años",
     value_labels = scales::label_number(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
-    selected_source_label = "WDI, PIB pc"
+    selected_source_label = "WDI (PIB per cápita)"
   ),
-  # Graph: Duracion de contracciones FMI WEO
+  # Graph: Duración de contracciones FMI WEO
   international_contraction_duration_imf_weo = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "duration_years",
     phase_value = "contraction",
-    title = "Episodios de contraccion mas prolongados: FMI WEO",
-    x_label = "Duracion del episodio, anos",
+    title = "Episodios de contracción más prolongados (FMI WEO)",
+    x_label = "Duración del episodio, años",
     value_labels = scales::label_number(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
-    selected_source_label = "FMI WEO, PIB pc"
+    selected_source_label = "FMI WEO (PIB per cápita)"
   ),
-  # Graph: CAGR de expansiones internacionales
+  # Graph: TCAC de expansiones internacionales
   international_expansion_cagr = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cagr",
     phase_value = "expansion",
     title = "Expansiones sostenidas con mayor crecimiento compuesto",
-    x_label = "CAGR del episodio",
+    x_label = "TCAC del episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
     min_duration_years = 5
   ),
-  # Graph: CAGR de expansiones Maddison
+  # Graph: TCAC de expansiones Maddison
   international_expansion_cagr_maddison = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cagr",
     phase_value = "expansion",
-    title = "Expansiones sostenidas con mayor crecimiento compuesto: Maddison",
-    x_label = "CAGR del episodio",
+    title = "Expansiones sostenidas con mayor crecimiento compuesto (Maddison)",
+    x_label = "TCAC del episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
     min_duration_years = 5,
-    selected_source_label = "Maddison, PIB pc"
+    selected_source_label = "Maddison (PIB per cápita)"
   ),
-  # Graph: CAGR de expansiones WDI
+  # Graph: TCAC de expansiones WDI
   international_expansion_cagr_wdi = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cagr",
     phase_value = "expansion",
-    title = "Expansiones sostenidas con mayor crecimiento compuesto: WDI",
-    x_label = "CAGR del episodio",
+    title = "Expansiones sostenidas con mayor crecimiento compuesto (WDI)",
+    x_label = "TCAC del episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
     min_duration_years = 5,
-    selected_source_label = "WDI, PIB pc"
+    selected_source_label = "WDI (PIB per cápita)"
   ),
-  # Graph: CAGR de expansiones FMI WEO
+  # Graph: TCAC de expansiones FMI WEO
   international_expansion_cagr_imf_weo = build_episode_comparison_chart(
     international_episode_comparison,
     metric = "cagr",
     phase_value = "expansion",
-    title = "Expansiones sostenidas con mayor crecimiento compuesto: FMI WEO",
-    x_label = "CAGR del episodio",
+    title = "Expansiones sostenidas con mayor crecimiento compuesto (FMI WEO)",
+    x_label = "TCAC del episodio",
     value_labels = scales::label_percent(accuracy = 1),
     n_per_source = 12,
     largest = TRUE,
     min_duration_years = 5,
-    selected_source_label = "FMI WEO, PIB pc"
+    selected_source_label = "FMI WEO (PIB per cápita)"
   ),
   ## Family: post-disaster recovery benchmarks
-  # Graph: Anios para recuperar despues del desastre
+  # Graph: Años para recuperar después del desastre
   international_disaster_recovery_time = build_disaster_recovery_time_chart(
     international_disaster_recovery
   ),
-  # Graph: Anios para recuperar Maddison
+  # Graph: Severidad y recuperación post-desastre
+  international_disaster_recovery_heatmap = build_disaster_recovery_heatmap_chart(
+    international_disaster_recovery
+  ),
+  # Graph: Años para recuperar Maddison
   international_disaster_recovery_time_maddison = build_disaster_recovery_time_chart(
     international_disaster_recovery,
-    selected_source_label = "Maddison, PIB pc"
+    selected_source_label = "Maddison (PIB per cápita)"
   ),
-  # Graph: Anios para recuperar WDI
+  # Graph: Años para recuperar WDI
   international_disaster_recovery_time_wdi = build_disaster_recovery_time_chart(
     international_disaster_recovery,
-    selected_source_label = "WDI, PIB pc"
+    selected_source_label = "WDI (PIB per cápita)"
   ),
-  # Graph: Anios para recuperar FMI WEO
+  # Graph: Años para recuperar FMI WEO
   international_disaster_recovery_time_imf_weo = build_disaster_recovery_time_chart(
     international_disaster_recovery,
-    selected_source_label = "FMI WEO, PIB pc"
+    selected_source_label = "FMI WEO (PIB per cápita)"
   ),
-  # Graph: Nivel post-desastre 5 anios
+  # Graph: Nivel post-desastre 5 años
   international_disaster_horizon_level_05 = build_single_disaster_horizon_level_chart(
     international_disaster_horizons,
     selected_horizon = 5
   ),
-  # Graph: Nivel post-desastre 10 anios
+  # Graph: Nivel post-desastre 10 años
   international_disaster_horizon_level_10 = build_single_disaster_horizon_level_chart(
     international_disaster_horizons,
     selected_horizon = 10
   ),
-  # Graph: Nivel post-desastre 15 anios
+  # Graph: Nivel post-desastre 15 años
   international_disaster_horizon_level_15 = build_single_disaster_horizon_level_chart(
     international_disaster_horizons,
     selected_horizon = 15
   ),
-  # Graph: Nivel post-desastre 20 anios
+  # Graph: Nivel post-desastre 20 años
   international_disaster_horizon_level_20 = build_single_disaster_horizon_level_chart(
     international_disaster_horizons,
     selected_horizon = 20
   ),
-  # Graph: Nivel post-desastre 25 anios
+  # Graph: Nivel post-desastre 25 años
   international_disaster_horizon_level_25 = build_single_disaster_horizon_level_chart(
     international_disaster_horizons,
     selected_horizon = 25
   ),
-  # Graph: Nivel post-desastre 30 anios
+  # Graph: Nivel post-desastre 30 años
   international_disaster_horizon_level_30 = build_single_disaster_horizon_level_chart(
     international_disaster_horizons,
     selected_horizon = 30
   ),
-  # Graph: CAGR post-desastre 5 anios
+  # Graph: TCAC post-desastre 5 años
+  # Graph: Distribución de TCAC post-desastre
+  international_disaster_horizon_cagr_distribution = build_disaster_horizon_cagr_distribution_chart(
+    international_disaster_horizons
+  ),
   international_disaster_horizon_cagr_05 = build_single_disaster_horizon_cagr_chart(
     international_disaster_horizons,
     selected_horizon = 5
   ),
-  # Graph: CAGR post-desastre 10 anios
+  # Graph: TCAC post-desastre 10 años
   international_disaster_horizon_cagr_10 = build_single_disaster_horizon_cagr_chart(
     international_disaster_horizons,
     selected_horizon = 10
   ),
-  # Graph: CAGR post-desastre 15 anios
+  # Graph: TCAC post-desastre 15 años
   international_disaster_horizon_cagr_15 = build_single_disaster_horizon_cagr_chart(
     international_disaster_horizons,
     selected_horizon = 15
   ),
-  # Graph: CAGR post-desastre 20 anios
+  # Graph: TCAC post-desastre 20 años
   international_disaster_horizon_cagr_20 = build_single_disaster_horizon_cagr_chart(
     international_disaster_horizons,
     selected_horizon = 20
   ),
-  # Graph: CAGR post-desastre 25 anios
+  # Graph: TCAC post-desastre 25 años
   international_disaster_horizon_cagr_25 = build_single_disaster_horizon_cagr_chart(
     international_disaster_horizons,
     selected_horizon = 25
   ),
-  # Graph: CAGR post-desastre 30 anios
+  # Graph: TCAC post-desastre 30 años
   international_disaster_horizon_cagr_30 = build_single_disaster_horizon_cagr_chart(
     international_disaster_horizons,
     selected_horizon = 30
   ),
   ## Family: episode durations
-  # Graph: Duracion de episodios del PIB real
+  # Graph: Duración de episodios del PIB real
   gdp_episode_durations = build_episode_duration_chart(
     episode_summary,
     "PIB real",
     "Duración de episodios del PIB real"
   ),
-  # Graph: Duracion de episodios per capita
+  # Graph: Duración de episodios per cápita
   gdp_per_capita_episode_durations = build_episode_duration_chart(
     episode_summary,
     "PIB real per cápita",
     "Duración de episodios del PIB real per cápita"
   ),
   ## Family: recovery scenarios
-  # Graph: Trayectoria de recuperacion
+  # Graph: Trayectoria de recuperación
   compound_growth_explainer = build_compound_growth_explainer_chart(),
-  # Graph: Recuperacion al 15 por ciento
+  # Graph: Recuperación al 15 por ciento
   recovery_path_15 = build_recovery_projection_chart(
     index_series,
     scenario_rates = c(0.15),
     title = "Trayectoria de recuperación con 15% de crecimiento anual"
   ),
-  # Graph: Recuperacion del PIB real al 15 por ciento
+  # Graph: Recuperación del PIB real al 15 por ciento
   recovery_path_15_gdp = build_recovery_projection_chart(
     index_series,
     scenario_rates = c(0.15),
-    title = "Trayectoria de recuperacion del PIB real al 15%",
+    title = "Trayectoria de recuperación del PIB real al 15%",
     selected_series = series_labels[["gdp"]]
   ),
-  # Graph: Recuperacion per capita al 15 por ciento
+  # Graph: Recuperación per cápita al 15 por ciento
   recovery_path_15_gdp_per_capita = build_recovery_projection_chart(
     index_series,
     scenario_rates = c(0.15),
-    title = "Trayectoria de recuperacion per capita al 15%",
+    title = "Trayectoria de recuperación per cápita al 15%",
     selected_series = series_labels[["gdp_per_capita"]]
   ),
-  # Graph: Escenarios de recuperacion
+  # Graph: Escenarios de recuperación
   recovery_path_scenarios = build_recovery_projection_chart(
     index_series,
     scenario_rates = c(0.10, 0.07, 0.05, 0.02),
@@ -2411,73 +2918,73 @@ plots <- list(
   recovery_path_scenarios_gdp = build_recovery_projection_chart(
     index_series,
     scenario_rates = c(0.10, 0.07, 0.05, 0.02),
-    title = "Escenarios de recuperacion del PIB real",
+    title = "Escenarios de recuperación del PIB real",
     selected_series = series_labels[["gdp"]]
   ),
-  # Graph: Escenarios per capita
+  # Graph: Escenarios per cápita
   recovery_path_scenarios_gdp_per_capita = build_recovery_projection_chart(
     index_series,
     scenario_rates = c(0.10, 0.07, 0.05, 0.02),
-    title = "Escenarios de recuperacion per capita",
+    title = "Escenarios de recuperación per cápita",
     selected_series = series_labels[["gdp_per_capita"]]
   ),
-  # Graph: Anios para recuperar el PIB real
+  # Graph: Años para recuperar el PIB real
   recovery_heatmap_gdp = build_recovery_heatmap_chart(
     index_series,
     selected_series = series_labels[["gdp"]],
     title = "Años para recuperar niveles históricos del PIB real"
   ),
-  # Graph: Anios para recuperar per capita
+  # Graph: Años para recuperar per cápita
   recovery_heatmap_gdp_per_capita = build_recovery_heatmap_chart(
     index_series,
     selected_series = series_labels[["gdp_per_capita"]],
     title = "Años para recuperar niveles históricos del PIB real per cápita"
   ),
-  ## Family: rolling CAGR
-  # Graph: Ventanas moviles de CAGR
+  ## Family: rolling TCAC
+  # Graph: Ventanas móviles de TCAC
   rolling_cagr_example = build_momentum_example_chart(index_series),
-  # Graph: CAGR movil del PIB real y per capita
+  # Graph: TCAC móvil del PIB real y per cápita
   rolling_cagr_lines = build_rolling_cagr_lines_chart(rolling_cagr),
-  # Graph: CAGR movil del PIB real
+  # Graph: TCAC móvil del PIB real
   rolling_cagr_lines_gdp = build_rolling_cagr_lines_chart(
     rolling_cagr,
     selected_series = series_labels[["gdp"]],
-    title = "Crecimiento sostenido en ventanas moviles del PIB real"
+    title = "Crecimiento sostenido en ventanas móviles del PIB real"
   ),
-  # Graph: CAGR movil per capita
+  # Graph: TCAC móvil per cápita
   rolling_cagr_lines_gdp_per_capita = build_rolling_cagr_lines_chart(
     rolling_cagr,
     selected_series = series_labels[["gdp_per_capita"]],
-    title = "Crecimiento sostenido en ventanas moviles per capita"
+    title = "Crecimiento sostenido en ventanas móviles per cápita"
   ),
-  # Graph: Distribucion CAGR
+  # Graph: Distribución TCAC
   rolling_cagr_distribution = build_rolling_cagr_distribution_chart(rolling_cagr),
-  # Graph: Distribucion CAGR PIB real
+  # Graph: Distribución TCAC PIB real
   rolling_cagr_distribution_gdp = build_rolling_cagr_distribution_chart(
     rolling_cagr,
     selected_series = series_labels[["gdp"]],
-    title = "Distribucion de crecimiento sostenido del PIB real"
+    title = "Distribución de crecimiento sostenido del PIB real"
   ),
-  # Graph: Distribucion CAGR per capita
+  # Graph: Distribución TCAC per cápita
   rolling_cagr_distribution_gdp_per_capita = build_rolling_cagr_distribution_chart(
     rolling_cagr,
     selected_series = series_labels[["gdp_per_capita"]],
-    title = "Distribucion de crecimiento sostenido per capita"
+    title = "Distribución de crecimiento sostenido per cápita"
   ),
-  # Graph: Frecuencia CAGR PIB real
+  # Graph: Frecuencia TCAC PIB real
   rolling_cagr_heatmap_gdp = build_rolling_cagr_heatmap_chart(
     rolling_cagr,
     selected_series = series_labels[["gdp"]],
     title = "Frecuencia histórica de crecimiento sostenido del PIB real"
   ),
-  # Graph: Frecuencia CAGR per capita
+  # Graph: Frecuencia TCAC per cápita
   rolling_cagr_heatmap_gdp_per_capita = build_rolling_cagr_heatmap_chart(
     rolling_cagr,
     selected_series = series_labels[["gdp_per_capita"]],
     title = "Frecuencia histórica de crecimiento sostenido per cápita"
   ),
   ## Family: simulation and plausibility checks
-  # Graph: Trayectoria simulada de recuperacion
+  # Graph: Trayectoria simulada de recuperación
   simulation_paths = ggplot2::ggplot(
     simulation_paths,
     ggplot2::aes(x = year, y = simulated_index_value)
@@ -2493,15 +3000,15 @@ plots <- list(
     ggplot2::facet_wrap(ggplot2::vars(series_id), ncol = 1, scales = "free_y") +
     ggplot2::scale_y_continuous(labels = scales::label_number(big.mark = ","), breaks = presentation_breaks_include_limits()) +
     ggplot2::labs(title = "Trayectoria de recuperación con 5% de crecimiento anual", x = NULL, y = "Índice simulado") +
-    ggplot2::theme_minimal(base_size = 12),
-  # Graph: Anios de recuperacion simulada
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family),
+  # Graph: Años de recuperación simulada
   recovery_years = ggplot2::ggplot(
     simulation_summary,
     ggplot2::aes(x = series_id, y = years_to_recover)
   ) +
     ggplot2::geom_col(fill = presentation_colors[["primary"]], width = 0.55) +
     ggplot2::labs(title = "Años para recuperar el nivel de 2012 con 5% de crecimiento", x = NULL, y = "Años") +
-    ggplot2::theme_minimal(base_size = 12),
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family),
   # Graph: Plausibilidad anual
   yearly_plausibility = ggplot2::ggplot(
     plausibility,
@@ -2510,7 +3017,7 @@ plots <- list(
     ggplot2::geom_col(fill = presentation_colors[["primary"]], width = 0.55) +
     ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), breaks = presentation_breaks_include_limits(), limits = c(0, 1)) +
     ggplot2::labs(title = "Frecuencia histórica de crecimiento de al menos 5%", x = NULL, y = "Proporción de años") +
-    ggplot2::theme_minimal(base_size = 12),
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family),
   # Graph: Racha maxima de crecimiento
   max_growth_streak = ggplot2::ggplot(
     plausibility,
@@ -2518,7 +3025,7 @@ plots <- list(
   ) +
     ggplot2::geom_col(fill = presentation_colors[["primary"]], width = 0.55) +
     ggplot2::labs(title = "Racha histórica más larga de crecimiento de al menos 5%", x = NULL, y = "Años") +
-    ggplot2::theme_minimal(base_size = 12)
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family)
 )
 
 ## Figure outputs --------------------------------------------------------------
@@ -2526,6 +3033,7 @@ plots <- list(
 figure_paths <- file.path(figure_dir, paste0(names(plots), ".png"))
 
 for (plot_name in names(plots)) {
+  message("Saving ", plot_name)
   save_presentation_plot(
     filename = file.path(figure_dir, paste0(plot_name, ".png")),
     plot = plots[[plot_name]],
@@ -2537,4 +3045,3 @@ message("Wrote first-pass presentation figures:")
 for (figure_path in figure_paths) {
   message("- ", figure_path)
 }
-

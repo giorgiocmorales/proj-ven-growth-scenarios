@@ -9,6 +9,8 @@ pipeline_scripts <- c(
   "scripts/03_build_episodes.R",
   "scripts/04_build_plausibility.R",
   "scripts/05_build_app_data.R",
+  "scripts/10_build_imf_weo_ppp_scatter_data.R",
+  "scripts/11_download_owid_development_data.R",
   "scripts/08_graphs.R",
   "scripts/09_wilks_composite_correlation.R",
   "scripts/10_imf_weo_ppp_scatter.R",

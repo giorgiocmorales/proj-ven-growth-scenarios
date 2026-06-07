@@ -2,7 +2,7 @@
 
 ## Setup -----------------------------------------------------------------------
 # Check packages and load the shared presentation theme.
-required_packages <- c("dplyr", "ggplot2", "jsonlite", "scales")
+required_packages <- c("dplyr", "ggplot2", "scales")
 missing_packages <- required_packages[!vapply(
   required_packages,
   requireNamespace,
@@ -27,13 +27,17 @@ dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 ## Plot constants --------------------------------------------------------------
 # Shared caption, country groups, and OWID region colors.
 presentation_source_caption <- build_source_caption(
-  "Our World in Data Grapher (2024-2025) y FMI World Economic Outlook Database (2025)",
+  "Our World in Data Grapher (2024-2025) y FMI WEO (2025)",
+  calculations = TRUE
+)
+eci_source_caption <- build_source_caption(
+  "Growth Lab Atlas of Economic Complexity (2024) y FMI WEO (2025)",
   calculations = TRUE
 )
 
 imf_gdp_path <- "data/final/imf_weo_ppp_scatter_data.csv"
 if (!file.exists(imf_gdp_path)) {
-  stop(sprintf("Missing `%s`. Run scripts/10_imf_weo_ppp_scatter.R first.", imf_gdp_path), call. = FALSE)
+  stop(sprintf("Missing `%s`. Run scripts/10_build_imf_weo_ppp_scatter_data.R first.", imf_gdp_path), call. = FALSE)
 }
 
 emerging_latam_codes <- c(
@@ -43,12 +47,14 @@ emerging_latam_codes <- c(
   "SUR", "TTO", "URY", "VEN"
 )
 owid_region_colors <- c(
-  África = presentation_colors[["reference"]],
-  Asia = presentation_colors[["accent"]],
-  Europa = presentation_colors[["primary"]],
-  `América del Norte` = presentation_colors[["latam"]],
-  Oceanía = presentation_colors[["recovery"]],
-  `América del Sur` = presentation_colors[["venezuela"]]
+  build_priority_color_map(c(
+    "África",
+    "Asia",
+    "Europa",
+    "América del Norte",
+    "Oceanía",
+    "América del Sur"
+  ))
 )
 
 owid_region_labels <- c(
@@ -62,7 +68,7 @@ owid_region_labels <- c(
 
 ## Family: OWID development relationship specifications
 indicator_specs <- list(
-  # Graph: Esperanza de vida y PIB pc
+  # Graph: Esperanza de vida y PIB per cápita
   list(
     id = "life_expectancy",
     slug = "life-expectancy-vs-gdp-per-capita",
@@ -70,15 +76,15 @@ indicator_specs <- list(
     y_column = "life_expectancy_0",
     x_column = "gdp_per_capita",
     population_column = "population_historical",
-    title = "Esperanza de vida y PIB per capita",
-    subtitle = "Esperanza de vida y PIB per capita: OWID.",
+    title = "Esperanza de vida y PIB per cápita",
+    subtitle = "Cada punto compara longevidad e ingreso per cápita entre países.",
     y_label = "Esperanza de vida al nacer",
     y_limits = c(40, 90),
     y_breaks = c(40, 50, 60, 70, 80, 90),
     y_log = FALSE,
     file_stem = "owid_life_expectancy_gdp_per_capita"
   ),
-  # Graph: Ingreso diario y PIB pc
+  # Graph: Ingreso diario y PIB per cápita
   list(
     id = "daily_income",
     slug = "median-daily-per-capita-expenditure-vs-gdp-per-capita",
@@ -86,9 +92,9 @@ indicator_specs <- list(
     y_column = "median__ppp_version_2021__welfare_type_income_or_consumption__period_day__table_income_or_consumption_consolidated__survey_comparability_no_spells",
     x_column = "ny_gdp_pcap_pp_kd",
     population_column = "population_historical",
-    title = "Ingreso mediano diario y PIB per capita",
-    subtitle = "Ingreso o consumo mediano diario y PIB per capita: OWID/PIP.",
-    y_label = "Ingreso o consumo mediano diario per capita",
+    title = "Ingreso mediano diario y PIB per cápita",
+    subtitle = "Cada punto compara ingreso diario de los hogares e ingreso per cápita.",
+    y_label = "Ingreso o consumo mediano diario per cápita",
     y_limits = c(1, 100),
     y_breaks = c(1, 2, 5, 10, 20, 50, 100),
     y_log = TRUE,
@@ -96,7 +102,7 @@ indicator_specs <- list(
     fallback_imf_gdp = TRUE,
     file_stem = "owid_daily_income_gdp_per_capita"
   ),
-  # Graph: Mortalidad infantil y PIB pc
+  # Graph: Mortalidad infantil y PIB per cápita
   list(
     id = "child_mortality",
     slug = "child-mortality-gdp-per-capita",
@@ -104,8 +110,8 @@ indicator_specs <- list(
     y_column = "child_mortality_rate",
     x_column = "gdp_per_capita",
     population_column = "population_historical",
-    title = "Mortalidad infantil y PIB pc",
-    subtitle = "Mortalidad infantil y PIB per capita: OWID.",
+    title = "Mortalidad infantil y PIB per cápita",
+    subtitle = "Cada punto compara mortalidad infantil e ingreso per cápita entre países.",
     y_label = "Muertes menores de 5 por 100 nacidos vivos",
     y_limits = c(0.2, 100),
     y_breaks = c(0.2, 0.5, 1, 2, 5, 10, 20, 50, 100),
@@ -113,7 +119,7 @@ indicator_specs <- list(
     y_reverse = TRUE,
     file_stem = "owid_child_mortality_gdp_per_capita"
   ),
-  # Graph: IDH y PIB per capita
+  # Graph: IDH y PIB per cápita
   list(
     id = "hdi",
     slug = "human-development-index-vs-gdp-per-capita",
@@ -121,15 +127,15 @@ indicator_specs <- list(
     y_column = "hdi__sex_total",
     x_column = "ny_gdp_pcap_pp_kd",
     population_column = "population_historical",
-    title = "IDH y PIB per capita",
-    subtitle = "Indice de Desarrollo Humano y PIB per capita: OWID/UNDP.",
-    y_label = "Indice de Desarrollo Humano",
+    title = "IDH y PIB per cápita",
+    subtitle = "Cada punto compara desarrollo humano e ingreso per cápita entre países.",
+    y_label = "Índice de Desarrollo Humano",
     y_limits = c(0.35, 1),
     y_breaks = c(0.35, seq(0.4, 1, 0.1)),
     y_log = FALSE,
     file_stem = "owid_hdi_gdp_per_capita"
   ),
-  # Graph: Escolaridad y PIB pc
+  # Graph: Escolaridad y PIB per cápita
   list(
     id = "schooling",
     slug = "average-years-of-schooling-vs-gdp-per-capita",
@@ -137,22 +143,38 @@ indicator_specs <- list(
     y_column = "mys__sex_total",
     x_column = "ny_gdp_pcap_pp_kd",
     population_column = "population_historical",
-    title = "Escolaridad y PIB per capita",
-    subtitle = "Anios promedio de escolaridad y PIB per capita: OWID/UNDP.",
-    y_label = "Anios promedio de escolaridad",
+    title = "Escolaridad y PIB per cápita",
+    subtitle = "Cada punto compara escolaridad promedio e ingreso per cápita entre países.",
+    y_label = "Años promedio de escolaridad",
     y_limits = c(1, 20),
     y_breaks = c(1, 2, 5, 10, 15, 20),
     y_log = FALSE,
     file_stem = "owid_schooling_gdp_per_capita"
+  ),
+  # Graph: Uso de energía y PIB per capita
+  list(
+    id = "energy_use",
+    slug = "energy-use-per-person-vs-gdp-per-capita",
+    csv_url = "https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
+    y_column = "primary_energy_consumption_per_capita__kwh",
+    x_column = "ny_gdp_pcap_pp_kd",
+    population_column = NULL,
+    title = "Uso de energía y PIB per cápita",
+    subtitle = "Cada punto compara consumo energético individual e ingreso per cápita entre países.",
+    y_label = "Energía primaria per cápita, kWh",
+    y_limits = c(100, 300000),
+    y_breaks = c(100, 300, 1000, 3000, 10000, 30000, 100000, 300000),
+    y_log = TRUE,
+    file_stem = "owid_energy_use_gdp_per_capita"
   )
 )
 
-# Graph: Democracia y PIB pc
+# Graph: Democracia y PIB per cápita
 democracy_spec <- list(
   id = "democracy",
   variable_id = 1014800,
-  title = "Democracia y PIB per capita",
-  subtitle = "Democracy Index: OWID/EIU. PIB per capita PPP: FMI WEO.",
+  title = "Democracia y PIB per cápita",
+  subtitle = "Cada punto compara calidad democrática e ingreso per cápita entre países.",
   y_label = "Democracy Index (0-10)",
   y_limits = c(0.2, 10),
   y_breaks = c(0.2, 0.5, 1, 2, 3, 5, 7, 10),
@@ -161,10 +183,11 @@ democracy_spec <- list(
 )
 
 ## Dependency data -------------------------------------------------------------
-# Read IMF GDP per capita data used as the common x-axis.
+# Read IMF GDP per cápita data used as the common x-axis.
 imf_gdp <- utils::read.csv(imf_gdp_path, stringsAsFactors = FALSE) |>
   dplyr::transmute(
     country_code = country_code,
+    country = country,
     year = as.integer(year),
     gdp_per_capita = as.numeric(gdp_per_capita_ppp_current_intl_dollars),
     gdp_population = as.numeric(population_millions) * 1e6
@@ -184,15 +207,18 @@ build_highlight_group <- function(country_code) {
 }
 
 ## Data helpers ----------------------------------------------------------------
-# Download and normalize one OWID Grapher indicator.
+# Read and normalize one cached OWID Grapher indicator.
 read_grapher_indicator <- function(spec) {
   raw_path <- file.path("data/raw", sprintf("%s.csv", spec$slug))
-  utils::download.file(
-    spec$csv_url,
-    raw_path,
-    mode = "wb",
-    quiet = TRUE
-  )
+  if (!file.exists(raw_path)) {
+    stop(
+      sprintf(
+        "Missing `%s`. Run scripts/11_download_owid_development_data.R once before graphing.",
+        raw_path
+      ),
+      call. = FALSE
+    )
+  }
 
   grapher_raw <- utils::read.csv(raw_path, stringsAsFactors = FALSE, check.names = FALSE)
 
@@ -204,7 +230,7 @@ read_grapher_indicator <- function(spec) {
       year = as.integer(year),
       indicator_value = as.numeric(.data[[spec$y_column]]),
       gdp_per_capita = as.numeric(.data[[spec$x_column]]),
-      population = as.numeric(.data[[spec$population_column]]),
+      population = if (is.null(spec$population_column)) NA_real_ else as.numeric(.data[[spec$population_column]]),
       owid_region = owid_region_labels[owid_region]
     ) |>
     dplyr::filter(
@@ -215,42 +241,41 @@ read_grapher_indicator <- function(spec) {
     )
 }
 
-# Read the OWID API format used by the Democracy Index.
+# Read the cached OWID Democracy Index table.
 read_democracy_indicator <- function(spec) {
-  data_url <- sprintf("https://api.ourworldindata.org/v1/indicators/%s.data.json", spec$variable_id)
-  metadata_url <- sprintf("https://api.ourworldindata.org/v1/indicators/%s.metadata.json", spec$variable_id)
-  indicator_data <- jsonlite::fromJSON(data_url, simplifyVector = TRUE)
-  indicator_metadata <- jsonlite::fromJSON(metadata_url, simplifyVector = FALSE)
-
-  entity_lookup <- dplyr::bind_rows(lapply(indicator_metadata$dimensions$entities$values, function(entity) {
-    data.frame(
-      entity_id = entity$id,
-      country = entity$name,
-      country_code = if (is.null(entity$code)) NA_character_ else entity$code,
-      stringsAsFactors = FALSE
+  raw_path <- "data/raw/owid_democracy_index.csv"
+  if (!file.exists(raw_path)) {
+    stop(
+      sprintf(
+        "Missing `%s`. Run scripts/11_download_owid_development_data.R once before graphing.",
+        raw_path
+      ),
+      call. = FALSE
     )
-  }))
+  }
 
-  data.frame(
-    entity_id = indicator_data$entities,
-    year = as.integer(indicator_data$years),
-    indicator_value = as.numeric(indicator_data$values),
-    stringsAsFactors = FALSE
-  ) |>
-    dplyr::left_join(entity_lookup, by = "entity_id") |>
+  utils::read.csv(raw_path, stringsAsFactors = FALSE)
+}
+
+# Read cached economic-complexity rankings and join them to GDP per capita.
+read_eci_indicator <- function() {
+  raw_path <- "data/raw/growth_proj_eci_rankings.csv"
+  if (!file.exists(raw_path)) {
+    stop(sprintf("Missing `%s`.", raw_path), call. = FALSE)
+  }
+
+  utils::read.csv(raw_path, stringsAsFactors = FALSE) |>
     dplyr::transmute(
-      indicator_id = spec$id,
-      country = country,
-      country_code = country_code,
-      year = year,
-      indicator_value = indicator_value,
-      population = NA_real_
+      indicator_id = "economic_complexity",
+      country_code = country_iso3_code,
+      year = as.integer(year),
+      indicator_value = dplyr::coalesce(
+        as.numeric(eci_hs12),
+        as.numeric(eci_hs92),
+        as.numeric(eci_sitc)
+      )
     ) |>
-    dplyr::filter(
-      !is.na(country_code),
-      nchar(country_code) == 3,
-      !is.na(indicator_value)
-    )
+    dplyr::filter(!is.na(country_code), nchar(country_code) == 3, !is.na(indicator_value))
 }
 
 # Select the year or latest available observation used for each indicator.
@@ -357,12 +382,12 @@ build_relationship_chart <- function(plot_data, spec, x_limits, x_breaks) {
       name = NULL
     ) +
     ggplot2::labs(
-      title = sprintf("%s, %s", spec$title, selected_year),
+      title = sprintf("%s (%s)", spec$title, selected_year),
       subtitle = spec$subtitle,
-      x = "PIB per capita, PPP",
+      x = "PIB per cápita, PPP",
       y = spec$y_label
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme_minimal(base_size = presentation_base_size, base_family = presentation_font_family) +
     ggplot2::theme(legend.position = "bottom") +
     apply_presentation_axis_theme()
 
@@ -414,7 +439,7 @@ owid_region_lookup <- dplyr::bind_rows(final_parts) |>
 
 democracy_data <- read_democracy_indicator(democracy_spec)
 
-# Join democracy data to IMF GDP per capita for the selected common year.
+# Join democracy data to IMF GDP per cápita for the selected common year.
 democracy_selected_year <- min(
   max(democracy_data$year, na.rm = TRUE),
   max(imf_gdp$year, na.rm = TRUE)
@@ -434,6 +459,45 @@ democracy_plot_data <- democracy_data |>
   ) |>
   dplyr::filter(!is.na(gdp_per_capita), gdp_per_capita > 0, !is.na(owid_region))
 final_parts[[democracy_spec$id]] <- democracy_plot_data
+
+# Join economic-complexity data to IMF GDP per capita for the latest common year.
+eci_spec <- list(
+  id = "economic_complexity",
+  title = "Complejidad económica y PIB per cápita",
+  subtitle = "Cada punto compara sofisticación productiva e ingreso per cápita entre países.",
+  y_label = "Índice de complejidad económica",
+  y_limits = c(-3, 3),
+  y_breaks = seq(-3, 3, by = 1),
+  y_log = FALSE,
+  file_stem = "economic_complexity_gdp_per_capita"
+)
+
+eci_data <- read_eci_indicator()
+eci_selected_year <- min(
+  max(eci_data$year, na.rm = TRUE),
+  max(imf_gdp$year, na.rm = TRUE)
+)
+eci_plot_data <- eci_data |>
+  dplyr::filter(year == eci_selected_year) |>
+  dplyr::left_join(
+    imf_gdp |>
+      dplyr::filter(year == eci_selected_year) |>
+      dplyr::select(country_code, country, gdp_per_capita, gdp_population),
+    by = "country_code"
+  ) |>
+  dplyr::left_join(owid_region_lookup, by = "country_code") |>
+  dplyr::mutate(
+    country = dplyr::coalesce(country, country_code),
+    population = gdp_population,
+    owid_region = factor(owid_region, levels = names(owid_region_colors))
+  ) |>
+  dplyr::filter(
+    !is.na(gdp_per_capita),
+    gdp_per_capita > 0,
+    !is.na(indicator_value),
+    !is.na(owid_region)
+  )
+final_parts[[eci_spec$id]] <- eci_plot_data
 
 owid_x_break_candidates <- c(
   200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 500000
@@ -461,6 +525,12 @@ save_presentation_plot(
   source_caption = presentation_source_caption
 )
 
+save_presentation_plot(
+  filename = file.path(figure_dir, sprintf("%s.png", eci_spec$file_stem)),
+  plot = build_relationship_chart(eci_plot_data, eci_spec, owid_x_limits, owid_x_breaks),
+  source_caption = eci_source_caption
+)
+
 final_data <- dplyr::bind_rows(final_parts)
 
 ## Data outputs ----------------------------------------------------------------
@@ -474,7 +544,7 @@ utils::write.csv(
   row.names = FALSE
 )
 
-for (spec in all_specs) {
+for (spec in c(all_specs, list(eci_spec))) {
   message("Wrote ", file.path(figure_dir, sprintf("%s.png", spec$file_stem)))
 }
 message("Wrote data/final/owid_development_relationships.csv")

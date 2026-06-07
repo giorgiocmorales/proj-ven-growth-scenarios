@@ -12,6 +12,8 @@ This folder is organized as a reproducible pipeline. Use `scripts/99_run_all.R` 
 - `03_build_episodes.R`: growth/contraction episode tables.
 - `04_build_plausibility.R`: plausibility metrics.
 - `05_build_app_data.R`: final app/report data.
+- `10_build_imf_weo_ppp_scatter_data.R`: IMF WEO/Maddison scatterplot data download and cache.
+- `11_download_owid_development_data.R`: OWID development indicator download and cache.
 - `06_render_report.R`: Quarto report rendering.
 - `07_run_app.R`: interactive app launch.
 
@@ -19,8 +21,8 @@ This folder is organized as a reproducible pipeline. Use `scripts/99_run_all.R` 
 
 - `08_graphs.R`: main presentation figure factory for historical series, episodes, recovery scenarios, and simulations.
 - `09_wilks_composite_correlation.R`: composite-indicator simulation graph.
-- `10_imf_weo_ppp_scatter.R`: IMF WEO scatterplots and Venezuela-relative comparisons.
-- `11_owid_development_indicators.R`: OWID development relationship graphs.
+- `10_imf_weo_ppp_scatter.R`: IMF WEO scatterplots and Venezuela-relative comparisons from cached `data/final/imf_weo_ppp_scatter_data.csv`.
+- `11_owid_development_indicators.R`: OWID development relationship graphs from cached raw OWID files.
 - `_presentation_theme.R`: shared colors, captions, axis helpers, and figure saving.
 
 ## Manual Editing Notes
@@ -32,3 +34,4 @@ This folder is organized as a reproducible pipeline. Use `scripts/99_run_all.R` 
 - Keep display text as UTF-8. Do not save scripts as Windows-1252 or ANSI.
 - Generated PNG charts live in `reports/presentation/figures/`.
 - Manually added presentation images should go in `reports/presentation/assets/images/`.
+- During visual iteration, rerun only graph scripts. Rerun download/cache scripts only when source data should be refreshed.

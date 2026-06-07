@@ -9,11 +9,20 @@ presentation_palette <- c(
   orange = "#f26122"
 )
 
+presentation_ordered_colors <- unname(presentation_palette[c(
+  "navy",
+  "red",
+  "cyan",
+  "green",
+  "yellow",
+  "orange"
+)])
+
 presentation_colors <- c(
   primary = presentation_palette[["navy"]],
-  secondary = presentation_palette[["cyan"]],
+  secondary = presentation_palette[["red"]],
   venezuela = presentation_palette[["red"]],
-  latam = presentation_palette[["cyan"]],
+  latam = presentation_palette[["navy"]],
   positive = presentation_palette[["navy"]],
   negative = presentation_palette[["red"]],
   reference = presentation_palette[["yellow"]],
@@ -25,23 +34,216 @@ presentation_colors <- c(
   light = "#edf2f5"
 )
 
-presentation_plot_width <- 11
-presentation_plot_height <- 6.2
-presentation_plot_dpi <- 160
+presentation_plot_width <- 16
+presentation_plot_height <- 9
+presentation_plot_dpi <- 120
 
+presentation_base_size <- 16
+presentation_small_base_size <- 15
+presentation_compact_base_size <- 14
+
+presentation_font_family <- "serif"
 presentation_blank_label <- " "
 
-presentation_breaks_include_limits <- function(n = 5, base_breaks = scales::breaks_extended(n = n)) {
+historical_event_references <- data.frame(
+  event = c(
+    "Guerra Federal",
+    "WWI",
+    "Reventón Barroso 2",
+    "WWII",
+    "Nacionalización petróleo",
+    "Viernes Negro",
+    "Caracazo",
+    "Paro Petrolero",
+    "Sanciones Petroleras"
+  ),
+  start_year = c(1859, 1914, 1922, 1939, 1976, 1983, 1989, 2002, 2019),
+  end_year = c(1863, 1918, NA, 1945, NA, NA, NA, NA, NA),
+  stringsAsFactors = FALSE
+)
+
+build_priority_color_map <- function(labels, palette = presentation_ordered_colors) {
+  labels <- unique(as.character(labels))
+  stats::setNames(rep(palette, length.out = length(labels)), labels)
+}
+
+build_venezuela_highlight_color_map <- function(
+    labels,
+    venezuela_label = "Venezuela",
+    neutral_labels = character()) {
+  labels <- unique(as.character(labels))
+  palette_labels <- setdiff(labels, c(venezuela_label, neutral_labels))
+  color_map <- build_priority_color_map(palette_labels)
+
+  if (venezuela_label %in% labels) {
+    color_map <- c(color_map, stats::setNames(presentation_colors[["venezuela"]], venezuela_label))
+  }
+
+  if (length(neutral_labels) > 0) {
+    present_neutral_labels <- intersect(neutral_labels, labels)
+    color_map <- c(
+      color_map,
+      stats::setNames(rep(presentation_colors[["muted"]], length(present_neutral_labels)), present_neutral_labels)
+    )
+  }
+
+  color_map[labels]
+}
+
+presentation_breaks_include_limits <- function(n = 6, base_breaks = scales::breaks_extended(n = n)) {
   function(limits) {
     if (length(limits) != 2 || any(is.na(limits)) || any(!is.finite(limits))) {
       return(base_breaks(limits))
     }
 
-    middle_breaks <- base_breaks(limits)
-    middle_breaks <- middle_breaks[is.finite(middle_breaks)]
-    middle_breaks <- middle_breaks[middle_breaks > limits[1] & middle_breaks < limits[2]]
-    unique(c(limits[1], middle_breaks, limits[2]))
+    nice_breaks <- base_breaks(limits)
+    nice_breaks <- nice_breaks[is.finite(nice_breaks)]
+    nice_breaks[nice_breaks >= limits[1] & nice_breaks <= limits[2]]
   }
+}
+
+presentation_year_breaks <- function(n = 7) {
+  function(limits) {
+    if (length(limits) != 2 || any(is.na(limits)) || any(!is.finite(limits))) {
+      return(scales::breaks_width(25)(limits))
+    }
+
+    span <- diff(limits)
+    width <- if (span <= 15) {
+      2
+    } else if (span <= 35) {
+      5
+    } else if (span <= 70) {
+      10
+    } else if (span <= 130) {
+      20
+    } else {
+      25
+    }
+    breaks <- scales::breaks_width(width)(limits)
+    breaks[breaks >= limits[[1]] & breaks <= limits[[2]]]
+  }
+}
+
+presentation_percent_breaks <- function(n = 6) {
+  presentation_breaks_include_limits(n = n)
+}
+
+presentation_log10_axis <- function(values, break_candidates, max_breaks = 7) {
+  positive_values <- values[!is.na(values) & is.finite(values) & values > 0]
+  if (length(positive_values) == 0) {
+    stop("Log-axis values must include at least one positive finite value.", call. = FALSE)
+  }
+
+  axis_limits <- c(
+    max(break_candidates[break_candidates <= min(positive_values)]),
+    min(break_candidates[break_candidates >= max(positive_values)])
+  )
+  axis_breaks <- break_candidates[
+    break_candidates >= axis_limits[[1]] & break_candidates <= axis_limits[[2]]
+  ]
+
+  if (length(axis_breaks) > max_breaks) {
+    interior_breaks <- axis_breaks[-c(1, length(axis_breaks))]
+    keep_count <- max(0, max_breaks - 2)
+    if (keep_count > 0) {
+      keep_positions <- unique(round(seq(1, length(interior_breaks), length.out = keep_count)))
+      axis_breaks <- c(axis_breaks[[1]], interior_breaks[keep_positions], axis_breaks[[length(axis_breaks)]])
+    } else {
+      axis_breaks <- axis_breaks[c(1, length(axis_breaks))]
+    }
+  }
+
+  list(limits = axis_limits, breaks = axis_breaks)
+}
+
+historical_event_reference_layers <- function(
+    events = historical_event_references,
+    label_events = TRUE,
+    label_y = Inf) {
+  band_events <- events[!is.na(events$end_year), , drop = FALSE]
+  line_events <- events[is.na(events$end_year), , drop = FALSE]
+  event_layers <- list()
+
+  if (nrow(band_events) > 0) {
+    event_layers <- c(
+      event_layers,
+      list(
+      ggplot2::geom_rect(
+        data = band_events,
+        ggplot2::aes(xmin = start_year, xmax = end_year, ymin = -Inf, ymax = Inf),
+        inherit.aes = FALSE,
+        fill = "grey70",
+        alpha = 0.12
+      ),
+      ggplot2::geom_vline(
+        data = band_events,
+        ggplot2::aes(xintercept = start_year),
+        inherit.aes = FALSE,
+        color = "grey70",
+        linewidth = 0.25,
+        linetype = "dashed"
+      )
+      )
+    )
+  }
+
+  if (nrow(line_events) > 0) {
+    event_layers <- c(
+      event_layers,
+      list(
+      ggplot2::geom_vline(
+        data = line_events,
+        ggplot2::aes(xintercept = start_year),
+        inherit.aes = FALSE,
+        color = "grey70",
+        linewidth = 0.25,
+        linetype = "dashed"
+      )
+      )
+    )
+  }
+
+  if (isTRUE(label_events) && nrow(events) > 0) {
+    label_data <- events
+    label_data$label_year <- ifelse(
+      is.na(label_data$end_year),
+      label_data$start_year,
+      (label_data$start_year + label_data$end_year) / 2
+    )
+
+    event_layers <- c(
+      event_layers,
+      list(
+      ggplot2::geom_text(
+        data = label_data,
+        ggplot2::aes(x = label_year, y = label_y, label = event),
+        inherit.aes = FALSE,
+        angle = 90,
+        hjust = 1.03,
+        vjust = 0.5,
+        size = 3,
+        color = presentation_colors[["ink"]],
+        alpha = 0.75,
+        check_overlap = TRUE
+      )
+      )
+    )
+  }
+
+  event_layers
+}
+
+add_historical_event_references <- function(
+    plot,
+    events = historical_event_references,
+    label_events = TRUE,
+    label_y = Inf) {
+  plot + historical_event_reference_layers(
+    events = events,
+    label_events = label_events,
+    label_y = label_y
+  )
 }
 
 apply_presentation_axis_theme <- function(plot = NULL) {
@@ -63,7 +265,7 @@ apply_presentation_axis_theme <- function(plot = NULL) {
 
 build_source_caption <- function(source, calculations = TRUE, note = NULL) {
   source_text <- if (calculations) {
-    sprintf("Fuente: %s; calculos propios.", source)
+    sprintf("Fuente: %s; cálculos propios.", source)
   } else {
     sprintf("Fuente: %s.", source)
   }
@@ -140,21 +342,28 @@ prepare_presentation_plot <- function(
       plot.margin = ggplot2::margin(12, 32, 12, 18),
       plot.title = ggplot2::element_text(
         face = "bold",
-        size = 14,
+        size = 18,
+        family = presentation_font_family,
         margin = ggplot2::margin(b = 3)
       ),
       plot.subtitle = ggplot2::element_text(
-        size = 10,
+        size = 13,
+        family = presentation_font_family,
         color = presentation_colors[["ink"]],
         margin = ggplot2::margin(b = 8)
       ),
       axis.title.x = ggplot2::element_text(
+        family = presentation_font_family,
         margin = ggplot2::margin(t = 7, b = 2)
       ),
+      axis.title.y = ggplot2::element_text(family = presentation_font_family),
+      axis.text = ggplot2::element_text(family = presentation_font_family),
+      strip.text = ggplot2::element_text(family = presentation_font_family),
       plot.caption = ggplot2::element_text(
         hjust = 0,
-        size = 8,
+        size = 10.5,
         face = "italic",
+        family = presentation_font_family,
         color = presentation_colors[["ink"]],
         lineheight = 1.15,
         margin = ggplot2::margin(t = 8)
@@ -163,8 +372,8 @@ prepare_presentation_plot <- function(
       legend.direction = "horizontal",
       legend.box = "horizontal",
       legend.box.just = "center",
-      legend.title = ggplot2::element_text(size = 9),
-      legend.text = ggplot2::element_text(size = 9),
+      legend.title = ggplot2::element_text(size = 11.5, family = presentation_font_family),
+      legend.text = ggplot2::element_text(size = 11.5, family = presentation_font_family),
       legend.key.width = grid::unit(1.1, "lines"),
       legend.spacing.x = grid::unit(0.45, "lines")
     )
