@@ -21,6 +21,25 @@
   text-align: left;
 }
 
+.reveal .slides section.slide.level2 {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 1.18em;
+  top: 0 !important;
+}
+
+.reveal .slides section.slide.level2 > h2:first-child {
+  left: 0;
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.reveal .slides section.title-slide {
+  padding-top: 0;
+}
+
 .reveal h1,
 .reveal h2,
 .reveal h3 {
@@ -56,9 +75,9 @@
 }
 
 .reveal .footer {
-  bottom: 1.05rem;
+  bottom: 0.82rem;
   color: var(--deck-muted);
-  font-family: var(--deck-sans);
+  font-family: var(--deck-serif);
   font-size: 0.28em;
   letter-spacing: 0;
 }

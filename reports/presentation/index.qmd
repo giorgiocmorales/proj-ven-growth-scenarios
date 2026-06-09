@@ -19,7 +19,7 @@ format:
     # Layout: keep figures large while leaving room for headings.
     width: 1920
     height: 1080
-    margin: 0.045
+    margin: 0.03
     center: true
 
     # Presentation utilities.
