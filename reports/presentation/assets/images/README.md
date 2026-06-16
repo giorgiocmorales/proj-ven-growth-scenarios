@@ -8,4 +8,4 @@ Use this path from `reports/presentation/index.qmd`:
 ![](assets/images/example.png){fig-align="center" width="100%"}
 ```
 
-Keep generated charts in `reports/presentation/figures/` and manually curated images here.
+Keep generated charts in `outputs/figures/` and manually curated images here.

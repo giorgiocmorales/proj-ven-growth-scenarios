@@ -1,3 +1,4 @@
+# Resolve from the testthat working directory back to the repository root.
 project_root <- normalizePath(file.path("..", ".."), winslash = "/", mustWork = TRUE)
 
 testthat::test_that("pipeline outputs exist after running the build scripts", {
@@ -45,6 +46,7 @@ testthat::test_that("pipeline outputs exist after running the build scripts", {
 })
 
 testthat::test_that("pipeline outputs have expected core columns", {
+  # Read the core tables once, then assert schema and internal consistency.
   clean_data <- utils::read.csv(
     file.path(project_root, "data", "interim", "clean_historical_data.csv"),
     stringsAsFactors = FALSE

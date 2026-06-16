@@ -9,7 +9,7 @@ format:
     # Visual style: edit these first when changing the deck look.
     theme: serif
     css: title-sweep.css
-    background-color: "#fffdf8"
+    background-color: "#ffffff"
     transition: fade
     controls: true
     progress: true
@@ -25,6 +25,16 @@ format:
     # Presentation utilities.
     preview-links: auto
     chalkboard: true
+  beamer:
+    aspectratio: 169
+    theme: default
+    colortheme: default
+    navigation: empty
+    slide-level: 2
+    include-in-header:
+      text: |
+        \setbeamercolor{background canvas}{bg=white}
+        \setbeamercolor{normal text}{fg=black,bg=white}
 ---
 
 ## 1. ¿Por qué importa el PIB per cápita?
@@ -47,99 +57,99 @@ format:
 ## ¿Por qué el PIB aparece en todas partes?
 
 <!-- Graph title: Por qué el PIB aparece en todas partes -->
-![](figures/wilks_composite_correlation.png){fig-align="center" width="100%"}
+![](../../outputs/figures/wilks_composite_correlation.png){fig-align="center" width="100%"}
 
 ## Ingreso diario
 
 <!-- Graph title: Ingreso diario y PIB per cápita -->
-![](figures/owid_daily_income_gdp_per_capita.png?v=2024){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_daily_income_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Esperanza de vida
 
 <!-- Graph title: Esperanza de vida y PIB per cápita -->
-![](figures/owid_life_expectancy_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_life_expectancy_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Mortalidad infantil
 
 <!-- Graph title: Mortalidad infantil y PIB per cápita -->
-![](figures/owid_child_mortality_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_child_mortality_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Escolaridad
 
 <!-- Graph title: Escolaridad y PIB per cápita -->
-![](figures/owid_schooling_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_schooling_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Desarrollo Humano
 
 <!-- Graph title: IDH y PIB per cápita -->
-![](figures/owid_hdi_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_hdi_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Democracia
 
 <!-- Graph title: Democracia y PIB per cápita -->
-![](figures/owid_democracy_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_democracy_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Uso de energía
 
 <!-- Graph title: Uso de energía y PIB per cápita -->
-![](figures/owid_energy_use_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_energy_use_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Complejidad económica
 
 <!-- Graph title: Complejidad económica y PIB per cápita -->
-![](figures/economic_complexity_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/economic_complexity_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## 2. ¿Cuál es el resultado histórico de Venezuela?
 
 ## El crecimiento a lo largo del tiempo
 
 <!-- Graph title: Crecimiento del PIB real -->
-![](figures/gdp_growth_bars.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_growth_bars.png){fig-align="center" width="100%"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios del PIB real -->
-![](figures/gdp_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_episode_lines.png){fig-align="center" width="100%"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios positivos del PIB real -->
-![](figures/gdp_positive_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_positive_episode_lines.png){fig-align="center" width="100%"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios negativos del PIB real -->
-![](figures/gdp_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_negative_episode_lines.png){fig-align="center" width="100%"}
 
 ## En términos absolutos: nivel similar a 1967
 
 <!-- Graph title: Índice del PIB real -->
-![](figures/gdp_index_line.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_index_line.png){fig-align="center" width="100%"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Crecimiento del PIB real per cápita -->
-![](figures/gdp_per_capita_growth_bars.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_growth_bars.png){fig-align="center" width="100%"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios del PIB real per cápita -->
-![](figures/gdp_per_capita_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_episode_lines.png){fig-align="center" width="100%"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios positivos del PIB real per cápita -->
-![](figures/gdp_per_capita_positive_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_positive_episode_lines.png){fig-align="center" width="100%"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios negativos del PIB real per cápita -->
-![](figures/gdp_per_capita_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_negative_episode_lines.png){fig-align="center" width="100%"}
 
 ## En términos per cápita: nivel similar a 1943
 
 <!-- Graph title: Índice del PIB real per cápita -->
-![](figures/gdp_per_capita_index_line.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_index_line.png){fig-align="center" width="100%"}
 
 ## 3. ¿Cómo queda parada Venezuela en el entorno global?
 
@@ -173,52 +183,52 @@ world - we convert all our takings."*
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (1999) -->
-![](figures/imf_weo_nominal_scatter_1999.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_1999.png){fig-align="center" width="100%"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2008) -->
-![](figures/imf_weo_nominal_scatter_2008.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2008.png){fig-align="center" width="100%"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2013) -->
-![](figures/imf_weo_nominal_scatter_2013.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2013.png){fig-align="center" width="100%"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2018) -->
-![](figures/imf_weo_nominal_scatter_2018.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2018.png){fig-align="center" width="100%"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2025) -->
-![](figures/imf_weo_nominal_scatter_2025.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2025.png){fig-align="center" width="100%"}
 
 ## Los diferenciales de ingreso pesan mucho
 
 <!-- Graph title: PIB per cápita nominal relativo a Venezuela -->
-![](figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center" width="100%"}
 
 ## Los diferenciales de ingreso pesan mucho
 
 <!-- Graph title: PIB per cápita nominal relativo a Venezuela (años clave) -->
-![](figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png){fig-align="center" width="100%"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (Maddison) -->
-![](figures/maddison_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/maddison_negative_episode_lines.png){fig-align="center" width="100%"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (WDI) -->
-![](figures/wdi_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/wdi_negative_episode_lines.png){fig-align="center" width="100%"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (FMI WEO) -->
-![](figures/imf_weo_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_negative_episode_lines.png){fig-align="center" width="100%"}
 
 # 4. ¿Qué entendemos por recuperación?
 
@@ -236,60 +246,60 @@ world - we convert all our takings."*
 ## Introduciendo el concepto de crecimiento compuesto
 
 <!-- Graph title: Trayectoria de recuperación -->
-![](figures/compound_growth_explainer.png){fig-align="center" width="100%"}
+![](../../outputs/figures/compound_growth_explainer.png){fig-align="center" width="100%"}
 
 
 ## Recuperación per cápita al 15%
 
 <!-- Graph title: Recuperación per cápita al 15% -->
-![](figures/recovery_path_15_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/recovery_path_15_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Escenarios per cápita
 
 <!-- Graph title: Escenarios per cápita -->
-![](figures/recovery_path_scenarios_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/recovery_path_scenarios_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Años para recuperar per cápita
 
 <!-- Graph title: Años para recuperar per cápita -->
-![](figures/recovery_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/recovery_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## ¿Qué tan común es el crecimiento en la historia venezolana?
 
 <!-- Graph title: Distribución anual per cápita -->
-![](figures/gdp_per_capita_growth_rate_distribution.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_growth_rate_distribution.png){fig-align="center" width="100%"}
 
 ## Ventanas móviles de TCAC
 
 <!-- Graph title: Ventanas móviles de TCAC -->
-![](figures/rolling_cagr_example.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_example.png){fig-align="center" width="100%"}
 
 ## TCAC móvil per cápita
 
 <!-- Graph title: TCAC móvil per cápita -->
-![](figures/rolling_cagr_lines_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_lines_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Distribución TCAC per cápita
 
 <!-- Graph title: Distribución TCAC per cápita -->
-![](figures/rolling_cagr_distribution_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_distribution_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## Frecuencia TCAC per cápita
 
 <!-- Graph title: Frecuencia TCAC per cápita -->
-![](figures/rolling_cagr_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
 
 ## 5. ¿Qué nos dice la experiencia internacional?
 
 ## Profundidad y recuperación
 
 <!-- Graph title: Severidad del desastre y tiempo de recuperación -->
-![](figures/international_disaster_recovery_heatmap.png){fig-align="center" width="100%"}
+![](../../outputs/figures/international_disaster_recovery_heatmap.png){fig-align="center" width="100%"}
 
 ## Distribución de TCAC post-desastre
 
 <!-- Graph title: Distribución de TCAC post-desastre por horizonte -->
-![](figures/international_disaster_horizon_cagr_distribution.png){fig-align="center" width="100%"}
+![](../../outputs/figures/international_disaster_horizon_cagr_distribution.png){fig-align="center" width="100%"}
 
 # 6. Implicaciones para el futuro desarrollo de Venezuela
 

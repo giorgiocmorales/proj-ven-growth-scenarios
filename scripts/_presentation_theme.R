@@ -38,12 +38,16 @@ presentation_plot_width <- 16
 presentation_plot_height <- 9
 presentation_plot_dpi <- 120
 
-presentation_base_size <- 16
-presentation_small_base_size <- 15
-presentation_compact_base_size <- 14
-
 presentation_font_family <- "serif"
+presentation_base_size <- 19
+presentation_small_base_size <- 18
+presentation_compact_base_size <- 17
 presentation_blank_label <- " "
+
+# Keep text geoms aligned with the presentation theme even when a chart adds
+# labels with geom_text(), geom_label(), or annotate("text", ...).
+ggplot2::update_geom_defaults("text", list(family = presentation_font_family))
+ggplot2::update_geom_defaults("label", list(family = presentation_font_family))
 
 historical_event_references <- data.frame(
   event = c(
@@ -125,6 +129,26 @@ presentation_year_breaks <- function(n = 7) {
   }
 }
 
+presentation_year_axis <- function(start_year, end_year, tick_interval, expand_right = 0) {
+  ggplot2::scale_x_continuous(
+    limits = c(start_year, end_year),
+    breaks = seq(start_year, end_year, by = tick_interval),
+    expand = ggplot2::expansion(mult = c(0, expand_right))
+  )
+}
+
+presentation_full_history_year_axis <- function() {
+  presentation_year_axis(1830, 2030, 10)
+}
+
+presentation_recent_year_axis <- function(start_year) {
+  presentation_year_axis(start_year, 2030, 5)
+}
+
+presentation_recovery_year_axis <- function(end_year, expand_right = 0.035) {
+  presentation_year_axis(1920, end_year, 10, expand_right = expand_right)
+}
+
 presentation_percent_breaks <- function(n = 6) {
   presentation_breaks_include_limits(n = n)
 }
@@ -173,14 +197,14 @@ historical_event_reference_layers <- function(
         data = band_events,
         ggplot2::aes(xmin = start_year, xmax = end_year, ymin = -Inf, ymax = Inf),
         inherit.aes = FALSE,
-        fill = "grey70",
+        fill = presentation_colors[["light"]],
         alpha = 0.12
       ),
       ggplot2::geom_vline(
         data = band_events,
         ggplot2::aes(xintercept = start_year),
         inherit.aes = FALSE,
-        color = "grey70",
+        color = presentation_colors[["muted"]],
         linewidth = 0.25,
         linetype = "dashed"
       )
@@ -196,7 +220,7 @@ historical_event_reference_layers <- function(
         data = line_events,
         ggplot2::aes(xintercept = start_year),
         inherit.aes = FALSE,
-        color = "grey70",
+        color = presentation_colors[["muted"]],
         linewidth = 0.25,
         linetype = "dashed"
       )
@@ -222,7 +246,8 @@ historical_event_reference_layers <- function(
         angle = 90,
         hjust = 1.03,
         vjust = 0.5,
-        size = 3,
+        family = presentation_font_family,
+        size = 3.8,
         color = presentation_colors[["ink"]],
         alpha = 0.75,
         check_overlap = TRUE
@@ -342,12 +367,12 @@ prepare_presentation_plot <- function(
       plot.margin = ggplot2::margin(12, 32, 12, 18),
       plot.title = ggplot2::element_text(
         face = "bold",
-        size = 18,
+        size = 23,
         family = presentation_font_family,
         margin = ggplot2::margin(b = 3)
       ),
       plot.subtitle = ggplot2::element_text(
-        size = 13,
+        size = 16,
         family = presentation_font_family,
         color = presentation_colors[["ink"]],
         margin = ggplot2::margin(b = 8)
@@ -361,7 +386,7 @@ prepare_presentation_plot <- function(
       strip.text = ggplot2::element_text(family = presentation_font_family),
       plot.caption = ggplot2::element_text(
         hjust = 0,
-        size = 10.5,
+        size = 12.5,
         face = "italic",
         family = presentation_font_family,
         color = presentation_colors[["ink"]],
@@ -372,24 +397,32 @@ prepare_presentation_plot <- function(
       legend.direction = "horizontal",
       legend.box = "horizontal",
       legend.box.just = "center",
-      legend.title = ggplot2::element_text(size = 11.5, family = presentation_font_family),
-      legend.text = ggplot2::element_text(size = 11.5, family = presentation_font_family),
+      legend.title = ggplot2::element_text(size = 14, family = presentation_font_family),
+      legend.text = ggplot2::element_text(size = 14, family = presentation_font_family),
       legend.key.width = grid::unit(1.1, "lines"),
       legend.spacing.x = grid::unit(0.45, "lines")
     )
 }
 
 save_presentation_plot <- function(filename, plot, source_caption, subtitle = NULL, note = NULL) {
+  # Prepare once, then both save and print the same graph for interactive review.
+  prepared_plot <- prepare_presentation_plot(
+    plot = plot,
+    source_caption = source_caption,
+    subtitle = subtitle,
+    note = note
+  )
+
   ggplot2::ggsave(
     filename = filename,
-    plot = prepare_presentation_plot(
-      plot = plot,
-      source_caption = source_caption,
-      subtitle = subtitle,
-      note = note
-    ),
+    plot = prepared_plot,
     width = presentation_plot_width,
     height = presentation_plot_height,
     dpi = presentation_plot_dpi
   )
+
+  if (interactive() || grDevices::dev.cur() > 1) {
+    print(prepared_plot)
+  }
+  invisible(prepared_plot)
 }

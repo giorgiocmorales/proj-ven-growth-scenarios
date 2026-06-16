@@ -1,4 +1,7 @@
 # Download IMF WEO inputs and derive real GDP per capita growth for the Maddison country sample.
+
+## Setup -----------------------------------------------------------------------
+# Check packages before querying IMF DataMapper.
 required_packages <- c("dplyr", "jsonlite", "readxl")
 missing_packages <- required_packages[!vapply(
   required_packages,
@@ -16,6 +19,8 @@ if (length(missing_packages) > 0) {
 
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 
+## Country universe ------------------------------------------------------------
+# Match IMF series to the Maddison country sample used elsewhere.
 maddison_data_path <- "data/raw/mpd2023_web.xlsx"
 if (!file.exists(maddison_data_path)) {
   stop(sprintf("Maddison workbook not found at `%s`.", maddison_data_path), call. = FALSE)
@@ -29,8 +34,10 @@ maddison_countries <- readxl::read_excel(maddison_data_path, sheet = "Full data"
   ) |>
   dplyr::filter(!is.na(country_code), nchar(country_code) == 3) |>
   dplyr::distinct(country_code, .keep_all = TRUE) |>
-  dplyr::arrange(country_code)
+    dplyr::arrange(country_code)
 
+## IMF download helper ---------------------------------------------------------
+# Read one DataMapper indicator and return a long country-year table.
 read_imf_datamapper_indicator <- function(indicator_id, indicator_name) {
   imf_url <- sprintf("https://www.imf.org/external/datamapper/api/v1/%s", indicator_id)
   imf_json <- jsonlite::fromJSON(imf_url, simplifyVector = FALSE)
@@ -60,6 +67,8 @@ read_imf_datamapper_indicator <- function(indicator_id, indicator_name) {
     dplyr::filter(!is.na(year), !is.na(value))
 }
 
+## Component data --------------------------------------------------------------
+# Pull real GDP growth and population, then align them by country-year.
 imf_weo_components <- dplyr::bind_rows(
   read_imf_datamapper_indicator("NGDP_RPCH", "Real GDP growth"),
   read_imf_datamapper_indicator("LP", "Population")
@@ -77,6 +86,8 @@ imf_weo_wide <- imf_weo_components |>
 
 names(imf_weo_wide) <- sub("^value\\.", "", names(imf_weo_wide))
 
+## Derived per-capita growth ---------------------------------------------------
+# Convert total real GDP growth and population into real GDP per-capita growth.
 imf_weo_gdp_pc_growth <- imf_weo_wide |>
   dplyr::arrange(country_code, year) |>
   dplyr::group_by(country_code) |>
@@ -105,6 +116,8 @@ component_countries <- unique(imf_weo_components$country_code)
 derived_countries <- unique(imf_weo_gdp_pc_growth$country_code)
 leftout_codes <- setdiff(maddison_countries$country_code, derived_countries)
 
+## Metadata and outputs --------------------------------------------------------
+# Persist raw components, derived growth, and coverage metadata for audits.
 imf_metadata <- data.frame(
   metric = c(
     "source",
