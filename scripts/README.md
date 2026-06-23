@@ -29,13 +29,14 @@ editing.
 - Search for `## Plot construction` to find where graph objects are created.
 - Search for `## Family:` to jump to a family of related graphs.
 - Search for `# Graph:` to find a specific chart.
-- Every graph saved through `save_presentation_plot()` is also printed to the
-  active R graphics device after the PNG is written.
+- Every graph saved through `save_presentation_plot()` writes a PNG for HTML,
+  a matching vector PDF for Beamer/PDF, and is also printed to the active R
+  graphics device after saving.
 
 ## Manual Editing Notes
 
 - Edit Spanish display text inside `ggplot2::labs()` and Quarto slide headings.
 - Keep display text as UTF-8. Do not save scripts as Windows-1252 or ANSI.
-- Generated PNG charts live in `outputs/figures/`.
+- Generated PNG and vector PDF charts live in `outputs/figures/`.
 - Manually added presentation images should go in `reports/presentation/assets/images/`.
 - During visual iteration, rerun only graph scripts. Rerun download/cache scripts only when source data should be refreshed.

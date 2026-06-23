@@ -1,6 +1,6 @@
 # Build cleaned historical data from the raw workbook.
 
-## Setup -----------------------------------------------------------------------
+## Setup ----
 # Check the two packages needed for workbook import and table cleaning.
 if (!requireNamespace("readxl", quietly = TRUE)) {
   stop("The `readxl` package is required to run this script.", call. = FALSE)
@@ -10,9 +10,15 @@ if (!requireNamespace("dplyr", quietly = TRUE)) {
   stop("The `dplyr` package is required to run this script.", call. = FALSE)
 }
 
+if (!requireNamespace("magrittr", quietly = TRUE)) {
+  stop("The `magrittr` package is required to run this script.", call. = FALSE)
+}
+
+`%>%` <- magrittr::`%>%`
+
 dir.create("data/interim", recursive = TRUE, showWarnings = FALSE)
 
-## Input workbook --------------------------------------------------------------
+## Input workbook ----
 # Read the manually maintained historical sheet.
 raw_data_path <- "data/raw/milagros_economicos.xlsx"
 if (!file.exists(raw_data_path)) {
@@ -24,9 +30,9 @@ raw_data <- readxl::read_excel(raw_data_path, sheet = "PIB Historico")
 message("Raw data preview:")
 print(utils::head(raw_data))
 
-## Cleaning --------------------------------------------------------------------
+## Cleaning ----
 # Standardize column names, types, and rows with at least one usable metric.
-clean_data <- raw_data |>
+clean_data <- raw_data %>%
   dplyr::transmute(
     date = as.Date(Fecha),
     year = as.integer(`Año`),
@@ -35,8 +41,8 @@ clean_data <- raw_data |>
     gdp_index = as.numeric(`Índice (1830)`),
     gdp_pc_index = as.numeric(`Índice ppc (1830)`),
     population = as.numeric(`Poblacion Estimada`)
-  ) |>
-  dplyr::arrange(year, date) |>
+  ) %>%
+  dplyr::arrange(year, date) %>%
   dplyr::filter(
     !is.na(year),
     !is.na(gdp_index) | !is.na(gdp_pc_index) |
@@ -45,15 +51,15 @@ clean_data <- raw_data |>
 
 first_year <- min(clean_data$year, na.rm = TRUE)
 
-## Initial growth values -------------------------------------------------------
+## Initial growth values ----
 # Treat the first historical row as the index base year when growth is blank.
-clean_data <- clean_data |>
+clean_data <- clean_data %>%
   dplyr::mutate(
     gdp_growth = dplyr::if_else(year == first_year & is.na(gdp_growth), 0, gdp_growth),
     gdp_pc_growth = dplyr::if_else(year == first_year & is.na(gdp_pc_growth), 0, gdp_pc_growth)
   )
 
-## Summary checks --------------------------------------------------------------
+## Summary checks ----
 # Write a small missingness summary alongside the cleaned table.
 clean_summary <- data.frame(
   metric = c(
@@ -79,7 +85,7 @@ clean_summary <- data.frame(
   stringsAsFactors = FALSE
 )
 
-## Data outputs ----------------------------------------------------------------
+## Data outputs ----
 # Persist cleaned historical data for all downstream scripts.
 utils::write.csv(clean_data, "data/interim/clean_historical_data.csv", row.names = FALSE)
 utils::write.csv(clean_summary, "data/interim/clean_historical_summary.csv", row.names = FALSE)

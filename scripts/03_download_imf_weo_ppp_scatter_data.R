@@ -1,8 +1,8 @@
 # Download and cache IMF WEO PPP/nominal GDP data for scatterplot figures.
 
-## Setup -----------------------------------------------------------------------
+## Setup ----
 # Check packages before querying IMF DataMapper and reading the Maddison workbook.
-required_packages <- c("dplyr", "jsonlite", "readxl")
+required_packages <- c("dplyr", "jsonlite", "magrittr", "readxl")
 missing_packages <- required_packages[!vapply(
   required_packages,
   requireNamespace,
@@ -17,23 +17,25 @@ if (length(missing_packages) > 0) {
   )
 }
 
+`%>%` <- magrittr::`%>%`
+
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/final", recursive = TRUE, showWarnings = FALSE)
 
-## Country universe ------------------------------------------------------------
+## Country universe ----
 # Use Maddison country metadata and flag the LatAm peer group used in charts.
 maddison_data_path <- "data/raw/mpd2023_web.xlsx"
 if (!file.exists(maddison_data_path)) {
   stop(sprintf("Maddison workbook not found at `%s`.", maddison_data_path), call. = FALSE)
 }
 
-maddison_countries <- readxl::read_excel(maddison_data_path, sheet = "Full data") |>
+maddison_countries <- readxl::read_excel(maddison_data_path, sheet = "Full data") %>%
   dplyr::transmute(
     country_code = as.character(countrycode),
     country = as.character(country),
     maddison_region = as.character(region)
-  ) |>
-  dplyr::filter(!is.na(country_code), nchar(country_code) == 3) |>
+  ) %>%
+  dplyr::filter(!is.na(country_code), nchar(country_code) == 3) %>%
   dplyr::distinct(country_code, .keep_all = TRUE)
 
 emerging_latam_codes <- c(
@@ -43,7 +45,7 @@ emerging_latam_codes <- c(
   "SUR", "TTO", "URY", "VEN"
 )
 
-## IMF download helper ---------------------------------------------------------
+## IMF download helper ----
 # Return one DataMapper indicator as a country-year table.
 read_imf_datamapper_indicator <- function(indicator_id, indicator_name) {
   imf_url <- sprintf("https://www.imf.org/external/datamapper/api/v1/%s", indicator_id)
@@ -70,11 +72,11 @@ read_imf_datamapper_indicator <- function(indicator_id, indicator_name) {
     )
   })
 
-  dplyr::bind_rows(indicator_parts) |>
+  dplyr::bind_rows(indicator_parts) %>%
     dplyr::filter(!is.na(year), !is.na(value))
 }
 
-## Component data --------------------------------------------------------------
+## Component data ----
 # Pull PPP, nominal, per-capita, and population components for one scatter table.
 imf_ppp_components <- dplyr::bind_rows(
   read_imf_datamapper_indicator("PPPGDP", "GDP, current international dollars, PPP"),
@@ -82,12 +84,12 @@ imf_ppp_components <- dplyr::bind_rows(
   read_imf_datamapper_indicator("NGDPD", "GDP, current U.S. dollars"),
   read_imf_datamapper_indicator("NGDPDPC", "GDP per capita, current U.S. dollars"),
   read_imf_datamapper_indicator("LP", "Population")
-) |>
-  dplyr::left_join(maddison_countries, by = "country_code") |>
+) %>%
+  dplyr::left_join(maddison_countries, by = "country_code") %>%
   dplyr::arrange(country_code, indicator_id, year)
 
-imf_ppp_wide <- imf_ppp_components |>
-  dplyr::select(country_code, country, maddison_region, indicator_id, year, value) |>
+imf_ppp_wide <- imf_ppp_components %>%
+  dplyr::select(country_code, country, maddison_region, indicator_id, year, value) %>%
   stats::reshape(
     idvar = c("country_code", "country", "maddison_region", "year"),
     timevar = "indicator_id",
@@ -96,9 +98,9 @@ imf_ppp_wide <- imf_ppp_components |>
 
 names(imf_ppp_wide) <- sub("^value\\.", "", names(imf_ppp_wide))
 
-## Scatter table ---------------------------------------------------------------
+## Scatter table ----
 # Keep only complete country-years and add the display highlight group.
-imf_ppp_scatter_data <- imf_ppp_wide |>
+imf_ppp_scatter_data <- imf_ppp_wide %>%
   dplyr::transmute(
     country_code = country_code,
     country = country,
@@ -114,17 +116,17 @@ imf_ppp_scatter_data <- imf_ppp_wide |>
       country_code %in% emerging_latam_codes ~ "LatAm emergente",
       TRUE ~ "Resto del mundo"
     )
-  ) |>
+  ) %>%
   dplyr::filter(
     !is.na(gdp_ppp_current_intl_dollars_billions),
     !is.na(gdp_per_capita_ppp_current_intl_dollars),
     !is.na(gdp_nominal_current_usd_billions),
     !is.na(gdp_per_capita_nominal_current_usd),
     !is.na(population_millions)
-  ) |>
+  ) %>%
     dplyr::arrange(year, highlight_group, country)
 
-## Data outputs ----------------------------------------------------------------
+## Data outputs ----
 # Persist the raw components and the final scatterplot-ready table.
 utils::write.csv(
   imf_ppp_components,

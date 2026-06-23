@@ -1,7 +1,7 @@
 /* Light serif presentation theme.
    Edit this block first when changing the deck's visual style. */
 :root {
-  --deck-background: #fffdf8;
+  --deck-background: #ffffff;
   --deck-text: #1f2933;
   --deck-muted: #667085;
   --deck-heading: #17324d;
@@ -15,6 +15,8 @@
   background: var(--deck-background);
   color: var(--deck-text);
   font-family: var(--deck-serif);
+  font-size: 32px;
+  font-weight: 400;
 }
 
 .reveal .slides {
@@ -24,7 +26,7 @@
 .reveal .slides section.slide.level2 {
   box-sizing: border-box;
   height: 100%;
-  padding-top: 1.18em;
+  padding-top: 0.82em;
   top: 0 !important;
 }
 
@@ -33,7 +35,7 @@
   margin-top: 0;
   position: absolute;
   right: 0;
-  top: 0;
+  top: -0.12em;
 }
 
 .reveal .slides section.title-slide {
@@ -45,7 +47,7 @@
 .reveal h3 {
   color: var(--deck-heading);
   font-family: var(--deck-serif);
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 1.08;
 }
@@ -57,15 +59,40 @@
 
 .reveal h2 {
   border-bottom: 1px solid var(--deck-rule);
-  font-size: 1.04em;
-  margin-bottom: 0.22em;
-  padding-bottom: 0.12em;
+  font-size: 0.98em;
+  margin-bottom: 0.16em;
+  padding-bottom: 0;
   white-space: nowrap;
 }
 
 .reveal p,
 .reveal li {
-  line-height: 1.35;
+  line-height: 1.38;
+}
+
+.reveal ul,
+.reveal ol {
+  margin-top: 0.34em;
+}
+
+.reveal table {
+  font-size: 0.68em;
+  line-height: 1.28;
+}
+
+.reveal table th,
+.reveal table td {
+  padding: 0.24em 0.42em;
+}
+
+.reveal ul li::marker {
+  color: var(--deck-muted);
+  font-size: 0.62em;
+}
+
+.reveal ol li::marker {
+  color: var(--deck-muted);
+  font-size: 0.78em;
 }
 
 .reveal .slide-number,
@@ -75,10 +102,11 @@
 }
 
 .reveal .footer {
-  bottom: 0.82rem;
+  bottom: 0.46rem;
   color: var(--deck-muted);
   font-family: var(--deck-serif);
-  font-size: 0.28em;
+  font-size: 0.13em;
+  font-style: italic;
   letter-spacing: 0;
 }
 
@@ -98,34 +126,27 @@
 .reveal img.quarto-figure,
 .reveal section img {
   display: block;
-  height: 84vh !important;
+  height: 80vh !important;
   margin-left: auto;
   margin-right: auto;
-  max-height: calc(100vh - 112px);
+  max-height: calc(100vh - 150px);
   max-width: 100%;
   object-fit: contain;
   width: auto !important;
 }
 
-.reveal .quote-image-slide {
+.reveal .quote-image-slide .columns {
   align-items: start;
   display: grid;
-  gap: 1.1rem;
-  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
-  margin-top: 0.35rem;
+  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+  margin-top: 0.5rem;
 }
 
-.reveal .quote-image-slide .quote-text {
-  font-size: 0.78em;
-  line-height: 1.35;
+.reveal .quote-image-slide .column:first-child {
+  font-size: 0.76em;
+  line-height: 1.42;
   padding-top: 0.25rem;
-}
-
-.reveal .quote-image-slide .quote-images {
-  align-items: center;
-  display: grid;
-  gap: 0.55rem;
-  grid-template-columns: 0.72fr 1fr;
 }
 
 .reveal .quote-image-slide figure {
@@ -135,10 +156,20 @@
 .reveal .quote-image-slide img {
   display: block;
   height: auto !important;
-  max-height: 52vh;
+  max-height: 58vh;
   max-width: 100%;
   object-fit: contain;
   width: 100% !important;
+}
+
+.reveal .image-only-slide img {
+  display: block;
+  height: 76vh !important;
+  margin: 0.45rem auto 0;
+  max-height: calc(100vh - 180px);
+  max-width: 92%;
+  object-fit: contain;
+  width: auto !important;
 }
 
 .reveal .quote-image-slide figcaption {
@@ -149,4 +180,45 @@
   line-height: 1.15;
   margin-top: 0.18rem;
   text-align: right;
+}
+
+.reveal .closing-slide {
+  align-items: center;
+  display: flex !important;
+  justify-content: center;
+  text-align: center;
+}
+
+.reveal .closing-slide h2 {
+  border-bottom: 0;
+  font-size: 1.52em;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  white-space: normal;
+}
+
+.reveal .closing-card {
+  border-top: 1px solid var(--deck-rule);
+  display: inline-block;
+  margin-top: 0.5rem;
+  min-width: min(760px, 82vw);
+  padding-top: 1.2rem;
+}
+
+.reveal .closing-card h3 {
+  font-size: 0.86em;
+  font-weight: 500;
+  margin-bottom: 0.32rem;
+}
+
+.reveal .closing-card p {
+  color: var(--deck-muted);
+  font-size: 0.56em;
+  line-height: 1.55;
+  margin: 0.2rem 0;
+}
+
+.reveal .closing-card a {
+  color: var(--deck-heading);
+  text-decoration: none;
 }

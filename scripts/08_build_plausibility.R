@@ -1,6 +1,6 @@
 # Build plausibility metrics for app consumption.
 
-## Inputs ----------------------------------------------------------------------
+## Inputs ----
 # Read historical growth and normalized series inputs.
 dir.create("data/final", recursive = TRUE, showWarnings = FALSE)
 
@@ -15,13 +15,13 @@ clean_data$date <- as.Date(clean_data$date)
 series_data <- utils::read.csv("data/interim/index_series_long.csv", stringsAsFactors = FALSE)
 series_data$date <- as.Date(series_data$date)
 
-## Scenario assumptions --------------------------------------------------------
+## Scenario assumptions ----
 # Default recovery scenario used by the current presentation graphs.
 benchmark_year <- 2012L
 growth_rate <- 0.05
 anchor_year <- max(series_data$year, na.rm = TRUE)
 
-## Recovery simulation ---------------------------------------------------------
+## Recovery simulation ----
 # Compute years to recover the benchmark and annual paths for each series.
 series_ids <- unique(series_data$series_id)
 simulation_rows <- vector("list", length(series_ids))
@@ -87,7 +87,7 @@ simulation$summary$status[simulation$summary$already_recovered] <- "already_reco
 simulation$summary$status[!simulation$summary$already_recovered & simulation$summary$growth_rate <= 0] <- "not_recovering"
 simulation$summary$status[is.infinite(simulation$summary$years_to_recover)] <- "not_recovering"
 
-## Plausibility labels ---------------------------------------------------------
+## Plausibility labels ----
 # Convert historical frequencies into coarse reader-facing labels.
 build_plausibility_label <- function(metric_value) {
   if (length(metric_value) != 1 || is.na(metric_value)) {
@@ -102,7 +102,7 @@ build_plausibility_label <- function(metric_value) {
   "historically_rare"
 }
 
-## Historical plausibility -----------------------------------------------------
+## Historical plausibility ----
 # Compare the required growth rate and streak length against historical records.
 plausibility_rows <- vector("list", nrow(simulation$summary))
 for (i in seq_len(nrow(simulation$summary))) {
@@ -156,7 +156,7 @@ for (i in seq_len(nrow(simulation$summary))) {
 
 plausibility <- do.call(rbind, plausibility_rows)
 
-## Data outputs ----------------------------------------------------------------
+## Data outputs ----
 # Persist summary, path, and plausibility tables consumed by app and graphs.
 utils::write.csv(plausibility, "data/final/plausibility_metrics.csv", row.names = FALSE)
 utils::write.csv(simulation$summary, "data/final/simulation_summary.csv", row.names = FALSE)

@@ -19,7 +19,7 @@ format:
     # Layout: keep figures large while leaving room for headings.
     width: 1920
     height: 1080
-    margin: 0.03
+    margin: 0.025
     center: true
 
     # Presentation utilities.
@@ -33,130 +33,195 @@ format:
     slide-level: 2
     include-in-header:
       text: |
+        \usefonttheme{serif}
+        \usepackage{fontspec}
+        \usepackage{etoolbox}
+        \setmainfont{Latin Modern Roman}
+        \setsansfont{Latin Modern Sans}
+        \setmonofont{Latin Modern Mono}
+        \setkeys{Gin}{width=0.985\textwidth,height=0.84\textheight,keepaspectratio}
+        \definecolor{DeckInk}{HTML}{1F2933}
+        \definecolor{DeckHeading}{HTML}{17324D}
+        \definecolor{DeckMuted}{HTML}{667085}
+        \definecolor{DeckRule}{HTML}{D8DEE6}
+        \setbeamersize{text margin left=0.25cm,text margin right=0.25cm}
         \setbeamercolor{background canvas}{bg=white}
-        \setbeamercolor{normal text}{fg=black,bg=white}
+        \setbeamercolor{normal text}{fg=DeckInk,bg=white}
+        \setbeamercolor{frametitle}{fg=DeckHeading,bg=white}
+        \setbeamercolor{title}{fg=DeckHeading,bg=white}
+        \setbeamercolor{subtitle}{fg=DeckMuted,bg=white}
+        \setbeamercolor{section title}{fg=DeckHeading,bg=white}
+        \setbeamercolor{subsection title}{fg=DeckHeading,bg=white}
+        \setbeamercolor{part title}{fg=DeckHeading,bg=white}
+        \setbeamercolor{item}{fg=DeckHeading}
+        \setbeamertemplate{itemize item}{\textcolor{DeckMuted}{\raisebox{0.15ex}{\scalebox{0.58}{$\bullet$}}}}
+        \setbeamertemplate{itemize subitem}{\textcolor{DeckMuted}{\raisebox{0.15ex}{\scalebox{0.48}{$\bullet$}}}}
+        \setbeamertemplate{enumerate item}{\textcolor{DeckMuted}{\insertenumlabel.}}
+        \setbeamertemplate{navigation symbols}{}
+        \setbeamertemplate{frametitle}{%
+          \vspace{-0.02cm}%
+          \insertframetitle\strut\par%
+          \vspace{-0.18cm}%
+          {\color{DeckRule}\rule{\paperwidth}{0.35pt}}%
+        }
+        \setbeamertemplate{footline}{%
+          \leavevmode%
+          \hbox{%
+            \begin{beamercolorbox}[wd=.78\paperwidth,ht=1.65ex,dp=0.7ex,leftskip=1.4em]{normal text}%
+              {\fontsize{4.2pt}{5.0pt}\selectfont\itshape\color{DeckMuted} Giorgio Cunto Morales · El Largo Camino por Delante}%
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=.22\paperwidth,ht=1.65ex,dp=0.7ex,rightskip=1.4em plus1fil]{normal text}%
+              {\fontsize{4.2pt}{5.0pt}\selectfont\itshape\color{DeckMuted}\hfill\insertframenumber/\inserttotalframenumber}%
+            \end{beamercolorbox}%
+          }%
+        }
+        \setbeamerfont{title}{family=\rmfamily,series=\bfseries,size=\Large}
+        \setbeamerfont{subtitle}{family=\rmfamily,series=\mdseries,size=\normalsize}
+        \setbeamerfont{section title}{family=\rmfamily,series=\bfseries,size=\large}
+        \setbeamerfont{subsection title}{family=\rmfamily,series=\bfseries,size=\large}
+        \setbeamerfont{part title}{family=\rmfamily,series=\bfseries,size=\large}
+        \setbeamerfont{frametitle}{family=\rmfamily,series=\bfseries,size=\normalsize}
+        \setbeamerfont{normal text}{family=\rmfamily,size=\footnotesize}
+        \setbeamerfont{itemize/enumerate body}{family=\rmfamily,size=\footnotesize}
+        \setbeamerfont{itemize/enumerate subbody}{family=\rmfamily,size=\footnotesize}
+        \setbeamerfont{footline}{family=\rmfamily,series=\mdseries,shape=\itshape,size=\tiny}
+        \linespread{1.08}
+        \setlength{\parskip}{0.34em}
+        \AtBeginEnvironment{longtable}{\scriptsize\renewcommand{\arraystretch}{1.16}}
+        \AtBeginEnvironment{tabular}{\scriptsize\renewcommand{\arraystretch}{1.16}}
 ---
 
-## 1. ¿Por qué importa el PIB per cápita?
+# 1. ¿Por qué importa el PIB per cápita?
 
-## Una premisa inicial
+## Premisa inicial
 
 *"De la misma forma en que la democracia es el peor sistema de gobierno, excepto por todos los demás, el PIB per cápita es la peor medida de bienestar, excepto por todas las demás."*
 
 ## El crecimiento, y solo el crecimiento, es suficiente
 
-- Pritchett, L., & Lewis, A. (2022). *Economic growth is enough and only economic growth is enough*. Oxford Blavatnik School of Government and London School of Economics School of Public Policy.
+- Pritchett, L., & Lewis, A. (2026). *Economic growth is enough and only economic growth is enough*. Oxford Blavatnik School of Government and London School of Economics School of Public Policy.
 - Pritchett, L. (2024). *The case for economic growth as the path to better human wellbeing*. School of Public Policy, London School of Economics.
-- Cualquier combinación de métricas de bienestar que cubra necesidades básicas, sea general, y plausible, tiene una fuerte relación con el PIB pc y el consumo mediano de los hogares.
-- La relación es no lineal: con altas elasticidades a bajos niveles de PIB pc en comparación con niveles altos.
+- *Cualquier* combinación de métricas de bienestar que cubra necesidades básicas, sea general en su uso de indicadores de diferentes dominios, y plausible en sus ponderaciones internas, tiene una fuerte y robusta relación con el PIB pc.
+- La relación es no lineal: con altas elasticidades a bajos niveles de PIB pc en comparación con niveles altos. Es decir, en el margen, países pobres se benefician proporcionalmente más por el crecimiento.
 - Es empíricamente suficiente: no hay países con bajos niveles de bienestar y altos niveles de PIB pc. 
 - Es empíricamente necesaria: no hay países con altos niveles de bienestar y bajos niveles de PIB pc.
-- El crecimiento del consumo de los hogares es empíricamente necesario y suficiente para la reducción de la pobreza.
-- El "desarrollo nacional" —la combinación de productividad, capacidad estatal, capacidad de respuesta del sistema político, y trato igualitario ciudadano— conlleva al bienestar material. 
+- El crecimiento económico que se traduce en crecimiento del consumo mediano de los hogares es empíricamente necesario y suficiente para la reducción de la pobreza bajo cualquier medición, incluso si ese crecimiento no es estríctamente "pro-pobre".
+- La mayor reducción de la pobreza es mayoritariamente atribuible al crecimiento productivo generalizado que a la expnsión de intervenciones programáticas.
 
 ## ¿Por qué el PIB aparece en todas partes?
 
 <!-- Graph title: Por qué el PIB aparece en todas partes -->
-![](../../outputs/figures/wilks_composite_correlation.png){fig-align="center" width="100%"}
+![](../../outputs/figures/wilks_composite_correlation.png){fig-align="center"}
 
 ## Ingreso diario
 
 <!-- Graph title: Ingreso diario y PIB per cápita -->
-![](../../outputs/figures/owid_daily_income_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_daily_income_gdp_per_capita.png){fig-align="center"}
+
+## Ingreso del 10% más pobre
+
+<!-- Graph title: Ingreso del 10% más pobre y PIB per cápita -->
+![](../../outputs/figures/owid_p10_income_gdp_per_capita.png){fig-align="center"}
 
 ## Esperanza de vida
 
 <!-- Graph title: Esperanza de vida y PIB per cápita -->
-![](../../outputs/figures/owid_life_expectancy_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_life_expectancy_gdp_per_capita.png){fig-align="center"}
 
 ## Mortalidad infantil
 
 <!-- Graph title: Mortalidad infantil y PIB per cápita -->
-![](../../outputs/figures/owid_child_mortality_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_child_mortality_gdp_per_capita.png){fig-align="center"}
 
 ## Escolaridad
 
 <!-- Graph title: Escolaridad y PIB per cápita -->
-![](../../outputs/figures/owid_schooling_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_schooling_gdp_per_capita.png){fig-align="center"}
+
+## Aprendizaje
+
+<!-- Graph title: Resultados de aprendizaje y PIB per cápita -->
+![](../../outputs/figures/owid_learning_outcomes_gdp_per_capita.png){fig-align="center"}
 
 ## Desarrollo Humano
 
 <!-- Graph title: IDH y PIB per cápita -->
-![](../../outputs/figures/owid_hdi_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_hdi_gdp_per_capita.png){fig-align="center"}
 
 ## Democracia
 
 <!-- Graph title: Democracia y PIB per cápita -->
-![](../../outputs/figures/owid_democracy_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_democracy_gdp_per_capita.png){fig-align="center"}
 
 ## Uso de energía
 
 <!-- Graph title: Uso de energía y PIB per cápita -->
-![](../../outputs/figures/owid_energy_use_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/owid_energy_use_gdp_per_capita.png){fig-align="center"}
 
 ## Complejidad económica
 
 <!-- Graph title: Complejidad económica y PIB per cápita -->
-![](../../outputs/figures/economic_complexity_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/economic_complexity_gdp_per_capita.png){fig-align="center"}
 
-## 2. ¿Cuál es el resultado histórico de Venezuela?
+# 2. ¿Cuál es el resultado histórico de Venezuela en materia de crecimiento?
 
 ## El crecimiento a lo largo del tiempo
 
 <!-- Graph title: Crecimiento del PIB real -->
-![](../../outputs/figures/gdp_growth_bars.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_growth_bars.png){fig-align="center"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios del PIB real -->
-![](../../outputs/figures/gdp_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_episode_lines.png){fig-align="center"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios positivos del PIB real -->
-![](../../outputs/figures/gdp_positive_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_positive_episode_lines.png){fig-align="center"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios negativos del PIB real -->
-![](../../outputs/figures/gdp_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_negative_episode_lines.png){fig-align="center"}
 
 ## En términos absolutos: nivel similar a 1967
 
 <!-- Graph title: Índice del PIB real -->
-![](../../outputs/figures/gdp_index_line.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_index_line.png){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Crecimiento del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_growth_bars.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_growth_bars.png){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_episode_lines.png){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios positivos del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_positive_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_positive_episode_lines.png){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios negativos del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_negative_episode_lines.png){fig-align="center"}
 
 ## En términos per cápita: nivel similar a 1943
 
 <!-- Graph title: Índice del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_index_line.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_index_line.png){fig-align="center"}
 
-## 3. ¿Cómo queda parada Venezuela en el entorno global?
+# 3. ¿Cómo queda parada Venezuela en el entorno global?
 
-## Percepción de la economía venezolana a 6 décadas de distancia.
+## Percepción internacional de la economía venezolana (1958) {.quote-image-slide}
 
-<div class="quote-image-slide">
-<div class="quote-text">
+:::: {.columns}
+
+::: {.column width="64%"}
 
 *"In round sums, as the Special Executive 
 knows from our accounts, the total income to date, not count
@@ -168,71 +233,73 @@ world - we convert all our takings."*
 
 - Fleming (1958). *Thunderball*. Chapter 6. Ian Fleming.
 
-</div>
-<div class="quote-images">
-<figure>
-<img src="assets/images/OIP.jpeg" alt="Thunderball cover">
-</figure>
-<figure>
-<img src="assets/images/animaniacs%20venezuela%20-%20frame%20at%200m43s.jpg" alt="Animaniacs Venezuela frame">
-<figcaption>Animaniacs (2019)</figcaption>
-</figure>
-</div>
-</div>
+:::
+
+::: {.column width="36%"}
+
+![](assets/images/OIP.jpeg){fig-align="center"}
+
+:::
+
+::::
+
+## Percepción internacional de la economía venezolana (2019) {.image-only-slide}
+
+![](assets/images/animaniacs%20venezuela%20-%20frame%20at%200m43s.jpg){fig-align="center"}
+
+- *Animaniacs* (2019)
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (1999) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_1999.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_1999.png){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2008) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2008.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2008.png){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2013) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2013.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2013.png){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2018) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2018.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2018.png){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2025) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2025.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2025.png){fig-align="center"}
 
 ## Los diferenciales de ingreso pesan mucho
 
 <!-- Graph title: PIB per cápita nominal relativo a Venezuela -->
-![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center"}
 
 ## Los diferenciales de ingreso pesan mucho
 
 <!-- Graph title: PIB per cápita nominal relativo a Venezuela (años clave) -->
-![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png){fig-align="center"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (Maddison) -->
-![](../../outputs/figures/maddison_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/maddison_negative_episode_lines.png){fig-align="center"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (WDI) -->
-![](../../outputs/figures/wdi_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/wdi_negative_episode_lines.png){fig-align="center"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (FMI WEO) -->
-![](../../outputs/figures/imf_weo_negative_episode_lines.png){fig-align="center" width="100%"}
+![](../../outputs/figures/imf_weo_negative_episode_lines.png){fig-align="center"}
 
 # 4. ¿Qué entendemos por recuperación?
-
-## ¿Qué entendemos por recuperación?
 
 ## Es función de metas y ritmos
 
@@ -246,60 +313,60 @@ world - we convert all our takings."*
 ## Introduciendo el concepto de crecimiento compuesto
 
 <!-- Graph title: Trayectoria de recuperación -->
-![](../../outputs/figures/compound_growth_explainer.png){fig-align="center" width="100%"}
+![](../../outputs/figures/compound_growth_explainer.png){fig-align="center"}
 
 
 ## Recuperación per cápita al 15%
 
 <!-- Graph title: Recuperación per cápita al 15% -->
-![](../../outputs/figures/recovery_path_15_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/recovery_path_15_gdp_per_capita.png){fig-align="center"}
 
 ## Escenarios per cápita
 
 <!-- Graph title: Escenarios per cápita -->
-![](../../outputs/figures/recovery_path_scenarios_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/recovery_path_scenarios_gdp_per_capita.png){fig-align="center"}
 
 ## Años para recuperar per cápita
 
 <!-- Graph title: Años para recuperar per cápita -->
-![](../../outputs/figures/recovery_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/recovery_heatmap_gdp_per_capita.png){fig-align="center"}
 
 ## ¿Qué tan común es el crecimiento en la historia venezolana?
 
 <!-- Graph title: Distribución anual per cápita -->
-![](../../outputs/figures/gdp_per_capita_growth_rate_distribution.png){fig-align="center" width="100%"}
+![](../../outputs/figures/gdp_per_capita_growth_rate_distribution.png){fig-align="center"}
 
 ## Ventanas móviles de TCAC
 
 <!-- Graph title: Ventanas móviles de TCAC -->
-![](../../outputs/figures/rolling_cagr_example.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_example.png){fig-align="center"}
 
 ## TCAC móvil per cápita
 
 <!-- Graph title: TCAC móvil per cápita -->
-![](../../outputs/figures/rolling_cagr_lines_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_lines_gdp_per_capita.png){fig-align="center"}
 
 ## Distribución TCAC per cápita
 
 <!-- Graph title: Distribución TCAC per cápita -->
-![](../../outputs/figures/rolling_cagr_distribution_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_distribution_gdp_per_capita.png){fig-align="center"}
 
 ## Frecuencia TCAC per cápita
 
 <!-- Graph title: Frecuencia TCAC per cápita -->
-![](../../outputs/figures/rolling_cagr_heatmap_gdp_per_capita.png){fig-align="center" width="100%"}
+![](../../outputs/figures/rolling_cagr_heatmap_gdp_per_capita.png){fig-align="center"}
 
-## 5. ¿Qué nos dice la experiencia internacional?
+# 5. ¿Qué nos dice la experiencia internacional?
 
 ## Profundidad y recuperación
 
 <!-- Graph title: Severidad del desastre y tiempo de recuperación -->
-![](../../outputs/figures/international_disaster_recovery_heatmap.png){fig-align="center" width="100%"}
+![](../../outputs/figures/international_disaster_recovery_heatmap.png){fig-align="center"}
 
 ## Distribución de TCAC post-desastre
 
 <!-- Graph title: Distribución de TCAC post-desastre por horizonte -->
-![](../../outputs/figures/international_disaster_horizon_cagr_distribution.png){fig-align="center" width="100%"}
+![](../../outputs/figures/international_disaster_horizon_cagr_distribution.png){fig-align="center"}
 
 # 6. Implicaciones para el futuro desarrollo de Venezuela
 
@@ -307,19 +374,47 @@ world - we convert all our takings."*
 
 | Índice | Fuente | Posición de Venezuela |
 |---|---|---:|
-| Democracia | The Economist Intelligence Unit, Democracy Index 2024 | 134/156 |
+| Democracia | EIU, Democracy Index 2024 | 134/156 |
 | Complejidad económica | Atlas of Economic Complexity, ECI 2024 | 133/145 |
-| Libertad económica | Heritage Foundation, Index of Economic Freedom 2025 | 173/176 |
+| Libertad económica | Heritage, Index of Economic Freedom 2025 | 173/176 |
 | Estado de derecho | World Justice Project, Rule of Law Index 2025 | 143/143 |
-| Libertad de prensa | Reporteros sin Fronteras, World Press Freedom Index 2025 | 160/180 |
+| Libertad de prensa | RSF, World Press Freedom Index 2025 | 160/180 |
 | Percepción de corrupción | Transparency International, CPI 2024 | 178/180 |
+| Desempeño de sistema estadístico |  World Bank, SPI 2024 | 177/188 |
+| Copetitividad Económica |  IMD World Competitiveness Centre 2025 | 70/70 |
 
 ## Consideraciones para el futuro
 
 1. El efecto compuesto es no-trivial; pequeños cambios en el ritmo de crecimiento pueden acortar o alargar considerablemente el tiempo de recuperación.
-2. El punto de partida productivo, financiero, institucional e internacional implica fricciones para que Venezuela experimente otro “boom”.
-3. Aunque la meta pueda equiparar niveles pasados, la estructura económica venezolana no necesariamente será la misma.
-4. El desempeño pasado no tiene por qué predecir desempeño futuro, pero implica quiebres considerables de trayectoria.
-5. Las reformas en el sistema económico y político condicionan la capacidad de sostener tasas de crecimiento altas por períodos prolongados. Un esquema extractivista es inherentemente inhibidor del dinamismo.
-6. El contrato social concebido alrededor del “rentismo bien administrado” es conceptual y empíricamente incompatible con la experiencia venezolana.
-7. Independientemente de la configuración del modelo económico a futuro, el Estado venezolano enfrentará considerables restricciones fiscales. El alcance del sistema de seguridad social solo llegará hasta donde alcance la cobija presupuestaria. El impulsador de ganancias por bienestar debe ser el aumento de productividad.
+2. El objetivo de la política económica y de desarrollo debe priorizar fomentar entornos regulatorios y productivos que favorezcan el crecimiento.
+3. Aunque las metas sean equivalentes a niveles de ingresos pasados, la estructura económica venezolana no necesariamente será la misma, con la matriz de ventajas comparativas y dinámicas sectoriales enfrentando contextos dioferentes.
+4. El punto de partida productivo, financiero, institucional e internacional implica fricciones para que Venezuela experimente otro “boom” en el corto plazo; se deberá rodear esas restricciones para sostener tasas altas.
+5. Las reformas en el sistema económico y político condicionan la capacidad de sostener tasas de crecimiento altas por períodos prolongados. Un esquema institucionalmente extractivista es inherentemente inhibidor del dinamismo.
+6. El desempeño pasado no tiene por qué predecir desempeño futuro, pero implica quiebres considerables de trayectoria en la concepción, diseño y desenvolvimiento de la actividad económica.
+7. El contrato social concebido alrededor del “rentismo bien administrado” es un mito fiscalmente isostenible, conceptualmente inviable, y empíricamente incompatible con la experiencia venezolana pasada y presente.
+8. Independientemente de la configuración del modelo económico a futuro, el Estado venezolano enfrentará considerables restricciones fiscales, lo que requerirá priorizar aasignaciones al sistema de seguridad social sujeto a una cobija presupuestaria pequeña. El comodín de "aumentar el gasto pública social y listo" tiene un límite muy bajo.
+9. El impulsador de ganancias en bienestar será prinicpalmente proveniente del aumento de la productividad.
+ 
+## Thank you {.closing-slide}
+
+```{=html}
+<div class="closing-card">
+  <h3>Giorgio Cunto Morales</h3>
+  <p><em>El Largo Camino por Delante</em></p>
+  <p><a href="mailto:giorgio.cmorales@gmail.com">giorgio.cmorales@gmail.com</a></p>
+  <p><a href="tel:+584143665153">+58 414-3665153</a></p>
+  <p><a href="https://www.linkedin.com/in/giorgiocmorales/">linkedin.com/in/giorgiocmorales</a></p>
+</div>
+```
+
+```{=latex}
+\vfill
+\begin{center}
+{\Large\bfseries\color{DeckHeading} Giorgio Cunto Morales}\\[0.45em]
+{\normalsize\itshape\color{DeckMuted} El Largo Camino por Delante}\\[1.1em]
+{\normalsize\href{mailto:giorgio.cmorales@gmail.com}{giorgio.cmorales@gmail.com}}\\[0.35em]
+{\normalsize +58 414-3665153}\\[0.35em]
+{\normalsize\href{https://www.linkedin.com/in/giorgiocmorales/}{linkedin.com/in/giorgiocmorales}}\\
+\end{center}
+\vfill
+```

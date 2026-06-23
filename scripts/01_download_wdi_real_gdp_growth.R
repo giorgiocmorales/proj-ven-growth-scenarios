@@ -1,8 +1,8 @@
 # Download World Bank WDI real GDP growth for the Maddison country sample.
 
-## Setup -----------------------------------------------------------------------
+## Setup ----
 # Check packages before touching network sources or local caches.
-required_packages <- c("dplyr", "jsonlite", "readxl")
+required_packages <- c("dplyr", "jsonlite", "magrittr", "readxl")
 missing_packages <- required_packages[!vapply(
   required_packages,
   requireNamespace,
@@ -17,26 +17,28 @@ if (length(missing_packages) > 0) {
   )
 }
 
+`%>%` <- magrittr::`%>%`
+
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 
-## Country universe ------------------------------------------------------------
+## Country universe ----
 # Use Maddison country codes as the shared international comparison sample.
 maddison_data_path <- "data/raw/mpd2023_web.xlsx"
 if (!file.exists(maddison_data_path)) {
   stop(sprintf("Maddison workbook not found at `%s`.", maddison_data_path), call. = FALSE)
 }
 
-maddison_countries <- readxl::read_excel(maddison_data_path, sheet = "Full data") |>
+maddison_countries <- readxl::read_excel(maddison_data_path, sheet = "Full data") %>%
   dplyr::transmute(
     country_code = as.character(countrycode),
     maddison_country = as.character(country),
     maddison_region = as.character(region)
-  ) |>
-  dplyr::filter(!is.na(country_code), nchar(country_code) == 3) |>
-  dplyr::distinct(country_code, .keep_all = TRUE) |>
+  ) %>%
+  dplyr::filter(!is.na(country_code), nchar(country_code) == 3) %>%
+  dplyr::distinct(country_code, .keep_all = TRUE) %>%
     dplyr::arrange(country_code)
 
-## Download helper -------------------------------------------------------------
+## Download helper ----
 # Download one WDI indicator, filter to the Maddison sample, and write metadata.
 download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
   url <- sprintf(
@@ -49,7 +51,7 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
     stop(sprintf("World Bank returned no rows for %s.", indicator_id), call. = FALSE)
   }
 
-  wdi_raw <- raw_json[[2]] |>
+  wdi_raw <- raw_json[[2]] %>%
     dplyr::transmute(
       country_code = as.character(countryiso3code),
       country = as.character(country$value),
@@ -60,9 +62,9 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
       unit = as.character(unit),
       obs_status = as.character(obs_status),
       decimal = as.integer(decimal)
-    ) |>
-    dplyr::filter(!is.na(country_code), country_code %in% maddison_countries$country_code) |>
-    dplyr::left_join(maddison_countries, by = "country_code") |>
+    ) %>%
+    dplyr::filter(!is.na(country_code), country_code %in% maddison_countries$country_code) %>%
+    dplyr::left_join(maddison_countries, by = "country_code") %>%
     dplyr::select(
       country_code,
       country,
@@ -75,7 +77,7 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
       unit,
       obs_status,
       decimal
-    ) |>
+    ) %>%
     dplyr::arrange(country_code, year)
 
   wdi_leftout <- setdiff(maddison_countries$country_code, unique(wdi_raw$country_code))
@@ -113,7 +115,7 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
   message("Wrote ", metadata_path)
 }
 
-## Data outputs ----------------------------------------------------------------
+## Data outputs ----
 # Cache GDP and GDP per-capita growth for later episode construction.
 download_wdi_indicator(
   indicator_id = "NY.GDP.MKTP.KD.ZG",

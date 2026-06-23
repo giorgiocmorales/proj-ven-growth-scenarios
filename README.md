@@ -31,7 +31,7 @@ The repository is organized into five layers:
 - `data/final/`: processed CSV outputs for the app and report
 - `R/`: reusable analytical functions
 - `scripts/`: ordered data-build scripts
-- `outputs/figures/`: generated presentation figures
+- `outputs/figures/`: generated presentation figures (`.png` for HTML and matching `.pdf` vectors for Beamer/PDF)
 - `outputs/presentation/`: definitive rendered HTML and PDF presentation outputs
 - `app/`: dashboard scaffold, modules, static assets, and i18n files
 - `reports/article-es/`: Spanish article/report scaffold

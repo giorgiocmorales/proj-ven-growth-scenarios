@@ -1,10 +1,10 @@
 # Run the full non-interactive reproduction pipeline from setup through report build.
 
-## Setup -----------------------------------------------------------------------
+## Setup ----
 # Load dependencies and create output directories before running the pipeline.
 source("scripts/00_set_up.R")
 
-## Pipeline sequence -----------------------------------------------------------
+## Pipeline sequence ----
 # Run data downloads, transformations, graph generation, and presentation render.
 pipeline_scripts <- c(
   "scripts/01_download_wdi_real_gdp_growth.R",
@@ -23,7 +23,7 @@ pipeline_scripts <- c(
   "scripts/14_render_presentation.R"
 )
 
-## Execution -------------------------------------------------------------------
+## Execution ----
 # Source each script in order so intermediate objects are recreated from scratch.
 for (script_path in pipeline_scripts) {
   message("Running ", script_path, " ...")

@@ -14,6 +14,7 @@ presentation_html_file <- file.path(presentation_html_dir, paste0(presentation_s
 presentation_pdf_file <- file.path(presentation_pdf_dir, paste0(presentation_slug, ".pdf"))
 presentation_source_html <- file.path(presentation_dir, "index.html")
 presentation_source_pdf <- file.path(presentation_dir, "index.pdf")
+presentation_pdf_qmd <- file.path(presentation_dir, "index-pdf.qmd")
 source_figure_prefix <- "../../outputs/figures/"
 html_figure_prefix <- "../../figures/"
 texlive_2025_repository <- "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/tlnet-final"
@@ -58,14 +59,14 @@ ensure_beamer_dependencies <- function() {
   ensure_latex_file_available("loadhyph-es.tex", "hyphen-spanish")
 }
 
-render_presentation_format <- function(output_format, source_output_file) {
+render_presentation_format <- function(output_format, source_output_file, input = presentation_qmd) {
   # Remove the previous in-place artifact so stale successful renders are obvious.
   if (file.exists(source_output_file)) {
     unlink(source_output_file)
   }
 
   quarto::quarto_render(
-    input = presentation_qmd,
+    input = input,
     output_format = output_format,
     output_file = basename(source_output_file),
     quiet = FALSE
@@ -76,6 +77,19 @@ render_presentation_format <- function(output_format, source_output_file) {
   }
 
   invisible(source_output_file)
+}
+
+prepare_pdf_presentation_qmd <- function() {
+  # Keep HTML on browser-friendly PNGs, but render Beamer with vector PDF figures.
+  qmd_lines <- readLines(presentation_qmd, warn = FALSE)
+  qmd_lines <- gsub(
+    "(\\.\\./\\.\\./outputs/figures/[^)\\{]+)\\.png",
+    "\\1.pdf",
+    qmd_lines,
+    perl = TRUE
+  )
+  writeLines(qmd_lines, presentation_pdf_qmd, useBytes = TRUE)
+  invisible(presentation_pdf_qmd)
 }
 
 copy_presentation_html_bundle <- function() {
@@ -133,13 +147,43 @@ remove_duplicate_figure_dirs <- function() {
   }
 }
 
+clean_in_place_presentation_artifacts <- function() {
+  # Keep reports/presentation source-only after definitive outputs are copied.
+  stale_artifacts <- c(
+    presentation_source_html,
+    presentation_source_pdf,
+    presentation_pdf_qmd,
+    file.path(presentation_dir, "index_files"),
+    file.path(presentation_dir, "figures")
+  )
+
+  for (stale_path in stale_artifacts) {
+    if (file.exists(stale_path) || dir.exists(stale_path)) {
+      unlink(stale_path, recursive = TRUE)
+    }
+  }
+}
+
 render_presentation_format("revealjs", presentation_source_html)
 copy_presentation_html_bundle()
 
 ensure_beamer_dependencies()
-render_presentation_format("beamer", presentation_source_pdf)
+prepare_pdf_presentation_qmd()
+tryCatch(
+  render_presentation_format("beamer", presentation_source_pdf, input = presentation_pdf_qmd),
+  error = function(error) {
+    if (file.exists(presentation_pdf_qmd)) {
+      unlink(presentation_pdf_qmd)
+    }
+    stop(error)
+  }
+)
+if (file.exists(presentation_pdf_qmd)) {
+  unlink(presentation_pdf_qmd)
+}
 copy_presentation_pdf()
 remove_duplicate_figure_dirs()
+clean_in_place_presentation_artifacts()
 
 message("Rendered presentation source: ", presentation_qmd)
 message("Wrote definitive HTML: ", presentation_html_file)

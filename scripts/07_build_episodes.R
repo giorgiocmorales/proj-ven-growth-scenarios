@@ -1,7 +1,13 @@
 # Build historical boom-bust episode tables.
 
-## Inputs ----------------------------------------------------------------------
+## Inputs ----
 # Read the cleaned Venezuela history and create the interim output folder.
+if (!requireNamespace("magrittr", quietly = TRUE)) {
+  stop("The `magrittr` package is required to run this script.", call. = FALSE)
+}
+
+`%>%` <- magrittr::`%>%`
+
 dir.create("data/interim", recursive = TRUE, showWarnings = FALSE)
 
 clean_data_path <- "data/interim/clean_historical_data.csv"
@@ -12,7 +18,7 @@ if (!file.exists(clean_data_path)) {
 clean_data <- utils::read.csv(clean_data_path, stringsAsFactors = FALSE)
 clean_data$date <- as.Date(clean_data$date)
 
-## Episode helper --------------------------------------------------------------
+## Episode helper ----
 # Convert a growth series into contiguous expansion/contraction paths and summaries.
 build_episode_outputs <- function(year, date, growth_rate, index_value, series_id, series_label) {
   if (length(year) < 2) {
@@ -105,7 +111,7 @@ build_episode_outputs <- function(year, date, growth_rate, index_value, series_i
   )
 }
 
-## Domestic episodes -----------------------------------------------------------
+## Domestic episodes ----
 # Build Venezuela total-GDP and per-capita episodes from the historical workbook.
 gdp_outputs <- build_episode_outputs(
   year = clean_data$year,
@@ -136,7 +142,7 @@ utils::write.csv(episode_outputs$episode_path, "data/interim/episode_path.csv", 
 message("Wrote data/interim/episode_summary.csv")
 message("Wrote data/interim/episode_path.csv")
 
-## Maddison country episodes ---------------------------------------------------
+## Maddison country episodes ----
 # Optional international per-capita episodes from the Maddison workbook.
 maddison_data_path <- "data/raw/mpd2023_web.xlsx"
 if (file.exists(maddison_data_path)) {
@@ -188,14 +194,14 @@ if (file.exists(maddison_data_path)) {
     country_outputs
   }
 
-  maddison_full_data <- readxl::read_excel(maddison_data_path, sheet = "Full data") |>
+  maddison_full_data <- readxl::read_excel(maddison_data_path, sheet = "Full data") %>%
     dplyr::transmute(
       countrycode = as.character(countrycode),
       country = as.character(country),
       region = as.character(region),
       year = as.integer(year),
       gdppc = as.numeric(gdppc)
-    ) |>
+    ) %>%
     dplyr::filter(!is.na(countrycode), !is.na(country), !is.na(year), !is.na(gdppc))
 
   maddison_country_groups <- split(maddison_full_data, maddison_full_data$countrycode)
@@ -228,7 +234,7 @@ if (file.exists(maddison_data_path)) {
   message("Skipping Maddison episode outputs; raw workbook not found at ", maddison_data_path)
 }
 
-## WDI total-GDP episodes ------------------------------------------------------
+## WDI total-GDP episodes ----
 # Optional international episodes from World Bank real GDP growth.
 wdi_real_gdp_growth_path <- "data/raw/wdi_real_gdp_growth_maddison_countries.csv"
 if (file.exists(wdi_real_gdp_growth_path)) {
@@ -277,7 +283,7 @@ if (file.exists(wdi_real_gdp_growth_path)) {
     country_outputs
   }
 
-  wdi_real_gdp_growth <- utils::read.csv(wdi_real_gdp_growth_path, stringsAsFactors = FALSE) |>
+  wdi_real_gdp_growth <- utils::read.csv(wdi_real_gdp_growth_path, stringsAsFactors = FALSE) %>%
     dplyr::transmute(
       country_code = as.character(country_code),
       country = as.character(country),
@@ -285,7 +291,7 @@ if (file.exists(wdi_real_gdp_growth_path)) {
       maddison_region = as.character(maddison_region),
       year = as.integer(year),
       growth_rate = as.numeric(value) / 100
-    ) |>
+    ) %>%
     dplyr::filter(!is.na(country_code), !is.na(year), !is.na(growth_rate))
 
   wdi_country_groups <- split(wdi_real_gdp_growth, wdi_real_gdp_growth$country_code)
@@ -323,7 +329,7 @@ if (file.exists(wdi_real_gdp_growth_path)) {
   message("Skipping WDI real GDP growth episode outputs; raw CSV not found at ", wdi_real_gdp_growth_path)
 }
 
-## WDI per-capita episodes -----------------------------------------------------
+## WDI per-capita episodes ----
 # Optional international episodes from World Bank real GDP per-capita growth.
 wdi_real_gdp_pc_growth_path <- "data/raw/wdi_real_gdp_per_capita_growth_maddison_countries.csv"
 if (file.exists(wdi_real_gdp_pc_growth_path)) {
@@ -335,7 +341,7 @@ if (file.exists(wdi_real_gdp_pc_growth_path)) {
     stop("WDI episode builder is unavailable.", call. = FALSE)
   }
 
-  wdi_real_gdp_pc_growth <- utils::read.csv(wdi_real_gdp_pc_growth_path, stringsAsFactors = FALSE) |>
+  wdi_real_gdp_pc_growth <- utils::read.csv(wdi_real_gdp_pc_growth_path, stringsAsFactors = FALSE) %>%
     dplyr::transmute(
       country_code = as.character(country_code),
       country = as.character(country),
@@ -343,7 +349,7 @@ if (file.exists(wdi_real_gdp_pc_growth_path)) {
       maddison_region = as.character(maddison_region),
       year = as.integer(year),
       growth_rate = as.numeric(value) / 100
-    ) |>
+    ) %>%
     dplyr::filter(!is.na(country_code), !is.na(year), !is.na(growth_rate))
 
   wdi_pc_country_groups <- split(wdi_real_gdp_pc_growth, wdi_real_gdp_pc_growth$country_code)
@@ -381,7 +387,7 @@ if (file.exists(wdi_real_gdp_pc_growth_path)) {
   message("Skipping WDI real GDP per-capita growth episode outputs; raw CSV not found at ", wdi_real_gdp_pc_growth_path)
 }
 
-## IMF WEO per-capita episodes -------------------------------------------------
+## IMF WEO per-capita episodes ----
 # Optional international episodes from derived IMF WEO per-capita growth.
 imf_weo_gdp_pc_growth_path <- "data/raw/imf_weo_gdp_per_capita_growth_maddison_countries.csv"
 if (file.exists(imf_weo_gdp_pc_growth_path)) {
@@ -428,14 +434,14 @@ if (file.exists(imf_weo_gdp_pc_growth_path)) {
     country_outputs
   }
 
-  imf_weo_gdp_pc_growth <- utils::read.csv(imf_weo_gdp_pc_growth_path, stringsAsFactors = FALSE) |>
+  imf_weo_gdp_pc_growth <- utils::read.csv(imf_weo_gdp_pc_growth_path, stringsAsFactors = FALSE) %>%
     dplyr::transmute(
       country_code = as.character(country_code),
       maddison_country = as.character(maddison_country),
       maddison_region = as.character(maddison_region),
       year = as.integer(year),
       growth_rate = as.numeric(value) / 100
-    ) |>
+    ) %>%
     dplyr::filter(!is.na(country_code), !is.na(year), !is.na(growth_rate))
 
   imf_weo_country_groups <- split(imf_weo_gdp_pc_growth, imf_weo_gdp_pc_growth$country_code)

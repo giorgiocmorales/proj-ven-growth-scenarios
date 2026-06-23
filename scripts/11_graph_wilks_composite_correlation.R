@@ -1,8 +1,8 @@
 # Recreate the Wilks-style composite convergence simulation discussed by Cremieux.
 
-## Setup -----------------------------------------------------------------------
+## Setup ----
 # Check packages and load the shared presentation theme.
-required_packages <- c("dplyr", "ggplot2", "scales")
+required_packages <- c("dplyr", "ggplot2", "magrittr", "scales")
 missing_packages <- required_packages[!vapply(
   required_packages,
   requireNamespace,
@@ -17,12 +17,14 @@ if (length(missing_packages) > 0) {
   )
 }
 
+`%>%` <- magrittr::`%>%`
+
 source("scripts/_presentation_theme.R")
 
 figure_dir <- "outputs/figures"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
-## Plot constants --------------------------------------------------------------
+## Plot constants ----
 # Shared caption and simulation parameters.
 presentation_source_caption <- build_source_caption(
   "Replicación propia de Cremieux Recueil (2024)",
@@ -37,7 +39,7 @@ draws_per_size <- 450L
 sample_size <- 200L
 target_average_correlation <- 0.50
 
-## Simulation helper -----------------------------------------------------------
+## Simulation helper ----
 # Simulate the correlation between two weighted composites with disjoint items.
 simulate_composite_correlation <- function(items_n) {
   factor_loading <- sqrt(target_average_correlation)
@@ -60,7 +62,7 @@ simulate_composite_correlation <- function(items_n) {
   stats::cor(l1, l2)
 }
 
-## Simulation data -------------------------------------------------------------
+## Simulation data ----
 # Run repeated draws for each composite size.
 simulation_data <- do.call(
   rbind,
@@ -76,10 +78,10 @@ simulation_data <- do.call(
   )
 )
 
-## Summary data ----------------------------------------------------------------
+## Summary data ----
 # Collapse draws into mean, median, and uncertainty bands for plotting.
-summary_data <- simulation_data |>
-  dplyr::group_by(items_per_composite) |>
+summary_data <- simulation_data %>%
+  dplyr::group_by(items_per_composite) %>%
   dplyr::summarise(
     lower = stats::quantile(composite_correlation, 0.05, na.rm = TRUE),
     upper = stats::quantile(composite_correlation, 0.95, na.rm = TRUE),
@@ -88,7 +90,7 @@ summary_data <- simulation_data |>
     .groups = "drop"
   )
 
-## Plot construction -----------------------------------------------------------
+## Plot construction ----
 # Graph: Por qué el PIB aparece en todas partes
 wilks_plot <- ggplot2::ggplot() +
   ggplot2::geom_ribbon(
@@ -101,8 +103,8 @@ wilks_plot <- ggplot2::ggplot() +
     data = simulation_data,
     ggplot2::aes(x = items_per_composite, y = composite_correlation),
     color = presentation_colors[["ink"]],
-    alpha = 0.12,
-    size = 0.85,
+    alpha = 0.16,
+    size = 1.45,
     stroke = 0
   ) +
   ggplot2::geom_line(
@@ -121,7 +123,7 @@ wilks_plot <- ggplot2::ggplot() +
     labels = items_per_composite
   ) +
   ggplot2::scale_y_continuous(
-    labels = scales::label_number(accuracy = 0.01),
+    labels = presentation_number_label(accuracy = 0.01),
     breaks = scales::breaks_width(0.25)
   ) +
   ggplot2::coord_cartesian(ylim = c(-0.05, 1.05), expand = FALSE) +
@@ -144,12 +146,13 @@ wilks_plot <- ggplot2::ggplot() +
     panel.grid.minor = ggplot2::element_blank()
   )
 
-## Figure output ---------------------------------------------------------------
+## Figure output ----
 # Save the finished simulation graph.
-save_presentation_plot(
+save_and_preview_plot(
   filename = file.path(figure_dir, "wilks_composite_correlation.png"),
   plot = wilks_plot,
-  source_caption = presentation_source_caption
+  source_caption = presentation_source_caption,
+  note = presentation_axis_note(log_x = TRUE)
 )
 
 message("Wrote ", file.path(figure_dir, "wilks_composite_correlation.png"))

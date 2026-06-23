@@ -1,6 +1,6 @@
 # Build normalized historical series used by the simulator.
 
-## Inputs ----------------------------------------------------------------------
+## Inputs ----
 # Read the cleaned Venezuela history produced by scripts/05_build_clean_data.R.
 dir.create("data/interim", recursive = TRUE, showWarnings = FALSE)
 
@@ -12,12 +12,12 @@ if (!file.exists(clean_data_path)) {
 clean_data <- utils::read.csv(clean_data_path, stringsAsFactors = FALSE)
 clean_data$date <- as.Date(clean_data$date)
 
-## Anchor year -----------------------------------------------------------------
+## Anchor year ----
 # Use the latest available observation as the current recovery anchor.
 latest_year <- max(clean_data$year, na.rm = TRUE)
 anchor_data <- clean_data[clean_data$year == latest_year, , drop = FALSE]
 
-## Long series -----------------------------------------------------------------
+## Long series ----
 # Stack total GDP and GDP per-capita into one long table for common downstream code.
 series_outputs <- list()
 series_outputs$series_long <- rbind(
@@ -53,7 +53,7 @@ series_outputs$series_long$index_vs_anchor_100 <-
   (series_outputs$series_long$index_value / series_outputs$series_long$anchor_index_value) * 100
 series_outputs$series_long$is_anchor_year <- series_outputs$series_long$year == latest_year
 
-## Benchmark table -------------------------------------------------------------
+## Benchmark table ----
 # Turn each historical year into a candidate benchmark for the simulator.
 series_outputs$benchmark_table <- series_outputs$series_long[, c(
   "series_id",
@@ -85,7 +85,7 @@ series_outputs$normalized_by_benchmark$years_from_benchmark <-
 series_outputs$normalized_by_benchmark$is_benchmark_year <-
   series_outputs$normalized_by_benchmark$year == series_outputs$normalized_by_benchmark$benchmark_year
 
-## Series summary --------------------------------------------------------------
+## Series summary ----
 # Record basic coverage and latest index values for quick validation.
 series_outputs$series_summary <- data.frame(
   series_id = c("gdp", "gdp_per_capita"),
@@ -100,7 +100,7 @@ series_outputs$series_summary <- data.frame(
   stringsAsFactors = FALSE
 )
 
-## Data outputs ----------------------------------------------------------------
+## Data outputs ----
 # Persist normalized series tables for app, report, and graph scripts.
 utils::write.csv(series_outputs$series_long, "data/interim/index_series_long.csv", row.names = FALSE)
 utils::write.csv(series_outputs$benchmark_table, "data/interim/benchmark_table.csv", row.names = FALSE)

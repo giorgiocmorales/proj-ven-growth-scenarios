@@ -1,6 +1,6 @@
 # Set up the project session and required directories.
 
-## Package groups --------------------------------------------------------------
+## Package groups ----
 # Keep package requirements grouped by usage so missing dependencies are easier
 # to diagnose before running the full pipeline.
 project_packages_core <- c("readxl", "dplyr", "jsonlite")
@@ -17,7 +17,7 @@ project_packages_all <- unique(c(
   project_packages_legacy
 ))
 
-## Package checks --------------------------------------------------------------
+## Package checks ----
 # Fail early with a concise list of packages that must be installed locally.
 check_project_packages <- function(packages, error_if_missing = TRUE) {
   missing_packages <- packages[!vapply(
@@ -52,13 +52,13 @@ if (length(missing_packages) > 0) {
   )
 }
 
-## Session setup ---------------------------------------------------------------
+## Session setup ----
 # Attach packages used by downstream scripts when the full pipeline is sourced.
 for (package_name in project_packages_all) {
   library(package_name, character.only = TRUE)
 }
 
-## Directory setup -------------------------------------------------------------
+## Directory setup ----
 # Create the writable folders expected by data, figure, and presentation scripts.
 dir.create("data/interim", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/final", recursive = TRUE, showWarnings = FALSE)

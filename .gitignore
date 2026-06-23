@@ -13,9 +13,17 @@ reports/_site/
 reports/article-es/_site/
 reports/presentation/index.html
 reports/presentation/index_print.html
+reports/presentation/index-pdf.qmd
 reports/presentation/index_files/
 reports/presentation/*_files/
 reports/presentation/*.pdf
+reports/presentation/*.aux
+reports/presentation/*.log
+reports/presentation/*.nav
+reports/presentation/*.out
+reports/presentation/*.snm
+reports/presentation/*.toc
+reports/presentation/*.vrb
 reports/presentation/_qa_screenshots*/
 reports/presentation/reports/
 
