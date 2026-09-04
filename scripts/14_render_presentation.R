@@ -12,12 +12,11 @@ presentation_html_dir <- file.path(presentation_outputs_dir, "html")
 presentation_pdf_dir <- file.path(presentation_outputs_dir, "pdf")
 presentation_html_file <- file.path(presentation_html_dir, paste0(presentation_slug, ".html"))
 presentation_pdf_file <- file.path(presentation_pdf_dir, paste0(presentation_slug, ".pdf"))
+presentation_pending_pdf_file <- file.path(presentation_pdf_dir, paste0(presentation_slug, ".pending.pdf"))
 presentation_source_html <- file.path(presentation_dir, "index.html")
 presentation_source_pdf <- file.path(presentation_dir, "index.pdf")
-presentation_pdf_qmd <- file.path(presentation_dir, "index-pdf.qmd")
 source_figure_prefix <- "../../outputs/figures/"
 html_figure_prefix <- "../../figures/"
-texlive_2025_repository <- "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/tlnet-final"
 
 if (!file.exists(presentation_qmd)) {
   stop(sprintf("Missing Quarto presentation at `%s`.", presentation_qmd), call. = FALSE)
@@ -27,46 +26,16 @@ if (!requireNamespace("quarto", quietly = TRUE)) {
   stop("The `quarto` R package is required to render the presentation from R.", call. = FALSE)
 }
 
-ensure_latex_file_available <- function(file_name, package_name) {
-  # TinyTeX installs can be minimal. Install specific packages only when missing.
-  file_check <- suppressWarnings(system2("kpsewhich", file_name, stdout = TRUE, stderr = TRUE))
-  if (length(file_check) > 0 && any(nzchar(file_check))) {
-    return(invisible(TRUE))
-  }
+source("scripts/_presentation_assets.R")
 
-  message("LaTeX file `", file_name, "` not found; installing `", package_name, "` from TeX Live 2025 final repository.")
-  status <- system2(
-    "tlmgr",
-    c("--repository", texlive_2025_repository, "install", package_name)
-  )
-
-  if (!identical(status, 0L)) {
-    stop(
-      paste(
-        sprintf("Could not install the LaTeX `%s` package.", package_name),
-        sprintf("Update TinyTeX/TeX Live or install `%s` manually before rendering the PDF.", package_name)
-      ),
-      call. = FALSE
-    )
-  }
-
-  invisible(TRUE)
-}
-
-ensure_beamer_dependencies <- function() {
-  ensure_latex_file_available("beamer.cls", "beamer")
-  ensure_latex_file_available("spanish.ldf", "babel-spanish")
-  ensure_latex_file_available("loadhyph-es.tex", "hyphen-spanish")
-}
-
-render_presentation_format <- function(output_format, source_output_file, input = presentation_qmd) {
+render_presentation_format <- function(output_format, source_output_file, input_file) {
   # Remove the previous in-place artifact so stale successful renders are obvious.
   if (file.exists(source_output_file)) {
     unlink(source_output_file)
   }
 
   quarto::quarto_render(
-    input = input,
+    input = input_file,
     output_format = output_format,
     output_file = basename(source_output_file),
     quiet = FALSE
@@ -77,19 +46,6 @@ render_presentation_format <- function(output_format, source_output_file, input 
   }
 
   invisible(source_output_file)
-}
-
-prepare_pdf_presentation_qmd <- function() {
-  # Keep HTML on browser-friendly PNGs, but render Beamer with vector PDF figures.
-  qmd_lines <- readLines(presentation_qmd, warn = FALSE)
-  qmd_lines <- gsub(
-    "(\\.\\./\\.\\./outputs/figures/[^)\\{]+)\\.png",
-    "\\1.pdf",
-    qmd_lines,
-    perl = TRUE
-  )
-  writeLines(qmd_lines, presentation_pdf_qmd, useBytes = TRUE)
-  invisible(presentation_pdf_qmd)
 }
 
 copy_presentation_html_bundle <- function() {
@@ -120,16 +76,35 @@ copy_presentation_html_bundle <- function() {
 
 copy_presentation_pdf <- function() {
   dir.create(presentation_pdf_dir, recursive = TRUE, showWarnings = FALSE)
+
+  copied_pending_pdf <- file.copy(
+    presentation_source_pdf,
+    presentation_pending_pdf_file,
+    overwrite = TRUE
+  )
+  if (!isTRUE(copied_pending_pdf)) {
+    stop(
+      sprintf("Could not stage the rendered PDF at `%s`.", presentation_pending_pdf_file),
+      call. = FALSE
+    )
+  }
+
   copied_pdf <- file.copy(presentation_source_pdf, presentation_pdf_file, overwrite = TRUE)
   if (!isTRUE(copied_pdf)) {
     stop(
       sprintf(
-        "Could not copy PDF to `%s`. Close any PDF viewer using the file and rerun this script.",
-        presentation_pdf_file
+        paste0(
+          "Could not copy PDF to `%s`. Close any PDF viewer using the file and rerun this script. ",
+          "The successful build is preserved at `%s`."
+        ),
+        presentation_pdf_file,
+        presentation_pending_pdf_file
       ),
       call. = FALSE
     )
   }
+
+  unlink(presentation_pending_pdf_file)
   invisible(TRUE)
 }
 
@@ -152,9 +127,16 @@ clean_in_place_presentation_artifacts <- function() {
   stale_artifacts <- c(
     presentation_source_html,
     presentation_source_pdf,
-    presentation_pdf_qmd,
+    file.path(presentation_dir, "index.tex"),
+    file.path(presentation_dir, "index.log"),
+    file.path(presentation_dir, "index-pdf.qmd"),
+    file.path(presentation_dir, "index-pdf.tex"),
+    file.path(presentation_dir, "index-pdf.log"),
+    file.path(presentation_dir, "index-pdf_files"),
+    file.path(presentation_dir, "index.fdb_latexmk"),
     file.path(presentation_dir, "index_files"),
-    file.path(presentation_dir, "figures")
+    file.path(presentation_dir, "figures"),
+    file.path(presentation_dir, "outputs")
   )
 
   for (stale_path in stale_artifacts) {
@@ -164,26 +146,47 @@ clean_in_place_presentation_artifacts <- function() {
   }
 }
 
-render_presentation_format("revealjs", presentation_source_html)
-copy_presentation_html_bundle()
+clean_failed_presentation_artifacts <- function() {
+  # Remove incomplete outputs while retaining TeX diagnostics for inspection.
+  incomplete_artifacts <- c(
+    presentation_source_html,
+    presentation_source_pdf,
+    file.path(presentation_dir, "index-pdf_files"),
+    file.path(presentation_dir, "index_files"),
+    file.path(presentation_dir, "figures"),
+    file.path(presentation_dir, "outputs")
+  )
 
-ensure_beamer_dependencies()
-prepare_pdf_presentation_qmd()
-tryCatch(
-  render_presentation_format("beamer", presentation_source_pdf, input = presentation_pdf_qmd),
-  error = function(error) {
-    if (file.exists(presentation_pdf_qmd)) {
-      unlink(presentation_pdf_qmd)
+  for (incomplete_path in incomplete_artifacts) {
+    if (file.exists(incomplete_path) || dir.exists(incomplete_path)) {
+      unlink(incomplete_path, recursive = TRUE)
     }
-    stop(error)
+  }
+}
+
+render_succeeded <- FALSE
+tryCatch(
+  {
+    validate_presentation_assets(presentation_qmd, c("svg", "pdf"))
+    clean_in_place_presentation_artifacts()
+
+    render_presentation_format("revealjs", presentation_source_html, presentation_qmd)
+    copy_presentation_html_bundle()
+
+    # Beamer embeds the validated vector PDF figure variants.
+    render_presentation_format("beamer", presentation_source_pdf, presentation_qmd)
+    copy_presentation_pdf()
+    remove_duplicate_figure_dirs()
+    render_succeeded <- TRUE
+  },
+  finally = {
+    if (render_succeeded) {
+      clean_in_place_presentation_artifacts()
+    } else {
+      clean_failed_presentation_artifacts()
+    }
   }
 )
-if (file.exists(presentation_pdf_qmd)) {
-  unlink(presentation_pdf_qmd)
-}
-copy_presentation_pdf()
-remove_duplicate_figure_dirs()
-clean_in_place_presentation_artifacts()
 
 message("Rendered presentation source: ", presentation_qmd)
 message("Wrote definitive HTML: ", presentation_html_file)

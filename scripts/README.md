@@ -22,6 +22,7 @@ editing.
 - `13_graph_owid_development_indicators.R`: OWID development relationship graphs.
 - `14_render_presentation.R`: Quarto HTML and Beamer PDF rendering.
 - `15_run_app.R`: interactive app launch.
+- `16_audit_graph_outputs.R`: graph script navigation and output audit.
 - `99_run_all.R`: full non-interactive pipeline runner.
 
 ## Graph Scripts
@@ -29,9 +30,13 @@ editing.
 - Search for `## Plot construction` to find where graph objects are created.
 - Search for `## Family:` to jump to a family of related graphs.
 - Search for `# Graph:` to find a specific chart.
-- Every graph saved through `save_presentation_plot()` writes a PNG for HTML,
-  a matching vector PDF for Beamer/PDF, and is also printed to the active R
-  graphics device after saving.
+- Presentation graphs are exported directly from the same `ggplot` object as
+  PNG previews, SVG figures for Reveal HTML, and vector PDF figures for Beamer.
+- Quarto uses extensionless graph references and selects SVG or PDF by output
+  format; the asset preflight verifies both variants before rendering.
+- Run `scripts/16_audit_graph_outputs.R` after graph edits to write
+  `outputs/graph_output_audit.csv`, which lists each graph save call, its
+  nearby family and graph labels, expected figure path, and audit status.
 
 ## Manual Editing Notes
 

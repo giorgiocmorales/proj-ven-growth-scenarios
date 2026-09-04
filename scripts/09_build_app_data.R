@@ -32,6 +32,15 @@ if (file.exists(maddison_episode_summary_path) && file.exists(maddison_episode_p
     episode_path = utils::read.csv(maddison_episode_path_path, stringsAsFactors = FALSE)
   )
 }
+maddison_gdp_episodes <- NULL
+maddison_gdp_episode_summary_path <- "data/interim/maddison_gdp_episode_summary.csv"
+maddison_gdp_episode_path_path <- "data/interim/maddison_gdp_episode_path.csv"
+if (file.exists(maddison_gdp_episode_summary_path) && file.exists(maddison_gdp_episode_path_path)) {
+  maddison_gdp_episodes <- list(
+    episode_summary = utils::read.csv(maddison_gdp_episode_summary_path, stringsAsFactors = FALSE),
+    episode_path = utils::read.csv(maddison_gdp_episode_path_path, stringsAsFactors = FALSE)
+  )
+}
 wdi_episodes <- NULL
 wdi_episode_summary_path <- "data/interim/wdi_real_gdp_growth_episode_summary.csv"
 wdi_episode_path_path <- "data/interim/wdi_real_gdp_growth_episode_path.csv"
@@ -57,6 +66,15 @@ if (file.exists(imf_weo_episode_summary_path) && file.exists(imf_weo_episode_pat
   imf_weo_episodes <- list(
     episode_summary = utils::read.csv(imf_weo_episode_summary_path, stringsAsFactors = FALSE),
     episode_path = utils::read.csv(imf_weo_episode_path_path, stringsAsFactors = FALSE)
+  )
+}
+imf_weo_gdp_episodes <- NULL
+imf_weo_gdp_episode_summary_path <- "data/interim/imf_weo_gdp_growth_episode_summary.csv"
+imf_weo_gdp_episode_path_path <- "data/interim/imf_weo_gdp_growth_episode_path.csv"
+if (file.exists(imf_weo_gdp_episode_summary_path) && file.exists(imf_weo_gdp_episode_path_path)) {
+  imf_weo_gdp_episodes <- list(
+    episode_summary = utils::read.csv(imf_weo_gdp_episode_summary_path, stringsAsFactors = FALSE),
+    episode_path = utils::read.csv(imf_weo_gdp_episode_path_path, stringsAsFactors = FALSE)
   )
 }
 
@@ -86,6 +104,18 @@ if (!is.null(maddison_episodes)) {
   utils::write.csv(
     maddison_episodes$episode_path,
     "data/final/maddison_gdp_per_capita_episode_path.csv",
+    row.names = FALSE
+  )
+}
+if (!is.null(maddison_gdp_episodes)) {
+  utils::write.csv(
+    maddison_gdp_episodes$episode_summary,
+    "data/final/maddison_gdp_episode_summary.csv",
+    row.names = FALSE
+  )
+  utils::write.csv(
+    maddison_gdp_episodes$episode_path,
+    "data/final/maddison_gdp_episode_path.csv",
     row.names = FALSE
   )
 }
@@ -122,6 +152,18 @@ if (!is.null(imf_weo_episodes)) {
   utils::write.csv(
     imf_weo_episodes$episode_path,
     "data/final/imf_weo_gdp_per_capita_growth_episode_path.csv",
+    row.names = FALSE
+  )
+}
+if (!is.null(imf_weo_gdp_episodes)) {
+  utils::write.csv(
+    imf_weo_gdp_episodes$episode_summary,
+    "data/final/imf_weo_gdp_growth_episode_summary.csv",
+    row.names = FALSE
+  )
+  utils::write.csv(
+    imf_weo_gdp_episodes$episode_path,
+    "data/final/imf_weo_gdp_growth_episode_path.csv",
     row.names = FALSE
   )
 }

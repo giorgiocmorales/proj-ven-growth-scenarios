@@ -18,6 +18,7 @@ reports/presentation/index_files/
 reports/presentation/*_files/
 reports/presentation/*.pdf
 reports/presentation/*.aux
+reports/presentation/*.fdb_latexmk
 reports/presentation/*.log
 reports/presentation/*.nav
 reports/presentation/*.out
@@ -26,6 +27,8 @@ reports/presentation/*.toc
 reports/presentation/*.vrb
 reports/presentation/_qa_screenshots*/
 reports/presentation/reports/
+reports/presentation/outputs/
+reports/presentation/index-pdf_files/
 
 # Generated presentation figures
 reports/presentation/figures/*.png
@@ -36,6 +39,8 @@ data/raw/owid_democracy_index.csv
 
 # Generated outputs
 outputs/
+tmp/
+Rplots.pdf
 
 # OS junk
 .DS_Store

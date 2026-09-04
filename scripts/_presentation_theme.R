@@ -37,14 +37,11 @@ presentation_colors <- c(
 presentation_plot_width <- 16
 presentation_plot_height <- 9
 presentation_plot_dpi <- 120
-presentation_vector_extensions <- c("png")
-
 presentation_font_family <- "serif"
 presentation_base_size <- 19
 presentation_small_base_size <- 18
 presentation_compact_base_size <- 17
 presentation_blank_label <- " "
-presentation_default_subtitle <- NULL
 presentation_label_text_size <- 3.1
 presentation_label_small_text_size <- 2.7
 presentation_label_box_linewidth <- 0.15
@@ -53,6 +50,7 @@ presentation_label_radius <- ggplot2::unit(0.08, "lines")
 presentation_label_segment_size <- 0.22
 presentation_label_box_padding <- 0.45
 presentation_label_point_padding <- 0.25
+presentation_point_stroke <- 0.12
 
 # Shared number labels use Spanish separators and one decimal for compact values.
 presentation_number_label <- function(accuracy = 0.1, ...) {
@@ -90,32 +88,61 @@ presentation_axis_note <- function(log_x = FALSE, log_y = FALSE, extra = NULL) {
 }
 
 presentation_note_text <- function(note) {
-  if (is.null(note) || length(note) == 0 || is.na(note) || !nzchar(note)) {
+  if (is.null(note) || length(note) == 0 || all(is.na(note))) {
     return(NULL)
   }
 
-  note <- gsub("[\r\n]+", " ", note)
-  note <- gsub("\\s+", " ", trimws(note))
+  note_parts <- note[!is.na(note) & nzchar(note)]
+  note_parts <- gsub("[\r\n]+", " ", note_parts)
+  note_parts <- gsub("\\s+", " ", trimws(note_parts))
+  note_parts <- note_parts[nzchar(note_parts)]
+  if (length(note_parts) == 0) {
+    return(NULL)
+  }
+
+  note_parts <- vapply(
+    note_parts,
+    function(note_part) {
+      paste0(toupper(substr(note_part, 1, 1)), substr(note_part, 2, nchar(note_part)))
+    },
+    character(1)
+  )
+  note <- paste(note_parts, collapse = "; ")
   if (!nzchar(note)) {
     return(NULL)
   }
-
-  first_letter <- substr(note, 1, 1)
-  note <- paste0(toupper(first_letter), substr(note, 2, nchar(note)))
   if (!grepl("[.!?]$", note)) {
     note <- paste0(note, ".")
   }
   note
 }
 
+append_caption_note <- function(caption, note) {
+  note <- presentation_note_text(note)
+  if (is.null(note)) {
+    return(caption)
+  }
+
+  blank_caption_suffix <- sprintf("\n%s", presentation_blank_label)
+  if (endsWith(caption, blank_caption_suffix)) {
+    caption <- substr(caption, 1, nchar(caption) - nchar(blank_caption_suffix))
+  }
+  if (grepl("\nNota: ", caption, fixed = TRUE)) {
+    caption <- sub("([.!?])$", "", caption)
+    return(sprintf("%s; %s", caption, note))
+  }
+
+  sprintf("%s\nNota: %s", caption, note)
+}
+
 # Keep text geoms aligned with the presentation theme even when a chart adds
 # labels with geom_text(), geom_label(), or annotate("text", ...).
 ggplot2::update_geom_defaults("text", list(family = presentation_font_family))
 ggplot2::update_geom_defaults("label", list(family = presentation_font_family))
+ggplot2::update_geom_defaults("point", list(stroke = presentation_point_stroke))
 
 historical_event_references <- data.frame(
   event = c(
-    "Guerra Federal",
     "WWI",
     "Reventón Barroso 2",
     "WWII",
@@ -123,23 +150,35 @@ historical_event_references <- data.frame(
     "Viernes Negro",
     "Caracazo",
     "Paro Petrolero",
-    "Sanciones Petroleras"
+    "Sanciones Petroleras",
+    "Pandemia de COVID-19",
+    "Terremotos de San Juan"
   ),
-  start_year = c(1859, 1914, 1922, 1939, 1976, 1983, 1989, 2002, 2019),
-  end_year = c(1863, 1918, NA, 1945, NA, NA, NA, NA, NA),
+  # Fractional years retain day-level placement on the continuous timeline.
+  start_year = c(
+    1914, 1922, 1939, 1976, 1983, 1989, 2002, 2019,
+    2020 + 29 / 366,
+    2026 + 174 / 365
+  ),
+  end_year = c(
+    1918, NA, 1945, NA, NA, NA, NA, NA,
+    2021 + 363 / 365,
+    NA
+  ),
   stringsAsFactors = FALSE
 )
 
 historical_event_label_map <- c(
-  "1859" = "Guerra Federal",
-  "1914" = "WWI",
-  "1922" = "Barroso 2",
-  "1939" = "WWII",
-  "1976" = "Nac. petr\u00f3leo",
-  "1983" = "Viernes Negro",
-  "1989" = "Caracazo",
-  "2002" = "Paro petrolero",
-  "2019" = "Sanc. petroleras"
+  "WWI" = "WWI",
+  "Reventón Barroso 2" = "Barroso 2",
+  "WWII" = "WWII",
+  "Nacionalización petróleo" = "Nac. petr\u00f3leo",
+  "Viernes Negro" = "Viernes Negro",
+  "Caracazo" = "Caracazo",
+  "Paro Petrolero" = "Paro petrolero",
+  "Sanciones Petroleras" = "Sanc. petroleras",
+  "Pandemia de COVID-19" = "COVID-19",
+  "Terremotos de San Juan" = "Terremotos de San Juan"
 )
 
 build_priority_color_map <- function(labels, palette = presentation_ordered_colors) {
@@ -274,7 +313,7 @@ historical_event_reference_layers <- function(
         ggplot2::aes(xmin = start_year, xmax = end_year, ymin = -Inf, ymax = Inf),
         inherit.aes = FALSE,
         fill = presentation_colors[["light"]],
-        alpha = 0.12
+        alpha = 0.35
       ),
       ggplot2::geom_vline(
         data = band_events,
@@ -306,7 +345,7 @@ historical_event_reference_layers <- function(
 
   if (isTRUE(label_events) && nrow(events) > 0) {
     label_data <- events
-    label_data$event_label <- historical_event_label_map[as.character(label_data$start_year)]
+    label_data$event_label <- historical_event_label_map[as.character(label_data$event)]
     label_data$event_label[is.na(label_data$event_label)] <- label_data$event[is.na(label_data$event_label)]
     label_data$label_year <- ifelse(
       is.na(label_data$end_year),
@@ -334,7 +373,17 @@ historical_event_reference_layers <- function(
     )
   }
 
-  event_layers
+  # Tag contextual bands and reference lines so they can be drawn beneath data marks.
+  lapply(event_layers, function(layer) {
+    if (
+      inherits(layer$geom, "GeomRect") ||
+        inherits(layer$geom, "GeomVline")
+    ) {
+      attr(layer, "presentation_context_layer") <- TRUE
+    }
+
+    layer
+  })
 }
 
 add_historical_event_references <- function(
@@ -368,61 +417,29 @@ apply_presentation_axis_theme <- function(plot = NULL) {
 
 build_source_caption <- function(source, calculations = TRUE, note = NULL) {
   source_text <- if (calculations) {
-    sprintf("Fuente: %s; cálculos propios.", source)
+    sprintf("Fuente: %s; cálculos propios; elaborado por @giorgiocmorales.", source)
   } else {
     sprintf("Fuente: %s.", source)
   }
 
-  note <- presentation_note_text(note)
-  if (!is.null(note)) {
-    return(sprintf("%s\nNota: %s", source_text, note))
+  caption <- append_caption_note(source_text, note)
+  if (!identical(caption, source_text)) {
+    return(caption)
   }
 
   sprintf("%s\n%s", source_text, presentation_blank_label)
 }
 
-first_present_label <- function(...) {
-  values <- list(...)
-  for (value in values) {
-    if (!is.null(value) && length(value) > 0 && !is.na(value) && nzchar(value)) {
-      return(value)
-    }
-  }
-  NULL
-}
-
-prepare_presentation_plot <- function(
-    plot,
-    source_caption,
-    subtitle = NULL,
-    note = NULL,
-    reserve_subtitle = TRUE,
-    reserve_caption = TRUE) {
-  current_subtitle <- plot$labels$subtitle
-  current_caption <- plot$labels$caption
-  current_x <- plot$labels$x
-
-  # Prefer explicit labels from the plot, while reserving layout space when absent.
-  final_subtitle <- first_present_label(
-    subtitle,
-    current_subtitle,
-    if (reserve_subtitle) presentation_default_subtitle else NULL
+apply_presentation_plot_style <- function(plot) {
+  # Keep contextual historical shading and reference lines behind every chart's data.
+  context_layers <- vapply(
+    plot$layers,
+    function(layer) isTRUE(attr(layer, "presentation_context_layer")),
+    logical(1)
   )
-  final_caption <- first_present_label(
-    current_caption,
-    source_caption,
-    if (reserve_caption) presentation_blank_label else NULL
-  )
-  final_x <- first_present_label(current_x, presentation_blank_label)
 
-  # Notes are appended to the caption so individual graphs can explain bins or caveats.
-  note <- presentation_note_text(note)
-  if (!is.null(note)) {
-    if (grepl("\nNota: ", final_caption, fixed = TRUE)) {
-      final_caption <- sprintf("%s %s", final_caption, note)
-    } else {
-      final_caption <- sprintf("%s\nNota: %s", final_caption, note)
-    }
+  if (any(context_layers)) {
+    plot$layers <- c(plot$layers[context_layers], plot$layers[!context_layers])
   }
 
   # Remove default ggplot padding only when the plot did not request axis limits.
@@ -434,13 +451,9 @@ prepare_presentation_plot <- function(
     plot <- plot + ggplot2::coord_cartesian(expand = FALSE)
   }
 
-  # Apply shared labels, single-row legends, axis styling, and presentation typography.
+  # Apply only universal legend, axis, and typography settings.
+  # Titles, subtitles, axes, legends, and captions belong in each graph's labs() block.
   plot +
-    ggplot2::labs(
-      x = final_x,
-      subtitle = final_subtitle,
-      caption = final_caption
-    ) +
     ggplot2::guides(
       color = ggplot2::guide_legend(nrow = 1, byrow = TRUE),
       fill = ggplot2::guide_legend(nrow = 1, byrow = TRUE),
@@ -492,51 +505,47 @@ prepare_presentation_plot <- function(
     )
 }
 
-save_presentation_plot <- function(filename, plot, source_caption, subtitle = NULL, note = NULL) {
-  # Prepare once, then save the same graph to raster and vector outputs.
-  prepared_plot <- prepare_presentation_plot(
-    plot = plot,
-    source_caption = source_caption,
-    subtitle = subtitle,
-    note = note
+save_plot_variants <- function(filename, plot, width, height, dpi) {
+  # Export each chart directly to raster preview and both vector deliverables.
+  if (!identical(tolower(tools::file_ext(filename)), "png")) {
+    stop("Presentation plot filenames must use the `.png` extension.", call. = FALSE)
+  }
+
+  output_stem <- tools::file_path_sans_ext(filename)
+  output_files <- c(
+    png = filename,
+    svg = paste0(output_stem, ".svg"),
+    pdf = paste0(output_stem, ".pdf")
   )
 
-  # Save the raster version used by the HTML deck.
+  # Build stateful layers such as ggrepel once so every device gets identical geometry.
+  plot_grob <- ggplot2::ggplotGrob(plot)
+
   ggplot2::ggsave(
-    filename = filename,
-    plot = prepared_plot,
-    width = presentation_plot_width,
-    height = presentation_plot_height,
-    dpi = presentation_plot_dpi
+    filename = output_files[["png"]],
+    plot = plot_grob,
+    device = "png",
+    width = width,
+    height = height,
+    dpi = dpi,
+    bg = "white"
+  )
+  ggplot2::ggsave(
+    filename = output_files[["svg"]],
+    plot = plot_grob,
+    device = svglite::svglite,
+    width = width,
+    height = height,
+    bg = "white"
+  )
+  ggplot2::ggsave(
+    filename = output_files[["pdf"]],
+    plot = plot_grob,
+    device = grDevices::cairo_pdf,
+    width = width,
+    height = height,
+    bg = "white"
   )
 
-  # Save a matching vector PDF so the Beamer deck can use sharper figures.
-  file_extension <- tolower(tools::file_ext(filename))
-  if (file_extension %in% presentation_vector_extensions) {
-    vector_filename <- sub(sprintf("\\.%s$", file_extension), ".pdf", filename, ignore.case = TRUE)
-    ggplot2::ggsave(
-      filename = vector_filename,
-      plot = prepared_plot,
-      width = presentation_plot_width,
-      height = presentation_plot_height,
-      device = grDevices::cairo_pdf
-    )
-  }
-
-  invisible(prepared_plot)
-}
-
-save_and_preview_plot <- function(filename, plot, source_caption, subtitle = NULL, note = NULL) {
-  # Make the preview step explicit at the graph call site.
-  prepared_plot <- save_presentation_plot(
-    filename = filename,
-    plot = plot,
-    source_caption = source_caption,
-    subtitle = subtitle,
-    note = note
-  )
-  if (interactive() || grDevices::dev.cur() > 1) {
-    print(prepared_plot)
-  }
-  invisible(prepared_plot)
+  invisible(output_files)
 }

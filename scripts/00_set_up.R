@@ -6,7 +6,7 @@
 project_packages_core <- c("readxl", "dplyr", "jsonlite")
 project_packages_app <- c("shiny")
 project_packages_dev <- c("testthat")
-project_packages_reports <- c("ggplot2", "scales", "quarto")
+project_packages_reports <- c("ggplot2", "scales", "svglite", "quarto")
 project_packages_legacy <- c("tidyverse", "janitor", "lubridate", "zoo")
 
 project_packages_all <- unique(c(

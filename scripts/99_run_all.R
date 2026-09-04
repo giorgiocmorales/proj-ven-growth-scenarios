@@ -20,6 +20,7 @@ pipeline_scripts <- c(
   "scripts/11_graph_wilks_composite_correlation.R",
   "scripts/12_graph_imf_weo_ppp_scatter.R",
   "scripts/13_graph_owid_development_indicators.R",
+  "scripts/16_audit_graph_outputs.R",
   "scripts/14_render_presentation.R"
 )
 
@@ -27,7 +28,7 @@ pipeline_scripts <- c(
 # Source each script in order so intermediate objects are recreated from scratch.
 for (script_path in pipeline_scripts) {
   message("Running ", script_path, " ...")
-  source(script_path)
+  source(script_path, encoding = "UTF-8")
 }
 
 message("Completed reproduction pipeline.")

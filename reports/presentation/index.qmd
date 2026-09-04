@@ -9,6 +9,7 @@ format:
     # Visual style: edit these first when changing the deck look.
     theme: serif
     css: title-sweep.css
+    default-image-extension: svg
     background-color: "#ffffff"
     transition: fade
     controls: true
@@ -26,6 +27,7 @@ format:
     preview-links: auto
     chalkboard: true
   beamer:
+    default-image-extension: pdf
     aspectratio: 169
     theme: default
     colortheme: default
@@ -36,6 +38,22 @@ format:
         \usefonttheme{serif}
         \usepackage{fontspec}
         \usepackage{etoolbox}
+
+        \newcommand{\TextSlideBegin}{%
+          \begin{center}%
+          \begin{minipage}{0.90\textwidth}%
+          \raggedright%
+          \setbeamerfont{normal text}{family=\rmfamily,size=\scriptsize}%
+          \setbeamerfont{itemize/enumerate body}{family=\rmfamily,size=\scriptsize}%
+          \setbeamerfont{itemize/enumerate subbody}{family=\rmfamily,size=\scriptsize}%
+          \usebeamerfont{normal text}%
+        }
+
+        \newcommand{\TextSlideEnd}{%
+          \end{minipage}%
+          \end{center}%
+        }
+
         \setmainfont{Latin Modern Roman}
         \setsansfont{Latin Modern Sans}
         \setmonofont{Latin Modern Mono}
@@ -95,130 +113,232 @@ format:
 
 ## Premisa inicial
 
-*"De la misma forma en que la democracia es el peor sistema de gobierno, excepto por todos los demás, el PIB per cápita es la peor medida de bienestar, excepto por todas las demás."*
+```{=latex}
+\TextSlideBegin
+```
 
-## El crecimiento, y solo el crecimiento, es suficiente
+*"De la misma forma en que la democracia es el peor sistema de gobierno, excepto por todos los demás, el PIB per cápita es la peor métrica de bienestar, excepto por todas las demás."*
 
-- Pritchett, L., & Lewis, A. (2026). *Economic growth is enough and only economic growth is enough*. Oxford Blavatnik School of Government and London School of Economics School of Public Policy.
-- Pritchett, L. (2024). *The case for economic growth as the path to better human wellbeing*. School of Public Policy, London School of Economics.
-- *Cualquier* combinación de métricas de bienestar que cubra necesidades básicas, sea general en su uso de indicadores de diferentes dominios, y plausible en sus ponderaciones internas, tiene una fuerte y robusta relación con el PIB pc.
-- La relación es no lineal: con altas elasticidades a bajos niveles de PIB pc en comparación con niveles altos. Es decir, en el margen, países pobres se benefician proporcionalmente más por el crecimiento.
-- Es empíricamente suficiente: no hay países con bajos niveles de bienestar y altos niveles de PIB pc. 
-- Es empíricamente necesaria: no hay países con altos niveles de bienestar y bajos niveles de PIB pc.
-- El crecimiento económico que se traduce en crecimiento del consumo mediano de los hogares es empíricamente necesario y suficiente para la reducción de la pobreza bajo cualquier medición, incluso si ese crecimiento no es estríctamente "pro-pobre".
-- La mayor reducción de la pobreza es mayoritariamente atribuible al crecimiento productivo generalizado que a la expnsión de intervenciones programáticas.
+```{=latex}
+\TextSlideEnd
+```
 
-## ¿Por qué el PIB aparece en todas partes?
+## ¿Qué mide y qué no mide el PIB?
 
-<!-- Graph title: Por qué el PIB aparece en todas partes -->
-![](../../outputs/figures/wilks_composite_correlation.png){fig-align="center"}
+```{=latex}
+\TextSlideBegin
+```
+
+Conceptualmente, el *Producto Interno Bruto (PIB)* cuantifica el valor monetario de todos los bienes y servicios finales producidos dentro de un país en un periodo determinado. Por la vía del ingreso la fórmula más básica del PIB es:
+
+$$
+\mathrm{PIB}
+= \text{Consumo }(C)
++ \text{Inversión }(I)
++ \text{Gasto del gobierno }(G)
++ \bigl(\text{Exportaciones }(X) - \text{Importaciones }(M)\bigr)
+$$
+
+- El PIB *nominal* se calcula a precios corrientes, el PIB *real* se ajusta por inflación. 
+- El *crecimiento económico* es la variación del PIB de un periodo a otro.
+- El PIB por *paridad de poder adquisitivo (PPP)* se ajusta por diferentes costos de vida entre países.
+- El *PIB per cápita (PIB pc.)* es el PIB dividido por la población.
+- Por su cuenta, el PIB pc. parece incompleto, no captura directamente elementos no monetarios del bienestar como salud, educación, desigualdad, institucionalidad, ambiente, libertd, felicidad, etc.
+- Pero el PIB pc. está alta y positivamente correlacionado con prácticamente toda métrica de bienestar.
+- Intuitivamente, el PIB pc. reune muchos agregados de cosas que las personas valoran, expresado en términos monetarios.
+- Matemáticamente, el PIB pc. es una métrica de componentes agregados, por lo que no toma mucho para que se correlacione con muchas otras cosas asociadas con esos componentes.
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## Ingreso diario
 
 <!-- Graph title: Ingreso diario y PIB per cápita -->
-![](../../outputs/figures/owid_daily_income_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_daily_income_gdp_per_capita){fig-align="center"}
 
 ## Ingreso del 10% más pobre
 
 <!-- Graph title: Ingreso del 10% más pobre y PIB per cápita -->
-![](../../outputs/figures/owid_p10_income_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_p10_income_gdp_per_capita){fig-align="center"}
 
 ## Esperanza de vida
 
 <!-- Graph title: Esperanza de vida y PIB per cápita -->
-![](../../outputs/figures/owid_life_expectancy_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_life_expectancy_gdp_per_capita){fig-align="center"}
 
 ## Mortalidad infantil
 
-<!-- Graph title: Mortalidad infantil y PIB per cápita -->
-![](../../outputs/figures/owid_child_mortality_gdp_per_capita.png){fig-align="center"}
+<!-- Graph title: Supervivencia infantil y PIB per cápita -->
+![](../../outputs/figures/owid_child_survival_gdp_per_capita){fig-align="center"}
 
 ## Escolaridad
 
 <!-- Graph title: Escolaridad y PIB per cápita -->
-![](../../outputs/figures/owid_schooling_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_schooling_gdp_per_capita){fig-align="center"}
 
 ## Aprendizaje
 
 <!-- Graph title: Resultados de aprendizaje y PIB per cápita -->
-![](../../outputs/figures/owid_learning_outcomes_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_learning_outcomes_gdp_per_capita){fig-align="center"}
 
 ## Desarrollo Humano
 
 <!-- Graph title: IDH y PIB per cápita -->
-![](../../outputs/figures/owid_hdi_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_hdi_gdp_per_capita){fig-align="center"}
 
 ## Democracia
 
 <!-- Graph title: Democracia y PIB per cápita -->
-![](../../outputs/figures/owid_democracy_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_democracy_gdp_per_capita){fig-align="center"}
 
 ## Uso de energía
 
 <!-- Graph title: Uso de energía y PIB per cápita -->
-![](../../outputs/figures/owid_energy_use_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/owid_energy_use_gdp_per_capita){fig-align="center"}
 
 ## Complejidad económica
 
 <!-- Graph title: Complejidad económica y PIB per cápita -->
-![](../../outputs/figures/economic_complexity_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/economic_complexity_gdp_per_capita){fig-align="center"}
+
+## La matemática detrás de que el PIB aparezca en todas partes
+
+<!-- Graph title: Por qué el PIB aparece en todas partes -->
+![](../../outputs/figures/wilks_composite_correlation){fig-align="center"}
+
+
+## "El crecimiento, y solo el crecimiento, es suficiente"
+
+```{=latex}
+\TextSlideBegin
+```
+
+Pritchett, L., & Lewis, A. (2026). *Economic growth is enough and only economic growth is enough*. Oxford Blavatnik School of Government and London School of Economics School of Public Policy.
+
+- *Cualquier* combinación razonable de métricas de bienestar que cubra necesidades básicas (basics), sea general en su uso de indicadores de diferentes dominios, y plausible en sus ponderaciones internas, tiene una fuerte y robusta relación con el PIB pc.
+- La relación es no lineal: con altas elasticidades a bajos niveles de PIB pc en comparación con niveles altos. Es decir, en el margen, países pobres y en vías de desarrollo se benefician proporcionalmente más por el crecimiento que países ricos.
+- Es *empíricamente suficiente*: no hay países con bajos niveles de bienestar y altos niveles de PIB pc.
+- Es *empíricamente necesaria*: no hay países con altos niveles de bienestar y bajos niveles de PIB pc.
+- El crecimiento económico que se traduce en crecimiento del consumo mediano de los hogares es empíricamente necesario y suficiente para la reducción de la pobreza bajo cualquier medición, incluso si ese crecimiento no es estrictamente "pro-pobre".
+- La mayor reducción de la pobreza global es mayoritariamente atribuible al crecimiento productivo generalizado que a la expansión de intervenciones programáticas.
+
+```{=latex}
+\TextSlideEnd
+```
 
 # 2. ¿Cuál es el resultado histórico de Venezuela en materia de crecimiento?
+
+## El crecimiento de Venezuela a lo largo del tiempo
+
+```{=latex}
+\TextSlideBegin
+```
+
+Durante el siglo XIX el crecimiento fue volatil y los estándares en calidad de vida permanecieron relativamente constantes.
+
+Durante el siglo XX-XXI los episodios de auge y caída estaban atados al desarrollo de la industria petrolera y choques a un modelo fiscal insostenible.
+
+- 1919-1929: Salto discontinuo por el inicio de la explotación petrolera en una economía de bajo nivel inicial.
+- 1942-1948: Rebote por consolidación de la industria con choque de precios positivos por WWII.
+- 1950-1977: Crecimiento económico sostenido gracias a competitividad petrolera. Auge del modelo rentista post 1974.
+- 1978-2003: Mediocre desempeño, con varios episodios de choques desatados por rigidez en los arreglos fiscales. Intentos de reforma parcialmente exitosos pero políticamente frágiles. Agotamiento del modelo rentista post 1983.
+- 2003-2012: Boom petrolero de alto alcance interrumpido momentaneamente por crisis financiera 2007-2008. Sesgo rentista desproporcionado hacia el consumo. Expansión de estatismo fiscalmente voraz erosiona estabilidad productiva y financiera.
+- 2013-2021: Colapso económico y social de gran magnitud. Peor episodio continuo de demepeño en toda la historia republicana de Venezuela.
+- 2022-2025: Rebote inercial post-pandemia con saltos de base baja.
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## El crecimiento a lo largo del tiempo
 
 <!-- Graph title: Crecimiento del PIB real -->
-![](../../outputs/figures/gdp_growth_bars.png){fig-align="center"}
+![](../../outputs/figures/gdp_growth_bars){fig-align="center"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios del PIB real -->
-![](../../outputs/figures/gdp_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/gdp_episode_lines){fig-align="center"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios positivos del PIB real -->
-![](../../outputs/figures/gdp_positive_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/gdp_positive_episode_lines){fig-align="center"}
 
 ## Auges y caídas
 
 <!-- Graph title: Episodios negativos del PIB real -->
-![](../../outputs/figures/gdp_negative_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/gdp_negative_episode_lines){fig-align="center"}
+
+## Desempeño acumulado por período presidencial
+
+<!-- Graph title: PIB real acumulado por período presidencial (escala pseudo-logarítmica) -->
+![](../../outputs/figures/gdp_presidential_period_lines_pseudo_log){fig-align="center"}
 
 ## En términos absolutos: nivel similar a 1967
 
 <!-- Graph title: Índice del PIB real -->
-![](../../outputs/figures/gdp_index_line.png){fig-align="center"}
+![](../../outputs/figures/gdp_index_line){fig-align="center"}
+
+## Per cápita, la historia rima pero no es igual
+
+```{=latex}
+\TextSlideBegin
+```
+
+El crecimiento económico per cápita —el más asociado al bienestar individual— tiende a ser menos intenso que el crecimiento económico total dependiendo de los ritmos de expansión productiva vis-a-vis el aumento de la población.
+
+- 1919-1929: Oleadas de crecimiento per cápita llegan a su pico acumulado mucho antes (1929).
+- 1942-1948: Último episodio de crecimiento ininterrumpido superior a 100%.
+- 1950-1977: Cortas interrupciones debido años de bajo crecimiento total con aumento poblacional (contracción per cápita). Se alcanza pico histórico de PIB pc. real (1977).
+- 1978-2003: Estancamiento económico per cápita. Episodios recesivos son más pronunciados en la dimensión por habitante.
+- 2003-2012: Boom petrolero dirigido a estimular el consumo. Gasto rentista lleva al PIBpc. a su último pico (2012) pero comprometiendo finanzas públicas.
+- 2012-2021: Colapso económico y social de gran magnitud. Contracción per cápita irónicamente suavizada por emigración masiva.
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Crecimiento del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_growth_bars.png){fig-align="center"}
+![](../../outputs/figures/gdp_per_capita_growth_bars){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/gdp_per_capita_episode_lines){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios positivos del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_positive_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/gdp_per_capita_positive_episode_lines){fig-align="center"}
 
 ## Per cápita, la historia rima pero no es igual
 
 <!-- Graph title: Episodios negativos del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_negative_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/gdp_per_capita_negative_episode_lines){fig-align="center"}
+
+## Desempeño per cápita por período presidencial
+
+<!-- Graph title: PIB real per cápita acumulado por período presidencial (escala pseudo-logarítmica) -->
+![](../../outputs/figures/gdp_per_capita_presidential_period_lines_pseudo_log){fig-align="center"}
 
 ## En términos per cápita: nivel similar a 1943
 
 <!-- Graph title: Índice del PIB real per cápita -->
-![](../../outputs/figures/gdp_per_capita_index_line.png){fig-align="center"}
+![](../../outputs/figures/gdp_per_capita_index_line){fig-align="center"}
+
 
 # 3. ¿Cómo queda parada Venezuela en el entorno global?
 
 ## Percepción internacional de la economía venezolana (1958) {.quote-image-slide}
 
+```{=latex}
+\begin{center}
+\begin{minipage}{0.90\textwidth}
+```
 :::: {.columns}
 
 ::: {.column width="64%"}
@@ -231,171 +351,334 @@ Swiss francs and Venezuelan bolivars in which for reasons of
 prudence - they continue to be the hardest currencies in the 
 world - we convert all our takings."*
 
-- Fleming (1958). *Thunderball*. Chapter 6. Ian Fleming.
+- Fleming, Ian (1958) *Thunderball*. Capítulo 6.
 
 :::
 
 ::: {.column width="36%"}
 
-![](assets/images/OIP.jpeg){fig-align="center"}
+![](assets/images/OIP.jpeg){fig-align="center" width="72%"}
 
 :::
 
 ::::
 
-## Percepción internacional de la economía venezolana (2019) {.image-only-slide}
+```{=latex}
+\end{minipage}
+\end{center}
+```
 
-![](assets/images/animaniacs%20venezuela%20-%20frame%20at%200m43s.jpg){fig-align="center"}
+## Percepción internacional de la economía venezolana (2020) {.image-only-slide .animaniacs-slide}
 
-- *Animaniacs* (2019)
+![](assets/images/animaniacs%20venezuela%20-%20frame%20at%200m43s.jpg){fig-align="center" width="68%"}
+
+- Warner Bros. Animation (2020) *Animaniacs* Temporada 1 - Episodio 10: "Anima-Nyet". 
+
+## Dejada atrás por el resto del continente
+
+```{=latex}
+\TextSlideBegin
+```
+Durante la primera década del siglo XXI, el crecimiento de Venezuela estuvo a la par del resto de América Latina, región beneficiada por el super ciclo de materias primas.
+
+- Destacó en el plano financiero y geopolítico por tener el mayor *windfall* en términos de ingresos.
+- A partir de 2012-2013 Venezuela va a contraacorriente en términos nominales, reales y PPP comparado con el resto del mundo.
+
+2012: 
+- Venezuela (VEN) tenía una economía de tamaño similar a la de Colombia (COL) y los Emiratos Árabes Unidos (ARE); en términos per cápita cercana a Brasil (BRA) y Hungría (HUN).
+- Según PIB pc. (PPP), 100/161 países estaban por debajo de Venezuela. 
+- Según PIB pc. nominal, Venezuela era 2,23x Ecuador (ECU).
+  
+2025: 
+- Venezuela con una economía de tamño similar a Costa Rica (CRI) y Serbia (SRB); y per cápita acompaña a Honduras (HND) y Uzebekistán (UZB).
+- Según PIB pc. (PPP), 43/161 países están por debajo del de Venezuela. 
+- Según PIB pc. nominal Colombia (COL) tiene es 2,31x Venezuela, España (SPA) 10,25. veces, Estados Unidos (USA) 24,09x.
+- El diferencial de ingresos por habitante fue, es, y será, será el mayor determinante en desiciones migratorias de venezolanos.
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (1999) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_1999.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_nominal_scatter_1999){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2008) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2008.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2008){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2013) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2013.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2013){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2018) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2018.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2018){fig-align="center"}
 
 ## Dejada atrás por el resto del continente
 
 <!-- Graph title: PIB per cápita nominal (2025) -->
-![](../../outputs/figures/imf_weo_nominal_scatter_2025.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_nominal_scatter_2025){fig-align="center"}
 
 ## Los diferenciales de ingreso pesan mucho
 
 <!-- Graph title: PIB per cápita nominal relativo a Venezuela -->
-![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_to_venezuela){fig-align="center"}
 
 ## Los diferenciales de ingreso pesan mucho
 
 <!-- Graph title: PIB per cápita nominal relativo a Venezuela (años clave) -->
-![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela.png){fig-align="center"}
+![](../../outputs/figures/imf_weo_gdp_pc_nominal_ratio_selected_years_to_venezuela){fig-align="center"}
+
+
+## De las peores crisis contemporáneas
+
+```{=latex}
+\TextSlideBegin
+```
+
+El colapso económico venezolano es de los más profundos y prolongados en la historia del hemisferio occidental.
+
+- Mayor contracción económica registrada fuera de un conflicto armado o desastre natural; principalmente autoinflingida por inviabilidad de modelo económico y deficiencias de gestión gubernamental.
+- Para prácticamente todas las muestras de amplia cobertura, el desempeño económico venezolano estará entre los peores en el siglo XX-XXI.
+- La descomposición económica venezolana vino acompañada de un deterioro en casi todos los indicadores internacionales de calidad de vida, gubernamental, institucional, legal. 
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (Maddison) -->
-![](../../outputs/figures/maddison_negative_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/international_negative_episode_lines_maddison){fig-align="center"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (WDI) -->
-![](../../outputs/figures/wdi_negative_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/international_negative_episode_lines_wdi){fig-align="center"}
 
 ## De las peores crisis contemporáneas
 
 <!-- Graph title: Episodios negativos internacionales (FMI WEO) -->
-![](../../outputs/figures/imf_weo_negative_episode_lines.png){fig-align="center"}
+![](../../outputs/figures/international_negative_episode_lines_imf_weo){fig-align="center"}
+
+## En la cola inferior de los multiplicadores de prosperidad {.ranking-table-slide}
+
+```{=latex}
+\begin{center}
+\renewcommand{\arraystretch}{0.93}
+\setlength{\tabcolsep}{4pt}
+
+\resizebox{0.95\textwidth}{!}{%
+\begin{tabular}{@{}llcr@{}}
+\toprule
+Índice & Fuente & Año & Posición de Venezuela \\
+\midrule
+Competitividad Global & IMD & 2025 & 70/70 \\
+Complejidad económica & Atlas ECI & 2024 & 133/145 \\
+Control de corrupción (Governance) & Banco Mundial (WB) & 2024 & 210/215 \\
+Corrupción percibida & Transparency International & 2024 & 178/180 \\
+Democracia & Economist Intelligence Unit (EIU) & 2024 & 134/156 \\
+Democracia liberal & V-Dem & 2026 & 170/179 \\
+Desempeño de sistema estadístico & Banco Mundial (WB) & 2024 & 177/188 \\
+Efectividad de gobierno (Governance) & Banco Mundial (WB) & 2024 & 203/213 \\
+Estado de derecho & World Justice Project & 2025 & 143/143 \\
+Estado de derecho (Governance) & Banco Mundial (WB) & 2024 & 214/215 \\
+Innovación global & WIPO & 2025 & 136/139 \\
+Libertad de prensa & Reporters Sans Frontières (RSF) & 2025 & 160/180 \\
+Libertad económica & Heritage Foundation & 2025 & 173/176 \\
+Libertad económica & Fraser Institute & 2023 & 165/165 \\
+Prosperidad & Legatum Institute & 2026 & 148/161 \\
+\bottomrule
+\end{tabular}%
+}
+
+\end{center}
+```
 
 # 4. ¿Qué entendemos por recuperación?
 
 ## Es función de metas y ritmos
 
-- Santos, M. Á., & Barrios, D. (2018, April 12). *¿Cuánto puede tomarle a Venezuela recuperarse del colapso económico y qué debemos hacer?*. Prodavinci.
+```{=latex}
+\TextSlideBegin
+```
+
+Inspirado en Santos, M. Á., & Barrios, D. (2018, Abril 12). *¿Cuánto puede tomarle a Venezuela recuperarse del colapso económico y qué debemos hacer?*. Prodavinci.
+
 - Recuperación económica, y por ende de bienestar, puede resumirse en recuperación de PIB per cápita.
-- Cuantitativamente, el tiempo de recuperación depende de la *meta* (o el nivel de PIB per cápita a alcanzar) y el *ritmo* (o la tasa de crecimiento anual del PIB per cápita).
-- Mayores tasas de crecimiento implican tiempos de recuperación más cortos.
-- Para regresar a sus picos, Venezuela requiere crecer mucho por mucho tiempo.
-- La distribución de crecimiento aislado y para horizontes continuos indica que los grandes saltos no son frecuentes en la historia reciente
+- Cuantitativamente, el tiempo de recuperación depende de la *meta* (el nivel de PIB pc. a alcanzar) y el *ritmo* (la tasa de crecimiento anual del PIB pc.).
+- Para simplificar análisis, trabajamos con la *tasa de crecimiento anual compuesto (TCAC)*, equivalente al ritmo constante en un periodo determinado.
+- Lógica simple: mayores tasas de crecimiento implican tiempos de recuperación más cortos.
+- Se puede pensar en términos de *"¿A qué ritmo debe crecer Venezuela y por cuánto tiempo para recuperar un nivel de bienestar dato?"*, y *"¿qué tan probable es que los haga?"*.
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## Introduciendo el concepto de crecimiento compuesto
 
 <!-- Graph title: Trayectoria de recuperación -->
-![](../../outputs/figures/compound_growth_explainer.png){fig-align="center"}
-
+![](../../outputs/figures/compound_growth_explainer){fig-align="center"}
 
 ## Recuperación per cápita al 15%
 
 <!-- Graph title: Recuperación per cápita al 15% -->
-![](../../outputs/figures/recovery_path_15_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/recovery_path_15_gdp_per_capita){fig-align="center"}
 
 ## Escenarios per cápita
 
 <!-- Graph title: Escenarios per cápita -->
-![](../../outputs/figures/recovery_path_scenarios_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/recovery_path_scenarios_gdp_per_capita){fig-align="center"}
 
 ## Años para recuperar per cápita
 
 <!-- Graph title: Años para recuperar per cápita -->
-![](../../outputs/figures/recovery_heatmap_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/recovery_heatmap_gdp_per_capita){fig-align="center"}
+
+
+## ¿Qué tan probable es que Venezuela se recupere?
+
+```{=latex}
+\TextSlideBegin
+```
+
+- Para regresar a sus picos de PIBpc., Venezuela requiere crecer mucho por mucho tiempo.
+- La distribución de a años de crecimiento aislados y para horizontes continuos indica que los grandes saltos no son frecuentes en la historia reciente.
+- Sus episodios de crecimiento anual se distribuyen alrededor de 5% de PIB y 2% de PIB pc. 
+- Desde 1960 a Venezuela le ha costado sostener TCAC superiores a 5% en intervalos continuos de 5-20 años.
+- Partiendo en 2026 y repitiendo su mejor epsiodio con una TCAC de 14,5% para el periodo 1919-1929, le tomaría 10 años a Venezuela recuperar su nivel de PIB pc. de 2013.
+- Los históricos saltos de crecimiento pronunciados son combinaciones de empujes productivos locales y choques externos favorables.
+- Las condiciones históricas de episodios de crecimiento (y la calidad del mismo) no son necesariamente vigentes en la Venezuela actual.
+
+```{=latex}
+\TextSlideEnd
+```
 
 ## ¿Qué tan común es el crecimiento en la historia venezolana?
 
 <!-- Graph title: Distribución anual per cápita -->
-![](../../outputs/figures/gdp_per_capita_growth_rate_distribution.png){fig-align="center"}
+![](../../outputs/figures/gdp_per_capita_growth_rate_distribution){fig-align="center"}
 
 ## Ventanas móviles de TCAC
 
 <!-- Graph title: Ventanas móviles de TCAC -->
-![](../../outputs/figures/rolling_cagr_example.png){fig-align="center"}
+![](../../outputs/figures/rolling_cagr_example){fig-align="center"}
 
 ## TCAC móvil per cápita
 
 <!-- Graph title: TCAC móvil per cápita -->
-![](../../outputs/figures/rolling_cagr_lines_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/rolling_cagr_lines_gdp_per_capita){fig-align="center"}
 
 ## Distribución TCAC per cápita
 
 <!-- Graph title: Distribución TCAC per cápita -->
-![](../../outputs/figures/rolling_cagr_distribution_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/rolling_cagr_distribution_gdp_per_capita){fig-align="center"}
 
 ## Frecuencia TCAC per cápita
 
 <!-- Graph title: Frecuencia TCAC per cápita -->
-![](../../outputs/figures/rolling_cagr_heatmap_gdp_per_capita.png){fig-align="center"}
+![](../../outputs/figures/rolling_cagr_heatmap_gdp_per_capita){fig-align="center"}
 
 # 5. ¿Qué nos dice la experiencia internacional?
+
+## ¿Qué se puede aprender de la historia de otros países?
+
+```{=latex}
+\TextSlideBegin
+```
+
+Tomando en cuenta una muestra de cientos países y miles de periodos de expansión y contracción econóimica, hay una gama casi infinita de aprendizajes con diferente grado de aplicabilidad a Venezuela.
+
+- Hay decenas de casos de "colapsos" económicos con caídas de 15% o más del PIB pc.
+- Son pocas las ocasiones de colapsos que exceden caídas de 70%, incluso extendiéndonos a periodos de Guerras Mundiales. El caso venezolano es muy atípico.
+- Hay una muy amplia variabilidad en ritmos de recuperación, pero post-WWII volver al nivel pre-desastre tiende a tomar décadas, si se recupera en primer lugar.
+- Existen "milagros" de recuperación post-desastre, pero se concentran en episodios post-guerra de países que ya tenían simientos industriales e institucionales relativamente consolidados.
+
+```{=latex}
+\TextSlideEnd
+```
+
 
 ## Profundidad y recuperación
 
 <!-- Graph title: Severidad del desastre y tiempo de recuperación -->
-![](../../outputs/figures/international_disaster_recovery_heatmap.png){fig-align="center"}
+![](../../outputs/figures/international_disaster_recovery_paths){fig-align="center"}
+
+## Profundidad y recuperación
+
+<!-- Graph title: Severidad del desastre y tiempo de recuperación -->
+![](../../outputs/figures/international_disaster_recovery_paths_wdi){fig-align="center"}
+
+## Profundidad y recuperación
+
+<!-- Graph title: Severidad del desastre y tiempo de recuperación -->
+![](../../outputs/figures/international_disaster_recovery_paths_imf_weo){fig-align="center"}
+
+## Tiempo de recuperación internacional
+
+<!-- Graph title: Profundidad de la caída y tiempo de recuperación (Maddison) -->
+![](../../outputs/figures/draft_international_recovery_depth_duration_matrix){fig-align="center"}
+
+## Tiempo de recuperación internacional
+
+<!-- Graph title: Profundidad de la caída y tiempo de recuperación (WDI) -->
+![](../../outputs/figures/draft_international_recovery_depth_duration_matrix_wdi){fig-align="center"}
+
+## Tiempo de recuperación internacional
+
+<!-- Graph title: Profundidad de la caída y tiempo de recuperación (FMI WEO) -->
+![](../../outputs/figures/draft_international_recovery_depth_duration_matrix_imf_weo){fig-align="center"}
 
 ## Distribución de TCAC post-desastre
 
 <!-- Graph title: Distribución de TCAC post-desastre por horizonte -->
-![](../../outputs/figures/international_disaster_horizon_cagr_distribution.png){fig-align="center"}
+![](../../outputs/figures/international_disaster_horizon_cagr_distribution){fig-align="center"}
 
-# 6. Implicaciones para el futuro desarrollo de Venezuela
 
-## El punto de partida importa
+# 6. Implicaciones para el desarrollo de Venezuela
 
-| Índice | Fuente | Posición de Venezuela |
-|---|---|---:|
-| Democracia | EIU, Democracy Index 2024 | 134/156 |
-| Complejidad económica | Atlas of Economic Complexity, ECI 2024 | 133/145 |
-| Libertad económica | Heritage, Index of Economic Freedom 2025 | 173/176 |
-| Estado de derecho | World Justice Project, Rule of Law Index 2025 | 143/143 |
-| Libertad de prensa | RSF, World Press Freedom Index 2025 | 160/180 |
-| Percepción de corrupción | Transparency International, CPI 2024 | 178/180 |
-| Desempeño de sistema estadístico |  World Bank, SPI 2024 | 177/188 |
-| Copetitividad Económica |  IMD World Competitiveness Centre 2025 | 70/70 |
+## Conclusiones y consideraciones para el futuro
 
-## Consideraciones para el futuro
+```{=latex}
+\TextSlideBegin
+```
 
-1. El efecto compuesto es no-trivial; pequeños cambios en el ritmo de crecimiento pueden acortar o alargar considerablemente el tiempo de recuperación.
-2. El objetivo de la política económica y de desarrollo debe priorizar fomentar entornos regulatorios y productivos que favorezcan el crecimiento.
-3. Aunque las metas sean equivalentes a niveles de ingresos pasados, la estructura económica venezolana no necesariamente será la misma, con la matriz de ventajas comparativas y dinámicas sectoriales enfrentando contextos dioferentes.
-4. El punto de partida productivo, financiero, institucional e internacional implica fricciones para que Venezuela experimente otro “boom” en el corto plazo; se deberá rodear esas restricciones para sostener tasas altas.
-5. Las reformas en el sistema económico y político condicionan la capacidad de sostener tasas de crecimiento altas por períodos prolongados. Un esquema institucionalmente extractivista es inherentemente inhibidor del dinamismo.
-6. El desempeño pasado no tiene por qué predecir desempeño futuro, pero implica quiebres considerables de trayectoria en la concepción, diseño y desenvolvimiento de la actividad económica.
-7. El contrato social concebido alrededor del “rentismo bien administrado” es un mito fiscalmente isostenible, conceptualmente inviable, y empíricamente incompatible con la experiencia venezolana pasada y presente.
-8. Independientemente de la configuración del modelo económico a futuro, el Estado venezolano enfrentará considerables restricciones fiscales, lo que requerirá priorizar aasignaciones al sistema de seguridad social sujeto a una cobija presupuestaria pequeña. El comodín de "aumentar el gasto pública social y listo" tiene un límite muy bajo.
-9. El impulsador de ganancias en bienestar será prinicpalmente proveniente del aumento de la productividad.
+1. El efecto compuesto es no-trivial: pequeños cambios en el ritmo de crecimiento pueden acortar o alargar considerablemente el tiempo de recuperación.
+2. La evidencia muestra que episodios de crecimiento sostenido son poco frecuentes en la historia venezolana reciente, y que el último episodio de expansión (2003-2012) se dio en medio de un boom petrolero, pero acompañado de una erosión fiscal e institucional que propiciaron el colapso subsecuente.
+3. Incluso repitiendo las magnitudes de los mejores episodios pasados, el tiempo de recuperción tarda mucho más de lo que aspira la sociedad civil.
+4. *"El pasado no es destino"*: El desempeño pasado no tiene por qué predecir desempeño futuro. Venezuela no está obligada a mantener el mismo ritmo de degradación reciente, pero tampoco tiene garantía de repetir sus mejores episodios. 
+5. Romper el esquema de crisis volátiles y estancamiento implica quiebres considerables de trayectoria en la concepción, diseño y desenvolvimiento de la actividad económica.
+6. Aunque las metas sean equivalentes a niveles de ingresos pasados, la estructura económica venezolana no necesariamente será la misma, con la matriz de ventajas comparativas y dinámicas sectoriales enfrentando contextos diferentes.
+7.  Por ende, el objetivo de la política económica y de desarrollo debe priorizar el fomento de entornos regulatorios y productivos que favorezcan el crecimiento y dinamismo a largo plazo.
+8.  El punto de partida productivo, financiero, institucional e internacional implica fricciones para que Venezuela experimente otro “boom” en el corto plazo. Se deberá rodear esos obstáculos para sostener tasas altas.
+
+```{=latex}
+\TextSlideEnd
+```
+
+## Conclusiones y consideraciones para el futuro
+
+```{=latex}
+\TextSlideBegin
+```
+
+9. Prácticamente cualquier horizonte de recuperación medianamente razonable, probabilísticamente hablando, excede la duración de administraciones presidenciales individaules. El acuerdo nacional que recupere la alternancia política debe internalizar que el modelo de desarrollo no debería comprometerse por la coyuntura. 
+10. Las reformas en el sistema económico y político condicionan la capacidad de sostener tasas de crecimiento altas por períodos prolongados. Un esquema institucionalmente extractivista es inherentemente inhibidor del dinamismo.
+11.  El contrato social concebido alrededor del “rentismo bien administrado” es un mito fiscalmente isostenible, conceptualmente inviable, y empíricamente incompatible con la experiencia venezolana pasada y presente.
+12.  Independientemente de la configuración del modelo político-económico futuro, el Estado venezolano enfrentará considerables restricciones fiscales. 
+13. Se requerirá priorizar asignaciones al sistema de seguridad social sujeto a una cobija presupuestaria pequeña. El comodín de "aumentar el gasto pública social y listo" como respuesta estándar a cualquier problema tendrá un límite muy bajo.
+14. Las mayores ganancias en bienestar vendran principalmente por el crecimiento económico apoyado en el aumento de productividad.
+
+```{=latex}
+\TextSlideEnd
+```
  
-## Thank you {.closing-slide}
+## Muchas Gracias {.closing-slide}
 
 ```{=html}
 <div class="closing-card">

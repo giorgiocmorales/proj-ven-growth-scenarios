@@ -230,6 +230,70 @@ if (file.exists(maddison_data_path)) {
 
   message("Wrote data/interim/maddison_gdp_per_capita_episode_summary.csv")
   message("Wrote data/interim/maddison_gdp_per_capita_episode_path.csv")
+
+  # Build matching total-GDP episodes from GDP per capita multiplied by population.
+  maddison_gdp_data <- readxl::read_excel(maddison_data_path, sheet = "Full data") %>%
+    dplyr::transmute(
+      countrycode = as.character(countrycode),
+      country = as.character(country),
+      region = as.character(region),
+      year = as.integer(year),
+      gdp = as.numeric(gdppc) * as.numeric(pop)
+    ) %>%
+    dplyr::filter(!is.na(countrycode), !is.na(country), !is.na(year), !is.na(gdp))
+
+  build_maddison_gdp_country_episodes <- function(country_data) {
+    country_data <- country_data[order(country_data$year), ]
+    if (nrow(country_data) < 2) {
+      return(NULL)
+    }
+    year_gap <- country_data$year[-1] - country_data$year[-nrow(country_data)]
+    country_data$growth_rate <- c(
+      NA_real_,
+      (country_data$gdp[-1] / country_data$gdp[-nrow(country_data)])^(1 / year_gap) - 1
+    )
+    country_outputs <- build_episode_outputs(
+      year = country_data$year,
+      date = as.Date(sprintf("%s-01-01", country_data$year)),
+      growth_rate = country_data$growth_rate,
+      index_value = country_data$gdp,
+      series_id = "maddison_gdp",
+      series_label = "Maddison GDP"
+    )
+    for (output_name in names(country_outputs)) {
+      country_outputs[[output_name]]$country_code <- country_data$countrycode[[1]]
+      country_outputs[[output_name]]$country <- country_data$country[[1]]
+      country_outputs[[output_name]]$region <- country_data$region[[1]]
+      country_outputs[[output_name]] <- country_outputs[[output_name]][
+        c("country_code", "country", "region", setdiff(
+          names(country_outputs[[output_name]]),
+          c("country_code", "country", "region")
+        ))
+      ]
+    }
+    country_outputs
+  }
+
+  maddison_gdp_country_outputs <- split(
+    maddison_gdp_data,
+    maddison_gdp_data$countrycode
+  ) %>%
+    lapply(build_maddison_gdp_country_episodes)
+  maddison_gdp_country_outputs <- maddison_gdp_country_outputs[
+    !vapply(maddison_gdp_country_outputs, is.null, logical(1))
+  ]
+  utils::write.csv(
+    do.call(rbind, lapply(maddison_gdp_country_outputs, `[[`, "episode_summary")),
+    "data/interim/maddison_gdp_episode_summary.csv",
+    row.names = FALSE
+  )
+  utils::write.csv(
+    do.call(rbind, lapply(maddison_gdp_country_outputs, `[[`, "episode_path")),
+    "data/interim/maddison_gdp_episode_path.csv",
+    row.names = FALSE
+  )
+  message("Wrote data/interim/maddison_gdp_episode_summary.csv")
+  message("Wrote data/interim/maddison_gdp_episode_path.csv")
 } else {
   message("Skipping Maddison episode outputs; raw workbook not found at ", maddison_data_path)
 }
@@ -472,4 +536,74 @@ if (file.exists(imf_weo_gdp_pc_growth_path)) {
   message("Wrote data/interim/imf_weo_gdp_per_capita_growth_episode_path.csv")
 } else {
   message("Skipping IMF WEO GDP per capita growth episode outputs; raw CSV not found at ", imf_weo_gdp_pc_growth_path)
+}
+
+## IMF WEO total-GDP episodes ----
+# Build matching international episodes from IMF WEO real-GDP growth.
+imf_weo_gdp_growth_path <- "data/raw/imf_weo_real_gdp_growth_population_maddison_countries.csv"
+if (file.exists(imf_weo_gdp_growth_path)) {
+  imf_weo_gdp_growth <- utils::read.csv(imf_weo_gdp_growth_path, stringsAsFactors = FALSE) %>%
+    dplyr::filter(indicator_id == "NGDP_RPCH") %>%
+    dplyr::transmute(
+      country_code = as.character(country_code),
+      maddison_country = as.character(maddison_country),
+      maddison_region = as.character(maddison_region),
+      year = as.integer(year),
+      growth_rate = as.numeric(value) / 100
+    ) %>%
+    dplyr::filter(!is.na(country_code), !is.na(year), !is.na(growth_rate))
+
+  build_imf_weo_gdp_country_episodes <- function(country_data) {
+    country_data <- country_data[order(country_data$year), ]
+    if (nrow(country_data) < 2) {
+      return(NULL)
+    }
+    country_data$index_value <- cumprod(1 + country_data$growth_rate) * 100
+    country_outputs <- build_episode_outputs(
+      year = country_data$year,
+      date = as.Date(sprintf("%s-01-01", country_data$year)),
+      growth_rate = country_data$growth_rate,
+      index_value = country_data$index_value,
+      series_id = "imf_weo_gdp_growth",
+      series_label = "IMF WEO real GDP growth"
+    )
+    for (output_name in names(country_outputs)) {
+      country_outputs[[output_name]]$country_code <- country_data$country_code[[1]]
+      country_outputs[[output_name]]$maddison_country <- country_data$maddison_country[[1]]
+      country_outputs[[output_name]]$region <- country_data$maddison_region[[1]]
+      country_outputs[[output_name]] <- country_outputs[[output_name]][
+        c("country_code", "maddison_country", "region", setdiff(
+          names(country_outputs[[output_name]]),
+          c("country_code", "maddison_country", "region")
+        ))
+      ]
+    }
+    country_outputs
+  }
+
+  imf_weo_gdp_country_outputs <- split(
+    imf_weo_gdp_growth,
+    imf_weo_gdp_growth$country_code
+  ) %>%
+    lapply(build_imf_weo_gdp_country_episodes)
+  imf_weo_gdp_country_outputs <- imf_weo_gdp_country_outputs[
+    !vapply(imf_weo_gdp_country_outputs, is.null, logical(1))
+  ]
+  utils::write.csv(
+    do.call(rbind, lapply(imf_weo_gdp_country_outputs, `[[`, "episode_summary")),
+    "data/interim/imf_weo_gdp_growth_episode_summary.csv",
+    row.names = FALSE
+  )
+  utils::write.csv(
+    do.call(rbind, lapply(imf_weo_gdp_country_outputs, `[[`, "episode_path")),
+    "data/interim/imf_weo_gdp_growth_episode_path.csv",
+    row.names = FALSE
+  )
+  message("Wrote data/interim/imf_weo_gdp_growth_episode_summary.csv")
+  message("Wrote data/interim/imf_weo_gdp_growth_episode_path.csv")
+} else {
+  stop(
+    sprintf("Missing IMF WEO total-GDP input: %s", imf_weo_gdp_growth_path),
+    call. = FALSE
+  )
 }
