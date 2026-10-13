@@ -16,6 +16,7 @@ pipeline_scripts <- c(
   "scripts/07_build_episodes.R",
   "scripts/08_build_plausibility.R",
   "scripts/09_build_app_data.R",
+  "scripts/17_compare_venezuela_source_growth.R",
   "scripts/10_graph_historical_recovery.R",
   "scripts/11_graph_wilks_composite_correlation.R",
   "scripts/12_graph_imf_weo_ppp_scatter.R",

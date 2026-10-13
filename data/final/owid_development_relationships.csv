@@ -159,7 +159,7 @@
 "life_expectancy","United States","USA",2022,77.9789,58487.465,341534041,"América del Norte","OWID Grapher",NA
 "life_expectancy","Uruguay","URY",2022,76.4682,20181.94,3390913,"América del Sur","OWID Grapher",NA
 "life_expectancy","Uzbekistan","UZB",2022,72.1465,12559.401,34938953,"Asia","OWID Grapher",NA
-"life_expectancy","Venezuela","VEN",2022,72.5656,7266.338,26917000,"América del Sur","IMF WEO PPP GDP per capita matched to 2022",NA
+"life_expectancy","Venezuela","VEN",2022,72.5656,6730.153,28213000,"América del Sur","IMF WEO PPP GDP per capita matched to 2022",NA
 "life_expectancy","Vietnam","VNM",2022,74.5025,8050.359,99680656,"Asia","OWID Grapher",NA
 "life_expectancy","Yemen","YEM",2022,67.9517,1959.3195,38222878,"Asia","OWID Grapher",NA
 "life_expectancy","Zambia","ZMB",2022,65.2791,3342.4214,20152935,"África","OWID Grapher",NA
@@ -196,7 +196,7 @@
 "daily_income","Colombia","COL",2024,11.2783603668213,18477.215,52321152,"América del Sur","OWID Grapher",NA
 "daily_income","Comoros","COM",2024,6.47852182388306,3482.535,850390,"África","OWID Grapher",NA
 "daily_income","Cape Verde","CPV",2015,6.17727899551392,7560.1367,512405,"África","OWID Grapher",NA
-"daily_income","Costa Rica","CRI",2025,23.3897438049316,32335.01,5105526,"América del Norte","OWID Grapher",NA
+"daily_income","Costa Rica","CRI",2025,23.3897438049316,32319.616,5105526,"América del Norte","OWID Grapher",NA
 "daily_income","Cyprus","CYP",2023,52.1396522521973,51453.727,1344981,"Europa","OWID Grapher",NA
 "daily_income","Czechia","CZE",2023,39.0691299438477,47558.41,10809722,"Europa","OWID Grapher",NA
 "daily_income","Germany","DEU",2022,64.1773376464844,63676.086,84086227,"Europa","OWID Grapher",NA
@@ -204,7 +204,7 @@
 "daily_income","Denmark","DNK",2023,60.7226982116699,69379.22,5948134,"Europa","OWID Grapher",NA
 "daily_income","Dominican Republic","DOM",2024,17.4776706695557,24229.889,11331269,"América del Norte","OWID Grapher",NA
 "daily_income","Algeria","DZA",2011,9.11427593231201,14641.964,36903374,"África","OWID Grapher",NA
-"daily_income","Ecuador","ECU",2025,12.7009000778198,16934.87,17980079,"América del Sur","OWID Grapher",NA
+"daily_income","Ecuador","ECU",2025,12.7009000778198,16926.807,17980079,"América del Sur","OWID Grapher",NA
 "daily_income","Egypt","EGY",2021,7.61085319519043,15579.016,110957005,"África","OWID Grapher",NA
 "daily_income","Spain","ESP",2023,47.3042831420898,47322.594,47911583,"Europa","OWID Grapher",NA
 "daily_income","Estonia","EST",2023,36.523811340332,41288.617,1367195,"Europa","OWID Grapher",NA
@@ -229,7 +229,7 @@
 "daily_income","Croatia","HRV",2023,36.7349395751953,41320.203,3896023,"Europa","OWID Grapher",NA
 "daily_income","Haiti","HTI",2012,1.91585195064545,3296.2478,10069770,"América del Norte","OWID Grapher",NA
 "daily_income","Hungary","HUN",2017,22.1389846801758,33828.715,9785608,"Europa","OWID Grapher",NA
-"daily_income","Indonesia","IDN",2025,6.65595245361328,17745.531,281190068,"Asia","OWID Grapher",NA
+"daily_income","Indonesia","IDN",2025,6.65595245361328,17722.676,281190068,"Asia","OWID Grapher",NA
 "daily_income","India","IND",2022,5.53649520874023,8594.392,1425423209,"Asia","OWID Grapher",NA
 "daily_income","Iran","IRN",2023,10.1860427856445,17044.816,90608708,"Asia","OWID Grapher",NA
 "daily_income","Iraq","IRQ",2023,10.8890171051025,13202.323,45074055,"Asia","OWID Grapher",NA
@@ -321,8 +321,8 @@
 "daily_income","Ukraine","UKR",2020,13.7033014297485,17092.54,44680008,"Europa","OWID Grapher",NA
 "daily_income","Uruguay","URY",2024,26.8407592773438,32038.773,3388083,"América del Sur","OWID Grapher",NA
 "daily_income","United States","USA",2024,72.0654067993164,75489.266,343477330,"América del Norte","OWID Grapher",NA
-"daily_income","Uzbekistan","UZB",2025,16.539041519165,13184.93,35652311,"Asia","OWID Grapher",NA
-"daily_income","Venezuela","VEN",2006,9.38590145111084,15232.895,26858000,"América del Sur","IMF WEO PPP GDP per capita matched to 2006",NA
+"daily_income","Uzbekistan","UZB",2025,16.539041519165,13178.652,35652311,"Asia","OWID Grapher",NA
+"daily_income","Venezuela","VEN",2006,9.38590145111084,15167.138,26858000,"América del Sur","IMF WEO PPP GDP per capita matched to 2006",NA
 "daily_income","Vietnam","VNM",2022,13.3191947937012,12979.764,99680656,"Asia","OWID Grapher",NA
 "daily_income","Vanuatu","VUT",2019,5.16720151901245,3512.072,291995,"Oceanía","OWID Grapher",NA
 "daily_income","Samoa","WSM",2013,8.37617969512939,6262.3237,198284,"Oceanía","OWID Grapher",NA
@@ -362,7 +362,7 @@
 "p10_income","Colombia","COL",2024,3.31377482414246,18477.215,52886360,"América del Sur","OWID Grapher",NA
 "p10_income","Comoros","COM",2024,3.57278180122375,3482.535,866632,"África","OWID Grapher",NA
 "p10_income","Cape Verde","CPV",2015,2.52146410942078,7560.1367,512405,"África","OWID Grapher",NA
-"p10_income","Costa Rica","CRI",2025,8.39468669891357,32335.01,5152949,"América del Norte","OWID Grapher",NA
+"p10_income","Costa Rica","CRI",2025,8.39468669891357,32319.616,5152949,"América del Norte","OWID Grapher",NA
 "p10_income","Cyprus","CYP",2023,28.535530090332,51453.727,1344981,"Europa","OWID Grapher",NA
 "p10_income","Czechia","CZE",2023,21.9508018493652,47558.41,10809722,"Europa","OWID Grapher",NA
 "p10_income","Germany","DEU",2022,28.4376182556152,63676.086,84086227,"Europa","OWID Grapher",NA
@@ -370,7 +370,7 @@
 "p10_income","Denmark","DNK",2023,35.2980270385742,69379.22,5948134,"Europa","OWID Grapher",NA
 "p10_income","Dominican Republic","DOM",2024,7.24534893035889,24229.889,11427558,"América del Norte","OWID Grapher",NA
 "p10_income","Algeria","DZA",2011,4.94778728485107,14641.964,36903374,"África","OWID Grapher",NA
-"p10_income","Ecuador","ECU",2025,4.66551780700684,16934.87,18289898,"América del Sur","OWID Grapher",NA
+"p10_income","Ecuador","ECU",2025,4.66551780700684,16926.807,18289898,"América del Sur","OWID Grapher",NA
 "p10_income","Egypt","EGY",2021,4.53400611877441,15579.016,110957005,"África","OWID Grapher",NA
 "p10_income","Spain","ESP",2023,19.2301006317139,47322.594,47911583,"Europa","OWID Grapher",NA
 "p10_income","Estonia","EST",2023,19.3260726928711,41288.617,1367195,"Europa","OWID Grapher",NA
@@ -395,7 +395,7 @@
 "p10_income","Croatia","HRV",2023,16.8716297149658,41320.203,3896023,"Europa","OWID Grapher",NA
 "p10_income","Haiti","HTI",2012,0.405600517988205,3296.2478,10069770,"América del Norte","OWID Grapher",NA
 "p10_income","Hungary","HUN",2017,10.7184734344482,33828.715,9785608,"Europa","OWID Grapher",NA
-"p10_income","Indonesia","IDN",2025,3.65858602523804,17745.531,285721230,"Asia","OWID Grapher",NA
+"p10_income","Indonesia","IDN",2025,3.65858602523804,17722.676,285721230,"Asia","OWID Grapher",NA
 "p10_income","India","IND",2022,3.39909934997559,8594.392,1425423209,"Asia","OWID Grapher",NA
 "p10_income","Iran","IRN",2023,4.67146396636963,17044.816,90608708,"Asia","OWID Grapher",NA
 "p10_income","Iraq","IRQ",2023,5.93421506881714,13202.323,45074055,"Asia","OWID Grapher",NA
@@ -487,8 +487,8 @@
 "p10_income","Ukraine","UKR",2020,8.07295322418213,17092.54,44680008,"Europa","OWID Grapher",NA
 "p10_income","Uruguay","URY",2024,10.4144973754883,32038.773,3386583,"América del Sur","OWID Grapher",NA
 "p10_income","United States","USA",2024,26.2909049987793,75489.266,345426566,"América del Norte","OWID Grapher",NA
-"p10_income","Uzbekistan","UZB",2025,7.59981203079224,13184.93,37053428,"Asia","OWID Grapher",NA
-"p10_income","Venezuela","VEN",2006,3.05041790008545,15232.895,26858000,"América del Sur","IMF WEO PPP GDP per capita matched to 2006",NA
+"p10_income","Uzbekistan","UZB",2025,7.59981203079224,13178.652,37053428,"Asia","OWID Grapher",NA
+"p10_income","Venezuela","VEN",2006,3.05041790008545,15167.138,26858000,"América del Sur","IMF WEO PPP GDP per capita matched to 2006",NA
 "p10_income","Vietnam","VNM",2022,5.90129470825195,12979.764,99680656,"Asia","OWID Grapher",NA
 "p10_income","Vanuatu","VUT",2019,2.38311982154846,3512.072,291995,"Oceanía","OWID Grapher",NA
 "p10_income","Samoa","WSM",2013,3.90149259567261,6262.3237,198284,"Oceanía","OWID Grapher",NA
@@ -653,7 +653,7 @@
 "child_mortality","United States","USA",2022,0.65,58487.465,341534041,"América del Norte","OWID Grapher",NA
 "child_mortality","Uruguay","URY",2022,0.68,20181.94,3390913,"América del Sur","OWID Grapher",NA
 "child_mortality","Uzbekistan","UZB",2022,1.38,12559.401,34938953,"Asia","OWID Grapher",NA
-"child_mortality","Venezuela","VEN",2022,2.43,7266.338,26917000,"América del Sur","IMF WEO PPP GDP per capita matched to 2022",NA
+"child_mortality","Venezuela","VEN",2022,2.43,6730.153,28213000,"América del Sur","IMF WEO PPP GDP per capita matched to 2022",NA
 "child_mortality","Vietnam","VNM",2022,2.04,8050.359,99680656,"Asia","OWID Grapher",NA
 "child_mortality","Yemen","YEM",2022,4.08,1959.3195,38222878,"Asia","OWID Grapher",NA
 "child_mortality","Zambia","ZMB",2022,4.67,3342.4214,20152935,"África","OWID Grapher",NA
@@ -841,7 +841,7 @@
 "hdi","Uruguay","URY",2023,0.862,31059.254,3388083,"América del Sur","OWID Grapher",NA
 "hdi","Uzbekistan","UZB",2023,0.74,10007.686,35652311,"Asia","OWID Grapher",NA
 "hdi","Vanuatu","VUT",2023,0.621,3214.7024,320422,"Oceanía","OWID Grapher",NA
-"hdi","Venezuela","VEN",2023,0.709,7888.601,26740000,"América del Sur","IMF WEO PPP GDP per capita matched to 2023",NA
+"hdi","Venezuela","VEN",2023,0.709,7356.89,28301000,"América del Sur","IMF WEO PPP GDP per capita matched to 2023",NA
 "hdi","Vietnam","VNM",2023,0.766,13545.935,100352189,"Asia","OWID Grapher",NA
 "hdi","Zambia","ZMB",2023,0.595,3673.4841,20723967,"África","OWID Grapher",NA
 "hdi","Zimbabwe","ZWE",2023,0.598,5218.0225,16340829,"África","OWID Grapher",NA
@@ -1028,7 +1028,7 @@
 "schooling","Uruguay","URY",2023,10.54,31059.254,3388083,"América del Sur","OWID Grapher",NA
 "schooling","Uzbekistan","UZB",2023,11.91,10007.686,35652311,"Asia","OWID Grapher",NA
 "schooling","Vanuatu","VUT",2023,7.18321,3214.7024,320422,"Oceanía","OWID Grapher",NA
-"schooling","Venezuela","VEN",2023,9.678386,7888.601,26740000,"América del Sur","IMF WEO PPP GDP per capita matched to 2023",NA
+"schooling","Venezuela","VEN",2023,9.678386,7356.89,28301000,"América del Sur","IMF WEO PPP GDP per capita matched to 2023",NA
 "schooling","Vietnam","VNM",2023,8.98,13545.935,100352189,"Asia","OWID Grapher",NA
 "schooling","Zambia","ZMB",2023,7.3974085,3673.4841,20723967,"África","OWID Grapher",NA
 "schooling","Zimbabwe","ZWE",2023,8.930847,5218.0225,16340829,"África","OWID Grapher",NA
@@ -1203,49 +1203,49 @@
 "learning_outcomes","Vietnam","VNM",2020,519.1003,11851.396,98079196,"Asia","OWID Grapher",NA
 "learning_outcomes","Zambia","ZMB",2020,358.14044,3391.5955,19059394,"África","OWID Grapher",NA
 "learning_outcomes","Zimbabwe","ZWE",2020,396.13882,4527.7197,15526887,"África","OWID Grapher",NA
-"energy_use","Albania","ALB",2024,9167.564,21641.074,2537000,"Europa","OWID Grapher",NA
-"energy_use","Algeria","DZA",2024,16237.188,15501.92,50791000,"África","OWID Grapher",NA
+"energy_use","Albania","ALB",2024,9167.564,21641.074,2252000,"Europa","OWID Grapher",NA
+"energy_use","Algeria","DZA",2024,16237.188,15501.92,50637000,"África","OWID Grapher",NA
 "energy_use","Angola","AGO",2024,2659.693,8901.888,48201000,"África","OWID Grapher",NA
 "energy_use","Antigua and Barbuda","ATG",2024,33242.316,29371.639,NA,"América del Norte","OWID Grapher",NA
 "energy_use","Argentina","ARG",2024,21513.947,26771.965,50394000,"América del Sur","OWID Grapher",NA
-"energy_use","Armenia","ARM",2024,16739.324,20078.785,3008000,"Asia","OWID Grapher",NA
+"energy_use","Armenia","ARM",2024,16739.324,20078.785,3044000,"Asia","OWID Grapher",NA
 "energy_use","Aruba","ABW",2024,45574.95,44558.93,NA,"América del Norte","OWID Grapher",NA
 "energy_use","Australia","AUS",2024,62595.04,60303.98,29803000,"Oceanía","OWID Grapher",NA
 "energy_use","Austria","AUT",2024,45208.31,63788.08,9331000,"Europa","OWID Grapher",NA
 "energy_use","Azerbaijan","AZE",2024,20137.387,22072.148,11141000,"Asia","OWID Grapher",NA
 "energy_use","Bahamas","BHS",2024,34643.33,36244.05,NA,"América del Norte","OWID Grapher",NA
-"energy_use","Bahrain","BHR",2024,152038.3,58891.832,1822000,"Asia","OWID Grapher",NA
+"energy_use","Bahrain","BHR",2024,152038.3,58891.832,1803000,"Asia","OWID Grapher",NA
 "energy_use","Bangladesh","BGD",2024,3048.3135,8486.785,183230000,"Asia","OWID Grapher",NA
 "energy_use","Barbados","BRB",2024,23965.328,21837.725,296000,"América del Norte","OWID Grapher",NA
-"energy_use","Belarus","BLR",2024,34632.566,29040.973,8818000,"Europa","OWID Grapher",NA
+"energy_use","Belarus","BLR",2024,34632.566,29040.973,8814000,"Europa","OWID Grapher",NA
 "energy_use","Belgium","BEL",2024,54870.88,63347.785,12100000,"Europa","OWID Grapher",NA
 "energy_use","Belize","BLZ",2024,10112.117,12621.408,NA,"América del Norte","OWID Grapher",NA
-"energy_use","Benin","BEN",2024,2171.8225,3901.326,17813000,"África","OWID Grapher",NA
+"energy_use","Benin","BEN",2024,2171.8225,3901.326,17532000,"África","OWID Grapher",NA
 "energy_use","Bermuda","BMU",2024,37280.26,109311.94,NA,"América del Norte","OWID Grapher",NA
 "energy_use","Bolivia","BOL",2024,9380.434,11329.151,12749000,"América del Sur","OWID Grapher",NA
 "energy_use","Bosnia and Herzegovina","BIH",2024,27656.611,20527.693,3384000,"Europa","OWID Grapher",NA
 "energy_use","Botswana","BWA",2024,9810.756,18068.506,2759000,"África","OWID Grapher",NA
-"energy_use","Brazil","BRA",2024,18486.229,19652.365,216989000,"América del Sur","OWID Grapher",NA
+"energy_use","Brazil","BRA",2024,18486.229,19652.365,217049000,"América del Sur","OWID Grapher",NA
 "energy_use","Brunei","BRN",2024,121979.82,79071.734,NA,"Asia","OWID Grapher",NA
-"energy_use","Bulgaria","BGR",2024,28381.64,34221.53,5965000,"Europa","OWID Grapher",NA
-"energy_use","Burkina Faso","BFA",2024,1062.505,2547.6724,27610000,"África","OWID Grapher",NA
+"energy_use","Bulgaria","BGR",2024,28381.64,34221.53,6118000,"Europa","OWID Grapher",NA
+"energy_use","Burkina Faso","BFA",2024,1062.505,2547.6724,27587000,"África","OWID Grapher",NA
 "energy_use","Burundi","BDI",2024,278.34103,1051.2593,17176000,"África","OWID Grapher",NA
 "energy_use","Cambodia","KHM",2024,4967.972,7008.889,19012000,"Asia","OWID Grapher",NA
 "energy_use","Cameroon","CMR",2024,1202.7491,4916.9336,34629000,"África","OWID Grapher",NA
-"energy_use","Canada","CAN",2024,97784.54,56706.824,42692000,"América del Norte","OWID Grapher",NA
+"energy_use","Canada","CAN",2024,97784.54,56706.824,42528000,"América del Norte","OWID Grapher",NA
 "energy_use","Cape Verde","CPV",2024,5931.5093,9848.953,532000,"África","OWID Grapher",NA
 "energy_use","Central African Republic","CAF",2024,356.6505,1111.2194,6680000,"África","OWID Grapher",NA
 "energy_use","Chad","TCD",2024,382.54034,2412.866,22259000,"África","OWID Grapher",NA
 "energy_use","Chile","CHL",2024,26245.264,30182.787,20547000,"América del Sur","OWID Grapher",NA
-"energy_use","China","CHN",2024,34514.457,23845.62,1382906000,"Asia","OWID Grapher",NA
+"energy_use","China","CHN",2024,34514.457,23845.62,1382719000,"Asia","OWID Grapher",NA
 "energy_use","Colombia","COL",2024,11645.494,18477.215,54748000,"América del Sur","OWID Grapher",NA
 "energy_use","Comoros","COM",2024,1821.2346,3482.535,1033000,"África","OWID Grapher",NA
 "energy_use","Congo","COG",2024,3857.942,6181.4707,7655000,"África","OWID Grapher",NA
 "energy_use","Costa Rica","CRI",2024,9627.194,26973.436,5648000,"América del Norte","OWID Grapher",NA
 "energy_use","Cote d'Ivoire","CIV",2024,2612.0803,6747.038,38961000,"África","OWID Grapher",NA
 "energy_use","Croatia","HRV",2024,26615.488,42829.2,3922000,"Europa","OWID Grapher",NA
-"energy_use","Cyprus","CYP",2024,24551.195,52635.582,1016000,"Europa","OWID Grapher",NA
-"energy_use","Czechia","CZE",2024,36589.773,47963.9,10706000,"Europa","OWID Grapher",NA
+"energy_use","Cyprus","CYP",2024,24551.195,52635.582,1046000,"Europa","OWID Grapher",NA
+"energy_use","Czechia","CZE",2024,36589.773,47963.9,10686000,"Europa","OWID Grapher",NA
 "energy_use","Democratic Republic of Congo","COD",2024,312.46207,1602.075,129172000,"África","OWID Grapher",NA
 "energy_use","Denmark","DNK",2024,32832.465,71431.29,6260000,"Europa","OWID Grapher",NA
 "energy_use","Djibouti","DJI",2024,3001.8767,6871.1245,1128000,"África","OWID Grapher",NA
@@ -1256,49 +1256,49 @@
 "energy_use","Egypt","EGY",2024,9660.864,16798.152,125110000,"África","OWID Grapher",NA
 "energy_use","El Salvador","SLV",2024,7385.741,11669.082,6658000,"América del Norte","OWID Grapher",NA
 "energy_use","Equatorial Guinea","GNQ",2024,16416.217,15454.429,1918000,"África","OWID Grapher",NA
-"energy_use","Estonia","EST",2024,40986.305,41189.668,1361000,"Europa","OWID Grapher",NA
-"energy_use","Eswatini","SWZ",2024,5606.7744,10380.396,1241000,"África","OWID Grapher",NA
+"energy_use","Estonia","EST",2024,40986.305,41189.668,1352000,"Europa","OWID Grapher",NA
+"energy_use","Eswatini","SWZ",2024,5606.7744,10380.396,1333000,"África","OWID Grapher",NA
 "energy_use","Ethiopia","ETH",2024,685.70764,2892.2222,121651000,"África","OWID Grapher",NA
 "energy_use","Faroe Islands","FRO",2024,64641.76,72059.58,NA,"Europa","OWID Grapher",NA
 "energy_use","Fiji","FJI",2024,10950.276,13592.464,NA,"Oceanía","OWID Grapher",NA
-"energy_use","Finland","FIN",2024,59564.754,56123.15,5597000,"Europa","OWID Grapher",NA
-"energy_use","France","FRA",2024,37865.61,54799.348,70018000,"Europa","OWID Grapher",NA
+"energy_use","Finland","FIN",2024,59564.754,56123.15,5673000,"Europa","OWID Grapher",NA
+"energy_use","France","FRA",2024,37865.61,54799.348,69586000,"Europa","OWID Grapher",NA
 "energy_use","Gabon","GAB",2024,6763.3564,18923.662,2621000,"África","OWID Grapher",NA
 "energy_use","Gambia","GMB",2024,833.6302,3057.684,3318000,"África","OWID Grapher",NA
-"energy_use","Georgia","GEO",2024,18798.164,24883.908,3675000,"Asia","OWID Grapher",NA
-"energy_use","Germany","DEU",2024,37792.51,62554.555,83113000,"Europa","OWID Grapher",NA
+"energy_use","Georgia","GEO",2024,18798.164,24883.908,3910000,"Asia","OWID Grapher",NA
+"energy_use","Germany","DEU",2024,37792.51,62554.555,82582000,"Europa","OWID Grapher",NA
 "energy_use","Ghana","GHA",2024,3263.3418,7055.625,38857000,"África","OWID Grapher",NA
 "energy_use","Greece","GRC",2024,31965.838,37474.28,10264000,"Europa","OWID Grapher",NA
 "energy_use","Grenada","GRD",2024,14321.675,17751.51,NA,"América del Norte","OWID Grapher",NA
-"energy_use","Guatemala","GTM",2024,5430.201,12640.888,20244000,"América del Norte","OWID Grapher",NA
+"energy_use","Guatemala","GTM",2024,5430.201,12640.888,20270000,"América del Norte","OWID Grapher",NA
 "energy_use","Guinea","GIN",2024,1483.4702,4016.3418,18326000,"África","OWID Grapher",NA
 "energy_use","Guinea-Bissau","GNB",2024,692.5512,2744.2798,2273000,"África","OWID Grapher",NA
 "energy_use","Guyana","GUY",2024,19789.193,70516.72,NA,"América del Sur","OWID Grapher",NA
 "energy_use","Haiti","HTI",2024,602.284,2809.6453,13601000,"América del Norte","OWID Grapher",NA
 "energy_use","Honduras","HND",2024,5241.65,6585.8555,12056000,"América del Norte","OWID Grapher",NA
-"energy_use","Hong Kong","HKG",2024,36808.547,66153.98,7770000,"Asia","OWID Grapher",NA
+"energy_use","Hong Kong","HKG",2024,36808.547,66153.98,7767000,"Asia","OWID Grapher",NA
 "energy_use","Hungary","HUN",2024,26952.049,40686.934,9420000,"Europa","OWID Grapher",NA
 "energy_use","Iceland","ISL",2024,159676.39,67310.055,440000,"Europa","OWID Grapher",NA
 "energy_use","India","IND",2024,7812.9277,9818.043,1536541000,"Asia","OWID Grapher",NA
 "energy_use","Indonesia","IDN",2024,10528.601,14470.4375,299780000,"Asia","OWID Grapher",NA
 "energy_use","Iran","IRN",2024,39203.61,17484.133,92464000,"Asia","OWID Grapher",NA
 "energy_use","Iraq","IRQ",2024,16002.357,12725.043,52543000,"Asia","OWID Grapher",NA
-"energy_use","Ireland","IRL",2024,34593.98,119037.734,5804000,"Europa","OWID Grapher",NA
-"energy_use","Israel","ISR",2024,29591.316,47338.844,11283000,"Asia","OWID Grapher",NA
+"energy_use","Ireland","IRL",2024,34593.98,119037.734,5798000,"Europa","OWID Grapher",NA
+"energy_use","Israel","ISR",2024,29591.316,47338.844,11257000,"Asia","OWID Grapher",NA
 "energy_use","Italy","ITA",2024,28584.518,53265.004,58364000,"Europa","OWID Grapher",NA
 "energy_use","Jamaica","JAM",2024,12504.468,11340.264,2772000,"América del Norte","OWID Grapher",NA
 "energy_use","Japan","JPN",2024,38745.04,46106.92,119158000,"Asia","OWID Grapher",NA
 "energy_use","Jordan","JOR",2024,9316.197,9520.251,12653000,"Asia","OWID Grapher",NA
-"energy_use","Kazakhstan","KAZ",2024,41865.195,35973.965,21656000,"Asia","OWID Grapher",NA
+"energy_use","Kazakhstan","KAZ",2024,41865.195,35973.965,21668000,"Asia","OWID Grapher",NA
 "energy_use","Kenya","KEN",2024,1676.7908,5845.201,58912000,"África","OWID Grapher",NA
 "energy_use","Kiribati","KIR",2024,2672.9912,3257.1362,NA,"Oceanía","OWID Grapher",NA
-"energy_use","Kuwait","KWT",2024,106398.59,46137.47,5757000,"Asia","OWID Grapher",NA
+"energy_use","Kuwait","KWT",2024,106398.59,46137.47,5607000,"Asia","OWID Grapher",NA
 "energy_use","Kyrgyzstan","KGZ",2024,7651.543,7048.9897,8175000,"Asia","OWID Grapher",NA
 "energy_use","Laos","LAO",2024,10887.287,8600.324,8367000,"Asia","OWID Grapher",NA
 "energy_use","Latvia","LVA",2024,20722.363,37611.67,1838000,"Europa","OWID Grapher",NA
-"energy_use","Lesotho","LSO",2024,1681.6976,2640.2854,2543000,"África","OWID Grapher",NA
+"energy_use","Lesotho","LSO",2024,1681.6976,2640.2854,2525000,"África","OWID Grapher",NA
 "energy_use","Liberia","LBR",2024,569.85297,1646.0586,6487000,"África","OWID Grapher",NA
-"energy_use","Libya","LBY",2024,33362.95,12583.834,7931000,"África","OWID Grapher",NA
+"energy_use","Libya","LBY",2024,33362.95,12583.834,7932000,"África","OWID Grapher",NA
 "energy_use","Lithuania","LTU",2024,25660.39,47165.367,2868000,"Europa","OWID Grapher",NA
 "energy_use","Luxembourg","LUX",2024,59047.88,128475.28,768000,"Europa","OWID Grapher",NA
 "energy_use","Macao","MAC",2024,19406.736,111693.5,NA,"Asia","OWID Grapher",NA
@@ -1306,41 +1306,41 @@
 "energy_use","Malawi","MWI",2024,399.19748,1634.2466,28525000,"África","OWID Grapher",NA
 "energy_use","Malaysia","MYS",2024,38865.867,34116.23,35986000,"Asia","OWID Grapher",NA
 "energy_use","Maldives","MDV",2024,14692.095,23034.41,NA,"Asia","OWID Grapher",NA
-"energy_use","Mali","MLI",2024,1186.0334,2916.1853,30244000,"África","OWID Grapher",NA
-"energy_use","Malta","MLT",2024,67320.945,62700.496,624000,"Europa","OWID Grapher",NA
+"energy_use","Mali","MLI",2024,1186.0334,2916.1853,30221000,"África","OWID Grapher",NA
+"energy_use","Malta","MLT",2024,67320.945,62700.496,629000,"Europa","OWID Grapher",NA
 "energy_use","Mauritania","MRT",2024,3806.5586,6482.69,5281000,"África","OWID Grapher",NA
 "energy_use","Mauritius","MUS",2024,18847.379,28011.158,1221000,"África","OWID Grapher",NA
 "energy_use","Mexico","MEX",2024,17653.777,22039.629,138826000,"América del Norte","OWID Grapher",NA
 "energy_use","Micronesia (country)","FSM",2024,6204.3223,3824.1523,NA,"Oceanía","OWID Grapher",NA
 "energy_use","Moldova","MDA",2024,11849.197,16376.611,2144000,"Europa","OWID Grapher",NA
-"energy_use","Mongolia","MNG",2024,22107.053,16842.65,3825000,"Asia","OWID Grapher",NA
+"energy_use","Mongolia","MNG",2024,22107.053,16842.65,3835000,"Asia","OWID Grapher",NA
 "energy_use","Montenegro","MNE",2024,18520.588,28105.709,626000,"Europa","OWID Grapher",NA
 "energy_use","Morocco","MAR",2024,7256.846,9162.747,39627000,"África","OWID Grapher",NA
 "energy_use","Mozambique","MOZ",2024,1761.81,1500.3143,41973000,"África","OWID Grapher",NA
 "energy_use","Myanmar","MMR",2024,2573.659,5276.2944,56602000,"Asia","OWID Grapher",NA
-"energy_use","Namibia","NAM",2024,6257.665,10281.336,3394000,"África","OWID Grapher",NA
+"energy_use","Namibia","NAM",2024,6257.665,10281.336,3420000,"África","OWID Grapher",NA
 "energy_use","Nauru","NRU",2024,32034.71,12468.762,NA,"Oceanía","OWID Grapher",NA
-"energy_use","Nepal","NPL",2024,1776.1818,5046.816,29531000,"Asia","OWID Grapher",NA
-"energy_use","Netherlands","NLD",2024,50824.402,70498.88,18528000,"Europa","OWID Grapher",NA
-"energy_use","New Zealand","NZL",2024,44711.75,49316.4,5522000,"Oceanía","OWID Grapher",NA
+"energy_use","Nepal","NPL",2024,1776.1818,5046.816,29521000,"Asia","OWID Grapher",NA
+"energy_use","Netherlands","NLD",2024,50824.402,70498.88,18518000,"Europa","OWID Grapher",NA
+"energy_use","New Zealand","NZL",2024,44711.75,49316.4,5516000,"Oceanía","OWID Grapher",NA
 "energy_use","Nicaragua","NIC",2024,3822.7468,7661.602,7235000,"América del Norte","OWID Grapher",NA
 "energy_use","Niger","NER",2024,511.13245,1803.4369,36090000,"África","OWID Grapher",NA
 "energy_use","Nigeria","NGA",2024,2212.9424,7994.216,269204000,"África","OWID Grapher",NA
 "energy_use","North Macedonia","MKD",2024,16219.917,24203.285,1753000,"Europa","OWID Grapher",NA
-"energy_use","Norway","NOR",2024,99634.31,91105.25,5881000,"Europa","OWID Grapher",NA
+"energy_use","Norway","NOR",2024,99634.31,91105.25,5859000,"Europa","OWID Grapher",NA
 "energy_use","Oman","OMN",2024,84610.64,36721.082,5977000,"Asia","OWID Grapher",NA
-"energy_use","Pakistan","PAK",2024,3535.5425,5500.3237,240490000,"Asia","OWID Grapher",NA
+"energy_use","Pakistan","PAK",2024,3535.5425,5500.3237,245117000,"Asia","OWID Grapher",NA
 "energy_use","Palestine","PSE",2024,4920.4414,3845.503,NA,"Asia","OWID Grapher",NA
-"energy_use","Panama","PAN",2024,23110.113,36394.918,4791000,"América del Norte","OWID Grapher",NA
+"energy_use","Panama","PAN",2024,23110.113,36394.918,4908000,"América del Norte","OWID Grapher",NA
 "energy_use","Papua New Guinea","PNG",2024,3096.2354,4288.5283,NA,"Oceanía","OWID Grapher",NA
 "energy_use","Paraguay","PRY",2024,7907.9434,16296.283,6655000,"América del Sur","OWID Grapher",NA
 "energy_use","Peru","PER",2024,10941.455,15661.75,36526000,"América del Sur","OWID Grapher",NA
-"energy_use","Philippines","PHL",2024,5633.132,10375.94,121563000,"Asia","OWID Grapher",NA
-"energy_use","Poland","POL",2024,29205.824,45153.043,35836000,"Europa","OWID Grapher",NA
-"energy_use","Portugal","PRT",2024,25921.791,42197.203,10624000,"Europa","OWID Grapher",NA
-"energy_use","Puerto Rico","PRI",2024,27541.82,44205.75,3166000,"América del Norte","OWID Grapher",NA
+"energy_use","Philippines","PHL",2024,5633.132,10375.94,121322000,"Asia","OWID Grapher",NA
+"energy_use","Poland","POL",2024,29205.824,45153.043,35971000,"Europa","OWID Grapher",NA
+"energy_use","Portugal","PRT",2024,25921.791,42197.203,10658000,"Europa","OWID Grapher",NA
+"energy_use","Puerto Rico","PRI",2024,27541.82,44205.75,3175000,"América del Norte","OWID Grapher",NA
 "energy_use","Qatar","QAT",2024,214520.3,110889.79,3271000,"Asia","OWID Grapher",NA
-"energy_use","Romania","ROU",2024,18694.158,40504,18097000,"Europa","OWID Grapher",NA
+"energy_use","Romania","ROU",2024,18694.158,40504,18613000,"Europa","OWID Grapher",NA
 "energy_use","Russia","RUS",2024,62485.312,41704.71,141475000,"Europa","OWID Grapher",NA
 "energy_use","Rwanda","RWA",2024,551.5344,3264.6445,15930000,"África","OWID Grapher",NA
 "energy_use","Saint Kitts and Nevis","KNA",2024,24994.332,30656.441,NA,"América del Norte","OWID Grapher",NA
@@ -1349,340 +1349,481 @@
 "energy_use","Samoa","WSM",2024,6671.544,7686.2495,NA,"Oceanía","OWID Grapher",NA
 "energy_use","Sao Tome and Principe","STP",2024,3149.593,5491.2983,270000,"África","OWID Grapher",NA
 "energy_use","Saudi Arabia","SAU",2024,96883.31,62792.773,40549000,"Asia","OWID Grapher",NA
-"energy_use","Senegal","SEN",2024,2700.0264,4460.924,22558000,"África","OWID Grapher",NA
+"energy_use","Senegal","SEN",2024,2700.0264,4460.924,19173000,"África","OWID Grapher",NA
 "energy_use","Serbia","SRB",2024,25219.01,26900.854,6247000,"Europa","OWID Grapher",NA
-"energy_use","Seychelles","SYC",2024,31604.953,29241.775,137000,"África","OWID Grapher",NA
+"energy_use","Seychelles","SYC",2024,31604.953,29241.775,129000,"África","OWID Grapher",NA
 "energy_use","Sierra Leone","SLE",2024,806.0337,3098.763,9968000,"África","OWID Grapher",NA
 "energy_use","Singapore","SGP",2024,180701.45,132569.53,6365000,"Asia","OWID Grapher",NA
-"energy_use","Slovakia","SVK",2024,32882.68,40319.055,5334000,"Europa","OWID Grapher",NA
+"energy_use","Slovakia","SVK",2024,32882.68,40319.055,5317000,"Europa","OWID Grapher",NA
 "energy_use","Slovenia","SVN",2024,37360.676,48648.906,2140000,"Europa","OWID Grapher",NA
 "energy_use","Solomon Islands","SLB",2024,1641.3884,2353.248,NA,"Oceanía","OWID Grapher",NA
 "energy_use","Somalia","SOM",2024,357.34778,1409.335,NA,"África","OWID Grapher",NA
-"energy_use","South Africa","ZAF",2024,21286.549,13597.654,68497000,"África","OWID Grapher",NA
+"energy_use","South Africa","ZAF",2024,21286.549,13597.654,67783000,"África","OWID Grapher",NA
 "energy_use","South Korea","KOR",2024,69922.41,55070.938,51225000,"Asia","OWID Grapher",NA
-"energy_use","Spain","ESP",2024,33901.656,48460.293,52280000,"Europa","OWID Grapher",NA
-"energy_use","Sri Lanka","LKA",2024,4819.1953,13752.837,21916000,"Asia","OWID Grapher",NA
+"energy_use","Spain","ESP",2024,33901.656,48460.293,51967000,"Europa","OWID Grapher",NA
+"energy_use","Sri Lanka","LKA",2024,4819.1953,13752.837,22417000,"Asia","OWID Grapher",NA
 "energy_use","Sudan","SDN",2024,1281.5796,1861.398,58813000,"África","OWID Grapher",NA
 "energy_use","Suriname","SUR",2024,15524.72,19179.102,NA,"América del Sur","OWID Grapher",NA
 "energy_use","Sweden","SWE",2024,57509.574,62978.938,11111000,"Europa","OWID Grapher",NA
-"energy_use","Switzerland","CHE",2024,38025.83,82286.18,9417000,"Europa","OWID Grapher",NA
+"energy_use","Switzerland","CHE",2024,38025.83,82286.18,9453000,"Europa","OWID Grapher",NA
 "energy_use","Tajikistan","TJK",2024,5042.2227,4755.933,11359000,"Asia","OWID Grapher",NA
-"energy_use","Tanzania","TZA",2024,1154.9879,3713.263,80774000,"África","OWID Grapher",NA
+"energy_use","Tanzania","TZA",2024,1154.9879,3713.263,83088000,"África","OWID Grapher",NA
 "energy_use","Thailand","THA",2024,19825.014,21740.541,71104000,"Asia","OWID Grapher",NA
-"energy_use","Togo","TGO",2024,1519.3993,2960.7754,11305000,"África","OWID Grapher",NA
+"energy_use","Togo","TGO",2024,1519.3993,2960.7754,9901000,"África","OWID Grapher",NA
 "energy_use","Trinidad and Tobago","TTO",2024,105988.44,31960.156,1475000,"América del Norte","OWID Grapher",NA
 "energy_use","Tunisia","TUN",2024,10024.105,12774.916,12670000,"África","OWID Grapher",NA
 "energy_use","Turkey","TUR",2024,23927.826,36154.492,88341000,"Asia","OWID Grapher",NA
 "energy_use","Turkmenistan","TKM",2024,49524.95,18662.299,7101000,"Asia","OWID Grapher",NA
 "energy_use","Turks and Caicos Islands","TCA",2024,40965.793,33390.527,NA,"América del Norte","OWID Grapher",NA
 "energy_use","Uganda","UGA",2024,637.01013,2879.6702,59312000,"África","OWID Grapher",NA
-"energy_use","Ukraine","UKR",2024,15875.597,16319.845,33217000,"Europa","OWID Grapher",NA
-"energy_use","United Arab Emirates","ARE",2024,138026.48,69701.805,11780000,"Asia","OWID Grapher",NA
+"energy_use","Ukraine","UKR",2024,15875.597,16319.845,33473000,"Europa","OWID Grapher",NA
+"energy_use","United Arab Emirates","ARE",2024,138026.48,69701.805,12327000,"Asia","OWID Grapher",NA
 "energy_use","United Kingdom","GBR",2024,28015.771,52621.18,71319000,"Europa","OWID Grapher",NA
-"energy_use","United States","USA",2024,76799.57,75489.266,347742000,"América del Norte","OWID Grapher",NA
+"energy_use","United States","USA",2024,76799.57,75489.266,347621000,"América del Norte","OWID Grapher",NA
 "energy_use","Uruguay","URY",2024,15800.801,32038.773,3465000,"América del Sur","OWID Grapher",NA
 "energy_use","Uzbekistan","UZB",2024,19129.268,10450.205,42675000,"Asia","OWID Grapher",NA
 "energy_use","Vanuatu","VUT",2024,4123.855,3172.0476,NA,"Oceanía","OWID Grapher",NA
-"energy_use","Venezuela","VEN",2024,24591.875,8570.132,26561000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",NA
+"energy_use","Venezuela","VEN",2024,24591.875,8185.201,28406000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",NA
 "energy_use","Vietnam","VNM",2024,14618.14,14415.216,106051000,"Asia","OWID Grapher",NA
 "energy_use","Zambia","ZMB",2024,2391.3735,3708.069,25667000,"África","OWID Grapher",NA
 "energy_use","Zimbabwe","ZWE",2024,4059.237,5215.253,19698000,"África","OWID Grapher",NA
-"democracy","Afghanistan","AFG",2024,0.25,2236.195,42647000,"Asia","IMF WEO PPP GDP per capita matched to 2024",42647000
-"democracy","Albania","ALB",2024,6.2,21812.893,2722000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2722000
-"democracy","Algeria","DZA",2024,3.55,17717.506,46626000,"África","IMF WEO PPP GDP per capita matched to 2024",46626000
-"democracy","Angola","AGO",2024,4.05,10027.325,37886000,"África","IMF WEO PPP GDP per capita matched to 2024",37886000
-"democracy","Argentina","ARG",2024,6.51,29587.354,47068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",47068000
-"democracy","Armenia","ARM",2024,5.35,22849.16,3034000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3034000
-"democracy","Australia","AUS",2024,8.85,69646.633,27388000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",27388000
-"democracy","Austria","AUT",2024,8.28,73465.66,9159000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9159000
-"democracy","Azerbaijan","AZE",2024,2.8,25033.573,10249000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10249000
-"democracy","Bahrain","BHR",2024,2.45,67230.023,1589000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1589000
-"democracy","Bangladesh","BGD",2024,4.44,9747.476,172019000,"Asia","IMF WEO PPP GDP per capita matched to 2024",172019000
-"democracy","Belarus","BLR",2024,1.99,32520.348,9133000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9133000
-"democracy","Belgium","BEL",2024,7.64,73804.776,11817000,"Europa","IMF WEO PPP GDP per capita matched to 2024",11817000
-"democracy","Benin","BEN",2024,4.44,4429.499,14500000,"África","IMF WEO PPP GDP per capita matched to 2024",14500000
-"democracy","Bolivia","BOL",2024,4.26,12896.31,12413000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",12413000
-"democracy","Bosnia and Herzegovina","BIH",2024,5.06,21756.271,3455000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3455000
-"democracy","Botswana","BWA",2024,7.63,20567.941,2521000,"África","IMF WEO PPP GDP per capita matched to 2024",2521000
-"democracy","Brazil","BRA",2024,6.49,22309.326,212584000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",212584000
-"democracy","Bulgaria","BGR",2024,6.34,39289.627,6437000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6437000
-"democracy","Burkina Faso","BFA",2024,2.55,2899.406,23554000,"África","IMF WEO PPP GDP per capita matched to 2024",23554000
-"democracy","Burundi","BDI",2024,2.13,958.395,14048000,"África","IMF WEO PPP GDP per capita matched to 2024",14048000
-"democracy","Cambodia","KHM",2024,2.94,7873.678,17639000,"Asia","IMF WEO PPP GDP per capita matched to 2024",17639000
-"democracy","Cameroon","CMR",2024,2.56,5597.089,29124000,"África","IMF WEO PPP GDP per capita matched to 2024",29124000
-"democracy","Canada","CAN",2024,8.69,64801.549,41118000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",41118000
-"democracy","Cape Verde","CPV",2024,7.58,11503.81,512000,"África","IMF WEO PPP GDP per capita matched to 2024",512000
-"democracy","Central African Republic","CAF",2024,1.18,1379.706,5331000,"África","IMF WEO PPP GDP per capita matched to 2024",5331000
-"democracy","Chad","TCD",2024,1.89,3109.989,18437000,"África","IMF WEO PPP GDP per capita matched to 2024",18437000
-"democracy","Chile","CHL",2024,7.83,34114.494,19904000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",19904000
-"democracy","China","CHN",2024,2.11,27132.068,1408280000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1408280000
-"democracy","Colombia","COL",2024,6.35,21499.476,52696000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",52696000
-"democracy","Comoros","COM",2024,2.84,3861.608,890000,"África","IMF WEO PPP GDP per capita matched to 2024",890000
-"democracy","Congo","COG",2024,2.79,6369.716,6309000,"África","IMF WEO PPP GDP per capita matched to 2024",6309000
-"democracy","Costa Rica","CRI",2024,8.29,30325.932,5325000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",5325000
-"democracy","Cote d'Ivoire","CIV",2024,4.22,7668.666,31983000,"África","IMF WEO PPP GDP per capita matched to 2024",31983000
-"democracy","Croatia","HRV",2024,6.5,48735.646,3866000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3866000
-"democracy","Cyprus","CYP",2024,7.38,61754.437,966000,"Europa","IMF WEO PPP GDP per capita matched to 2024",966000
-"democracy","Czechia","CZE",2024,8.08,56963.63,10935000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10935000
-"democracy","Democratic Republic of Congo","COD",2024,1.92,1929.988,103197000,"África","IMF WEO PPP GDP per capita matched to 2024",103197000
-"democracy","Denmark","DNK",2024,9.28,81806.125,5961000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5961000
-"democracy","Djibouti","DJI",2024,2.7,8764.288,1043000,"África","IMF WEO PPP GDP per capita matched to 2024",1043000
-"democracy","Dominican Republic","DOM",2024,6.62,29192.843,10797000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10797000
-"democracy","Ecuador","ECU",2024,5.24,15997.318,17967000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",17967000
-"democracy","Egypt","EGY",2024,2.79,20916.957,106600000,"África","IMF WEO PPP GDP per capita matched to 2024",106600000
-"democracy","El Salvador","SLV",2024,4.61,13283.263,6338000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6338000
-"democracy","Equatorial Guinea","GNQ",2024,1.92,20930.447,1590000,"África","IMF WEO PPP GDP per capita matched to 2024",1590000
-"democracy","Estonia","EST",2024,8.13,47743.406,1372000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1372000
-"democracy","Eswatini","SWZ",2024,2.6,12765.737,1150000,"África","IMF WEO PPP GDP per capita matched to 2024",1150000
-"democracy","Ethiopia","ETH",2024,3.24,4089.031,108400000,"África","IMF WEO PPP GDP per capita matched to 2024",108400000
-"democracy","Finland","FIN",2024,9.3,64446.667,5604000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5604000
-"democracy","France","FRA",2024,7.99,64053.78,68638000,"Europa","IMF WEO PPP GDP per capita matched to 2024",68638000
-"democracy","Gabon","GAB",2024,2.18,24226.613,2258000,"África","IMF WEO PPP GDP per capita matched to 2024",2258000
-"democracy","Gambia","GMB",2024,4.47,3446.529,2787000,"África","IMF WEO PPP GDP per capita matched to 2024",2787000
-"democracy","Georgia","GEO",2024,4.7,28364.329,3695000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3695000
-"democracy","Germany","DEU",2024,8.73,71796.542,83517000,"Europa","IMF WEO PPP GDP per capita matched to 2024",83517000
-"democracy","Ghana","GHA",2024,6.24,8051.188,34427000,"África","IMF WEO PPP GDP per capita matched to 2024",34427000
-"democracy","Greece","GRC",2024,8.07,42837.986,10376000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10376000
-"democracy","Guatemala","GTM",2024,4.55,14389.515,18406000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",18406000
-"democracy","Guinea","GIN",2024,2.04,4434.673,15417000,"África","IMF WEO PPP GDP per capita matched to 2024",15417000
-"democracy","Guinea-Bissau","GNB",2024,2.03,3109.654,1978000,"África","IMF WEO PPP GDP per capita matched to 2024",1978000
-"democracy","Haiti","HTI",2024,2.74,3038.204,12391000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",12391000
-"democracy","Honduras","HND",2024,4.98,7496.894,10826000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10826000
-"democracy","Hong Kong","HKG",2024,5.09,75577.685,7501000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7501000
-"democracy","Hungary","HUN",2024,6.51,46594.775,9585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9585000
-"democracy","Iceland","ISL",2024,9.38,78599.726,384000,"Europa","IMF WEO PPP GDP per capita matched to 2024",384000
-"democracy","India","IND",2024,7.29,10747.418,1450936000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1450936000
-"democracy","Indonesia","IDN",2024,6.44,16582.681,281604000,"Asia","IMF WEO PPP GDP per capita matched to 2024",281604000
-"democracy","Iran","IRN",2024,1.96,21144.803,86189000,"Asia","IMF WEO PPP GDP per capita matched to 2024",86189000
-"democracy","Iraq","IRQ",2024,2.8,15371.442,44415000,"Asia","IMF WEO PPP GDP per capita matched to 2024",44415000
-"democracy","Ireland","IRL",2024,9.19,133986.346,5420000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5420000
-"democracy","Israel","ISR",2024,7.8,54126.235,9988000,"Asia","IMF WEO PPP GDP per capita matched to 2024",9988000
-"democracy","Italy","ITA",2024,7.58,61415.223,58971000,"Europa","IMF WEO PPP GDP per capita matched to 2024",58971000
-"democracy","Jamaica","JAM",2024,6.74,13329.055,2750000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",2750000
-"democracy","Japan","JPN",2024,8.48,54368.995,123890000,"Asia","IMF WEO PPP GDP per capita matched to 2024",123890000
-"democracy","Jordan","JOR",2024,3.28,11916.349,11553000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11553000
-"democracy","Kazakhstan","KAZ",2024,3.08,41831.808,20159000,"Asia","IMF WEO PPP GDP per capita matched to 2024",20159000
-"democracy","Kenya","KEN",2024,5.05,7159.907,52444000,"África","IMF WEO PPP GDP per capita matched to 2024",52444000
-"democracy","Kuwait","KWT",2024,2.78,51909.045,5012000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5012000
-"democracy","Kyrgyzstan","KGZ",2024,3.52,8375.51,7077000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7077000
-"democracy","Laos","LAO",2024,1.71,9762.071,7686000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7686000
-"democracy","Latvia","LVA",2024,7.66,41173.135,1872000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1872000
-"democracy","Lebanon","LBN",2024,3.56,12257.811,5354000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5354000
-"democracy","Lesotho","LSO",2024,6.06,3117.894,2337000,"África","IMF WEO PPP GDP per capita matched to 2024",2337000
-"democracy","Liberia","LBR",2024,5.57,1869.341,5613000,"África","IMF WEO PPP GDP per capita matched to 2024",5613000
-"democracy","Libya","LBY",2024,2.31,14630.744,7381000,"África","IMF WEO PPP GDP per capita matched to 2024",7381000
-"democracy","Lithuania","LTU",2024,7.59,54710.469,2888000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2888000
-"democracy","Luxembourg","LUX",2024,8.88,149986.359,672000,"Europa","IMF WEO PPP GDP per capita matched to 2024",672000
-"democracy","Madagascar","MDG",2024,5.33,1973.297,30594000,"África","IMF WEO PPP GDP per capita matched to 2024",30594000
-"democracy","Malawi","MWI",2024,5.85,1722.821,23384000,"África","IMF WEO PPP GDP per capita matched to 2024",23384000
-"democracy","Malaysia","MYS",2024,7.11,41269.791,33460000,"Asia","IMF WEO PPP GDP per capita matched to 2024",33460000
-"democracy","Mali","MLI",2024,2.4,3325.084,24497000,"África","IMF WEO PPP GDP per capita matched to 2024",24497000
-"democracy","Malta","MLT",2024,7.93,74977.064,553000,"Europa","IMF WEO PPP GDP per capita matched to 2024",553000
-"democracy","Mauritania","MRT",2024,3.96,8423.713,4529000,"África","IMF WEO PPP GDP per capita matched to 2024",4529000
-"democracy","Mauritius","MUS",2024,8.23,31516.531,1245000,"África","IMF WEO PPP GDP per capita matched to 2024",1245000
-"democracy","Mexico","MEX",2024,5.32,25038.884,132274000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",132274000
-"democracy","Moldova","MDA",2024,6.04,18516.961,2423000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2423000
-"democracy","Mongolia","MNG",2024,6.53,19064.087,3545000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3545000
-"democracy","Montenegro","MNE",2024,6.73,32565.586,624000,"Europa","IMF WEO PPP GDP per capita matched to 2024",624000
-"democracy","Morocco","MAR",2024,4.97,10793.549,37370000,"África","IMF WEO PPP GDP per capita matched to 2024",37370000
-"democracy","Mozambique","MOZ",2024,3.38,1697.196,34858000,"África","IMF WEO PPP GDP per capita matched to 2024",34858000
-"democracy","Myanmar","MMR",2024,0.96,5038.592,54500000,"Asia","IMF WEO PPP GDP per capita matched to 2024",54500000
-"democracy","Namibia","NAM",2024,6.48,11861.25,2990000,"África","IMF WEO PPP GDP per capita matched to 2024",2990000
-"democracy","Nepal","NPL",2024,4.6,5744.948,29651000,"Asia","IMF WEO PPP GDP per capita matched to 2024",29651000
-"democracy","Netherlands","NLD",2024,9,81354.404,17943000,"Europa","IMF WEO PPP GDP per capita matched to 2024",17943000
-"democracy","New Zealand","NZL",2024,9.61,54549.238,5290000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",5290000
-"democracy","Nicaragua","NIC",2024,2.09,9050.282,6664000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6664000
-"democracy","Niger","NER",2024,2.26,1989.384,28080000,"África","IMF WEO PPP GDP per capita matched to 2024",28080000
-"democracy","Nigeria","NGA",2024,4.16,9099.862,232679000,"África","IMF WEO PPP GDP per capita matched to 2024",232679000
-"democracy","North Macedonia","MKD",2024,6.28,27835.289,1824000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1824000
-"democracy","Norway","NOR",2024,9.81,107943.564,5585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5585000
-"democracy","Oman","OMN",2024,3.05,42304.162,5219000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5219000
-"democracy","Pakistan","PAK",2024,2.84,6743.385,235950000,"Asia","IMF WEO PPP GDP per capita matched to 2024",235950000
-"democracy","Panama","PAN",2024,6.84,41485.021,4510000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",4510000
-"democracy","Paraguay","PRY",2024,5.92,20258.753,6373000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",6373000
-"democracy","Peru","PER",2024,5.69,18238.969,34068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",34068000
-"democracy","Philippines","PHL",2024,6.63,12120.826,112885000,"Asia","IMF WEO PPP GDP per capita matched to 2024",112885000
-"democracy","Poland","POL",2024,7.4,52205.98,36621000,"Europa","IMF WEO PPP GDP per capita matched to 2024",36621000
-"democracy","Portugal","PRT",2024,8.08,48323.807,10695000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10695000
-"democracy","Qatar","QAT",2024,3.17,114758.203,3143000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3143000
-"democracy","Romania","ROU",2024,5.99,46787.965,18944000,"Europa","IMF WEO PPP GDP per capita matched to 2024",18944000
-"democracy","Russia","RUS",2024,2.03,48119.003,144820000,"Europa","IMF WEO PPP GDP per capita matched to 2024",144820000
-"democracy","Rwanda","RWA",2024,3.34,3892.869,13857000,"África","IMF WEO PPP GDP per capita matched to 2024",13857000
-"democracy","Saudi Arabia","SAU",2024,2.08,71936.189,35300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",35300000
-"democracy","Senegal","SEN",2024,5.93,5038.758,18661000,"África","IMF WEO PPP GDP per capita matched to 2024",18661000
-"democracy","Serbia","SRB",2024,6.26,30966.504,6586000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6586000
-"democracy","Sierra Leone","SLE",2024,4.32,3527.433,8642000,"África","IMF WEO PPP GDP per capita matched to 2024",8642000
-"democracy","Singapore","SGP",2024,6.18,153161.044,6037000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6037000
-"democracy","Slovakia","SVK",2024,7.21,45952.755,5425000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5425000
-"democracy","Slovenia","SVN",2024,7.82,55914.37,2124000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2124000
-"democracy","South Africa","ZAF",2024,7.16,15895.477,62329000,"África","IMF WEO PPP GDP per capita matched to 2024",62329000
-"democracy","South Korea","KOR",2024,7.75,62885.478,51751000,"Asia","IMF WEO PPP GDP per capita matched to 2024",51751000
-"democracy","Spain","ESP",2024,8.13,54674.716,49078000,"Europa","IMF WEO PPP GDP per capita matched to 2024",49078000
-"democracy","Sri Lanka","LKA",2024,6.19,15655.282,21916000,"Asia","IMF WEO PPP GDP per capita matched to 2024",21916000
-"democracy","Sudan","SDN",2024,1.46,2346.186,49140000,"África","IMF WEO PPP GDP per capita matched to 2024",49140000
-"democracy","Sweden","SWE",2024,9.39,71536.362,10588000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10588000
-"democracy","Switzerland","CHE",2024,9.32,98728.608,8962000,"Europa","IMF WEO PPP GDP per capita matched to 2024",8962000
-"democracy","Taiwan","TWN",2024,8.78,80390.306,23400000,"Asia","IMF WEO PPP GDP per capita matched to 2024",23400000
-"democracy","Tajikistan","TJK",2024,1.83,5626.255,10188000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10188000
-"democracy","Tanzania","TZA",2024,5.2,4119.705,65645000,"África","IMF WEO PPP GDP per capita matched to 2024",65645000
-"democracy","Thailand","THA",2024,6.27,24917.534,71668000,"Asia","IMF WEO PPP GDP per capita matched to 2024",71668000
-"democracy","Togo","TGO",2024,2.99,3352.215,9548000,"África","IMF WEO PPP GDP per capita matched to 2024",9548000
-"democracy","Trinidad and Tobago","TTO",2024,7.09,34857.18,1428000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",1428000
-"democracy","Tunisia","TUN",2024,4.71,14461.578,12277000,"África","IMF WEO PPP GDP per capita matched to 2024",12277000
-"democracy","Turkey","TUR",2024,4.26,41549.109,85518000,"Asia","IMF WEO PPP GDP per capita matched to 2024",85518000
-"democracy","Turkmenistan","TKM",2024,1.66,22168.508,6598000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6598000
-"democracy","Uganda","UGA",2024,4.49,3682.423,46623000,"África","IMF WEO PPP GDP per capita matched to 2024",46623000
-"democracy","Ukraine","UKR",2024,4.9,19782.894,33343000,"Europa","IMF WEO PPP GDP per capita matched to 2024",33343000
-"democracy","United Arab Emirates","ARE",2024,3.07,77185.205,11294000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11294000
-"democracy","United Kingdom","GBR",2024,8.34,63071.834,69281000,"Europa","IMF WEO PPP GDP per capita matched to 2024",69281000
-"democracy","United States","USA",2024,7.85,86173.365,339989000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",339989000
-"democracy","Uruguay","URY",2024,8.67,35494.42,3492000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",3492000
-"democracy","Uzbekistan","UZB",2024,2.1,12124.514,37543000,"Asia","IMF WEO PPP GDP per capita matched to 2024",37543000
-"democracy","Venezuela","VEN",2024,2.25,8570.132,26561000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",26561000
-"democracy","Vietnam","VNM",2024,2.62,16337.37,101300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",101300000
-"democracy","Yemen","YEM",2024,1.95,1601.375,18262000,"Asia","IMF WEO PPP GDP per capita matched to 2024",18262000
-"democracy","Zambia","ZMB",2024,5.73,4221.01,21315000,"África","IMF WEO PPP GDP per capita matched to 2024",21315000
-"democracy","Zimbabwe","ZWE",2024,2.98,7376.624,16992000,"África","IMF WEO PPP GDP per capita matched to 2024",16992000
-"economic_complexity","Afghanistan","AFG",2024,-0.792,2236.195,42647000,"Asia","IMF WEO PPP GDP per capita matched to 2024",42647000
-"economic_complexity","Albania","ALB",2024,0.047,21812.893,2722000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2722000
-"economic_complexity","Algeria","DZA",2024,-1.056,17717.506,46626000,"África","IMF WEO PPP GDP per capita matched to 2024",46626000
-"economic_complexity","Angola","AGO",2024,-0.74,10027.325,37886000,"África","IMF WEO PPP GDP per capita matched to 2024",37886000
-"economic_complexity","Azerbaijan","AZE",2024,-0.391,25033.573,10249000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10249000
-"economic_complexity","Argentina","ARG",2024,-0.013,29587.354,47068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",47068000
-"economic_complexity","Australia","AUS",2024,0.117,69646.633,27388000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",27388000
-"economic_complexity","Austria","AUT",2024,1.253,73465.66,9159000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9159000
-"economic_complexity","Bahrain","BHR",2024,0.267,67230.023,1589000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1589000
-"economic_complexity","Bangladesh","BGD",2024,-0.444,9747.476,172019000,"Asia","IMF WEO PPP GDP per capita matched to 2024",172019000
-"economic_complexity","Armenia","ARM",2024,0.581,22849.16,3034000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3034000
-"economic_complexity","Belgium","BEL",2024,0.992,73804.776,11817000,"Europa","IMF WEO PPP GDP per capita matched to 2024",11817000
-"economic_complexity","Bolivia (Plurinational State of)","BOL",2024,-1.097,12896.31,12413000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",12413000
-"economic_complexity","Bosnia and Herzegovina","BIH",2024,0.675,21756.271,3455000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3455000
-"economic_complexity","Botswana","BWA",2024,-0.304,20567.941,2521000,"África","IMF WEO PPP GDP per capita matched to 2024",2521000
-"economic_complexity","Brazil","BRA",2024,0.37,22309.326,212584000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",212584000
-"economic_complexity","Bulgaria","BGR",2024,0.799,39289.627,6437000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6437000
-"economic_complexity","Myanmar","MMR",2024,-0.997,5038.592,54500000,"Asia","IMF WEO PPP GDP per capita matched to 2024",54500000
-"economic_complexity","Belarus","BLR",2024,0.786,32520.348,9133000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9133000
-"economic_complexity","Cambodia","KHM",2024,0.018,7873.678,17639000,"Asia","IMF WEO PPP GDP per capita matched to 2024",17639000
-"economic_complexity","Cameroon","CMR",2024,-1.591,5597.089,29124000,"África","IMF WEO PPP GDP per capita matched to 2024",29124000
-"economic_complexity","Canada","CAN",2024,0.787,64801.549,41118000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",41118000
-"economic_complexity","Sri Lanka","LKA",2024,-0.005,15655.282,21916000,"Asia","IMF WEO PPP GDP per capita matched to 2024",21916000
-"economic_complexity","Chad","TCD",2024,-3.525,3109.989,18437000,"África","IMF WEO PPP GDP per capita matched to 2024",18437000
-"economic_complexity","Chile","CHL",2024,-0.035,34114.494,19904000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",19904000
-"economic_complexity","China","CHN",2024,1.259,27132.068,1408280000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1408280000
-"economic_complexity","Taiwan, Province of China","TWN",2024,1.574,80390.306,23400000,"Asia","IMF WEO PPP GDP per capita matched to 2024",23400000
-"economic_complexity","Colombia","COL",2024,0.245,21499.476,52696000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",52696000
-"economic_complexity","Congo","COG",2024,-2.493,6369.716,6309000,"África","IMF WEO PPP GDP per capita matched to 2024",6309000
-"economic_complexity","D.R. of the Congo","COD",2024,-3.134,1929.988,103197000,"África","IMF WEO PPP GDP per capita matched to 2024",103197000
-"economic_complexity","Costa Rica","CRI",2024,0.339,30325.932,5325000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",5325000
-"economic_complexity","Croatia","HRV",2024,0.832,48735.646,3866000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3866000
-"economic_complexity","Cyprus","CYP",2024,0.472,61754.437,966000,"Europa","IMF WEO PPP GDP per capita matched to 2024",966000
-"economic_complexity","Czech Republic","CZE",2024,1.333,56963.63,10935000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10935000
-"economic_complexity","Benin","BEN",2024,-0.921,4429.499,14500000,"África","IMF WEO PPP GDP per capita matched to 2024",14500000
-"economic_complexity","Denmark","DNK",2024,1.018,81806.125,5961000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5961000
-"economic_complexity","Dominican Republic","DOM",2024,0.054,29192.843,10797000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10797000
-"economic_complexity","Ecuador","ECU",2024,-0.79,15997.318,17967000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",17967000
-"economic_complexity","El Salvador","SLV",2024,0.355,13283.263,6338000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6338000
-"economic_complexity","Equatorial Guinea","GNQ",2024,-2.704,20930.447,1590000,"África","IMF WEO PPP GDP per capita matched to 2024",1590000
-"economic_complexity","Ethiopia","ETH",2024,-1.109,4089.031,108400000,"África","IMF WEO PPP GDP per capita matched to 2024",108400000
-"economic_complexity","Estonia","EST",2024,0.887,47743.406,1372000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1372000
-"economic_complexity","Finland","FIN",2024,1.152,64446.667,5604000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5604000
-"economic_complexity","France","FRA",2024,1.087,64053.78,68638000,"Europa","IMF WEO PPP GDP per capita matched to 2024",68638000
-"economic_complexity","Gabon","GAB",2024,-1.816,24226.613,2258000,"África","IMF WEO PPP GDP per capita matched to 2024",2258000
-"economic_complexity","Georgia","GEO",2024,0.297,28364.329,3695000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3695000
-"economic_complexity","Germany","DEU",2024,1.355,71796.542,83517000,"Europa","IMF WEO PPP GDP per capita matched to 2024",83517000
-"economic_complexity","Ghana","GHA",2024,-1.106,8051.188,34427000,"África","IMF WEO PPP GDP per capita matched to 2024",34427000
-"economic_complexity","Greece","GRC",2024,0.521,42837.986,10376000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10376000
-"economic_complexity","Guatemala","GTM",2024,0.072,14389.515,18406000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",18406000
-"economic_complexity","Guinea","GIN",2024,-1.805,4434.673,15417000,"África","IMF WEO PPP GDP per capita matched to 2024",15417000
-"economic_complexity","Haiti","HTI",2024,-0.577,3038.204,12391000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",12391000
-"economic_complexity","Honduras","HND",2024,-0.291,7496.894,10826000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10826000
-"economic_complexity","China, Hong Kong SAR","HKG",2024,1.112,75577.685,7501000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7501000
-"economic_complexity","Hungary","HUN",2024,1.165,46594.775,9585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9585000
-"economic_complexity","India","IND",2024,0.716,10747.418,1450936000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1450936000
-"economic_complexity","Indonesia","IDN",2024,0.234,16582.681,281604000,"Asia","IMF WEO PPP GDP per capita matched to 2024",281604000
-"economic_complexity","Iran (Islamic Republic of)","IRN",2024,-0.065,21144.803,86189000,"Asia","IMF WEO PPP GDP per capita matched to 2024",86189000
-"economic_complexity","Iraq","IRQ",2024,-1.552,15371.442,44415000,"Asia","IMF WEO PPP GDP per capita matched to 2024",44415000
-"economic_complexity","Ireland","IRL",2024,1.184,133986.346,5420000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5420000
-"economic_complexity","Israel","ISR",2024,1.32,54126.235,9988000,"Asia","IMF WEO PPP GDP per capita matched to 2024",9988000
-"economic_complexity","Italy","ITA",2024,1.118,61415.223,58971000,"Europa","IMF WEO PPP GDP per capita matched to 2024",58971000
-"economic_complexity","Côte d'Ivoire","CIV",2024,-0.903,7668.666,31983000,"África","IMF WEO PPP GDP per capita matched to 2024",31983000
-"economic_complexity","Jamaica","JAM",2024,-0.346,13329.055,2750000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",2750000
-"economic_complexity","Japan","JPN",2024,1.689,54368.995,123890000,"Asia","IMF WEO PPP GDP per capita matched to 2024",123890000
-"economic_complexity","Kazakhstan","KAZ",2024,0.379,41831.808,20159000,"Asia","IMF WEO PPP GDP per capita matched to 2024",20159000
-"economic_complexity","Jordan","JOR",2024,0.093,11916.349,11553000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11553000
-"economic_complexity","Kenya","KEN",2024,-0.266,7159.907,52444000,"África","IMF WEO PPP GDP per capita matched to 2024",52444000
-"economic_complexity","Republic of Korea","KOR",2024,1.562,62885.478,51751000,"Asia","IMF WEO PPP GDP per capita matched to 2024",51751000
-"economic_complexity","Kuwait","KWT",2024,0.264,51909.045,5012000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5012000
-"economic_complexity","Kyrgyzstan","KGZ",2024,0.205,8375.51,7077000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7077000
-"economic_complexity","Lao People's DR","LAO",2024,-0.774,9762.071,7686000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7686000
-"economic_complexity","Lebanon","LBN",2024,0.391,12257.811,5354000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5354000
-"economic_complexity","Latvia","LVA",2024,0.762,41173.135,1872000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1872000
-"economic_complexity","Liberia","LBR",2024,-2.194,1869.341,5613000,"África","IMF WEO PPP GDP per capita matched to 2024",5613000
-"economic_complexity","Libya","LBY",2024,-1.71,14630.744,7381000,"África","IMF WEO PPP GDP per capita matched to 2024",7381000
-"economic_complexity","Lithuania","LTU",2024,0.856,54710.469,2888000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2888000
-"economic_complexity","Madagascar","MDG",2024,-1.075,1973.297,30594000,"África","IMF WEO PPP GDP per capita matched to 2024",30594000
-"economic_complexity","Malawi","MWI",2024,-0.973,1722.821,23384000,"África","IMF WEO PPP GDP per capita matched to 2024",23384000
-"economic_complexity","Malaysia","MYS",2024,0.818,41269.791,33460000,"Asia","IMF WEO PPP GDP per capita matched to 2024",33460000
-"economic_complexity","Mali","MLI",2024,-0.952,3325.084,24497000,"África","IMF WEO PPP GDP per capita matched to 2024",24497000
-"economic_complexity","Mauritania","MRT",2024,-1.267,8423.713,4529000,"África","IMF WEO PPP GDP per capita matched to 2024",4529000
-"economic_complexity","Mauritius","MUS",2024,0.293,31516.531,1245000,"África","IMF WEO PPP GDP per capita matched to 2024",1245000
-"economic_complexity","Mexico","MEX",2024,0.936,25038.884,132274000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",132274000
-"economic_complexity","Mongolia","MNG",2024,-1.552,19064.087,3545000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3545000
-"economic_complexity","Republic of Moldova","MDA",2024,0.21,18516.961,2423000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2423000
-"economic_complexity","Morocco","MAR",2024,-0.064,10793.549,37370000,"África","IMF WEO PPP GDP per capita matched to 2024",37370000
-"economic_complexity","Mozambique","MOZ",2024,-1.246,1697.196,34858000,"África","IMF WEO PPP GDP per capita matched to 2024",34858000
-"economic_complexity","Oman","OMN",2024,-0.539,42304.162,5219000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5219000
-"economic_complexity","Namibia","NAM",2024,-0.521,11861.25,2990000,"África","IMF WEO PPP GDP per capita matched to 2024",2990000
-"economic_complexity","Nepal","NPL",2024,-0.116,5744.948,29651000,"Asia","IMF WEO PPP GDP per capita matched to 2024",29651000
-"economic_complexity","Netherlands","NLD",2024,0.947,81354.404,17943000,"Europa","IMF WEO PPP GDP per capita matched to 2024",17943000
-"economic_complexity","New Zealand","NZL",2024,0.515,54549.238,5290000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",5290000
-"economic_complexity","Nicaragua","NIC",2024,-0.897,9050.282,6664000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6664000
-"economic_complexity","Niger","NER",2024,-0.753,1989.384,28080000,"África","IMF WEO PPP GDP per capita matched to 2024",28080000
-"economic_complexity","Nigeria","NGA",2024,-2.259,9099.862,232679000,"África","IMF WEO PPP GDP per capita matched to 2024",232679000
-"economic_complexity","Norway","NOR",2024,0.742,107943.564,5585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5585000
-"economic_complexity","Pakistan","PAK",2024,-0.228,6743.385,235950000,"Asia","IMF WEO PPP GDP per capita matched to 2024",235950000
-"economic_complexity","Panama","PAN",2024,0.355,41485.021,4510000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",4510000
-"economic_complexity","Paraguay","PRY",2024,-0.24,20258.753,6373000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",6373000
-"economic_complexity","Peru","PER",2024,-0.59,18238.969,34068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",34068000
-"economic_complexity","Philippines","PHL",2024,0.688,12120.826,112885000,"Asia","IMF WEO PPP GDP per capita matched to 2024",112885000
-"economic_complexity","Poland","POL",2024,0.99,52205.98,36621000,"Europa","IMF WEO PPP GDP per capita matched to 2024",36621000
-"economic_complexity","Portugal","PRT",2024,0.721,48323.807,10695000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10695000
-"economic_complexity","Qatar","QAT",2024,0.061,114758.203,3143000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3143000
-"economic_complexity","Romania","ROU",2024,1.001,46787.965,18944000,"Europa","IMF WEO PPP GDP per capita matched to 2024",18944000
-"economic_complexity","Russian Federation","RUS",2024,0.247,48119.003,144820000,"Europa","IMF WEO PPP GDP per capita matched to 2024",144820000
-"economic_complexity","Rwanda","RWA",2024,-1.076,3892.869,13857000,"África","IMF WEO PPP GDP per capita matched to 2024",13857000
-"economic_complexity","Saudi Arabia","SAU",2024,0.499,71936.189,35300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",35300000
-"economic_complexity","Senegal","SEN",2024,-0.519,5038.758,18661000,"África","IMF WEO PPP GDP per capita matched to 2024",18661000
-"economic_complexity","Serbia","SRB",2024,0.773,30966.504,6586000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6586000
-"economic_complexity","Singapore","SGP",2024,1.451,153161.044,6037000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6037000
-"economic_complexity","Slovakia","SVK",2024,1.128,45952.755,5425000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5425000
-"economic_complexity","Viet Nam","VNM",2024,0.629,16337.37,101300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",101300000
-"economic_complexity","Slovenia","SVN",2024,1.282,55914.37,2124000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2124000
-"economic_complexity","South Africa","ZAF",2024,0.369,15895.477,62329000,"África","IMF WEO PPP GDP per capita matched to 2024",62329000
-"economic_complexity","Zimbabwe","ZWE",2024,-1.084,7376.624,16992000,"África","IMF WEO PPP GDP per capita matched to 2024",16992000
-"economic_complexity","Spain","ESP",2024,0.823,54674.716,49078000,"Europa","IMF WEO PPP GDP per capita matched to 2024",49078000
-"economic_complexity","Sudan (Former)","SDN",2024,-2.128,2346.186,49140000,"África","IMF WEO PPP GDP per capita matched to 2024",49140000
-"economic_complexity","Swaziland","SWZ",2024,0.304,12765.737,1150000,"África","IMF WEO PPP GDP per capita matched to 2024",1150000
-"economic_complexity","Sweden","SWE",2024,1.234,71536.362,10588000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10588000
-"economic_complexity","Switzerland","CHE",2024,1.579,98728.608,8962000,"Europa","IMF WEO PPP GDP per capita matched to 2024",8962000
-"economic_complexity","Tajikistan","TJK",2024,-1.432,5626.255,10188000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10188000
-"economic_complexity","Thailand","THA",2024,0.789,24917.534,71668000,"Asia","IMF WEO PPP GDP per capita matched to 2024",71668000
-"economic_complexity","Togo","TGO",2024,-0.638,3352.215,9548000,"África","IMF WEO PPP GDP per capita matched to 2024",9548000
-"economic_complexity","Trinidad and Tobago","TTO",2024,0.049,34857.18,1428000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",1428000
-"economic_complexity","United Arab Emirates","ARE",2024,0.369,77185.205,11294000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11294000
-"economic_complexity","Tunisia","TUN",2024,0.547,14461.578,12277000,"África","IMF WEO PPP GDP per capita matched to 2024",12277000
-"economic_complexity","Turkey","TUR",2024,0.705,41549.109,85518000,"Asia","IMF WEO PPP GDP per capita matched to 2024",85518000
-"economic_complexity","Turkmenistan","TKM",2024,-1.178,22168.508,6598000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6598000
-"economic_complexity","Uganda","UGA",2024,-0.518,3682.423,46623000,"África","IMF WEO PPP GDP per capita matched to 2024",46623000
-"economic_complexity","Ukraine","UKR",2024,0.4,19782.894,33343000,"Europa","IMF WEO PPP GDP per capita matched to 2024",33343000
-"economic_complexity","TFYR of Macedonia","MKD",2024,0.423,27835.289,1824000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1824000
-"economic_complexity","Egypt","EGY",2024,0.075,20916.957,106600000,"África","IMF WEO PPP GDP per capita matched to 2024",106600000
-"economic_complexity","United Kingdom","GBR",2024,1.245,63071.834,69281000,"Europa","IMF WEO PPP GDP per capita matched to 2024",69281000
-"economic_complexity","U.R. of Tanzania: Mainland","TZA",2024,-0.907,4119.705,65645000,"África","IMF WEO PPP GDP per capita matched to 2024",65645000
-"economic_complexity","United States","USA",2024,1.107,86173.365,339989000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",339989000
-"economic_complexity","Burkina Faso","BFA",2024,-0.7,2899.406,23554000,"África","IMF WEO PPP GDP per capita matched to 2024",23554000
-"economic_complexity","Uruguay","URY",2024,0.165,35494.42,3492000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",3492000
-"economic_complexity","Uzbekistan","UZB",2024,0.221,12124.514,37543000,"Asia","IMF WEO PPP GDP per capita matched to 2024",37543000
-"economic_complexity","Venezuela (Bolivarian Republic of)","VEN",2024,-1.631,8570.132,26561000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",26561000
-"economic_complexity","Yemen","YEM",2024,-1.736,1601.375,18262000,"Asia","IMF WEO PPP GDP per capita matched to 2024",18262000
-"economic_complexity","Zambia","ZMB",2024,-0.664,4221.01,21315000,"África","IMF WEO PPP GDP per capita matched to 2024",21315000
+"happiness","Albania","ALB",2025,5.662,22724.293,2252000,"Europa","OWID Grapher",NA
+"happiness","Algeria","DZA",2025,5.714,15882.714,50637000,"África","OWID Grapher",NA
+"happiness","Argentina","ARG",2025,6.43,27846.598,50394000,"América del Sur","OWID Grapher",NA
+"happiness","Armenia","ARM",2025,5.584,21153.479,3044000,"Asia","OWID Grapher",NA
+"happiness","Australia","AUS",2025,6.916,60194.062,29803000,"Oceanía","OWID Grapher",NA
+"happiness","Austria","AUT",2025,6.845,63970.402,9331000,"Europa","OWID Grapher",NA
+"happiness","Azerbaijan","AZE",2025,4.993,22314.217,11141000,"Asia","OWID Grapher",NA
+"happiness","Bahrain","BHR",2025,6.254,60669.63,1803000,"Asia","OWID Grapher",NA
+"happiness","Bangladesh","BGD",2025,4.319,8676.756,183230000,"Asia","OWID Grapher",NA
+"happiness","Belgium","BEL",2025,6.926,63488.42,12100000,"Europa","OWID Grapher",NA
+"happiness","Belize","BLZ",2025,6.711,12788.843,NA,"América del Norte","OWID Grapher",NA
+"happiness","Benin","BEN",2025,4.393,4116.2153,17532000,"África","OWID Grapher",NA
+"happiness","Bolivia","BOL",2025,5.835,11000.534,12749000,"América del Sur","OWID Grapher",NA
+"happiness","Bosnia and Herzegovina","BIH",2025,6.381,21178.227,3384000,"Europa","OWID Grapher",NA
+"happiness","Botswana","BWA",2025,3.464,17687.205,2759000,"África","OWID Grapher",NA
+"happiness","Brazil","BRA",2025,6.634,20024.697,217049000,"América del Sur","OWID Grapher",NA
+"happiness","Bulgaria","BGR",2025,5.703,35325.53,6118000,"Europa","OWID Grapher",NA
+"happiness","Burkina Faso","BFA",2025,4.455,2624.8286,27587000,"África","OWID Grapher",NA
+"happiness","Cambodia","KHM",2025,4.462,7300.0806,19012000,"Asia","OWID Grapher",NA
+"happiness","Cameroon","CMR",2025,5.083,4945.9565,34629000,"África","OWID Grapher",NA
+"happiness","Canada","CAN",2025,6.741,57989.58,42528000,"América del Norte","OWID Grapher",NA
+"happiness","Chad","TCD",2025,4.385,2480.5095,22259000,"África","OWID Grapher",NA
+"happiness","Chile","CHL",2025,6.302,30863.422,20547000,"América del Sur","OWID Grapher",NA
+"happiness","China","CHN",2025,6.074,25066.521,1382719000,"Asia","OWID Grapher",NA
+"happiness","Colombia","COL",2025,6.04,18778.648,54748000,"América del Sur","OWID Grapher",NA
+"happiness","Comoros","COM",2025,3.925,3621.7664,1033000,"África","OWID Grapher",NA
+"happiness","Congo","COG",2025,4.456,6194.09,7655000,"África","OWID Grapher",NA
+"happiness","Costa Rica","CRI",2025,7.439,28443.412,5648000,"América del Norte","OWID Grapher",NA
+"happiness","Cote d'Ivoire","CIV",2025,5.148,7014.8457,38961000,"África","OWID Grapher",NA
+"happiness","Croatia","HRV",2025,6.009,44172.043,3922000,"Europa","OWID Grapher",NA
+"happiness","Cyprus","CYP",2025,6.126,54103.26,1046000,"Europa","OWID Grapher",NA
+"happiness","Czechia","CZE",2025,6.821,49292.49,10686000,"Europa","OWID Grapher",NA
+"happiness","Democratic Republic of Congo","COD",2025,3.761,1640.5662,129172000,"África","OWID Grapher",NA
+"happiness","Denmark","DNK",2025,7.539,72723.27,6260000,"Europa","OWID Grapher",NA
+"happiness","Dominican Republic","DOM",2025,6.093,24543.342,11432000,"América del Norte","OWID Grapher",NA
+"happiness","Ecuador","ECU",2025,6.144,14319.24,18958000,"América del Sur","OWID Grapher",NA
+"happiness","Egypt","EGY",2025,3.862,17265.148,125110000,"África","OWID Grapher",NA
+"happiness","El Salvador","SLV",2025,6.578,12050.028,6658000,"América del Norte","OWID Grapher",NA
+"happiness","Estonia","EST",2025,6.41,41604.324,1352000,"Europa","OWID Grapher",NA
+"happiness","Eswatini","SWZ",2025,3.909,10706.777,1333000,"África","OWID Grapher",NA
+"happiness","Ethiopia","ETH",2025,3.985,3094.8682,121651000,"África","OWID Grapher",NA
+"happiness","Finland","FIN",2025,7.764,55735.22,5673000,"Europa","OWID Grapher",NA
+"happiness","France","FRA",2025,6.586,55124.54,69586000,"Europa","OWID Grapher",NA
+"happiness","Gabon","GAB",2025,5.167,18986.475,2621000,"África","OWID Grapher",NA
+"happiness","Gambia","GMB",2025,4.306,3166.6213,3318000,"África","OWID Grapher",NA
+"happiness","Georgia","GEO",2025,5.517,25135.783,3910000,"Asia","OWID Grapher",NA
+"happiness","Germany","DEU",2025,6.882,62823.773,82582000,"Europa","OWID Grapher",NA
+"happiness","Ghana","GHA",2025,4.554,7357.8335,38857000,"África","OWID Grapher",NA
+"happiness","Greece","GRC",2025,5.697,38218.723,10264000,"Europa","OWID Grapher",NA
+"happiness","Guatemala","GTM",2025,6.533,12986.524,20270000,"América del Norte","OWID Grapher",NA
+"happiness","Guinea","GIN",2025,4.609,4216.86,18326000,"África","OWID Grapher",NA
+"happiness","Honduras","HND",2025,6.096,6726.167,12056000,"América del Norte","OWID Grapher",NA
+"happiness","Hong Kong","HKG",2025,5.569,68724.555,7767000,"Asia","OWID Grapher",NA
+"happiness","Hungary","HUN",2025,5.937,41160.64,9420000,"Europa","OWID Grapher",NA
+"happiness","Iceland","ISL",2025,7.54,68064.69,440000,"Europa","OWID Grapher",NA
+"happiness","India","IND",2025,4.536,10039.071,1536541000,"Asia","OWID Grapher",NA
+"happiness","Indonesia","IDN",2025,5.617,15091.009,299780000,"Asia","OWID Grapher",NA
+"happiness","Iran","IRN",2025,5.151,16833.781,92464000,"Asia","OWID Grapher",NA
+"happiness","Iraq","IRQ",2025,5.212,12191.557,52543000,"Asia","OWID Grapher",NA
+"happiness","Ireland","IRL",2025,6.928,131338.44,5798000,"Europa","OWID Grapher",NA
+"happiness","Israel","ISR",2025,7.187,48196.633,11257000,"Asia","OWID Grapher",NA
+"happiness","Italy","ITA",2025,6.574,53606.08,58364000,"Europa","OWID Grapher",NA
+"happiness","Jamaica","JAM",2025,6.305,11357.916,2772000,"América del Norte","OWID Grapher",NA
+"happiness","Japan","JPN",2025,6.13,48283.37,119158000,"Asia","OWID Grapher",NA
+"happiness","Jordan","JOR",2025,4.478,10794.24,12653000,"Asia","OWID Grapher",NA
+"happiness","Kazakhstan","KAZ",2025,6.633,37850.58,21668000,"Asia","OWID Grapher",NA
+"happiness","Kenya","KEN",2025,4.674,5995.402,58912000,"África","OWID Grapher",NA
+"happiness","Kuwait","KWT",2025,6.543,48253.965,5607000,"Asia","OWID Grapher",NA
+"happiness","Kyrgyzstan","KGZ",2025,6.049,7878.449,8175000,"Asia","OWID Grapher",NA
+"happiness","Laos","LAO",2025,5.515,8872.694,8367000,"Asia","OWID Grapher",NA
+"happiness","Latvia","LVA",2025,6.365,38800.543,1838000,"Europa","OWID Grapher",NA
+"happiness","Lesotho","LSO",2025,4.375,2720.9573,2525000,"África","OWID Grapher",NA
+"happiness","Liberia","LBR",2025,4.28,1692.9259,6487000,"África","OWID Grapher",NA
+"happiness","Libya","LBY",2025,5.731,14118.206,7932000,"África","OWID Grapher",NA
+"happiness","Lithuania","LTU",2025,6.704,48839.543,2868000,"Europa","OWID Grapher",NA
+"happiness","Luxembourg","LUX",2025,7.063,127420.6,768000,"Europa","OWID Grapher",NA
+"happiness","Madagascar","MDG",2025,4.174,1668.477,37068000,"África","OWID Grapher",NA
+"happiness","Malawi","MWI",2025,3.284,1623.0217,28525000,"África","OWID Grapher",NA
+"happiness","Malaysia","MYS",2025,6.005,35461.445,35986000,"Asia","OWID Grapher",NA
+"happiness","Mali","MLI",2025,4.588,2993.2517,30221000,"África","OWID Grapher",NA
+"happiness","Malta","MLT",2025,6.436,63655.516,629000,"Europa","OWID Grapher",NA
+"happiness","Mauritania","MRT",2025,4.473,6559.0435,5281000,"África","OWID Grapher",NA
+"happiness","Mauritius","MUS",2025,5.939,28769.514,1221000,"África","OWID Grapher",NA
+"happiness","Mexico","MEX",2025,6.972,21911.93,138826000,"América del Norte","OWID Grapher",NA
+"happiness","Moldova","MDA",2025,5.851,17087.188,2144000,"Europa","OWID Grapher",NA
+"happiness","Mongolia","MNG",2025,5.936,17772.535,3835000,"Asia","OWID Grapher",NA
+"happiness","Montenegro","MNE",2025,6.139,28895.316,626000,"Europa","OWID Grapher",NA
+"happiness","Morocco","MAR",2025,4.646,9495.405,39627000,"África","OWID Grapher",NA
+"happiness","Mozambique","MOZ",2025,5.336,1450.9596,41973000,"África","OWID Grapher",NA
+"happiness","Myanmar","MMR",2025,4.287,5137.1006,56602000,"Asia","OWID Grapher",NA
+"happiness","Namibia","NAM",2025,4.781,10242.284,3420000,"África","OWID Grapher",NA
+"happiness","Nepal","NPL",2025,5.147,5276.924,29521000,"Asia","OWID Grapher",NA
+"happiness","Netherlands","NLD",2025,7.223,71378.484,18518000,"Europa","OWID Grapher",NA
+"happiness","New Zealand","NZL",2025,6.995,48232.664,5516000,"Oceanía","OWID Grapher",NA
+"happiness","Nicaragua","NIC",2025,6.301,7933.489,7235000,"América del Norte","OWID Grapher",NA
+"happiness","Niger","NER",2025,4.94,1860.5486,36090000,"África","OWID Grapher",NA
+"happiness","Nigeria","NGA",2025,4.788,8145.148,269204000,"África","OWID Grapher",NA
+"happiness","North Macedonia","MKD",2025,5.719,25094.623,1753000,"Europa","OWID Grapher",NA
+"happiness","Norway","NOR",2025,7.242,95173.43,5859000,"Europa","OWID Grapher",NA
+"happiness","Oman","OMN",2025,6.197,36142.945,5977000,"Asia","OWID Grapher",NA
+"happiness","Pakistan","PAK",2025,4.868,5617.251,245117000,"Asia","OWID Grapher",NA
+"happiness","Palestine","PSE",2025,4.694,4272.4575,NA,"Asia","OWID Grapher",NA
+"happiness","Panama","PAN",2025,6.547,37516.18,4908000,"América del Norte","OWID Grapher",NA
+"happiness","Paraguay","PRY",2025,6.198,17245.846,6655000,"América del Sur","OWID Grapher",NA
+"happiness","Peru","PER",2025,5.974,16079.125,36526000,"América del Sur","OWID Grapher",NA
+"happiness","Philippines","PHL",2025,6.206,10747.546,121322000,"Asia","OWID Grapher",NA
+"happiness","Poland","POL",2025,6.768,46924.59,35971000,"Europa","OWID Grapher",NA
+"happiness","Portugal","PRT",2025,6.029,42576.812,10658000,"Europa","OWID Grapher",NA
+"happiness","Romania","ROU",2025,6.629,40845.984,18613000,"Europa","OWID Grapher",NA
+"happiness","Russia","RUS",2025,5.834,42357.99,141475000,"Europa","OWID Grapher",NA
+"happiness","Saudi Arabia","SAU",2025,6.817,63051.047,40549000,"Asia","OWID Grapher",NA
+"happiness","Senegal","SEN",2025,4.787,4668.5415,19173000,"África","OWID Grapher",NA
+"happiness","Serbia","SRB",2025,6.691,27603.393,6247000,"Europa","OWID Grapher",NA
+"happiness","Sierra Leone","SLE",2025,3.251,3176.2368,9968000,"África","OWID Grapher",NA
+"happiness","Singapore","SGP",2025,6.585,139592.61,6365000,"Asia","OWID Grapher",NA
+"happiness","Slovakia","SVK",2025,6.255,40689.816,5317000,"Europa","OWID Grapher",NA
+"happiness","Slovenia","SVN",2025,6.868,49091.02,2140000,"Europa","OWID Grapher",NA
+"happiness","Somalia","SOM",2025,4.508,1403.8138,NA,"África","OWID Grapher",NA
+"happiness","South Africa","ZAF",2025,5.009,13592.049,67783000,"África","OWID Grapher",NA
+"happiness","South Korea","KOR",2025,6.04,55697.086,51225000,"Asia","OWID Grapher",NA
+"happiness","Spain","ESP",2025,6.54,49318.105,51967000,"Europa","OWID Grapher",NA
+"happiness","Sri Lanka","LKA",2025,4.013,14582.761,22417000,"Asia","OWID Grapher",NA
+"happiness","Sweden","SWE",2025,7.255,63362.46,11111000,"Europa","OWID Grapher",NA
+"happiness","Switzerland","CHE",2025,7.018,85732.11,9453000,"Europa","OWID Grapher",NA
+"happiness","Tajikistan","TJK",2025,5.591,5061.847,11359000,"Asia","OWID Grapher",NA
+"happiness","Tanzania","TZA",2025,3.902,3820.6118,83088000,"África","OWID Grapher",NA
+"happiness","Thailand","THA",2025,6.296,22431.752,71104000,"Asia","OWID Grapher",NA
+"happiness","Togo","TGO",2025,4.277,3485.982,9901000,"África","OWID Grapher",NA
+"happiness","Trinidad and Tobago","TTO",2025,5.905,31721.576,1475000,"América del Norte","OWID Grapher",NA
+"happiness","Tunisia","TUN",2025,4.798,13017.634,12670000,"África","OWID Grapher",NA
+"happiness","Turkey","TUR",2025,5.3,37300.75,88341000,"Asia","OWID Grapher",NA
+"happiness","Uganda","UGA",2025,4.491,2980.3794,59312000,"África","OWID Grapher",NA
+"happiness","Ukraine","UKR",2025,4.658,16155.073,33473000,"Europa","OWID Grapher",NA
+"happiness","United Kingdom","GBR",2025,6.694,53993.117,71319000,"Europa","OWID Grapher",NA
+"happiness","United States","USA",2025,6.816,76931.31,347621000,"América del Norte","OWID Grapher",NA
+"happiness","Uruguay","URY",2025,6.635,32741.625,3465000,"América del Sur","OWID Grapher",NA
+"happiness","Uzbekistan","UZB",2025,6.283,11622.855,42675000,"Asia","OWID Grapher",NA
+"happiness","Venezuela","VEN",2025,5.756,9122.049,28517000,"América del Sur","IMF WEO PPP GDP per capita matched to 2025",NA
+"happiness","Vietnam","VNM",2025,6.428,15457.35,106051000,"Asia","OWID Grapher",NA
+"happiness","Zambia","ZMB",2025,4.106,3742.2563,25667000,"África","OWID Grapher",NA
+"happiness","Zimbabwe","ZWE",2025,3.346,5529.233,19698000,"África","OWID Grapher",NA
+"democracy","Afghanistan","AFG",2024,0.25,2239.581,42647000,"Asia","IMF WEO PPP GDP per capita matched to 2024",42647000
+"democracy","Albania","ALB",2024,6.2,24980.758,2377000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2377000
+"democracy","Algeria","DZA",2024,3.55,17673.038,46814000,"África","IMF WEO PPP GDP per capita matched to 2024",46814000
+"democracy","Angola","AGO",2024,4.05,10042.507,37886000,"África","IMF WEO PPP GDP per capita matched to 2024",37886000
+"democracy","Argentina","ARG",2024,6.51,29626.195,47068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",47068000
+"democracy","Armenia","ARM",2024,5.35,22505.78,3087000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3087000
+"democracy","Australia","AUS",2024,8.85,69753.602,27389000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",27389000
+"democracy","Austria","AUT",2024,8.28,73576.906,9159000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9159000
+"democracy","Azerbaijan","AZE",2024,2.8,25071.48,10249000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10249000
+"democracy","Bahrain","BHR",2024,2.45,67332.27,1589000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1589000
+"democracy","Bangladesh","BGD",2024,4.44,9762.236,172019000,"Asia","IMF WEO PPP GDP per capita matched to 2024",172019000
+"democracy","Belarus","BLR",2024,1.99,32569.592,9133000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9133000
+"democracy","Belgium","BEL",2024,7.64,73873.725,11817000,"Europa","IMF WEO PPP GDP per capita matched to 2024",11817000
+"democracy","Benin","BEN",2024,4.44,4447.719,14463000,"África","IMF WEO PPP GDP per capita matched to 2024",14463000
+"democracy","Bolivia","BOL",2024,4.26,12915.839,12413000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",12413000
+"democracy","Bosnia and Herzegovina","BIH",2024,5.06,21789.215,3455000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3455000
+"democracy","Botswana","BWA",2024,7.63,20630.93,2521000,"África","IMF WEO PPP GDP per capita matched to 2024",2521000
+"democracy","Brazil","BRA",2024,6.49,22343.108,212584000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",212584000
+"democracy","Bulgaria","BGR",2024,6.34,39349.122,6437000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6437000
+"democracy","Burkina Faso","BFA",2024,2.55,2904.486,23549000,"África","IMF WEO PPP GDP per capita matched to 2024",23549000
+"democracy","Burundi","BDI",2024,2.13,959.172,14048000,"África","IMF WEO PPP GDP per capita matched to 2024",14048000
+"democracy","Cambodia","KHM",2024,2.94,7885.303,17639000,"Asia","IMF WEO PPP GDP per capita matched to 2024",17639000
+"democracy","Cameroon","CMR",2024,2.56,5605.565,29124000,"África","IMF WEO PPP GDP per capita matched to 2024",29124000
+"democracy","Canada","CAN",2024,8.69,64899.676,41118000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",41118000
+"democracy","Cape Verde","CPV",2024,7.58,11493.835,512000,"África","IMF WEO PPP GDP per capita matched to 2024",512000
+"democracy","Central African Republic","CAF",2024,1.18,2011.891,5331000,"África","IMF WEO PPP GDP per capita matched to 2024",5331000
+"democracy","Chad","TCD",2024,1.89,3114.698,18437000,"África","IMF WEO PPP GDP per capita matched to 2024",18437000
+"democracy","Chile","CHL",2024,7.83,34262.208,19904000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",19904000
+"democracy","China","CHN",2024,2.11,27188.954,1408280000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1408280000
+"democracy","Colombia","COL",2024,6.35,21531.972,52696000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",52696000
+"democracy","Comoros","COM",2024,2.84,3867.457,890000,"África","IMF WEO PPP GDP per capita matched to 2024",890000
+"democracy","Congo","COG",2024,2.79,6407.443,6309000,"África","IMF WEO PPP GDP per capita matched to 2024",6309000
+"democracy","Costa Rica","CRI",2024,8.29,30371.853,5325000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",5325000
+"democracy","Cote d'Ivoire","CIV",2024,4.22,7680.278,31983000,"África","IMF WEO PPP GDP per capita matched to 2024",31983000
+"democracy","Croatia","HRV",2024,6.5,48809.445,3866000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3866000
+"democracy","Cyprus","CYP",2024,7.38,62114.646,966000,"Europa","IMF WEO PPP GDP per capita matched to 2024",966000
+"democracy","Czechia","CZE",2024,8.08,57084.866,10935000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10935000
+"democracy","Democratic Republic of Congo","COD",2024,1.92,1932.735,103197000,"África","IMF WEO PPP GDP per capita matched to 2024",103197000
+"democracy","Denmark","DNK",2024,9.28,82657.284,5961000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5961000
+"democracy","Djibouti","DJI",2024,2.7,8777.56,1043000,"África","IMF WEO PPP GDP per capita matched to 2024",1043000
+"democracy","Dominican Republic","DOM",2024,6.62,29237.048,10797000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10797000
+"democracy","Ecuador","ECU",2024,5.24,16021.542,17967000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",17967000
+"democracy","Egypt","EGY",2024,2.79,20948.631,106600000,"África","IMF WEO PPP GDP per capita matched to 2024",106600000
+"democracy","El Salvador","SLV",2024,4.61,13277.921,6338000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6338000
+"democracy","Equatorial Guinea","GNQ",2024,1.92,20348.159,1590000,"África","IMF WEO PPP GDP per capita matched to 2024",1590000
+"democracy","Estonia","EST",2024,8.13,48749.941,1372000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1372000
+"democracy","Eswatini","SWZ",2024,2.6,11840.854,1243000,"África","IMF WEO PPP GDP per capita matched to 2024",1243000
+"democracy","Ethiopia","ETH",2024,3.24,4095.223,108400000,"África","IMF WEO PPP GDP per capita matched to 2024",108400000
+"democracy","Finland","FIN",2024,9.3,64868.509,5604000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5604000
+"democracy","France","FRA",2024,7.99,64479.802,68638000,"Europa","IMF WEO PPP GDP per capita matched to 2024",68638000
+"democracy","Gabon","GAB",2024,2.18,24263.298,2258000,"África","IMF WEO PPP GDP per capita matched to 2024",2258000
+"democracy","Gambia","GMB",2024,4.47,3465.363,2787000,"África","IMF WEO PPP GDP per capita matched to 2024",2787000
+"democracy","Georgia","GEO",2024,4.7,26708.582,3930000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3930000
+"democracy","Germany","DEU",2024,8.73,72809.177,83517000,"Europa","IMF WEO PPP GDP per capita matched to 2024",83517000
+"democracy","Ghana","GHA",2024,6.24,8063.38,34427000,"África","IMF WEO PPP GDP per capita matched to 2024",34427000
+"democracy","Greece","GRC",2024,8.07,42902.853,10376000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10376000
+"democracy","Guatemala","GTM",2024,4.55,14414.835,18406000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",18406000
+"democracy","Guinea","GIN",2024,2.04,6926.026,15417000,"África","IMF WEO PPP GDP per capita matched to 2024",15417000
+"democracy","Guinea-Bissau","GNB",2024,2.03,3114.363,1978000,"África","IMF WEO PPP GDP per capita matched to 2024",1978000
+"democracy","Haiti","HTI",2024,2.74,3042.804,12391000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",12391000
+"democracy","Honduras","HND",2024,4.98,7513.933,10826000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10826000
+"democracy","Hong Kong","HKG",2024,5.09,75699.36,7501000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7501000
+"democracy","Hungary","HUN",2024,6.51,46733.527,9585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9585000
+"democracy","Iceland","ISL",2024,9.38,79154.734,384000,"Europa","IMF WEO PPP GDP per capita matched to 2024",384000
+"democracy","India","IND",2024,7.29,10806.92,1450936000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1450936000
+"democracy","Indonesia","IDN",2024,6.44,16607.791,281604000,"Asia","IMF WEO PPP GDP per capita matched to 2024",281604000
+"democracy","Iran","IRN",2024,1.96,21176.822,86189000,"Asia","IMF WEO PPP GDP per capita matched to 2024",86189000
+"democracy","Iraq","IRQ",2024,2.8,15394.718,44415000,"Asia","IMF WEO PPP GDP per capita matched to 2024",44415000
+"democracy","Ireland","IRL",2024,9.19,135279.978,5420000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5420000
+"democracy","Israel","ISR",2024,7.8,54090.639,9988000,"Asia","IMF WEO PPP GDP per capita matched to 2024",9988000
+"democracy","Italy","ITA",2024,7.58,61508.189,58971000,"Europa","IMF WEO PPP GDP per capita matched to 2024",58971000
+"democracy","Jamaica","JAM",2024,6.74,13349.239,2750000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",2750000
+"democracy","Japan","JPN",2024,8.48,54676.953,123890000,"Asia","IMF WEO PPP GDP per capita matched to 2024",123890000
+"democracy","Jordan","JOR",2024,3.28,11750.174,11734000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11734000
+"democracy","Kazakhstan","KAZ",2024,3.08,41895.153,20159000,"Asia","IMF WEO PPP GDP per capita matched to 2024",20159000
+"democracy","Kenya","KEN",2024,5.05,7166.33,52444000,"África","IMF WEO PPP GDP per capita matched to 2024",52444000
+"democracy","Kuwait","KWT",2024,2.78,53375.218,4881000,"Asia","IMF WEO PPP GDP per capita matched to 2024",4881000
+"democracy","Kyrgyzstan","KGZ",2024,3.52,8388.193,7077000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7077000
+"democracy","Laos","LAO",2024,1.71,10642.292,7686000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7686000
+"democracy","Latvia","LVA",2024,7.66,41088.568,1879000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1879000
+"democracy","Lebanon","LBN",2024,3.56,11286.449,5806000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5806000
+"democracy","Lesotho","LSO",2024,6.06,3122.616,2337000,"África","IMF WEO PPP GDP per capita matched to 2024",2337000
+"democracy","Liberia","LBR",2024,5.57,1872.171,5613000,"África","IMF WEO PPP GDP per capita matched to 2024",5613000
+"democracy","Libya","LBY",2024,2.31,14652.899,7381000,"África","IMF WEO PPP GDP per capita matched to 2024",7381000
+"democracy","Lithuania","LTU",2024,7.59,54789.103,2888000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2888000
+"democracy","Luxembourg","LUX",2024,8.88,150213.506,672000,"Europa","IMF WEO PPP GDP per capita matched to 2024",672000
+"democracy","Madagascar","MDG",2024,5.33,1976.285,30594000,"África","IMF WEO PPP GDP per capita matched to 2024",30594000
+"democracy","Malawi","MWI",2024,5.85,1725.429,23384000,"África","IMF WEO PPP GDP per capita matched to 2024",23384000
+"democracy","Malaysia","MYS",2024,7.11,41371.539,33460000,"Asia","IMF WEO PPP GDP per capita matched to 2024",33460000
+"democracy","Mali","MLI",2024,2.4,3333.188,24479000,"África","IMF WEO PPP GDP per capita matched to 2024",24479000
+"democracy","Malta","MLT",2024,7.93,71784.875,563000,"Europa","IMF WEO PPP GDP per capita matched to 2024",563000
+"democracy","Mauritania","MRT",2024,3.96,8406.044,4529000,"África","IMF WEO PPP GDP per capita matched to 2024",4529000
+"democracy","Mauritius","MUS",2024,8.23,31377.321,1245000,"África","IMF WEO PPP GDP per capita matched to 2024",1245000
+"democracy","Mexico","MEX",2024,5.32,25107.692,132274000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",132274000
+"democracy","Moldova","MDA",2024,6.04,18545,2423000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2423000
+"democracy","Mongolia","MNG",2024,6.53,19040.772,3555000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3555000
+"democracy","Montenegro","MNE",2024,6.73,32614.898,624000,"Europa","IMF WEO PPP GDP per capita matched to 2024",624000
+"democracy","Morocco","MAR",2024,4.97,10883.267,37370000,"África","IMF WEO PPP GDP per capita matched to 2024",37370000
+"democracy","Mozambique","MOZ",2024,3.38,1699.678,34858000,"África","IMF WEO PPP GDP per capita matched to 2024",34858000
+"democracy","Myanmar","MMR",2024,0.96,5043.14,54500000,"Asia","IMF WEO PPP GDP per capita matched to 2024",54500000
+"democracy","Namibia","NAM",2024,6.48,11841.185,2998000,"África","IMF WEO PPP GDP per capita matched to 2024",2998000
+"democracy","Nepal","NPL",2024,4.6,5754.341,29651000,"Asia","IMF WEO PPP GDP per capita matched to 2024",29651000
+"democracy","Netherlands","NLD",2024,9,81468.154,17943000,"Europa","IMF WEO PPP GDP per capita matched to 2024",17943000
+"democracy","New Zealand","NZL",2024,9.61,54622.388,5290000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",5290000
+"democracy","Nicaragua","NIC",2024,2.09,9063.943,6664000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6664000
+"democracy","Niger","NER",2024,2.26,1959.638,28080000,"África","IMF WEO PPP GDP per capita matched to 2024",28080000
+"democracy","Nigeria","NGA",2024,4.16,9113.641,232679000,"África","IMF WEO PPP GDP per capita matched to 2024",232679000
+"democracy","North Macedonia","MKD",2024,6.28,27887.153,1824000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1824000
+"democracy","Norway","NOR",2024,9.81,108107.018,5585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5585000
+"democracy","Oman","OMN",2024,3.05,42368.221,5219000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5219000
+"democracy","Pakistan","PAK",2024,2.84,6752.798,235950000,"Asia","IMF WEO PPP GDP per capita matched to 2024",235950000
+"democracy","Panama","PAN",2024,6.84,41547.914,4510000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",4510000
+"democracy","Paraguay","PRY",2024,5.92,20289.43,6373000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",6373000
+"democracy","Peru","PER",2024,5.69,18267.314,34068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",34068000
+"democracy","Philippines","PHL",2024,6.63,12141.791,112885000,"Asia","IMF WEO PPP GDP per capita matched to 2024",112885000
+"democracy","Poland","POL",2024,7.4,52404.887,36621000,"Europa","IMF WEO PPP GDP per capita matched to 2024",36621000
+"democracy","Portugal","PRT",2024,8.08,48396.982,10695000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10695000
+"democracy","Qatar","QAT",2024,3.17,115564.996,3143000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3143000
+"democracy","Romania","ROU",2024,5.99,46858.814,18944000,"Europa","IMF WEO PPP GDP per capita matched to 2024",18944000
+"democracy","Russia","RUS",2024,2.03,48191.867,144820000,"Europa","IMF WEO PPP GDP per capita matched to 2024",144820000
+"democracy","Rwanda","RWA",2024,3.34,3898.763,13857000,"África","IMF WEO PPP GDP per capita matched to 2024",13857000
+"democracy","Saudi Arabia","SAU",2024,2.08,72045.119,35300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",35300000
+"democracy","Senegal","SEN",2024,5.93,5061.58,18661000,"África","IMF WEO PPP GDP per capita matched to 2024",18661000
+"democracy","Serbia","SRB",2024,6.26,31013.396,6586000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6586000
+"democracy","Sierra Leone","SLE",2024,4.32,3543.924,8642000,"África","IMF WEO PPP GDP per capita matched to 2024",8642000
+"democracy","Singapore","SGP",2024,6.18,153392.969,6037000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6037000
+"democracy","Slovakia","SVK",2024,7.21,46022.295,5425000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5425000
+"democracy","Slovenia","SVN",2024,7.82,56281.609,2124000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2124000
+"democracy","South Africa","ZAF",2024,7.16,15745.904,63016000,"África","IMF WEO PPP GDP per capita matched to 2024",63016000
+"democracy","South Korea","KOR",2024,7.75,63197.761,51751000,"Asia","IMF WEO PPP GDP per capita matched to 2024",51751000
+"democracy","Spain","ESP",2024,8.13,54762.025,49128000,"Europa","IMF WEO PPP GDP per capita matched to 2024",49128000
+"democracy","Sri Lanka","LKA",2024,6.19,15724.852,21916000,"Asia","IMF WEO PPP GDP per capita matched to 2024",21916000
+"democracy","Sudan","SDN",2024,1.46,2388.602,49140000,"África","IMF WEO PPP GDP per capita matched to 2024",49140000
+"democracy","Sweden","SWE",2024,9.39,72334.334,10588000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10588000
+"democracy","Switzerland","CHE",2024,9.32,99159.497,8962000,"Europa","IMF WEO PPP GDP per capita matched to 2024",8962000
+"democracy","Taiwan","TWN",2024,8.78,80512.037,23400000,"Asia","IMF WEO PPP GDP per capita matched to 2024",23400000
+"democracy","Tajikistan","TJK",2024,1.83,5634.774,10188000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10188000
+"democracy","Tanzania","TZA",2024,5.2,3950.524,68560000,"África","IMF WEO PPP GDP per capita matched to 2024",68560000
+"democracy","Thailand","THA",2024,6.27,24956.683,71668000,"Asia","IMF WEO PPP GDP per capita matched to 2024",71668000
+"democracy","Togo","TGO",2024,2.99,3771.908,8498000,"África","IMF WEO PPP GDP per capita matched to 2024",8498000
+"democracy","Trinidad and Tobago","TTO",2024,7.09,35005.923,1428000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",1428000
+"democracy","Tunisia","TUN",2024,4.71,14512.928,12277000,"África","IMF WEO PPP GDP per capita matched to 2024",12277000
+"democracy","Turkey","TUR",2024,4.26,41671.65,85518000,"Asia","IMF WEO PPP GDP per capita matched to 2024",85518000
+"democracy","Turkmenistan","TKM",2024,1.66,22202.077,6598000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6598000
+"democracy","Uganda","UGA",2024,4.49,3689.021,46623000,"África","IMF WEO PPP GDP per capita matched to 2024",46623000
+"democracy","Ukraine","UKR",2024,4.9,19775.15,33406000,"Europa","IMF WEO PPP GDP per capita matched to 2024",33406000
+"democracy","United Arab Emirates","ARE",2024,3.07,79207.686,11294000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11294000
+"democracy","United Kingdom","GBR",2024,8.34,63491.788,69281000,"Europa","IMF WEO PPP GDP per capita matched to 2024",69281000
+"democracy","United States","USA",2024,7.85,86417.491,339989000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",339989000
+"democracy","Uruguay","URY",2024,8.67,35548.167,3492000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",3492000
+"democracy","Uzbekistan","UZB",2024,2.1,12142.873,37543000,"Asia","IMF WEO PPP GDP per capita matched to 2024",37543000
+"democracy","Venezuela","VEN",2024,2.25,8185.201,28406000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",28406000
+"democracy","Vietnam","VNM",2024,2.62,16362.109,101300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",101300000
+"democracy","Yemen","YEM",2024,1.95,1603.406,18262000,"Asia","IMF WEO PPP GDP per capita matched to 2024",18262000
+"democracy","Zambia","ZMB",2024,5.73,4227.402,21315000,"África","IMF WEO PPP GDP per capita matched to 2024",21315000
+"democracy","Zimbabwe","ZWE",2024,2.98,7352.429,16992000,"África","IMF WEO PPP GDP per capita matched to 2024",16992000
+"economic_complexity","Afghanistan","AFG",2024,-0.792,2239.581,42647000,"Asia","IMF WEO PPP GDP per capita matched to 2024",42647000
+"economic_complexity","Albania","ALB",2024,0.047,24980.758,2377000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2377000
+"economic_complexity","Algeria","DZA",2024,-1.056,17673.038,46814000,"África","IMF WEO PPP GDP per capita matched to 2024",46814000
+"economic_complexity","Angola","AGO",2024,-0.74,10042.507,37886000,"África","IMF WEO PPP GDP per capita matched to 2024",37886000
+"economic_complexity","Azerbaijan","AZE",2024,-0.391,25071.48,10249000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10249000
+"economic_complexity","Argentina","ARG",2024,-0.013,29626.195,47068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",47068000
+"economic_complexity","Australia","AUS",2024,0.117,69753.602,27389000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",27389000
+"economic_complexity","Austria","AUT",2024,1.253,73576.906,9159000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9159000
+"economic_complexity","Bahrain","BHR",2024,0.267,67332.27,1589000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1589000
+"economic_complexity","Bangladesh","BGD",2024,-0.444,9762.236,172019000,"Asia","IMF WEO PPP GDP per capita matched to 2024",172019000
+"economic_complexity","Armenia","ARM",2024,0.581,22505.78,3087000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3087000
+"economic_complexity","Belgium","BEL",2024,0.992,73873.725,11817000,"Europa","IMF WEO PPP GDP per capita matched to 2024",11817000
+"economic_complexity","Bolivia (Plurinational State of)","BOL",2024,-1.097,12915.839,12413000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",12413000
+"economic_complexity","Bosnia and Herzegovina","BIH",2024,0.675,21789.215,3455000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3455000
+"economic_complexity","Botswana","BWA",2024,-0.304,20630.93,2521000,"África","IMF WEO PPP GDP per capita matched to 2024",2521000
+"economic_complexity","Brazil","BRA",2024,0.37,22343.108,212584000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",212584000
+"economic_complexity","Bulgaria","BGR",2024,0.799,39349.122,6437000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6437000
+"economic_complexity","Myanmar","MMR",2024,-0.997,5043.14,54500000,"Asia","IMF WEO PPP GDP per capita matched to 2024",54500000
+"economic_complexity","Belarus","BLR",2024,0.786,32569.592,9133000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9133000
+"economic_complexity","Cambodia","KHM",2024,0.018,7885.303,17639000,"Asia","IMF WEO PPP GDP per capita matched to 2024",17639000
+"economic_complexity","Cameroon","CMR",2024,-1.591,5605.565,29124000,"África","IMF WEO PPP GDP per capita matched to 2024",29124000
+"economic_complexity","Canada","CAN",2024,0.787,64899.676,41118000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",41118000
+"economic_complexity","Sri Lanka","LKA",2024,-0.005,15724.852,21916000,"Asia","IMF WEO PPP GDP per capita matched to 2024",21916000
+"economic_complexity","Chad","TCD",2024,-3.525,3114.698,18437000,"África","IMF WEO PPP GDP per capita matched to 2024",18437000
+"economic_complexity","Chile","CHL",2024,-0.035,34262.208,19904000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",19904000
+"economic_complexity","China","CHN",2024,1.259,27188.954,1408280000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1408280000
+"economic_complexity","Taiwan, Province of China","TWN",2024,1.574,80512.037,23400000,"Asia","IMF WEO PPP GDP per capita matched to 2024",23400000
+"economic_complexity","Colombia","COL",2024,0.245,21531.972,52696000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",52696000
+"economic_complexity","Congo","COG",2024,-2.493,6407.443,6309000,"África","IMF WEO PPP GDP per capita matched to 2024",6309000
+"economic_complexity","D.R. of the Congo","COD",2024,-3.134,1932.735,103197000,"África","IMF WEO PPP GDP per capita matched to 2024",103197000
+"economic_complexity","Costa Rica","CRI",2024,0.339,30371.853,5325000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",5325000
+"economic_complexity","Croatia","HRV",2024,0.832,48809.445,3866000,"Europa","IMF WEO PPP GDP per capita matched to 2024",3866000
+"economic_complexity","Cyprus","CYP",2024,0.472,62114.646,966000,"Europa","IMF WEO PPP GDP per capita matched to 2024",966000
+"economic_complexity","Czech Republic","CZE",2024,1.333,57084.866,10935000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10935000
+"economic_complexity","Benin","BEN",2024,-0.921,4447.719,14463000,"África","IMF WEO PPP GDP per capita matched to 2024",14463000
+"economic_complexity","Denmark","DNK",2024,1.018,82657.284,5961000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5961000
+"economic_complexity","Dominican Republic","DOM",2024,0.054,29237.048,10797000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10797000
+"economic_complexity","Ecuador","ECU",2024,-0.79,16021.542,17967000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",17967000
+"economic_complexity","El Salvador","SLV",2024,0.355,13277.921,6338000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6338000
+"economic_complexity","Equatorial Guinea","GNQ",2024,-2.704,20348.159,1590000,"África","IMF WEO PPP GDP per capita matched to 2024",1590000
+"economic_complexity","Ethiopia","ETH",2024,-1.109,4095.223,108400000,"África","IMF WEO PPP GDP per capita matched to 2024",108400000
+"economic_complexity","Estonia","EST",2024,0.887,48749.941,1372000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1372000
+"economic_complexity","Finland","FIN",2024,1.152,64868.509,5604000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5604000
+"economic_complexity","France","FRA",2024,1.087,64479.802,68638000,"Europa","IMF WEO PPP GDP per capita matched to 2024",68638000
+"economic_complexity","Gabon","GAB",2024,-1.816,24263.298,2258000,"África","IMF WEO PPP GDP per capita matched to 2024",2258000
+"economic_complexity","Georgia","GEO",2024,0.297,26708.582,3930000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3930000
+"economic_complexity","Germany","DEU",2024,1.355,72809.177,83517000,"Europa","IMF WEO PPP GDP per capita matched to 2024",83517000
+"economic_complexity","Ghana","GHA",2024,-1.106,8063.38,34427000,"África","IMF WEO PPP GDP per capita matched to 2024",34427000
+"economic_complexity","Greece","GRC",2024,0.521,42902.853,10376000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10376000
+"economic_complexity","Guatemala","GTM",2024,0.072,14414.835,18406000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",18406000
+"economic_complexity","Guinea","GIN",2024,-1.805,6926.026,15417000,"África","IMF WEO PPP GDP per capita matched to 2024",15417000
+"economic_complexity","Haiti","HTI",2024,-0.577,3042.804,12391000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",12391000
+"economic_complexity","Honduras","HND",2024,-0.291,7513.933,10826000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",10826000
+"economic_complexity","China, Hong Kong SAR","HKG",2024,1.112,75699.36,7501000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7501000
+"economic_complexity","Hungary","HUN",2024,1.165,46733.527,9585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",9585000
+"economic_complexity","India","IND",2024,0.716,10806.92,1450936000,"Asia","IMF WEO PPP GDP per capita matched to 2024",1450936000
+"economic_complexity","Indonesia","IDN",2024,0.234,16607.791,281604000,"Asia","IMF WEO PPP GDP per capita matched to 2024",281604000
+"economic_complexity","Iran (Islamic Republic of)","IRN",2024,-0.065,21176.822,86189000,"Asia","IMF WEO PPP GDP per capita matched to 2024",86189000
+"economic_complexity","Iraq","IRQ",2024,-1.552,15394.718,44415000,"Asia","IMF WEO PPP GDP per capita matched to 2024",44415000
+"economic_complexity","Ireland","IRL",2024,1.184,135279.978,5420000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5420000
+"economic_complexity","Israel","ISR",2024,1.32,54090.639,9988000,"Asia","IMF WEO PPP GDP per capita matched to 2024",9988000
+"economic_complexity","Italy","ITA",2024,1.118,61508.189,58971000,"Europa","IMF WEO PPP GDP per capita matched to 2024",58971000
+"economic_complexity","Côte d'Ivoire","CIV",2024,-0.903,7680.278,31983000,"África","IMF WEO PPP GDP per capita matched to 2024",31983000
+"economic_complexity","Jamaica","JAM",2024,-0.346,13349.239,2750000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",2750000
+"economic_complexity","Japan","JPN",2024,1.689,54676.953,123890000,"Asia","IMF WEO PPP GDP per capita matched to 2024",123890000
+"economic_complexity","Kazakhstan","KAZ",2024,0.379,41895.153,20159000,"Asia","IMF WEO PPP GDP per capita matched to 2024",20159000
+"economic_complexity","Jordan","JOR",2024,0.093,11750.174,11734000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11734000
+"economic_complexity","Kenya","KEN",2024,-0.266,7166.33,52444000,"África","IMF WEO PPP GDP per capita matched to 2024",52444000
+"economic_complexity","Republic of Korea","KOR",2024,1.562,63197.761,51751000,"Asia","IMF WEO PPP GDP per capita matched to 2024",51751000
+"economic_complexity","Kuwait","KWT",2024,0.264,53375.218,4881000,"Asia","IMF WEO PPP GDP per capita matched to 2024",4881000
+"economic_complexity","Kyrgyzstan","KGZ",2024,0.205,8388.193,7077000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7077000
+"economic_complexity","Lao People's DR","LAO",2024,-0.774,10642.292,7686000,"Asia","IMF WEO PPP GDP per capita matched to 2024",7686000
+"economic_complexity","Lebanon","LBN",2024,0.391,11286.449,5806000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5806000
+"economic_complexity","Latvia","LVA",2024,0.762,41088.568,1879000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1879000
+"economic_complexity","Liberia","LBR",2024,-2.194,1872.171,5613000,"África","IMF WEO PPP GDP per capita matched to 2024",5613000
+"economic_complexity","Libya","LBY",2024,-1.71,14652.899,7381000,"África","IMF WEO PPP GDP per capita matched to 2024",7381000
+"economic_complexity","Lithuania","LTU",2024,0.856,54789.103,2888000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2888000
+"economic_complexity","Madagascar","MDG",2024,-1.075,1976.285,30594000,"África","IMF WEO PPP GDP per capita matched to 2024",30594000
+"economic_complexity","Malawi","MWI",2024,-0.973,1725.429,23384000,"África","IMF WEO PPP GDP per capita matched to 2024",23384000
+"economic_complexity","Malaysia","MYS",2024,0.818,41371.539,33460000,"Asia","IMF WEO PPP GDP per capita matched to 2024",33460000
+"economic_complexity","Mali","MLI",2024,-0.952,3333.188,24479000,"África","IMF WEO PPP GDP per capita matched to 2024",24479000
+"economic_complexity","Mauritania","MRT",2024,-1.267,8406.044,4529000,"África","IMF WEO PPP GDP per capita matched to 2024",4529000
+"economic_complexity","Mauritius","MUS",2024,0.293,31377.321,1245000,"África","IMF WEO PPP GDP per capita matched to 2024",1245000
+"economic_complexity","Mexico","MEX",2024,0.936,25107.692,132274000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",132274000
+"economic_complexity","Mongolia","MNG",2024,-1.552,19040.772,3555000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3555000
+"economic_complexity","Republic of Moldova","MDA",2024,0.21,18545,2423000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2423000
+"economic_complexity","Morocco","MAR",2024,-0.064,10883.267,37370000,"África","IMF WEO PPP GDP per capita matched to 2024",37370000
+"economic_complexity","Mozambique","MOZ",2024,-1.246,1699.678,34858000,"África","IMF WEO PPP GDP per capita matched to 2024",34858000
+"economic_complexity","Oman","OMN",2024,-0.539,42368.221,5219000,"Asia","IMF WEO PPP GDP per capita matched to 2024",5219000
+"economic_complexity","Namibia","NAM",2024,-0.521,11841.185,2998000,"África","IMF WEO PPP GDP per capita matched to 2024",2998000
+"economic_complexity","Nepal","NPL",2024,-0.116,5754.341,29651000,"Asia","IMF WEO PPP GDP per capita matched to 2024",29651000
+"economic_complexity","Netherlands","NLD",2024,0.947,81468.154,17943000,"Europa","IMF WEO PPP GDP per capita matched to 2024",17943000
+"economic_complexity","New Zealand","NZL",2024,0.515,54622.388,5290000,"Oceanía","IMF WEO PPP GDP per capita matched to 2024",5290000
+"economic_complexity","Nicaragua","NIC",2024,-0.897,9063.943,6664000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",6664000
+"economic_complexity","Niger","NER",2024,-0.753,1959.638,28080000,"África","IMF WEO PPP GDP per capita matched to 2024",28080000
+"economic_complexity","Nigeria","NGA",2024,-2.259,9113.641,232679000,"África","IMF WEO PPP GDP per capita matched to 2024",232679000
+"economic_complexity","Norway","NOR",2024,0.742,108107.018,5585000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5585000
+"economic_complexity","Pakistan","PAK",2024,-0.228,6752.798,235950000,"Asia","IMF WEO PPP GDP per capita matched to 2024",235950000
+"economic_complexity","Panama","PAN",2024,0.355,41547.914,4510000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",4510000
+"economic_complexity","Paraguay","PRY",2024,-0.24,20289.43,6373000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",6373000
+"economic_complexity","Peru","PER",2024,-0.59,18267.314,34068000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",34068000
+"economic_complexity","Philippines","PHL",2024,0.688,12141.791,112885000,"Asia","IMF WEO PPP GDP per capita matched to 2024",112885000
+"economic_complexity","Poland","POL",2024,0.99,52404.887,36621000,"Europa","IMF WEO PPP GDP per capita matched to 2024",36621000
+"economic_complexity","Portugal","PRT",2024,0.721,48396.982,10695000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10695000
+"economic_complexity","Qatar","QAT",2024,0.061,115564.996,3143000,"Asia","IMF WEO PPP GDP per capita matched to 2024",3143000
+"economic_complexity","Romania","ROU",2024,1.001,46858.814,18944000,"Europa","IMF WEO PPP GDP per capita matched to 2024",18944000
+"economic_complexity","Russian Federation","RUS",2024,0.247,48191.867,144820000,"Europa","IMF WEO PPP GDP per capita matched to 2024",144820000
+"economic_complexity","Rwanda","RWA",2024,-1.076,3898.763,13857000,"África","IMF WEO PPP GDP per capita matched to 2024",13857000
+"economic_complexity","Saudi Arabia","SAU",2024,0.499,72045.119,35300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",35300000
+"economic_complexity","Senegal","SEN",2024,-0.519,5061.58,18661000,"África","IMF WEO PPP GDP per capita matched to 2024",18661000
+"economic_complexity","Serbia","SRB",2024,0.773,31013.396,6586000,"Europa","IMF WEO PPP GDP per capita matched to 2024",6586000
+"economic_complexity","Singapore","SGP",2024,1.451,153392.969,6037000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6037000
+"economic_complexity","Slovakia","SVK",2024,1.128,46022.295,5425000,"Europa","IMF WEO PPP GDP per capita matched to 2024",5425000
+"economic_complexity","Viet Nam","VNM",2024,0.629,16362.109,101300000,"Asia","IMF WEO PPP GDP per capita matched to 2024",101300000
+"economic_complexity","Slovenia","SVN",2024,1.282,56281.609,2124000,"Europa","IMF WEO PPP GDP per capita matched to 2024",2124000
+"economic_complexity","South Africa","ZAF",2024,0.369,15745.904,63016000,"África","IMF WEO PPP GDP per capita matched to 2024",63016000
+"economic_complexity","Zimbabwe","ZWE",2024,-1.084,7352.429,16992000,"África","IMF WEO PPP GDP per capita matched to 2024",16992000
+"economic_complexity","Spain","ESP",2024,0.823,54762.025,49128000,"Europa","IMF WEO PPP GDP per capita matched to 2024",49128000
+"economic_complexity","Sudan (Former)","SDN",2024,-2.128,2388.602,49140000,"África","IMF WEO PPP GDP per capita matched to 2024",49140000
+"economic_complexity","Swaziland","SWZ",2024,0.304,11840.854,1243000,"África","IMF WEO PPP GDP per capita matched to 2024",1243000
+"economic_complexity","Sweden","SWE",2024,1.234,72334.334,10588000,"Europa","IMF WEO PPP GDP per capita matched to 2024",10588000
+"economic_complexity","Switzerland","CHE",2024,1.579,99159.497,8962000,"Europa","IMF WEO PPP GDP per capita matched to 2024",8962000
+"economic_complexity","Tajikistan","TJK",2024,-1.432,5634.774,10188000,"Asia","IMF WEO PPP GDP per capita matched to 2024",10188000
+"economic_complexity","Thailand","THA",2024,0.789,24956.683,71668000,"Asia","IMF WEO PPP GDP per capita matched to 2024",71668000
+"economic_complexity","Togo","TGO",2024,-0.638,3771.908,8498000,"África","IMF WEO PPP GDP per capita matched to 2024",8498000
+"economic_complexity","Trinidad and Tobago","TTO",2024,0.049,35005.923,1428000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",1428000
+"economic_complexity","United Arab Emirates","ARE",2024,0.369,79207.686,11294000,"Asia","IMF WEO PPP GDP per capita matched to 2024",11294000
+"economic_complexity","Tunisia","TUN",2024,0.547,14512.928,12277000,"África","IMF WEO PPP GDP per capita matched to 2024",12277000
+"economic_complexity","Turkey","TUR",2024,0.705,41671.65,85518000,"Asia","IMF WEO PPP GDP per capita matched to 2024",85518000
+"economic_complexity","Turkmenistan","TKM",2024,-1.178,22202.077,6598000,"Asia","IMF WEO PPP GDP per capita matched to 2024",6598000
+"economic_complexity","Uganda","UGA",2024,-0.518,3689.021,46623000,"África","IMF WEO PPP GDP per capita matched to 2024",46623000
+"economic_complexity","Ukraine","UKR",2024,0.4,19775.15,33406000,"Europa","IMF WEO PPP GDP per capita matched to 2024",33406000
+"economic_complexity","TFYR of Macedonia","MKD",2024,0.423,27887.153,1824000,"Europa","IMF WEO PPP GDP per capita matched to 2024",1824000
+"economic_complexity","Egypt","EGY",2024,0.075,20948.631,106600000,"África","IMF WEO PPP GDP per capita matched to 2024",106600000
+"economic_complexity","United Kingdom","GBR",2024,1.245,63491.788,69281000,"Europa","IMF WEO PPP GDP per capita matched to 2024",69281000
+"economic_complexity","U.R. of Tanzania: Mainland","TZA",2024,-0.907,3950.524,68560000,"África","IMF WEO PPP GDP per capita matched to 2024",68560000
+"economic_complexity","United States","USA",2024,1.107,86417.491,339989000,"América del Norte","IMF WEO PPP GDP per capita matched to 2024",339989000
+"economic_complexity","Burkina Faso","BFA",2024,-0.7,2904.486,23549000,"África","IMF WEO PPP GDP per capita matched to 2024",23549000
+"economic_complexity","Uruguay","URY",2024,0.165,35548.167,3492000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",3492000
+"economic_complexity","Uzbekistan","UZB",2024,0.221,12142.873,37543000,"Asia","IMF WEO PPP GDP per capita matched to 2024",37543000
+"economic_complexity","Venezuela (Bolivarian Republic of)","VEN",2024,-1.631,8185.201,28406000,"América del Sur","IMF WEO PPP GDP per capita matched to 2024",28406000
+"economic_complexity","Yemen","YEM",2024,-1.736,1603.406,18262000,"Asia","IMF WEO PPP GDP per capita matched to 2024",18262000
+"economic_complexity","Zambia","ZMB",2024,-0.664,4227.402,21315000,"África","IMF WEO PPP GDP per capita matched to 2024",21315000

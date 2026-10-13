@@ -32,7 +32,8 @@ indicator_sources <- data.frame(
     "average-years-of-schooling-vs-gdp-per-capita",
     "energy-use-per-person-vs-gdp-per-capita",
     "learning-outcomes-vs-gdp-per-capita",
-    "p10-vs-gdp-per-capita"
+    "p10-vs-gdp-per-capita",
+    "gdp-vs-happiness"
   ),
   csv_url = c(
     "https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
@@ -42,7 +43,8 @@ indicator_sources <- data.frame(
     "https://ourworldindata.org/grapher/average-years-of-schooling-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
     "https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
     "https://ourworldindata.org/grapher/learning-outcomes-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
-    "https://ourworldindata.org/grapher/p10-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true"
+    "https://ourworldindata.org/grapher/p10-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
+    "https://ourworldindata.org/grapher/gdp-vs-happiness.csv?v=1&csvType=full&useColumnShortNames=true"
   ),
   stringsAsFactors = FALSE
 )
@@ -54,6 +56,16 @@ for (row_index in seq_len(nrow(indicator_sources))) {
   utils::download.file(indicator_sources$csv_url[[row_index]], raw_path, mode = "wb", quiet = TRUE)
   message("Wrote ", raw_path)
 }
+
+## Happiness metadata download ----
+# Preserve the supplied survey definition, averaging period, GDP units, and source citations.
+happiness_metadata_url <- "https://ourworldindata.org/grapher/gdp-vs-happiness.metadata.json?v=1&csvType=full&useColumnShortNames=true"
+utils::download.file(
+  happiness_metadata_url,
+  "data/raw/gdp-vs-happiness.metadata.json",
+  mode = "wb",
+  quiet = TRUE
+)
 
 ## Democracy API download ----
 # Democracy comes from the OWID indicator API, which needs a separate entity map.

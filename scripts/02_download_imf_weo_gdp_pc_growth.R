@@ -94,7 +94,12 @@ imf_weo_gdp_pc_growth <- imf_weo_wide %>%
   dplyr::arrange(country_code, year) %>%
   dplyr::group_by(country_code) %>%
   dplyr::mutate(
-    population_growth = LP / dplyr::lag(LP) - 1,
+    # Only adjacent years define annual population and per-capita growth.
+    population_growth = dplyr::if_else(
+      year - dplyr::lag(year) == 1L,
+      LP / dplyr::lag(LP) - 1,
+      NA_real_
+    ),
     gdp_growth = NGDP_RPCH / 100,
     value = ((1 + gdp_growth) / (1 + population_growth) - 1) * 100
   ) %>%
@@ -122,6 +127,8 @@ leftout_codes <- setdiff(maddison_countries$country_code, derived_countries)
 # Persist raw components, derived growth, and coverage metadata for audits.
 imf_metadata <- data.frame(
   metric = c(
+    "source_url",
+    "retrieved_at_utc",
     "source",
     "derived_indicator_id",
     "derived_indicator_name",
@@ -135,6 +142,8 @@ imf_metadata <- data.frame(
     "countries_leftout"
   ),
   value = c(
+    "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH;https://www.imf.org/external/datamapper/api/v1/LP",
+    format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
     "IMF DataMapper / WEO",
     "DERIVED_NGDP_RPCH_LP_PC",
     "Derived real GDP per capita growth from WEO real GDP growth and population",
@@ -163,6 +172,24 @@ utils::write.csv(
 utils::write.csv(
   imf_metadata,
   "data/raw/imf_weo_gdp_per_capita_growth_maddison_countries_metadata.csv",
+  row.names = FALSE
+)
+
+## Venezuela extracts ----
+# Keep source components and derived rates separate from the project's history.
+venezuela_components <- imf_weo_components %>% dplyr::filter(country_code == "VEN")
+venezuela_growth <- imf_weo_gdp_pc_growth %>% dplyr::filter(country_code == "VEN")
+if (nrow(venezuela_components) == 0 || nrow(venezuela_growth) == 0) {
+  stop("IMF response omitted Venezuela components or derived growth.", call. = FALSE)
+}
+utils::write.csv(
+  venezuela_components,
+  "data/raw/imf_weo_real_gdp_growth_population_venezuela.csv",
+  row.names = FALSE
+)
+utils::write.csv(
+  venezuela_growth,
+  "data/raw/imf_weo_gdp_per_capita_growth_venezuela.csv",
   row.names = FALSE
 )
 

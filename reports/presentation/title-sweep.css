@@ -23,6 +23,14 @@
   text-align: left;
 }
 
+/* Use the approved mirrored background on every slide, including section titles. */
+.reveal .slide-background-content {
+  background-image: url("assets/images/lecture-background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .reveal .slides section.slide.level2 {
   box-sizing: border-box;
   height: 100%;

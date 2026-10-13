@@ -33,7 +33,7 @@ for (package_name in required_packages) {
 # Load shared presentation styling and export helpers.
 source("scripts/_presentation_theme.R")
 
-figure_dir <- "outputs/figures"
+figure_dir <- "outputs/figures/default"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Plot constants ----

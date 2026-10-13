@@ -70,7 +70,7 @@ if (length(missing_files) > 0) {
   )
 }
 
-figure_dir <- "outputs/figures"
+figure_dir <- "outputs/figures/default"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Plot constants ----
@@ -102,7 +102,7 @@ mix_with_white <- function(color, white_share) {
 }
 
 presentation_source_caption <- build_source_caption(
-  "Baptista (2008); Garay (2019); BCV (2016); Focus Economics (2026); Maddison Project (2023); Banco Mundial WDI (2025); FMI WEO (2025)",
+  "Baptista (2008); Garay (2019); BCV (2016, 2026); Focus Economics (2026); Maddison Project (2023); Banco Mundial WDI (2026); FMI WEO (2026)",
   calculations = TRUE
 )
 
@@ -1124,8 +1124,12 @@ gdp_index_line_latest_value <- gdp_index_line_data %>%
   filter(year == gdp_index_line_latest_year) %>%
   pull(index_value) %>%
   first()
-gdp_index_line_reference <- gdp_index_line_data %>% filter(year == 1967)
-gdp_index_line_label <- gdp_index_line_reference %>% mutate(label_x = year + 6, label_y = index_value + gdp_index_line_latest_value * 0.24)
+# Select the closest historical level before the modern collapse, excluding recent recovery years.
+gdp_index_line_reference <- gdp_index_line_data %>%
+  filter(year < 2012) %>%
+  slice_min(order_by = abs(index_value - gdp_index_line_latest_value), n = 1, with_ties = FALSE)
+# Place the historical reference above the earlier, lower portion of the series.
+gdp_index_line_label <- gdp_index_line_reference %>% mutate(label_x = year - 8, label_y = index_value + gdp_index_line_latest_value * 0.30)
 gdp_index_line <- gdp_index_line_data %>% ggplot(aes(x = year, y = index_value)) +
   geom_hline(yintercept = gdp_index_line_latest_value, color = presentation_colors[["accent"]], linewidth = 0.65, linetype = "dashed") +
   geom_vline(data = gdp_index_line_reference, aes(xintercept = year), color = presentation_colors[["primary"]], linewidth = 0.45, linetype = "dotted") +
@@ -1137,7 +1141,7 @@ gdp_index_line <- gdp_index_line_data %>% ggplot(aes(x = year, y = index_value))
   presentation_full_history_year_axis() +
   scale_y_continuous(labels = presentation_number_label(accuracy = 1), limits = c(0, 150000), breaks = seq(0, 150000, by = 25000)) +
   labs(
-    title = sprintf("Índice histórico del PIB real: nivel de %s cercano a 1967", gdp_index_line_latest_year),
+    title = sprintf("Índice histórico del PIB real: nivel de %s cercano a %s", gdp_index_line_latest_year, gdp_index_line_reference$year),
     x = NULL,
     y = sprintf("Índice histórico (%s = 100)", gdp_index_line_base_year),
     subtitle = "Ubica el nivel reciente del PIB real frente a referencias históricas comparables.",
@@ -1169,7 +1173,10 @@ gdp_per_capita_index_line_latest_value <- gdp_per_capita_index_line_data %>%
   filter(year == gdp_per_capita_index_line_latest_year) %>%
   pull(index_value) %>%
   first()
-gdp_per_capita_index_line_reference <- gdp_per_capita_index_line_data %>% filter(year == 1943)
+# Apply the same historical comparison rule to the per-capita series.
+gdp_per_capita_index_line_reference <- gdp_per_capita_index_line_data %>%
+  filter(year < 2012) %>%
+  slice_min(order_by = abs(index_value - gdp_per_capita_index_line_latest_value), n = 1, with_ties = FALSE)
 gdp_per_capita_index_line_label <- gdp_per_capita_index_line_reference %>% mutate(label_x = year + 6, label_y = index_value + gdp_per_capita_index_line_latest_value * 0.24)
 gdp_per_capita_index_line <- gdp_per_capita_index_line_data %>% ggplot(aes(x = year, y = index_value)) +
   geom_hline(yintercept = gdp_per_capita_index_line_latest_value, color = presentation_colors[["accent"]], linewidth = 0.65, linetype = "dashed") +
@@ -1182,7 +1189,7 @@ gdp_per_capita_index_line <- gdp_per_capita_index_line_data %>% ggplot(aes(x = y
   presentation_full_history_year_axis() +
   scale_y_continuous(labels = presentation_number_label(accuracy = 1), limits = c(0, 5000), breaks = seq(0, 5000, by = 1000)) +
   labs(
-    title = sprintf("Índice histórico del PIB real per cápita: nivel de %s cercano a 1943", gdp_per_capita_index_line_latest_year),
+    title = sprintf("Índice histórico del PIB real per cápita: nivel de %s cercano a %s", gdp_per_capita_index_line_latest_year, gdp_per_capita_index_line_reference$year),
     x = NULL,
     y = sprintf("Índice histórico (%s = 100)", gdp_per_capita_index_line_base_year),
     subtitle = "Ubica el nivel reciente del PIB real per cápita frente a referencias históricas comparables.",
@@ -1272,7 +1279,7 @@ message("Wrote ", file.path(figure_dir, "gdp_per_capita_anchor_line.png"))
 
 # Shared styling keeps Venezuelan episode paths comparable across graph variants.
 domestic_episode_linewidth <- 0.85
-domestic_episode_line_alpha <- 0.68
+domestic_episode_line_alpha <- 1
 domestic_episode_marker_size <- 2.8
 domestic_episode_start_fill <- alpha("white", alpha = 0.55)
 domestic_episode_combined_y_limits <- c(-1, 5)
@@ -1469,7 +1476,7 @@ gdp_presidential_period_lines <- gdp_presidential_period_lines_data %>%
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = 0.8,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1490,7 +1497,7 @@ gdp_presidential_period_lines <- gdp_presidential_period_lines_data %>%
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = -0.20,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1511,7 +1518,7 @@ gdp_presidential_period_lines <- gdp_presidential_period_lines_data %>%
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = -0.55,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1532,7 +1539,7 @@ gdp_presidential_period_lines <- gdp_presidential_period_lines_data %>%
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = -0.15,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1601,8 +1608,10 @@ gdp_presidential_period_lines_pseudo_log <- gdp_presidential_period_lines +
     box.padding = presentation_label_box_padding,
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
-    nudge_y = 0.30,
-    segment.color = presentation_colors[["muted"]],
+    # Keep the wide endpoint label below the recent contraction trajectory.
+    nudge_x = -12,
+    nudge_y = -0.10,
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1704,7 +1713,7 @@ gdp_per_capita_presidential_period_lines <- gdp_per_capita_presidential_period_l
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = 0.8,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1725,7 +1734,7 @@ gdp_per_capita_presidential_period_lines <- gdp_per_capita_presidential_period_l
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = -0.20,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1746,7 +1755,7 @@ gdp_per_capita_presidential_period_lines <- gdp_per_capita_presidential_period_l
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = -0.55,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1767,7 +1776,7 @@ gdp_per_capita_presidential_period_lines <- gdp_per_capita_presidential_period_l
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
     nudge_y = -0.15,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -1836,8 +1845,10 @@ gdp_per_capita_presidential_period_lines_pseudo_log <- gdp_per_capita_presidenti
     box.padding = presentation_label_box_padding,
     point.padding = presentation_label_point_padding,
     min.segment.length = 0,
-    nudge_y = 0.30,
-    segment.color = presentation_colors[["muted"]],
+    # Keep the wide endpoint label below the recent contraction trajectory.
+    nudge_x = -12,
+    nudge_y = -0.10,
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     max.overlaps = Inf,
     max.time = 4,
@@ -2001,7 +2012,7 @@ gdp_positive_episode_lines <- gdp_positive_episode_lines_data %>%
   geom_line(linewidth = domestic_episode_linewidth, alpha = domestic_episode_line_alpha) +
   geom_point(data = gdp_positive_episode_lines_starts, shape = 21, fill = domestic_episode_start_fill, stroke = presentation_point_stroke, size = domestic_episode_marker_size, show.legend = FALSE) +
   geom_point(data = gdp_positive_episode_lines_ends, shape = 16, size = domestic_episode_marker_size, show.legend = FALSE) +
-  geom_label_repel(data = gdp_positive_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_colors[["muted"]], segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
+  geom_label_repel(data = gdp_positive_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype, segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
   scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
   presentation_full_history_year_axis() +
   scale_y_continuous(labels = label_percent(accuracy = 1), breaks = domestic_episode_positive_y_breaks) +
@@ -2047,7 +2058,7 @@ gdp_negative_episode_lines <- gdp_negative_episode_lines_data %>%
   geom_line(linewidth = domestic_episode_linewidth, alpha = domestic_episode_line_alpha) +
   geom_point(data = gdp_negative_episode_lines_starts, shape = 21, fill = domestic_episode_start_fill, stroke = presentation_point_stroke, size = domestic_episode_marker_size, show.legend = FALSE) +
   geom_point(data = gdp_negative_episode_lines_ends, shape = 16, size = domestic_episode_marker_size, show.legend = FALSE) +
-  geom_label_repel(data = gdp_negative_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_colors[["muted"]], segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
+  geom_label_repel(data = gdp_negative_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype, segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
   scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
   presentation_full_history_year_axis() +
   scale_y_continuous(labels = label_percent(accuracy = 1), limits = c(-1, 0.10), breaks = seq(-1, 0.10, by = 0.1)) +
@@ -2113,7 +2124,7 @@ gdp_per_capita_positive_episode_lines <- gdp_per_capita_positive_episode_lines_d
   geom_line(linewidth = domestic_episode_linewidth, alpha = domestic_episode_line_alpha) +
   geom_point(data = gdp_per_capita_positive_episode_lines_starts, shape = 21, fill = domestic_episode_start_fill, stroke = presentation_point_stroke, size = domestic_episode_marker_size, show.legend = FALSE) +
   geom_point(data = gdp_per_capita_positive_episode_lines_ends, shape = 16, size = domestic_episode_marker_size, show.legend = FALSE) +
-  geom_label_repel(data = gdp_per_capita_positive_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_colors[["muted"]], segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
+  geom_label_repel(data = gdp_per_capita_positive_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype, segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
   scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
   presentation_full_history_year_axis() +
   scale_y_continuous(labels = label_percent(accuracy = 1), breaks = domestic_episode_positive_y_breaks) +
@@ -2159,7 +2170,7 @@ gdp_per_capita_negative_episode_lines <- gdp_per_capita_negative_episode_lines_d
   geom_line(linewidth = domestic_episode_linewidth, alpha = domestic_episode_line_alpha) +
   geom_point(data = gdp_per_capita_negative_episode_lines_starts, shape = 21, fill = domestic_episode_start_fill, stroke = presentation_point_stroke, size = domestic_episode_marker_size, show.legend = FALSE) +
   geom_point(data = gdp_per_capita_negative_episode_lines_ends, shape = 16, size = domestic_episode_marker_size, show.legend = FALSE) +
-  geom_label_repel(data = gdp_per_capita_negative_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_colors[["muted"]], segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
+  geom_label_repel(data = gdp_per_capita_negative_episode_lines_labels, aes(x = year, y = episode_cumulative_change, label = label), inherit.aes = FALSE, color = presentation_colors[["ink"]], family = presentation_font_family, size = presentation_label_text_size, fill = "white", label.size = presentation_label_box_linewidth, label.padding = presentation_label_padding, label.r = presentation_label_radius, min.segment.length = 0, segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype, segment.size = presentation_label_segment_size, box.padding = presentation_label_box_padding, point.padding = presentation_label_point_padding, max.overlaps = Inf, seed = 1234, show.legend = FALSE) +
   scale_color_manual(values = growth_colors, labels = growth_labels, name = NULL) +
   presentation_full_history_year_axis() +
   scale_y_continuous(labels = label_percent(accuracy = 1), limits = c(-1, 0.10), breaks = seq(-1, 0.10, by = 0.1)) +
@@ -2355,7 +2366,7 @@ maddison_negative_episode_lines <- ggplot() +
     size = presentation_label_small_text_size, fill = "white", label.size = presentation_label_box_linewidth,
     label.padding = presentation_label_padding, label.r = presentation_label_radius,
     box.padding = 0.60, point.padding = 0.55,
-    segment.color = presentation_colors[["muted"]], segment.size = presentation_label_segment_size,
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype, segment.size = presentation_label_segment_size,
     min.segment.length = 0, nudge_x = 0.8, nudge_y = maddison_label_data$label_nudge_y,
     force = 3, max.overlaps = Inf, seed = 1234, show.legend = FALSE
   ) +
@@ -2451,6 +2462,7 @@ wdi_negative_episode_label_data <- build_negative_episode_labels(
 ) %>%
   mutate(
     label_nudge_y = case_when(
+      grepl("^IRQ", label) ~ -0.06,
       grepl("^(MDA|SDN|SAU)", label) ~ 0.025,
       grepl("^(LBR|GEO|COD)", label) ~ -0.025,
       TRUE ~ 0
@@ -2543,10 +2555,11 @@ wdi_negative_episode_lines <- ggplot() +
     label.r = presentation_label_radius,
     box.padding = 0.60,
     point.padding = 0.55,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     min.segment.length = 0,
-    nudge_x = 0.8,
+    # Move Iraq's wide label to the open space left of the steep collapse paths.
+    nudge_x = if_else(grepl("^IRQ", wdi_negative_episode_label_data$label), -8, 0.8),
     nudge_y = wdi_negative_episode_label_data$label_nudge_y,
     force = 3,
     max.overlaps = Inf,
@@ -2725,7 +2738,7 @@ imf_weo_negative_episode_lines <- ggplot() +
     label.r = presentation_label_radius,
     box.padding = 0.60,
     point.padding = 0.55,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     min.segment.length = 0,
     nudge_x = 0.8,
@@ -2974,6 +2987,13 @@ build_international_disaster_recovery_paths <- function(
       )
     )
 
+  # Give Zimbabwe's IMF callout clearance above the nearby recovery trajectories.
+  international_disaster_recovery_top_labels <- international_disaster_recovery_paths_plot_ends %>%
+    filter(path_group %in% c("10 colapsos pre-1950", "10 colapsos desde 1950")) %>%
+    mutate(label_nudge_y = if_else(
+      country_code == "ZWE" & recovery_source_label == "FMI WEO (PIB per cápita)", 0.08, 0
+    ))
+
   international_disaster_recovery_median_stop_year <- international_disaster_recovery_summary %>%
     filter(median_recovery_gap >= 0) %>%
     slice_min(order_by = years_since_end, n = 1, with_ties = FALSE) %>%
@@ -3128,7 +3148,7 @@ build_international_disaster_recovery_paths <- function(
       label.r = presentation_label_radius,
       box.padding = presentation_label_box_padding,
       point.padding = presentation_label_point_padding,
-      segment.color = presentation_colors[["muted"]],
+      segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
       segment.size = presentation_label_segment_size,
       min.segment.length = 0,
       max.overlaps = Inf,
@@ -3136,8 +3156,7 @@ build_international_disaster_recovery_paths <- function(
       show.legend = FALSE
     ) +
     geom_label_repel(
-      data = international_disaster_recovery_paths_plot_ends %>%
-        filter(path_group %in% c("10 colapsos pre-1950", "10 colapsos desde 1950")),
+      data = international_disaster_recovery_top_labels,
       aes(
         x = years_since_end,
         y = recovery_gap,
@@ -3153,9 +3172,10 @@ build_international_disaster_recovery_paths <- function(
       label.r = presentation_label_radius,
       box.padding = presentation_label_box_padding,
       point.padding = presentation_label_point_padding,
-      segment.color = presentation_colors[["muted"]],
+      segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
       segment.size = presentation_label_segment_size,
       min.segment.length = 0,
+      nudge_y = international_disaster_recovery_top_labels$label_nudge_y,
       max.overlaps = Inf,
       seed = 20260804,
       show.legend = FALSE
@@ -3256,7 +3276,7 @@ international_disaster_recovery_paths <- build_international_disaster_recovery_p
 international_disaster_recovery_paths_wdi <- build_international_disaster_recovery_paths(
   recovery_source_label = "WDI (PIB per cápita)",
   recovery_source_name = "Banco Mundial",
-  recovery_source_caption = "Banco Mundial WDI (2025)",
+  recovery_source_caption = "Banco Mundial WDI (consulta 2026)",
   output_filename = "international_disaster_recovery_paths_wdi.png"
 )
 
@@ -3264,7 +3284,7 @@ international_disaster_recovery_paths_wdi <- build_international_disaster_recove
 international_disaster_recovery_paths_imf_weo <- build_international_disaster_recovery_paths(
   recovery_source_label = "FMI WEO (PIB per cápita)",
   recovery_source_name = "FMI WEO",
-  recovery_source_caption = "FMI WEO (2025)",
+  recovery_source_caption = "FMI WEO (consulta 2026)",
   output_filename = "international_disaster_recovery_paths_imf_weo.png"
 )
 
@@ -3558,7 +3578,7 @@ international_recovery_depth_duration_matrix_wdi <- build_international_recovery
   matrix_source_data = international_recovery_matrix_data %>%
     filter(as.character(source_label) == "Banco Mundial"),
   matrix_source_name = "Banco Mundial",
-  matrix_source_caption = "Banco Mundial WDI (2025); Venezuela: serie propia",
+  matrix_source_caption = "Banco Mundial WDI (consulta 2026); Venezuela: serie propia",
   output_filename = "draft_international_recovery_depth_duration_matrix_wdi.png"
 )
 
@@ -3567,7 +3587,7 @@ international_recovery_depth_duration_matrix_imf_weo <- build_international_reco
   matrix_source_data = international_recovery_matrix_data %>%
     filter(as.character(source_label) == "FMI WEO"),
   matrix_source_name = "FMI WEO",
-  matrix_source_caption = "FMI WEO (2025); Venezuela: serie propia",
+  matrix_source_caption = "FMI WEO (consulta 2026); Venezuela: serie propia",
   output_filename = "draft_international_recovery_depth_duration_matrix_imf_weo.png"
 )
 
@@ -4198,10 +4218,11 @@ rolling_cagr_example_label_data <- rolling_cagr_example_window_data %>%
     by = "window_label"
   ) %>%
   mutate(
+    # Place the recent-window callout below the event annotations at the top.
     label_nudge_y = if_else(
       window_label == rolling_cagr_example_window_summaries$window_label[[1]],
       450,
-      0
+      -900
     )
   )
 
@@ -4216,7 +4237,7 @@ rolling_cagr_example_recent_endpoint_data <- rolling_cagr_example_endpoint_data 
 
 rolling_cagr_example <- rolling_cagr_example_series_data %>%
   ggplot(aes(x = year, y = index_value)) +
-  geom_line(color = presentation_colors[["muted"]], linewidth = 0.55) +
+  geom_line(color = presentation_colors[["ink"]], linewidth = 0.55) +
   geom_line(data = rolling_cagr_example_early_window_data, color = rolling_cagr_example_colors[[1]], linewidth = 1) +
   geom_line(data = rolling_cagr_example_recent_window_data, color = rolling_cagr_example_colors[[2]], linewidth = 1) +
   geom_point(data = rolling_cagr_example_early_endpoint_data, color = rolling_cagr_example_colors[[1]], size = 2.8, show.legend = FALSE) +
@@ -4234,7 +4255,7 @@ rolling_cagr_example <- rolling_cagr_example_series_data %>%
     label.r = presentation_label_radius,
     box.padding = presentation_label_box_padding,
     point.padding = presentation_label_point_padding,
-    segment.color = presentation_colors[["muted"]],
+    segment.color = presentation_label_segment_color, segment.linetype = presentation_label_segment_linetype,
     segment.size = presentation_label_segment_size,
     min.segment.length = 0,
     nudge_y = rolling_cagr_example_label_data$label_nudge_y,

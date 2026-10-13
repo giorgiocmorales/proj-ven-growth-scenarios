@@ -48,6 +48,9 @@ presentation_label_box_linewidth <- 0.15
 presentation_label_padding <- ggplot2::unit(0.12, "lines")
 presentation_label_radius <- ggplot2::unit(0.08, "lines")
 presentation_label_segment_size <- 0.22
+# Dark dashed connectors distinguish annotations from solid historical series.
+presentation_label_segment_color <- "#667085"
+presentation_label_segment_linetype <- "dashed"
 presentation_label_box_padding <- 0.45
 presentation_label_point_padding <- 0.25
 presentation_point_stroke <- 0.12
@@ -505,47 +508,213 @@ apply_presentation_plot_style <- function(plot) {
     )
 }
 
+avoid_presentation_label_overlaps <- function(plot_build) {
+  # Add invisible, empty-label obstacles to ggrepel's built data. Using scaled
+  # coordinates preserves log axes, facets, original anchors, and chart values.
+  label_layers <- which(vapply(
+    plot_build$plot$layers,
+    function(layer) inherits(layer$geom, c("GeomLabelRepel", "GeomTextRepel")),
+    logical(1)
+  ))
+  if (length(label_layers) == 0) {
+    return(plot_build)
+  }
+
+  # Points reserve clearance around their rendered bubble sizes; paths are
+  # sampled between vertices so labels also avoid the middle of a line.
+  obstacle_parts <- list()
+  for (layer_index in seq_along(plot_build$data)) {
+    layer <- plot_build$plot$layers[[layer_index]]
+    layer_data <- plot_build$data[[layer_index]]
+    is_point <- inherits(layer$geom, "GeomPoint")
+    is_path <- inherits(layer$geom, c("GeomLine", "GeomPath", "GeomSmooth"))
+    if ((!is_point && !is_path) || nrow(layer_data) == 0) {
+      next
+    }
+
+    # Retain gaps rather than connecting across missing or out-of-range values.
+    layer_data$path_piece <- cumsum(!is.finite(layer_data$x) | !is.finite(layer_data$y))
+    layer_data <- layer_data[is.finite(layer_data$x) & is.finite(layer_data$y), , drop = FALSE]
+    if (is_point) {
+      obstacle_parts[[length(obstacle_parts) + 1L]] <- data.frame(
+        x = layer_data$x, y = layer_data$y, PANEL = layer_data$PANEL,
+        point.size = layer_data$size * 2
+      )
+      next
+    }
+
+    path_groups <- split(layer_data, interaction(
+      layer_data$PANEL, layer_data$group, layer_data$path_piece, drop = TRUE
+    ))
+    for (path_data in path_groups) {
+      if (nrow(path_data) < 2) {
+        next
+      }
+      panel_index <- as.integer(path_data$PANEL[[1]])
+      panel_data <- plot_build$layout$coord$transform(
+        path_data, plot_build$layout$panel_params[[panel_index]]
+      )
+      path_distance <- c(0, cumsum(sqrt(diff(panel_data$x)^2 + diff(panel_data$y)^2)))
+      if (max(path_distance) == 0) {
+        next
+      }
+      # Faint background trajectories retain their observed vertices; dense
+      # sampling is reserved for visible comparison lines to keep exports fast.
+      sample_distance <- if (all(is.na(path_data$alpha) | path_data$alpha >= 0.4)) {
+        unique(c(path_distance, seq(0, max(path_distance), by = 0.008)))
+      } else {
+        path_distance
+      }
+      obstacle_parts[[length(obstacle_parts) + 1L]] <- data.frame(
+        x = stats::approx(path_distance, path_data$x, xout = sample_distance, ties = "ordered")$y,
+        y = stats::approx(path_distance, path_data$y, xout = sample_distance, ties = "ordered")$y,
+        PANEL = path_data$PANEL[[1]],
+        point.size = 2
+      )
+    }
+  }
+  if (length(obstacle_parts) == 0) {
+    return(plot_build)
+  }
+  obstacles <- dplyr::distinct(dplyr::bind_rows(obstacle_parts))
+
+  # Keep every visible label and its original style. Empty strings participate
+  # in ggrepel's collision solver without adding text, points, or legend entries.
+  for (layer_index in label_layers) {
+    labels <- plot_build$data[[layer_index]]
+    if (nrow(labels) == 0) {
+      next
+    }
+    panel_obstacles <- obstacles[obstacles$PANEL %in% labels$PANEL, , drop = FALSE]
+    template_rows <- match(panel_obstacles$PANEL, labels$PANEL)
+    obstacle_labels <- labels[template_rows, , drop = FALSE]
+    obstacle_labels$x <- panel_obstacles$x
+    obstacle_labels$y <- panel_obstacles$y
+    obstacle_labels$label <- ""
+    obstacle_labels$point.size <- panel_obstacles$point.size
+    for (axis in c("x", "y")) {
+      # ggrepel's nudge position stores original anchors in these optional fields.
+      for (position_column in intersect(c(paste0(axis, "_orig"), paste0("nudge_", axis)), names(labels))) {
+        obstacle_labels[[position_column]] <- panel_obstacles[[axis]]
+      }
+    }
+    plot_build$data[[layer_index]] <- dplyr::bind_rows(labels, obstacle_labels)
+
+    # Let crowded charts move labels farther from their anchors while retaining
+    # leader lines and a fixed seed. Solve by iteration count for repeatable exports.
+    layer <- plot_build$plot$layers[[layer_index]]
+    label_parameters <- list(
+      force = max(layer$geom_params$force, 20),
+      force_pull = 0,
+      max.time = Inf,
+      max.iter = 10000L,
+      max.overlaps = Inf,
+      point.padding = grid::unit(0.8, "lines"),
+      min.segment.length = grid::unit(0, "lines")
+    )
+    # ggplot_build has already cached draw parameters; update both representations.
+    layer$geom_params <- utils::modifyList(layer$geom_params, label_parameters)
+    layer$computed_geom_params <- utils::modifyList(layer$computed_geom_params, label_parameters)
+    plot_build$plot$layers[[layer_index]] <- layer
+  }
+  plot_build
+}
+
+connect_presentation_labels_to_points <- function(grob) {
+  # Keep the resolved label positions and collision padding. Only extend each
+  # connector to its own original anchor, inside the corresponding point marker.
+  if (inherits(grob, c("labelrepeltree", "textrepeltree"))) {
+    for (child_index in seq_along(grob$children)) {
+      connector <- grob$children[[child_index]]
+      if (!grepl("^segmentrepelgrob[0-9]+$", connector$name)) {
+        next
+      }
+      anchor_index <- as.integer(sub("^segmentrepelgrob", "", connector$name))
+      anchor <- grob$data[anchor_index, , drop = FALSE]
+      if (nrow(anchor) != 1 || !is.finite(anchor$x) || !is.finite(anchor$y)) {
+        stop("A presentation label connector has no finite original anchor.", call. = FALSE)
+      }
+      # Revert only the connector curve so grid redraws its endpoint; the parent
+      # remains frozen, preventing another label-layout calculation on export.
+      grob$children[[child_index]] <- grid::editGrob(
+        grid::grid.revert(connector),
+        x2 = grid::unit(anchor$x, "native"),
+        y2 = grid::unit(anchor$y, "native")
+      )
+    }
+    return(grob)
+  }
+
+  # Resolved grid trees draw their children; untouched tables use their grobs.
+  if (length(grob$children) > 0) {
+    for (child_index in seq_along(grob$children)) {
+      grob$children[[child_index]] <- connect_presentation_labels_to_points(grob$children[[child_index]])
+    }
+  } else if (length(grob$grobs) > 0) {
+    grob$grobs <- lapply(grob$grobs, connect_presentation_labels_to_points)
+  }
+  grob
+}
+
 save_plot_variants <- function(filename, plot, width, height, dpi) {
-  # Export each chart directly to raster preview and both vector deliverables.
+  # Export matching default and transparent charts in PNG, SVG, and PDF formats.
   if (!identical(tolower(tools::file_ext(filename)), "png")) {
     stop("Presentation plot filenames must use the `.png` extension.", call. = FALSE)
   }
 
-  output_stem <- tools::file_path_sans_ext(filename)
-  output_files <- c(
-    png = filename,
-    svg = paste0(output_stem, ".svg"),
-    pdf = paste0(output_stem, ".pdf")
+  if (!identical(basename(dirname(filename)), "default")) {
+    stop("Presentation plots must be saved in the `default` figure directory.", call. = FALSE)
+  }
+
+  figure_root <- dirname(dirname(filename))
+  output_stem <- tools::file_path_sans_ext(basename(filename))
+  output_devices <- list(png = "png", svg = svglite::svglite, pdf = grDevices::cairo_pdf)
+  output_backgrounds <- c(default = "white", transparent = "transparent")
+
+  # Remove canvas fills while preserving white country-label boxes and data marks.
+  # The default exports restore their white canvas through the graphics device.
+  plot <- plot + ggplot2::theme(
+    plot.background = ggplot2::element_rect(fill = "transparent", colour = NA),
+    panel.background = ggplot2::element_rect(fill = "transparent", colour = NA),
+    legend.background = ggplot2::element_rect(fill = "transparent", colour = NA),
+    legend.box.background = ggplot2::element_rect(fill = "transparent", colour = NA),
+    legend.key = ggplot2::element_rect(fill = "transparent", colour = NA)
   )
 
   # Build stateful layers such as ggrepel once so every device gets identical geometry.
-  plot_grob <- ggplot2::ggplotGrob(plot)
+  plot_build <- avoid_presentation_label_overlaps(ggplot2::ggplot_build(plot))
+  plot_grob <- ggplot2::ggplot_gtable(plot_build)
+  # Resolve deferred label layout on a device with the final export dimensions.
+  # Freeze the grobs so PNG, SVG, and PDF cannot independently reposition labels.
+  plot_grob <- grid::grid.grabExpr(
+    {
+      grid::grid.draw(plot_grob)
+      grid::grid.force()
+    },
+    width = width,
+    height = height
+  )
+  plot_grob <- connect_presentation_labels_to_points(plot_grob)
 
-  ggplot2::ggsave(
-    filename = output_files[["png"]],
-    plot = plot_grob,
-    device = "png",
-    width = width,
-    height = height,
-    dpi = dpi,
-    bg = "white"
-  )
-  ggplot2::ggsave(
-    filename = output_files[["svg"]],
-    plot = plot_grob,
-    device = svglite::svglite,
-    width = width,
-    height = height,
-    bg = "white"
-  )
-  ggplot2::ggsave(
-    filename = output_files[["pdf"]],
-    plot = plot_grob,
-    device = grDevices::cairo_pdf,
-    width = width,
-    height = height,
-    bg = "white"
-  )
+  # Reuse the frozen layout for both backgrounds so label positions cannot drift.
+  output_files <- character()
+  for (background_name in names(output_backgrounds)) {
+    output_dir <- file.path(figure_root, background_name)
+    dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+    for (extension in names(output_devices)) {
+      output_file <- file.path(output_dir, paste0(output_stem, ".", extension))
+      ggplot2::ggsave(
+        filename = output_file,
+        plot = plot_grob,
+        device = output_devices[[extension]],
+        width = width,
+        height = height,
+        dpi = dpi,
+        bg = output_backgrounds[[background_name]]
+      )
+      output_files <- c(output_files, output_file)
+    }
+  }
 
   invisible(output_files)
 }

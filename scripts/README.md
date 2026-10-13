@@ -23,6 +23,7 @@ editing.
 - `14_render_presentation.R`: Quarto HTML and Beamer PDF rendering.
 - `15_run_app.R`: interactive app launch.
 - `16_audit_graph_outputs.R`: graph script navigation and output audit.
+- `17_compare_venezuela_source_growth.R`: retained IMF/WDI Venezuela extracts and the BCV historical GDP snapshot from `proj-ven-econ` versus project growth and 2012 recovery paths, run after data assembly.
 - `99_run_all.R`: full non-interactive pipeline runner.
 
 ## Graph Scripts
@@ -30,8 +31,9 @@ editing.
 - Search for `## Plot construction` to find where graph objects are created.
 - Search for `## Family:` to jump to a family of related graphs.
 - Search for `# Graph:` to find a specific chart.
-- Presentation graphs are exported directly from the same `ggplot` object as
-  PNG previews, SVG figures for Reveal HTML, and vector PDF figures for Beamer.
+- Presentation graphs share one resolved layout and export PNG, SVG, and PDF
+  versions with white backgrounds in `outputs/figures/default/` and transparent
+  backgrounds in `outputs/figures/transparent/`.
 - Quarto uses extensionless graph references and selects SVG or PDF by output
   format; the asset preflight verifies both variants before rendering.
 - Run `scripts/16_audit_graph_outputs.R` after graph edits to write
@@ -42,6 +44,6 @@ editing.
 
 - Edit Spanish display text inside `ggplot2::labs()` and Quarto slide headings.
 - Keep display text as UTF-8. Do not save scripts as Windows-1252 or ANSI.
-- Generated PNG and vector PDF charts live in `outputs/figures/`.
+- The presentation selects graphs from `outputs/figures/transparent/`.
 - Manually added presentation images should go in `reports/presentation/assets/images/`.
 - During visual iteration, rerun only graph scripts. Rerun download/cache scripts only when source data should be refreshed.

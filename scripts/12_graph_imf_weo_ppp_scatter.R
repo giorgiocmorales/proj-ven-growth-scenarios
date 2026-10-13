@@ -32,13 +32,13 @@ for (package_name in required_packages) {
 # Load shared presentation styling, scale utilities, and export helpers.
 source("scripts/_presentation_theme.R")
 
-figure_dir <- "outputs/figures"
+figure_dir <- "outputs/figures/default"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Plot constants ----
 # Shared caption, country groups, labels, and axis limits.
 presentation_source_caption <- build_source_caption(
-  "FMI WEO (2025) y Maddison Project (2023)",
+  "FMI WEO (consulta 2026) y Maddison Project (2023)",
   calculations = TRUE
 )
 
@@ -301,6 +301,9 @@ nominal_1999_plot <- ggplot() +
     label.padding = presentation_label_padding,
     label.r = presentation_label_radius,
     min.segment.length = 0,
+    # Start Bolivia's callout below the dense cluster of small economies.
+    nudge_x = if_else(nominal_1999_labels$country_label == "BOL", -0.25, 0),
+    nudge_y = if_else(nominal_1999_labels$country_label == "BOL", -0.60, 0),
     segment.color = presentation_colors[["muted"]],
     segment.size = presentation_label_segment_size,
     box.padding = presentation_label_box_padding,

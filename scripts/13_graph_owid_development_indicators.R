@@ -34,17 +34,17 @@ source("scripts/_presentation_theme.R")
 
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/final", recursive = TRUE, showWarnings = FALSE)
-figure_dir <- "outputs/figures"
+figure_dir <- "outputs/figures/default"
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Plot constants ----
 # Shared caption, country groups, and OWID region colors.
 presentation_source_caption <- build_source_caption(
-  "Our World in Data Grapher (2024-2025) y FMI WEO (2025)",
+  "Our World in Data Grapher (2024-2025) y FMI WEO (consulta 2026)",
   calculations = TRUE
 )
 eci_source_caption <- build_source_caption(
-  "Growth Lab Atlas of Economic Complexity (2024) y FMI WEO (2025)",
+  "Growth Lab Atlas of Economic Complexity (2024) y FMI WEO (consulta 2026)",
   calculations = TRUE
 )
 maddison_ppp_unit_note <- "PIB per cápita PPP de OWID expresado en dólares internacionales constantes de 2011."
@@ -356,6 +356,22 @@ energy_use_plot_data <- build_plot_data(
   fallback_imf_gdp = FALSE
 )
 
+## Indicator data: Self-reported life satisfaction ----
+# Use the latest common year; IMF GDP and population backfill Venezuela as in other indicators.
+happiness_data <- read_grapher_indicator(
+  indicator_id = "happiness",
+  slug = "gdp-vs-happiness",
+  y_column = "cantril_ladder_score",
+  x_column = "ny_gdp_pcap_pp_kd",
+  population_column = NULL
+)
+happiness_plot_data <- build_plot_data(
+  happiness_data,
+  selected_year = NULL,
+  latest_per_country = FALSE,
+  fallback_imf_gdp = FALSE
+)
+
 ## Shared x-axis: Regular indicators ----
 # Build the common GDP axis after preparing the regular OWID indicators.
 owid_regular_plot_data <- bind_rows(
@@ -366,7 +382,8 @@ owid_regular_plot_data <- bind_rows(
   hdi_plot_data,
   schooling_plot_data,
   learning_outcomes_plot_data,
-  energy_use_plot_data
+  energy_use_plot_data,
+  happiness_plot_data
 )
 
 owid_region_lookup <- owid_regular_plot_data %>%
@@ -1116,6 +1133,13 @@ hdi_plot <- hdi_data %>%
     label.padding = presentation_label_padding,
     label.r = presentation_label_radius,
     min.segment.length = 0,
+    # Start these callouts in open space beside the dense HDI country clusters.
+    nudge_x = if_else(hdi_label_data$country_label == "CAN", -0.40, 0),
+    nudge_y = case_when(
+      hdi_label_data$country_label == "TZA" ~ -0.10,
+      hdi_label_data$country_label == "GTM" ~ -0.18,
+      TRUE ~ 0
+    ),
     segment.color = presentation_colors[["muted"]],
     segment.size = presentation_label_segment_size,
     box.padding = presentation_label_box_padding,
@@ -1857,6 +1881,149 @@ save_plot_variants(
 )
 print(economic_complexity_plot)
 message("Wrote ", economic_complexity_figure_file)
+
+### Graph 11: Satisfacción con la vida y PIB per cápita ----
+# Prepare the observations, population sizing, and labels used only by this graph.
+happiness_data <- happiness_plot_data %>%
+  filter(
+    gdp_per_capita >= owid_x_limits[[1]],
+    gdp_per_capita <= owid_x_limits[[2]]
+  ) %>%
+  mutate(
+    plot_indicator_value = indicator_value,
+    population_size_index = if_else(
+      !is.na(population) & population > 0,
+      pmax(population, 1000000)^0.35,
+      NA_real_
+    )
+  )
+
+happiness_label_data <- happiness_data %>%
+  filter(
+    !is.na(plot_indicator_value),
+    plot_indicator_value >= min(c(0, 10)),
+    plot_indicator_value <= max(c(0, 10)),
+    !is.na(owid_region),
+    owid_region != "Oceanía",
+    !is.na(population),
+    population > 0
+  ) %>%
+  arrange(owid_region, desc(population), country_code) %>%
+  group_by(owid_region) %>%
+  slice_head(n = 5L) %>%
+  ungroup() %>%
+  bind_rows(happiness_data %>% filter(country_code == "VEN")) %>%
+  distinct(country_code, .keep_all = TRUE) %>%
+  mutate(country_label = country_code)
+
+happiness_year_label <- unique(happiness_data$year)
+
+# Build the complete graph with all graph-specific scales directly visible.
+happiness_plot <- happiness_data %>%
+  ggplot() +
+  geom_smooth(
+    aes(x = gdp_per_capita, y = plot_indicator_value),
+    method = "lm",
+    formula = y ~ x,
+    se = FALSE,
+    color = presentation_colors[["ink"]],
+    linewidth = 0.45,
+    alpha = 0.85
+  ) +
+  geom_point(
+    aes(
+      x = gdp_per_capita,
+      y = plot_indicator_value,
+      fill = owid_region,
+      size = population_size_index
+    ),
+    shape = 21,
+    color = presentation_colors[["ink"]],
+    stroke = presentation_point_stroke,
+    alpha = 0.72
+  ) +
+  geom_label_repel(
+    data = happiness_label_data,
+    aes(
+      x = gdp_per_capita,
+      y = plot_indicator_value,
+      label = country_label
+    ),
+    color = presentation_colors[["ink"]],
+    family = presentation_font_family,
+    size = presentation_label_text_size,
+    fill = "white",
+    label.size = presentation_label_box_linewidth,
+    label.padding = presentation_label_padding,
+    label.r = presentation_label_radius,
+    min.segment.length = 0,
+    segment.color = presentation_colors[["muted"]],
+    segment.size = presentation_label_segment_size,
+    box.padding = presentation_label_box_padding,
+    point.padding = presentation_label_point_padding,
+    max.overlaps = Inf,
+    show.legend = FALSE,
+    seed = 1234
+  ) +
+  scale_x_log10(
+    limits = owid_x_limits,
+    breaks = owid_x_breaks,
+    labels = presentation_number_label(accuracy = 1),
+    expand = expansion(mult = c(0, 0.025))
+  ) +
+  scale_y_continuous(
+    limits = c(0, 10),
+    breaks = seq(0, 10, by = 2),
+    labels = presentation_number_label(accuracy = 0.1)(seq(0, 10, by = 2)),
+    expand = c(0, 0)
+  ) +
+  scale_fill_manual(
+    values = owid_region_colors,
+    breaks = names(owid_region_colors),
+    drop = FALSE,
+    name = NULL
+  ) +
+  scale_size_continuous(
+    range = c(1.8, 9.2),
+    breaks = c(1000000, 10000000, 100000000, 1000000000)^0.35,
+    labels = c("1M", "10M", "100M", "1B"),
+    name = "Población"
+  ) +
+  labs(
+    title = sprintf("Satisfacción con la vida y PIB per cápita (%s)", happiness_year_label),
+    subtitle = "Escalera de Cantril (0–10): promedio de los tres años terminados en el año indicado.",
+    x = "PIBpc PPP",
+    y = "Satisfacción con la vida (0–10)",
+    caption = append_caption_note(
+      build_source_caption("Wellbeing Research Centre (2026), Banco Mundial vía OWID (2026) y FMI WEO (consulta 2026)", calculations = TRUE),
+      presentation_axis_note(
+        log_x = TRUE,
+        log_y = FALSE,
+        extra = paste(world_bank_ppp_unit_note, "Venezuela: PIBpc PPP del FMI WEO en dólares internacionales corrientes del mismo año.")
+      )
+    )
+  ) +
+  theme_minimal(
+    base_size = presentation_base_size,
+    base_family = presentation_font_family
+  ) +
+  theme(legend.position = "bottom") +
+  apply_presentation_axis_theme()
+
+# Apply universal presentation formatting, save, and preview the final object.
+happiness_plot <- apply_presentation_plot_style(happiness_plot)
+
+happiness_figure_file <- file.path(figure_dir, "owid_happiness_gdp_per_capita.png")
+save_plot_variants(
+  filename = happiness_figure_file,
+  plot = happiness_plot,
+  width = presentation_plot_width,
+  height = presentation_plot_height,
+  dpi = presentation_plot_dpi
+)
+print(happiness_plot)
+message("Wrote ", happiness_figure_file)
+
 
 # Data outputs ----
 # Persist the combined OWID relationship table for review.

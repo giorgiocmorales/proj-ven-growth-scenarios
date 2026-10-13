@@ -42,13 +42,18 @@ maddison_countries <- readxl::read_excel(maddison_data_path, sheet = "Full data"
 # Download one WDI indicator, filter to the Maddison sample, and write metadata.
 download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
   url <- sprintf(
-    "https://api.worldbank.org/v2/country/all/indicator/%s?format=json&per_page=20000",
+    "https://api.worldbank.org/v2/country/all/indicator/%s?format=json&per_page=20000&source=2",
     indicator_id
   )
   raw_json <- jsonlite::fromJSON(url)
 
   if (length(raw_json) < 2 || is.null(raw_json[[2]]) || nrow(raw_json[[2]]) == 0) {
     stop(sprintf("World Bank returned no rows for %s.", indicator_id), call. = FALSE)
+  }
+
+  # Reject truncated responses rather than silently saving an incomplete sample.
+  if (raw_json[[1]]$pages != 1 || nrow(raw_json[[2]]) != raw_json[[1]]$total) {
+    stop(sprintf("Incomplete World Bank response for %s.", indicator_id), call. = FALSE)
   }
 
   wdi_raw <- raw_json[[2]] %>%
@@ -84,6 +89,9 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
 
   wdi_metadata <- data.frame(
     metric = c(
+      "source_url",
+      "retrieved_at_utc",
+      "source_last_updated",
       "indicator_id",
       "indicator_name",
       "maddison_country_count",
@@ -94,6 +102,9 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
       "countries_leftout"
     ),
     value = c(
+      url,
+      format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+      raw_json[[1]]$lastupdated,
       indicator_id,
       indicator_name,
       nrow(maddison_countries),
@@ -110,6 +121,17 @@ download_wdi_indicator <- function(indicator_id, indicator_name, output_stem) {
   metadata_path <- sprintf("data/raw/%s_metadata.csv", output_stem)
   utils::write.csv(wdi_raw, data_path, row.names = FALSE)
   utils::write.csv(wdi_metadata, metadata_path, row.names = FALSE)
+
+  # Retain every Venezuela year, including missing observations, for comparison.
+  venezuela_data <- wdi_raw %>% dplyr::filter(country_code == "VEN")
+  if (nrow(venezuela_data) == 0) {
+    stop(sprintf("World Bank response omitted Venezuela for %s.", indicator_id), call. = FALSE)
+  }
+  utils::write.csv(
+    venezuela_data,
+    sprintf("data/raw/%s.csv", sub("maddison_countries$", "venezuela", output_stem)),
+    row.names = FALSE
+  )
 
   message("Wrote ", data_path)
   message("Wrote ", metadata_path)

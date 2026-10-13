@@ -168,11 +168,6 @@ if (!is.null(imf_weo_gdp_episodes)) {
   )
 }
 
-# App-ready simulation and plausibility tables are always expected by Shiny.
-utils::write.csv(simulation$summary, "data/final/simulation_summary.csv", row.names = FALSE)
-utils::write.csv(simulation$paths, "data/final/simulation_paths.csv", row.names = FALSE)
-utils::write.csv(plausibility, "data/final/plausibility_metrics.csv", row.names = FALSE)
-
 ## Validation summary ----
 # Record whether each required and optional product is available.
 validation <- do.call(

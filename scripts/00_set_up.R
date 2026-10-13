@@ -3,23 +3,21 @@
 ## Package groups ----
 # Keep package requirements grouped by usage so missing dependencies are easier
 # to diagnose before running the full pipeline.
-project_packages_core <- c("readxl", "dplyr", "jsonlite")
+project_packages_core <- c("readxl", "dplyr", "jsonlite", "magrittr", "purrr", "stringr", "tibble", "tidyr")
 project_packages_app <- c("shiny")
 project_packages_dev <- c("testthat")
-project_packages_reports <- c("ggplot2", "scales", "svglite", "quarto")
-project_packages_legacy <- c("tidyverse", "janitor", "lubridate", "zoo")
+project_packages_reports <- c("ggplot2", "ggrepel", "scales", "svglite", "quarto")
 
 project_packages_all <- unique(c(
   project_packages_core,
   project_packages_app,
   project_packages_dev,
-  project_packages_reports,
-  project_packages_legacy
+  project_packages_reports
 ))
 
 ## Package checks ----
 # Fail early with a concise list of packages that must be installed locally.
-check_project_packages <- function(packages, error_if_missing = TRUE) {
+check_project_packages <- function(packages, error_if_missing) {
   missing_packages <- packages[!vapply(
     packages,
     requireNamespace,
@@ -62,7 +60,8 @@ for (package_name in project_packages_all) {
 # Create the writable folders expected by data, figure, and presentation scripts.
 dir.create("data/interim", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/final", recursive = TRUE, showWarnings = FALSE)
-dir.create("outputs/figures", recursive = TRUE, showWarnings = FALSE)
+dir.create("outputs/figures/default", recursive = TRUE, showWarnings = FALSE)
+dir.create("outputs/figures/transparent", recursive = TRUE, showWarnings = FALSE)
 dir.create("reports", recursive = TRUE, showWarnings = FALSE)
 dir.create("reports/presentation/assets/images", recursive = TRUE, showWarnings = FALSE)
 

@@ -28,6 +28,12 @@ if (!requireNamespace("quarto", quietly = TRUE)) {
 
 source("scripts/_presentation_assets.R")
 
+# Check the shared slide background separately from Markdown graph references.
+presentation_background <- file.path(presentation_dir, "assets/images/lecture-background.png")
+if (!file.exists(presentation_background)) {
+  stop(sprintf("Missing presentation background at `%s`.", presentation_background), call. = FALSE)
+}
+
 render_presentation_format <- function(output_format, source_output_file, input_file) {
   # Remove the previous in-place artifact so stale successful renders are obvious.
   if (file.exists(source_output_file)) {

@@ -1,6 +1,6 @@
 # Venezuela Economic Recovery Simulator
 
-This repository contains the analytical engine, processed data products, public-facing dashboard scaffold, and report scaffold for a project on Venezuelan economic recovery scenarios.
+This repository contains the data pipeline, processed data products, and Quarto presentation for a project on Venezuelan economic recovery scenarios. A public-facing dashboard and Spanish article remain scaffolds.
 
 The project is built around one central question:
 
@@ -8,64 +8,40 @@ How long would it take Venezuela to recover the real GDP or real GDP per capita 
 
 ## Project Principles
 
-- The analytical engine lives in `R/`.
-- Pipeline entry points live in `scripts/`.
+- Data transformations and pipeline entry points live in `scripts/`.
 - The app and report consume processed outputs, not raw Excel files.
 - Raw inputs are kept in `data/raw/`.
 - Historical plausibility is presented as a transparent historical-frequency concept, not as a forecast probability.
 
-## Current Scaffold
+## Current Structure
 
-The repository is organized into five layers:
+The repository is organized into four layers:
 
 1. Raw and processed data in `data/`
-2. Reusable analytical functions in `R/`
-3. Reproducible pipeline scripts in `scripts/`
-4. Presentation layer in `app/`
-5. Public article/report in `reports/article-es/`
+2. Reproducible pipeline scripts and shared presentation helpers in `scripts/`
+3. Quarto presentation in `reports/presentation/`
+4. Dashboard and article scaffolds in `app/` and `reports/article-es/`
 
 ## Directory Guide
 
 - `data/raw/`: manual source inputs and data notes
 - `data/interim/`: cleaned and intermediate historical tables
 - `data/final/`: processed CSV outputs for the app and report
-- `R/`: reusable analytical functions
 - `scripts/`: ordered data-build scripts
-- `outputs/figures/`: generated presentation figures (`.png` for HTML and matching `.pdf` vectors for Beamer/PDF)
+- `outputs/figures/`: generated PNG, SVG, and PDF figures in `default/` and `transparent/` subfolders
 - `outputs/presentation/`: definitive rendered HTML and PDF presentation outputs
-- `app/`: dashboard scaffold, modules, static assets, and i18n files
+- `app/`: dashboard scaffold, homepage outline, and planned translations
+- `reports/presentation/`: presentation source, CSS, and manually curated images
 - `reports/article-es/`: Spanish article/report scaffold
 - `references/`: source references, including the Tableau prototype
-- `tests/testthat/`: unit tests for the analytical engine
+- `tests/testthat/`: processed-output schema and consistency checks
 
-## Planned Workflow
+## Reproduction Workflow
 
-1. Read the Excel master file from `data/raw/`
-2. Clean and validate the historical series
-3. Recompute all derived indicators in R
-4. Export app-ready CSV files to `data/final/`
-5. Consume those outputs in the dashboard and report
+Run `scripts/99_run_all.R` from the repository root to download source caches, build historical series and recovery metrics, export final CSVs, generate and audit graphs, and render the HTML and PDF presentation. Downloads require network access; rendering requires Quarto and a working LaTeX runtime.
 
-Current pipeline sequence:
+See [scripts/README.md](scripts/README.md) for the ordered script guide and graph-editing workflow. During visual iteration, rerun only the affected graph scripts, the graph audit, and the presentation renderer.
 
-- `scripts/00_set_up.R`
-- `scripts/01_download_wdi_real_gdp_growth.R`
-- `scripts/02_download_imf_weo_gdp_pc_growth.R`
-- `scripts/03_download_imf_weo_ppp_scatter_data.R`
-- `scripts/04_download_owid_development_data.R`
-- `scripts/05_build_clean_data.R`
-- `scripts/06_build_series.R`
-- `scripts/07_build_episodes.R`
-- `scripts/08_build_plausibility.R`
-- `scripts/09_build_app_data.R`
-- `scripts/10_graph_historical_recovery.R`
-- `scripts/11_graph_wilks_composite_correlation.R`
-- `scripts/12_graph_imf_weo_ppp_scatter.R`
-- `scripts/13_graph_owid_development_indicators.R`
-- `scripts/14_render_presentation.R`
-- `scripts/15_run_app.R`
-- `scripts/99_run_all.R`
+The build scripts consume `data/interim/`; final CSVs in `data/final/` provide stable inputs for graphs and future app/report consumers. Matching tables across these folders are intentional pipeline products.
 
-## Legacy Material
-
-The original exploratory script in `scripts/01_legacy.R` is preserved for reference during the transition to the new architecture.
+Launch the dashboard scaffold separately with `scripts/15_run_app.R`. Run the processed-data checks with `tests/testthat.R` after building the data.

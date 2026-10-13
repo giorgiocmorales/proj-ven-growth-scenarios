@@ -52,7 +52,7 @@ dir.create(dirname(audit_output_path), recursive = TRUE, showWarnings = FALSE)
 
 # Audit helpers ----
 # Parse save calls, presentation references, and image metadata into audit tables.
-# Extract indexed graph headings, family headings, and literal PNG output paths.
+# Extract indexed graph headings and both direct and helper-based PNG output paths.
 audit_graph_script <- function(script_path) {
   script_lines <- readLines(script_path, warn = FALSE, encoding = "UTF-8")
   current_family <- NA_character_
@@ -68,7 +68,7 @@ audit_graph_script <- function(script_path) {
     )
     output_match <- stringr::str_match(
       line_text,
-      "file\\.path\\(figure_dir,\\s*\"([^\"]+\\.png)\"\\)"
+      "(?:file\\.path\\(figure_dir,\\s*|output_filename\\s*=\\s*)\"([^\"]+\\.png)\""
     )
 
     if (!is.na(family_match[[2]])) {
@@ -85,7 +85,7 @@ audit_graph_script <- function(script_path) {
         line_number = line_number,
         family = current_family,
         graph_label = current_graph,
-        output_pattern = file.path("outputs/figures", output_match[[2]])
+        output_pattern = file.path("outputs/figures/default", output_match[[2]])
       )
     }
   }
@@ -117,7 +117,12 @@ graph_output_audit <- dplyr::bind_rows(lapply(graph_scripts, audit_graph_script)
     png_exists = has_output_pattern & file.exists(output_pattern),
     svg_exists = has_output_pattern & file.exists(paste0(output_stem, ".svg")),
     pdf_exists = has_output_pattern & file.exists(paste0(output_stem, ".pdf")),
-    output_exists = png_exists & svg_exists & pdf_exists,
+    transparent_stem = file.path("outputs/figures/transparent", basename(output_stem)),
+    transparent_png_exists = file.exists(paste0(transparent_stem, ".png")),
+    transparent_svg_exists = file.exists(paste0(transparent_stem, ".svg")),
+    transparent_pdf_exists = file.exists(paste0(transparent_stem, ".pdf")),
+    output_exists = png_exists & svg_exists & pdf_exists &
+      transparent_png_exists & transparent_svg_exists & transparent_pdf_exists,
     referenced_by_presentation = basename(output_stem) %in%
       basename(presentation_asset_manifest$reference),
     audit_status = dplyr::case_when(
@@ -137,6 +142,9 @@ graph_output_audit <- dplyr::bind_rows(lapply(graph_scripts, audit_graph_script)
     png_exists,
     svg_exists,
     pdf_exists,
+    transparent_png_exists,
+    transparent_svg_exists,
+    transparent_pdf_exists,
     referenced_by_presentation,
     audit_status
   )
